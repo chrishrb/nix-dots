@@ -9,30 +9,27 @@ with pkgs; [
   tmux
   tmuxinator
 
-  bitwarden
-
   # Cloud-related tools and SDKs
-  docker
-  docker-compose
+  # docker
+  # docker-compose
 
   # Media-related packages
-  ffmpeg
+  # ffmpeg
 
   # Node.js development tools
-  nodePackages.npm # globally install npm
-  nodePackages.prettier
-  nodejs
+  # nodePackages.npm # globally install npm
+  # nodePackages.prettier
+  # nodejs
 
   # Text and terminal utilities
-  htop
-  jetbrains-mono
-  jq
-  ripgrep
-  tree
-  tmux
-  zsh-powerlevel10k
-  wget
+  # htop
+  # jetbrains-mono
+  # jq
+  # ripgrep
+  # tree
+  # zsh-powerlevel10k
+  # wget
 
   # Python packages
-  python39
+  # python39
 ]
