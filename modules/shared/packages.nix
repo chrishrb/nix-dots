@@ -1,42 +1,22 @@
 { pkgs }:
 
 with pkgs; [
-  # General packages for development and system management
+  # terminal, zsh, and shell-related packages
   alacritty
-  aspell
-  aspellDicts.en
-  bash-completion
-  bat
-  btop
-  coreutils
-  killall
-  neofetch
-  openssh
-  sqlite
-  wget
-  zip
+  zsh
+  fzf
+  direnv
+  tmux
+  tmuxinator
 
-  # Encryption and security tools
-  age
-  age-plugin-yubikey
-  gnupg
-  libfido2
-  pinentry
+  bitwarden
 
   # Cloud-related tools and SDKs
   docker
   docker-compose
 
   # Media-related packages
-  emacs-all-the-icons-fonts
-  dejavu_fonts
   ffmpeg
-  fd
-  font-awesome
-  hack-font
-  noto-fonts
-  noto-fonts-emoji
-  meslo-lgs-nf
 
   # Node.js development tools
   nodePackages.npm # globally install npm
@@ -45,18 +25,14 @@ with pkgs; [
 
   # Text and terminal utilities
   htop
-  hunspell
-  iftop
   jetbrains-mono
   jq
   ripgrep
   tree
   tmux
-  unrar
-  unzip
   zsh-powerlevel10k
+  wget
 
   # Python packages
   python39
-  python39Packages.virtualenv # globally install virtualenv
 ]

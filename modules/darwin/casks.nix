@@ -1,25 +1,23 @@
-_:
+_ :
 
 [
   # Development Tools
   "homebrew/cask/docker"
-  "visual-studio-code"
+
+  # latex
+  "mactex-no-gui"
 
   # Communication Tools
   "discord"
   "notion"
   "slack"
-  "telegram"
   "zoom"
 
-  # Utility Tools
-  "syncthing"
+  "spotify"
 
-  # Entertainment Tools
-  "vlc"
-
-  # Productivity Tools
-  "raycast"
+  # utility
+  "scroll-reverser"
+  "tiles"
 
   # Browsers
   "google-chrome"
