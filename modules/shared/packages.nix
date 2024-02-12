@@ -2,11 +2,8 @@
 
 with pkgs; [
   # terminal, zsh, and shell-related packages
-  alacritty
-  zsh
   fzf
   direnv
-  tmux
   tmuxinator
 
   # Cloud-related tools and SDKs
@@ -22,13 +19,12 @@ with pkgs; [
   # nodejs
 
   # Text and terminal utilities
-  # htop
-  # jetbrains-mono
-  # jq
-  # ripgrep
-  # tree
-  # zsh-powerlevel10k
-  # wget
+  htop
+  jq
+  ripgrep
+  tree
+  zsh-powerlevel10k
+  wget
 
   # Python packages
   # python39

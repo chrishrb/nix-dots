@@ -20,9 +20,7 @@
     prefix = "C-a";
     keyMode = "vi";
     baseIndex = 1;
-    paneBaseIndex = 1;
     escapeTime = 10;
-    terminalOverrides = "xterm-256color:RGB";
     mouse = true;
     historyLimit = 50000;
     extraConfig = ''
@@ -94,5 +92,4 @@
       bind L swap-window -t +1\; select-window -t +1
       '';
     };
-  };
 }

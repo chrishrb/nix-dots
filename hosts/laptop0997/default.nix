@@ -61,6 +61,8 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = { pkgs, config, lib, ... }:{
+      fonts.fontconfig.enable = true;
+
       home = {
         enableNixpkgsReleaseCheck = false;
         packages = pkgs.callPackage ../../modules/darwin/packages.nix {};
@@ -70,6 +72,12 @@
       # Marked broken Oct 20, 2022 check later to remove this
       # https://github.com/nix-community/home-manager/issues/3344
       manual.manpages.enable = false;
+
+      imports = [
+        ../../modules/shared/programs/zsh.nix
+        ../../modules/shared/programs/alacritty.nix
+        ../../modules/shared/programs/tmux.nix
+      ];
     };
   };
 }

@@ -28,9 +28,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, agenix } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, agenix, alacritty-theme } @inputs:
     let
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" ];
@@ -83,6 +84,10 @@
           modules = [
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
+            ({ config, pkgs, ...}: {
+              # install the overlay
+              nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+            })
             {
               nix-homebrew = {
                 enable = true;
