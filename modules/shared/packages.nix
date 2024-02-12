@@ -27,6 +27,10 @@ with pkgs; [
   zsh-powerlevel10k
   wget
 
-  # Python packages
-  # python39
+  # programming languages
+  go
+  python39
+
+  # devops
+  awscli2
 ]

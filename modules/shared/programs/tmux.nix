@@ -12,11 +12,16 @@
           set -g @catppuccin_flavour 'mocha'
           set -g @plugin 'catppuccin/tmux'
           set -g @catppuccin_window_tabs_enabled on
-          set -g status-justify left
+          set -g @catppuccin_window_left_separator ""
+          set -g @catppuccin_window_right_separator " "
+          set -g @catppuccin_window_middle_separator " █"
+          set -g @catppuccin_window_number_position "right"
+          set -g @catppuccin_status_left_separator  " "
+          set -g @catppuccin_status_right_separator ""
         '';
       }
     ];
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
     prefix = "C-a";
     keyMode = "vi";
     baseIndex = 1;
@@ -24,6 +29,10 @@
     mouse = true;
     historyLimit = 50000;
     extraConfig = ''
+      set -ag terminal-overrides ",xterm-256color:RGB"
+      set -g pane-base-index 1
+      set -g status-justify left
+
       # don't rename windows automatically
       set-option -g allow-rename off
       set-option -g renumber-windows on

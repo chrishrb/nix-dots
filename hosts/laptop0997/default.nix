@@ -75,9 +75,10 @@
 
       imports = [
         ../../modules/darwin/trampoline-apps
-        ../../modules/shared/programs/zsh.nix
+        ../../modules/shared/programs/zsh
         ../../modules/shared/programs/alacritty.nix
         ../../modules/shared/programs/tmux.nix
+        ../../modules/shared/programs/fzf.nix
         ../../modules/shared/programs/neovim/default.nix
       ];
     };
