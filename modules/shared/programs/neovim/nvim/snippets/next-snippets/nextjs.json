@@ -1,0 +1,237 @@
+{
+  "importDestructingOfNext": {
+    "prefix": "impn",
+    "body": "import { $2 } from 'next'$0"
+  },
+  "typeScriptGetStaticProps": {
+    "prefix": "sp",
+    "body": [
+      "export const getStaticProps: GetStaticProps = async (context) => {",
+      "\treturn {",
+      "\t\tprops: {}",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "typeScriptGetStaticPaths": {
+    "prefix": "spth",
+    "body": [
+      "export const getStaticPaths: GetStaticPaths = async () => {",
+      "\treturn {",
+      "\t\tpaths: [",
+      "\t\t\t{ params: {} }",
+      "\t\t],",
+      "\t\tfallback: true",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "typeScriptGetServerSideProps": {
+    "prefix": "ssp",
+    "body": [
+      "export const getServerSideProps: GetServerSideProps = async (context) => {",
+      "\treturn {",
+      "\t\tprops: {}",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "getInitialProps": {
+    "prefix": "initp",
+    "body": [
+      "${1:${TM_FILENAME_BASE}}.getInitialProps = async (context) => {",
+      "\treturn {",
+      "\t\tprops: {}",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "typeScriptNextPage": {
+    "prefix": "np",
+    "body": [
+      "import { NextPage } from 'next'",
+      "",
+      "interface Props {",
+      "",
+      "}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}}: NextPage<Props> = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      ""
+    ],
+    "description": "Create a Next Page with TypeScript interfaces"
+  },
+  "typeScriptNextPageWithGetStaticProps": {
+    "prefix": "npsp",
+    "body": [
+      "import { GetStaticProps, NextPage } from 'next'",
+      "",
+      "interface Props {",
+      "",
+      "}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}}: NextPage<Props> = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t)",
+      "}",
+      "",
+      "export const getStaticProps: GetStaticProps = async (context) => {",
+      "\treturn {",
+      "\t\tprops: {}",
+      "\t}",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      ""
+    ],
+    "description": "Creates a Next Page with GetStaticProps and TypeScript interfaces"
+  },
+  "typeScriptNextPageWithGetServerSideProps": {
+    "prefix": "npssp",
+    "body": [
+      "import { NextPage, GetServerSideProps } from 'next'",
+      "",
+      "interface Props {",
+      "",
+      "}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}}: NextPage<Props> = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t)",
+      "}",
+      "",
+      "export const getServerSideProps: GetServerSideProps = async (context) => {",
+      "\treturn {",
+      "\t\tprops: {}",
+      "\t}",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      ""
+    ],
+    "description": "Creates a Next Page with GetServerSideProps and TypeScript interfaces"
+  },
+  "typeScriptNextPageWithGetInitialProps": {
+    "prefix": "npinitp",
+    "body": [
+      "import { NextPage } from 'next'",
+      "",
+      "interface Props {",
+      "",
+      "}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}}: NextPage<Props> = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t)",
+      "}",
+      "",
+      "${1:${TM_FILENAME_BASE}}.getInitialProps = async (context) => {",
+      "\treturn {}",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      ""
+    ],
+    "description": "Creates a NextPage with GetInitialProps and TypeScript"
+  },
+  "typeScriptCustomApp": {
+    "prefix": "capp",
+    "body": [
+      "import { AppProps } from 'next/app'",
+      "",
+      "const MyApp = ({ Component, pageProps }: AppProps) => {",
+      "\treturn <Component {...pageProps} />",
+      "}",
+      "",
+      "export default MyApp",
+      ""
+    ],
+    "description": "Creates a Custom App with TypeScript"
+  },
+  "typeScriptCustomAppWithGetInitialProps": {
+    "prefix": "cappip",
+    "body": [
+      "import { AppProps, AppContext } from 'next/app'",
+      "",
+      "const MyApp = ({ Component, pageProps }: AppProps) => {",
+      "\treturn <Component {...pageProps} />",
+      "}",
+      "",
+      "MyApp.getInitialProps = async (appContext: AppContext) => {",
+      "\tconst appProps = await App.getInitialProps(appContext)",
+      "",
+      "\treturn { ...appProps }",
+      "}",
+      "",
+      "export default MyApp",
+      ""
+    ],
+    "description": "Creates a Custom App With GetInitialProps and TypeScript"
+  },
+  "typeScriptCustomDocument": {
+    "prefix": "cdoc",
+    "body": [
+      "import Document, { DocumentContext } from 'next/document'",
+      "",
+      "class MyDocument extends Document {",
+      "\tstatic async getInitialProps(ctx: DocumentContext) {",
+      "\t\tconst initialProps = await Document.getInitialProps(ctx)",
+      "",
+      "\t\treturn initialProps",
+      "\t}",
+      "",
+      "export default MyDocument",
+      ""
+    ],
+    "description": "Creates a Custom Document with TypeScript"
+  },
+  "CustomDocumentWithDom": {
+    "prefix": "cdocdom",
+    "body": [
+      "import Document, { Html, Head, Main, NextScript } from 'next/document'",
+      "",
+      "class MyDocument extends Document {",
+      "\tstatic async getInitialProps(ctx) {",
+      "\t\tconst initialProps = await Document.getInitialProps(ctx)",
+      "\t\treturn { ...initialProps }",
+      "\t}",
+      "",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t<Html>",
+      "\t\t\t\t<Head />",
+      "\t\t\t\t<body>",
+      "\t\t\t\t\t<Main />",
+      "\t\t\t\t\t<NextScript />",
+      "\t\t\t\t</body>",
+      "\t\t\t</Html>",
+      "\t\t)",
+      "\t}",
+      "}",
+      "",
+      "export default MyDocument",
+      ""
+    ],
+    "description": "Creates a Custom Document with DOM"
+  }
+}

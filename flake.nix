@@ -28,10 +28,14 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, agenix, alacritty-theme } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, agenix, alacritty-theme, neovim-nightly-overlay } @inputs:
     let
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" ];
@@ -85,8 +89,10 @@
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
             ({ config, pkgs, ...}: {
-              # install the overlay
-              nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+              nixpkgs.overlays = [ 
+                alacritty-theme.overlays.default
+                neovim-nightly-overlay.overlay
+              ];
             })
             {
               nix-homebrew = {

@@ -1,0 +1,22 @@
+{
+  "name": "custom-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "typescript",
+          "typescriptreact"
+        ],
+        "path": "./next-snippets/nextjs.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./cdk-snippets/core.code-snippets.json"
+      }
+    ]
+  }
+    
+}

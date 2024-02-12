@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   nixpkgs = {
@@ -18,4 +18,5 @@
                   (attrNames (readDir path)))
       ;
   };
+
 }

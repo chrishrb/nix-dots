@@ -2,6 +2,7 @@
 
 with pkgs; [
   # terminal, zsh, and shell-related packages
+  alacritty
   fzf
   direnv
   tmuxinator

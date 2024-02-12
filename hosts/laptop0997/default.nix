@@ -74,9 +74,11 @@
       manual.manpages.enable = false;
 
       imports = [
+        ../../modules/darwin/trampoline-apps
         ../../modules/shared/programs/zsh.nix
         ../../modules/shared/programs/alacritty.nix
         ../../modules/shared/programs/tmux.nix
+        ../../modules/shared/programs/neovim/default.nix
       ];
     };
   };
