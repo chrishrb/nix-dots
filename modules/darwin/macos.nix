@@ -45,16 +45,11 @@
 
       # customize finder
       finder = {
-        springing = {
-          enabled = true;
-          delay = 0.0;
-        };
         _FXShowPosixPathInTitle = true; # show full path in finder title
         FXEnableExtensionChangeWarning = false; # disable warning when changing file extension
         QuitMenuItem = true; # allow quitting via ⌘ + Q; doing so will also hide desktop icons 
         ShowPathbar = true; # show path bar
         ShowStatusBar = true; # show status bar
-        DisableAllAnimations = true; # disable all animations
         AppleShowAllExtensions = true; # show all file extensions
       };
 
@@ -79,6 +74,9 @@
         "com.apple.swipescrolldirection" = true; # enable natural scrolling(default to true)
         "com.apple.sound.beep.feedback" = 0; # disable beep sound when pressing volume up/down key
 
+        "com.apple.springing.enabled" = true; # enable springing
+        "com.apple.springing.delay" = 0.0;
+
         # Appearance
         AppleInterfaceStyle = "Dark"; # dark mode
 
@@ -94,16 +92,13 @@
         # sets how fast it repeats once it starts.
         KeyRepeat = 1; # normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
 
-        NSAutomaticCapitalizationEnabled = false; # disable auto capitalization(自动大写)
-        NSAutomaticDashSubstitutionEnabled = false; # disable auto dash substitution(智能破折号替换)
-        NSAutomaticPeriodSubstitutionEnabled = false; # disable auto period substitution(智能句号替换)
-        NSAutomaticQuoteSubstitutionEnabled = false; # disable auto quote substitution(智能引号替换)
-        NSAutomaticSpellingCorrectionEnabled = false; # disable auto spelling correction(自动拼写检查)
-        NSNavPanelExpandedStateForSaveMode = true; # expand save panel by default(保存文件时的路径选择/文件名输入页)
-        NSNavPanelExpandedStateForSaveMode2 = true;
+        NSAutomaticCapitalizationEnabled = false; # disable auto capitalization
+        NSAutomaticDashSubstitutionEnabled = false; # disable auto dash substitution
+        NSAutomaticPeriodSubstitutionEnabled = false; # disable auto period substitution
+        NSAutomaticQuoteSubstitutionEnabled = false; # disable auto quote substitution
+        NSAutomaticSpellingCorrectionEnabled = false; # disable auto spelling correction
 
         NSUseAnimatedFocusRing = false; # Disable the over-the-top focus ring animation
-        NSToolbarTitleViewRolloverDelay = 0.0; # Adjust toolbar title rollover delay
         NSWindowResizeTime = 0.001; # Increase window resize speed for Cocoa applications
         NSNavPanelExpandedStateForSaveMode = true; # Expand save panel by default
         NSNavPanelExpandedStateForSaveMode2 = true;
@@ -127,6 +122,7 @@
           ShowExternalHardDrivesOnDesktop = true;
           ShowHardDrivesOnDesktop = true;
           ShowMountedServersOnDesktop = true;
+          DisableAllAnimations = true; # disable all animations
           ShowRemovableMediaOnDesktop = true;
           _FXSortFoldersFirst = true;
           FXPreferredViewStyle = "Nlsv"; # Use list view in all Finder windows by default
@@ -135,7 +131,7 @@
           # Set Desktop as the default location for new Finder windows
           # For other paths, use `PfLo` and `file:///full/path/here/`
           NewWindowTarget = "PfDe";
-          NewWindowTargetPath = "file://${HOME}/Desktop/";
+          #NewWindowTargetPath = "file://${HOME}/Desktop/";
         };
         "com.apple.desktopservices" = {
           # Avoid creating .DS_Store files on network or USB volumes
