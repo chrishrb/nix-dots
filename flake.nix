@@ -106,7 +106,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
-                  "tofuutils/tap" = tofuutils;
+                  "tofuutils/homebrew-taps" = tofuutils;
                 };
                 mutableTaps = false;
                 autoMigrate = true;

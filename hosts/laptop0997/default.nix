@@ -1,4 +1,4 @@
-{ inputs, user, pkgs, ... }:
+{ inputs, config, user, pkgs, ... }:
 
 {
   imports = [
@@ -45,6 +45,8 @@
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
     enable = true;
+    taps = builtins.attrNames config.nix-homebrew.taps;
+
     casks = pkgs.callPackage ../../modules/darwin/casks.nix {};
     brews = pkgs.callPackage ../../modules/darwin/brews.nix {};
 

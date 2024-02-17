@@ -1,4 +1,8 @@
+_ :
+
 [
   # terraform, opentofu, terragrunt version manager
-  # "tenv"
+  "tofuutils/taps/tenv"
+
+  "grip" # open readme files
 ]

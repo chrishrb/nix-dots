@@ -8,7 +8,6 @@ with pkgs; [
 
   ghostscript
   stylua
-  grip # open readme files
   
   # Media-related packages
   ffmpeg
@@ -30,7 +29,7 @@ with pkgs; [
 
   # node
   nodejs_21
-  nodePackages.npm # globally install npm
+  # nodePackages.npm # globally install npm
 
   # devops
   awscli2
