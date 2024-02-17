@@ -1,10 +1,6 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 
 {
-  home.packages = [
-    pkgs.zsh-powerlevel10k
-  ];
-
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;

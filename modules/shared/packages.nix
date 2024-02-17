@@ -5,19 +5,13 @@ with pkgs; [
   alacritty
   fzf
   direnv
-  tmuxinator
 
-  # Cloud-related tools and SDKs
-  # docker
-  # docker-compose
-
+  ghostscript
+  stylua
+  grip # open readme files
+  
   # Media-related packages
-  # ffmpeg
-
-  # Node.js development tools
-  # nodePackages.npm # globally install npm
-  # nodePackages.prettier
-  # nodejs
+  ffmpeg
 
   # Text and terminal utilities
   htop
@@ -27,9 +21,16 @@ with pkgs; [
   zsh-powerlevel10k
   wget
 
-  # programming languages
+  # go
   go
+
+  # python
   python39
+  poetry
+
+  # node
+  nodejs_21
+  nodePackages.npm # globally install npm
 
   # devops
   awscli2

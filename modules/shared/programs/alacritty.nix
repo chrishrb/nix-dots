@@ -1,10 +1,6 @@
 { pkgs, lib, ... }:
 
 {
-  home.packages = [
-    (pkgs.nerdfonts.override { fonts = ["JetBrainsMono"]; })
-  ];
-
   programs.alacritty = {
     enable = true;
     settings = {

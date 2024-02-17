@@ -46,6 +46,7 @@
     # Homebrew is *installed* via the flake input nix-homebrew
     enable = true;
     casks = pkgs.callPackage ../../modules/darwin/casks.nix {};
+    brews = pkgs.callPackage ../../modules/darwin/brews.nix {};
 
     # These app IDs are from using the mas CLI app
     # mas = mac app store
@@ -80,6 +81,7 @@
         ../../modules/shared/programs/tmux.nix
         ../../modules/shared/programs/fzf.nix
         ../../modules/shared/programs/neovim/default.nix
+        ../../modules/shared/programs/git.nix
       ];
     };
   };

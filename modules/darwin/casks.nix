@@ -1,5 +1,3 @@
-_ :
-
 [
   # Development Tools
   "homebrew/cask/docker"
@@ -13,12 +11,14 @@ _ :
   # "slack"
   # "zoom"
 
-  "spotify"
-
   # utility
   # "scroll-reverser"
   # "tiles"
 
   # Browsers
   "google-chrome"
+
+  # other
+  "bitwarden"
+  "spotify"
 ]

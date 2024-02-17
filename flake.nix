@@ -24,6 +24,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     }; 
+    tofuutils = {
+      url = "github:tofuutils/homebrew-tap";
+      flake = false;
+    }; 
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +39,7 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, agenix, alacritty-theme, neovim-nightly-overlay } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, agenix, alacritty-theme, neovim-nightly-overlay, tofuutils } @inputs:
     let
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" ];
@@ -102,6 +106,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
+                  "tofuutils/tap" = tofuutils;
                 };
                 mutableTaps = false;
                 autoMigrate = true;
