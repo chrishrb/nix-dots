@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
 
   treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
@@ -49,10 +49,8 @@ in
     ];
   };
 
-  home.file."./.config/nvim/" = {
-    source = ./nvim;
-    recursive = true;
-  };
+  # TODO: change
+  home.file."./.config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/jam-dev/nix-dots/modules/shared/programs/neovim/nvim";
 
   # Treesitter is configured as a locally developed module in lazy.nvim
   # we hardcode a symlink here so that we can refer to it in our lazy config

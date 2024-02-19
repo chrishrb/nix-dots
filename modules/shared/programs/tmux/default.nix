@@ -101,5 +101,10 @@
       bind H swap-window -t -1\; select-window -t -1
       bind L swap-window -t +1\; select-window -t +1
       '';
-    };
+  };
+
+  home.file."./.config/tmuxinator/" = {
+    source = ./tmuxinator;
+    recursive = true;
+  };
 }
