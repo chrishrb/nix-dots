@@ -13,6 +13,8 @@
           set -g @catppuccin_flavour 'mocha'
           set -g @plugin 'catppuccin/tmux'
           set -g @catppuccin_window_tabs_enabled on
+          set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_current_text "#W"
           set -g @catppuccin_window_left_separator ""
           set -g @catppuccin_window_right_separator " "
           set -g @catppuccin_window_middle_separator " █"
