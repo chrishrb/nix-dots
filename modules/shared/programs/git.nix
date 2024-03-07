@@ -23,6 +23,7 @@
       unstage = "reset HEAD --";
       last = "log -1 HEAD";
       me = "config user.name";
+      count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #";
 
       # all commits today for only me
       today = "!git all --since='12am' --committer=\"`git me`\"";

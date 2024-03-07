@@ -36,7 +36,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/neovim-nightly-overlay";
     };
-
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 

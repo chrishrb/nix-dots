@@ -5,17 +5,18 @@ _ :
   "homebrew/cask/docker"
 
   # latex
-  #"mactex-no-gui"
+  "mactex-no-gui"
 
   # Communication Tools
-  # "discord"
-  # "notion"
-  # "slack"
-  # "zoom"
+  "discord"
+  "notion"
+  "slack"
+  "zoom"
 
   # utility
-  # "scroll-reverser"
-  # "tiles"
+  "scroll-reverser"
+  "tiles"
+  "skim" # open pdfs
 
   # Browsers
   "google-chrome"
