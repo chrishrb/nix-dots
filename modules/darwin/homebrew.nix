@@ -19,6 +19,11 @@
     homebrew = {
       enable = true;
       taps = builtins.attrNames config.nix-homebrew.taps;
+      onActivation = {
+        autoUpdate = false; # Don't update during rebuild
+        cleanup = "zap"; # Uninstall all programs not declared
+        upgrade = true;
+      };
       brews = [
         "trash" # Delete files and folders to trash instead of rm
         "tofuutils/taps/tenv" # terraform, opentofu, terragrunt version manager
@@ -29,12 +34,10 @@
         "homebrew/cask/docker"
 
         # latex
-        "mactex-no-gui"
+        # "mactex-no-gui"
 
         # Communication Tools
-        "discord"
         "notion"
-        "slack"
         "zoom"
 
         # utility

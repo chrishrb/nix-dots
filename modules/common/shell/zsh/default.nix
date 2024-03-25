@@ -1,7 +1,12 @@
 { config, pkgs, lib, ... }: {
 
+  users.users.${config.user}.shell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   home-manager.users.${config.user} = {
+
     home.packages = with pkgs; [ curl ];
+
     programs.zsh = {
       enable = true;
       syntaxHighlighting.enable = true;

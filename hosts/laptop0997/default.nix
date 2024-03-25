@@ -10,7 +10,7 @@ inputs.darwin.lib.darwinSystem {
     ../../modules/common
     ../../modules/darwin
     (globals // rec {
-      user = "Christoph Herb";
+      user = "cherb";
     })
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
@@ -24,7 +24,7 @@ inputs.darwin.lib.darwinSystem {
       nixlang.enable = true;
       python.enable = true;
       lua.enable = true;
-      slack.enable = true;
+      slack.enable = false;
     }
   ];
 }

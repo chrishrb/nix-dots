@@ -82,7 +82,7 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#laptop0997
       homeConfigurations = {
-        laptop0997 = darwinConfigurations.laptop0997.config.home-managers.users."cherb".home;
+        laptop0997 = darwinConfigurations.laptop0997.config.home-manager.users."cherb".home;
       };
 
       # Programs that can be run by calling this flake
