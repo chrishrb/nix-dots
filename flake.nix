@@ -37,12 +37,6 @@
       flake = false;
     }; 
 
-    # neovim nightly
-    neovim-nightly-overlay = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
-
     # alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
@@ -61,7 +55,6 @@
 
       # Common overlays
       overlays = [
-        inputs.neovim-nightly-overlay.overlay
         inputs.alacritty-theme.overlays.default
       ];
 
@@ -76,7 +69,7 @@
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#laptop0997
       darwinConfigurations = {
-        laptop0997 = import ./hosts/laptop0997 { inherit inputs globals overlays; };
+        laptop0997 = import ./hosts/laptop0997 { inherit inputs globals overlays forAllSystems; };
       };
 
       # For quickly applying home-manager settings with:

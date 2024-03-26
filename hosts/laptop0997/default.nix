@@ -19,7 +19,6 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "laptop0997";
       identityFile = "/Users/cherb/.ssh/id_rsa";
       gui.enable = true;
-      neovim.enable = false;
       alacritty.enable = true;
       nixlang.enable = true;
       python.enable = true;
