@@ -39,6 +39,9 @@
 
     # alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+
+    # chrisNvim
+    chris-nvim.url = "git+ssh://git@github.com/chrishrb/nix-nvim";
   };
 
   outputs = { nixpkgs, ... } @inputs:
@@ -56,6 +59,7 @@
       # Common overlays
       overlays = [
         inputs.alacritty-theme.overlays.default
+        (import ./overlays/nix-nvim.nix inputs)
       ];
 
       # System types to support.
