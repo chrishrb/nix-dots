@@ -1,5 +1,5 @@
 {
-  description = "chrishrbs nix-dots";
+  description = "chrishrb's nix-dots";
 
   inputs = {
     # system packages
