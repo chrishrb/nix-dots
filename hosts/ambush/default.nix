@@ -17,7 +17,6 @@ inputs.nixpkgs.lib.nixosSystem {
       nixpkgs.overlays = overlays;
 
       # Hardware
-      physical = true;
       networking.hostname = "ambush";
 
       # Turn on all features related to desktop and graphical apps

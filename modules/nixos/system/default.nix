@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
 
-  imports = [ ./timezone.nix ];
+  imports = [ ./timezone.nix ./user.nix ];
 
   config = lib.mkIf pkgs.stdenv.isLinux {
 

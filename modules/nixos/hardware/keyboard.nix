@@ -1,6 +1,6 @@
-{ config, lib, ... }: {
+{ config, ... }: {
 
-  config = lib.mkIf config.physical {
+  config = {
 
     services.xserver = {
 
@@ -15,6 +15,9 @@
 
     # Enable num lock on login
     home-manager.users.${config.user}.xsession.numlock.enable = true;
+
+    # Configure console keymap
+    console.keyMap = "de";
 
   };
 
