@@ -9,9 +9,13 @@
       # Enable touchpad support
       libinput.enable = true;
 
-      # Enable kde plasma5
+      # Enable login screen
       displayManager = {
         sddm.enable = true;
+      };
+
+      # Enable kde plasma5
+      desktopManager = {
         plasma5.enable= true;
       };
 
