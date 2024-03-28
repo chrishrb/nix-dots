@@ -1,25 +1,24 @@
-# The laptop0997 config
-# System configuration for my work macbook
+# The ambush home config
+# System configuration for my home pc
 
 { inputs, globals, overlays, ... }:
 
-inputs.darwin.lib.darwinSystem {
-  system = "aarch64-darwin";
+inputs.nixpkgs.lib.nixosSystem {
+  system = "x86_64-linux";
   specialArgs = { inherit inputs; };
   modules = [
     ../../modules/common
-    ../../modules/darwin
+    ../../modules/nixos
     (globals // {
-      user = "cherb";
+      user = "christoph";
     })
-    inputs.home-manager.darwinModules.home-manager
-    inputs.nix-homebrew.darwinModules.nix-homebrew
+    inputs.home-manager.nixosModules.home-manager
     {
       nixpkgs.overlays = overlays;
 
-      # Darwin specific
-      networking.hostName = "laptop0997";
-      identityFile = "/Users/cherb/.ssh/id_rsa";
+      # Hardware
+      physical = true;
+      networking.hostname = "ambush";
 
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;

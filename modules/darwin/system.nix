@@ -207,7 +207,7 @@
       # will change to `fonts.packages` after this PR is merged:
       #   https://github.com/LnL7/nix-darwin/pull/754
       fonts = with pkgs; [
-        (pkgs.nerdfonts.override { fonts = ["JetBrainsMono"]; })
+        (nerdfonts.override { fonts = ["JetBrainsMono"]; })
       ];
     };
   };

@@ -47,8 +47,7 @@
   outputs = { nixpkgs, ... } @inputs:
     let
       # Global configuration for my systems
-      globals = let baseName = "chrishrb";
-      in rec {
+      globals = rec {
         user = "chrisrb";
         fullName = "Christoph Herb";
         gitName = fullName;
@@ -70,6 +69,13 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
     in rec {
+
+      # Contains my full system builds, including home-manager
+      # nixos-rebuild switch --flake .#ambush
+      nixosConfigurations = {
+        ambush = import ./hosts/ambush { inherit inputs globals overlays; };
+      };
+
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#laptop0997
       darwinConfigurations = {
@@ -79,6 +85,7 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#laptop0997
       homeConfigurations = {
+        ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
         laptop0997 = darwinConfigurations.laptop0997.config.home-manager.users."cherb".home;
       };
 

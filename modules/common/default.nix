@@ -48,7 +48,7 @@
     dotfilesPath = lib.mkOption {
       type = lib.types.path;
       description = "Path of dotfiles repository.";
-      default = config.homePath + "/jam-dev/home/nix-dots";
+      default = config.homePath + "/dev/home/nix-dots";
     };
     dotfilesRepo = lib.mkOption {
       type = lib.types.str;
