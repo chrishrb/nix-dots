@@ -4,8 +4,10 @@
 
     services.xserver = {
 
-      layout = "de";
-      xkbVariant = "applealu_iso";
+      xkb = {
+        layout = "de";
+        variant = "applealu_iso";
+      };
 
       # Keyboard responsiveness
       autoRepeatDelay = 250;

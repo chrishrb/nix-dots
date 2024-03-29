@@ -23,10 +23,9 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # file systems
       fileSystems."/" = { 
-        device = "/dev/disk/by-uuid/f06c56c1-4cd5-42ee-8586-eb52dcc622c6";
+        device = "/dev/disk/by-uuid/013e6f70-f179-47fd-af86-63d57a43ec68";
         fsType = "ext4";
       };
-      swapDevices = [ { device = "/dev/disk/by-uuid/a7c9af8b-e4b7-4ef8-bda4-7177c3da7686"; } ];
 
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;
@@ -42,7 +41,7 @@ inputs.nixpkgs.lib.nixosSystem {
       slack.enable = false;
 
       # specific for vbox
-      virtualisation.virtualbox.guest.enable = true;
+      #virtualisation.virtualbox.guest.enable = true;
     }
   ];
 }
