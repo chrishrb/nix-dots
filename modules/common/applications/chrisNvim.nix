@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, inputs, ... }: {
 
   options = {
     chrisNvim = {
@@ -11,7 +11,9 @@
 
   config = lib.mkIf config.chrisNvim.enable {
     home-manager.users.${config.user} = {
-      home.packages = with pkgs; [ chrisNvim ];
+      imports = [ inputs.chris-nvim.homeModule ];
+
+      chrisNvim.enable = true;
     };
   };
 }

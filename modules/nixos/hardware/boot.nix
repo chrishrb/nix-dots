@@ -5,13 +5,13 @@
       enable = true;
 
       # Not sure what this does, but it involves the UEFI/BIOS
-      efiSupport = true;
+      #efiSupport = true;
 
       # Check for other OSes and make them available
       useOSProber = true;
 
       # Attempt to display GRUB on widescreen monitor
-      gfxmodeEfi = "1920x1080";
+      #gfxmodeEfi = "1920x1080";
 
       # Limit the total number of configurations to rollback
       configurationLimit = 25;
@@ -38,7 +38,7 @@
     # timeout = null;
 
     # Allows GRUB to interact with the UEFI/BIOS I guess
-    efi.canTouchEfiVariables = true;
+    #efi.canTouchEfiVariables = true;
   };
 
   # Allow reading from Windows drives

@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, pkgs, lib, ... }: {
 
   config = lib.mkIf config.gui.enable {
 
@@ -11,7 +11,14 @@
 
       # Enable login screen
       displayManager = {
-        sddm.enable = true;
+        lightdm = {
+          enable = config.services.xserver.enable;
+
+          # Show default user
+          extraSeatDefaults = ''
+            greeter-hide-users = false
+          '';
+        };
       };
 
       # Enable kde plasma5
@@ -19,6 +26,15 @@
         plasma5.enable= true;
       };
 
+    };
+
+    environment.systemPackages = with pkgs; [ xclip ];
+
+    home-manager.users.${config.user} = {
+      programs.zsh.shellAliases = {
+        pbcopy = "xclip -selection clipboard -in";
+        pbpaste = "xclip -selection clipboard -out";
+      };
     };
 
   };
