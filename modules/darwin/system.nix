@@ -32,8 +32,10 @@
         # so we do not need to logout and login again to make the changes take effect.
         /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
-        echo "Create ~/screenshots directory"
-        mkdir -p ~/screenshots
+        if [ ! -d "~/screenshots" ]; then
+          echo "Create ~/screenshots directory"
+          mkdir -p ~/screenshots
+        fi
       '';
 
       defaults = {
@@ -70,7 +72,7 @@
         trackpad = {
           Clicking = true; # enable tap to click
           #TrackpadRightClick = true; # enable two finger right click
-          TrackpadThreeFingerDrag = true; # enable three finger drag
+          #TrackpadThreeFingerDrag = true; # enable three finger drag
         };
 
         ActivityMonitor = {
@@ -177,14 +179,6 @@
           };
           # Prevent Photos from opening automatically when devices are plugged in
           "com.apple.ImageCapture".disableHotPlug = true;
-          "com.apple.mail" = {
-            # Disable send and reply animations in Mail.app
-            DisableReplyAnimations = true;
-            DisableSendAnimations = true;
-
-            AddressesIncludeNameOnPasteboard = false; # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
-            DisableInlineAttachmentViewing = true; # Disable inline attachments (just show the icons)
-          };
           "com.apple.print.PrintingPrefs" = {
             "Quit When Finished" = true; # Quit printer app after print jobs complete
           };

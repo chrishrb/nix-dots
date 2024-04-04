@@ -12,8 +12,8 @@
 
     # macOS system config
     darwin = {
-      url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LnL7/nix-darwin/master";
     };
 
     # homebrew
@@ -41,7 +41,10 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
     # chrisNvim
-    chris-nvim.url = "github:chrishrb/nix-nvim";
+    chris-nvim = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:chrishrb/nix-nvim";
+    };
   };
 
   outputs = { nixpkgs, ... } @inputs:
@@ -52,6 +55,7 @@
         fullName = "Christoph Herb";
         gitName = fullName;
         gitEmail = "52382992+chrishrb@users.noreply.github.com";
+        gitWorkEmail = "christoph.herb@maibornwolff.de";
         dotfilesRepo = "https://github.com/chrishrb/nix-dots";
       };
 
@@ -75,16 +79,16 @@
       };
 
       # Contains my full Mac system builds, including home-manager
-      # darwin-rebuild switch --flake .#laptop0997
+      # darwin-rebuild switch --flake .#mw
       darwinConfigurations = {
-        laptop0997 = import ./hosts/laptop0997 { inherit inputs globals overlays forAllSystems; };
+        mw = import ./hosts/mw { inherit inputs globals overlays forAllSystems; };
       };
 
       # For quickly applying home-manager settings with:
-      # home-manager switch --flake .#laptop0997
+      # home-manager switch --flake .#mw
       homeConfigurations = {
         ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
-        laptop0997 = darwinConfigurations.laptop0997.config.home-manager.users."cherb".home;
+        mw = darwinConfigurations.mw.config.home-manager.users."cherb".home;
       };
 
       # Programs that can be run by calling this flake

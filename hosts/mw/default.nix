@@ -1,4 +1,4 @@
-# The laptop0997 config
+# The mw config
 # System configuration for my work macbook
 
 { inputs, globals, overlays, ... }:
@@ -10,7 +10,7 @@ inputs.darwin.lib.darwinSystem {
     ../../modules/common
     ../../modules/darwin
     (globals // {
-      user = "cherb";
+      user = "christoph.herb";
     })
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
@@ -18,18 +18,19 @@ inputs.darwin.lib.darwinSystem {
       nixpkgs.overlays = overlays;
 
       # Darwin specific
-      networking.hostName = "laptop0997";
-      identityFile = "/Users/cherb/.ssh/id_rsa";
+      networking.hostName = "MB-GDWLXJMCPF";
 
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;
 
       # Programs and services
       alacritty.enable = true;
-      nixlang.enable = true;
+      chrisNvim.enable = true;
+      dotfiles.enable = true;
       python.enable = true;
       lua.enable = true;
-      slack.enable = false;
+      devops.enable = true;
+      go.enable = true;
     }
   ];
 }

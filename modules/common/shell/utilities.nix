@@ -30,7 +30,7 @@ in {
         ripgrep # grep
         tree # View directory hierarchy
         unzip # Extract zips
-        ghostscript
+        ghostscript # edit pdfs
         ffmpeg
       ];
 

@@ -1,8 +1,5 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }: {
 
-let home-packages = config.home-manager.users.${config.user}.home.packages;
-
-in {
   options = {
     gitName = lib.mkOption {
       type = lib.types.str;
@@ -11,6 +8,10 @@ in {
     gitEmail = lib.mkOption {
       type = lib.types.str;
       description = "Email to use for git commits";
+    };
+    gitWorkEmail = lib.mkOption {
+      type = lib.types.str;
+      description = "Work email to use for git commits in work directory";
     };
   };
 
@@ -92,6 +93,17 @@ in {
             autoupdate = false;
           };
         };
+        # use work email if commiting in work directory
+        includes = [
+          {
+            path = pkgs.writeText ".gitconfig"
+              ''
+              [user]
+                  email = ${config.gitWorkEmail}
+              '';
+            condition = "gitdir:${config.homePath}/dev/work/";
+          }
+        ];
       };
 
       programs.lazygit = {

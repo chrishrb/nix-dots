@@ -4,7 +4,10 @@
 
   config = lib.mkIf config.devops.enable {
     home-manager.users.${config.user}.home.packages = with pkgs; [
-      # TODO
+      # docker desktop drop in replacement
+      colima
+      docker-client
+      docker-compose
     ];
   };
 

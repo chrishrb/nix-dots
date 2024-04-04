@@ -25,20 +25,15 @@
         upgrade = true;
       };
       brews = [
-        "trash" # Delete files and folders to trash instead of rm
         "tofuutils/taps/tenv" # terraform, opentofu, terragrunt version manager
         "grip" # open readme files
       ];
       casks = [
         # Development Tools
-        "homebrew/cask/docker"
-
-        # latex
-        # "mactex-no-gui"
+        #"homebrew/cask/docker"
 
         # Communication Tools
         "notion"
-        "zoom"
 
         # utility
         "scroll-reverser"
@@ -46,11 +41,12 @@
         "skim" # open pdfs
 
         # Browsers
-        "google-chrome"
+        #"google-chrome"
 
         # other
         "bitwarden"
         "spotify"
+        "logi-options-plus"
       ];
     };
 

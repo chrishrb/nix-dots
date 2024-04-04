@@ -26,11 +26,6 @@
         default = "$HOME/screenshots";
       };
     };
-    identityFile = lib.mkOption {
-      type = lib.types.str;
-      description = "Path to existing private key file.";
-      default = "/etc/ssh/ssh_host_ed25519_key";
-    };
     gui = {
       enable = lib.mkEnableOption {
         description = "Enable graphics.";

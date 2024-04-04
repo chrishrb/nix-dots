@@ -30,3 +30,5 @@ Once installed, you can continue to update the macOS configuration:
 ```bash
 darwin-rebuild switch --flake ~/dev/home/nix-dots
 ```
+
+Manually install the [german programming keyboard](https://github.com/MickL/macos-keyboard-layout-german-programming).
