@@ -41,10 +41,7 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
     # chrisNvim
-    chris-nvim = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:chrishrb/nix-nvim";
-    };
+    chris-nvim.url = "github:chrishrb/nix-nvim";
   };
 
   outputs = { nixpkgs, ... } @inputs:
