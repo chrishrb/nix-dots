@@ -64,11 +64,11 @@
         "nvim-tmux-navigation": "nvim-tmux-navigation"
       },
       "locked": {
-        "lastModified": 1711499272,
-        "narHash": "sha256-RriM5IhruwfjZ95WZBO+JmY65KyyHb7SOJT1WaTVfbI=",
+        "lastModified": 1712330410,
+        "narHash": "sha256-UTnBF5VboQLXwYVUhD9RUCTxs/iznXEGTDiNaVjbrh8=",
         "owner": "chrishrb",
         "repo": "nix-nvim",
-        "rev": "780e1ca1dfd641bb7090af4aa43655ccc3b5eb31",
+        "rev": "239aa168d62fa7cf893aec532f6e9236cf0519d6",
         "type": "github"
       },
       "original": {
