@@ -32,6 +32,7 @@ inputs.darwin.lib.darwinSystem {
       devops.enable = true;
       go.enable = true;
       java.enable = true;
+      node.enable = true;
     }
   ];
 }

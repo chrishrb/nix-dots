@@ -5,6 +5,7 @@
   config = lib.mkIf config.node.enable {
     home-manager.users.${config.user}.home.packages = with pkgs; [
       nodejs_21
+      nodePackages.pnpm
     ];
   };
 

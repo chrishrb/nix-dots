@@ -4,8 +4,11 @@
 
   config = lib.mkIf config.python.enable {
     home-manager.users.${config.user}.home.packages = with pkgs; [
-      python39
+      python311
       poetry
+      isort
+      mypy
+      pylint
     ];
   };
 

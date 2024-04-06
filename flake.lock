@@ -63,11 +63,11 @@
         "nvim-tmux-navigation": "nvim-tmux-navigation"
       },
       "locked": {
-        "lastModified": 1712437218,
-        "narHash": "sha256-iiocjnq3RUrejVOavSZ5+U8Lm6UdxBiJs7V2fHuenf8=",
+        "lastModified": 1712445309,
+        "narHash": "sha256-yvD0OPMmEwwiEQcsc4PAgtw6oZEO5WwYxiktoX/Fmts=",
         "owner": "chrishrb",
         "repo": "nix-nvim",
-        "rev": "b9a8d299d5a8c50a024cadde0ead786ab5825d78",
+        "rev": "74eefe7e320ea638f2e211867a265efc9637b767",
         "type": "github"
       },
       "original": {
@@ -207,11 +207,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1712434800,
-        "narHash": "sha256-e2WftkOjDLU03MSK8+xqGQj4j8JnhS82M9JoIRRTepI=",
+        "lastModified": 1712443788,
+        "narHash": "sha256-lg2uZicwviYmPUDfXMw+L+IywmIn1z0ex4qet5LNU0w=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "9a173ba86a0ec401603d8579d30b643429c878cd",
+        "rev": "78c35ac6c05c1aec6e1b0a4982268fd7224fe2bb",
         "type": "github"
       },
       "original": {
@@ -223,11 +223,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1712432390,
-        "narHash": "sha256-1mDgYmG/X1pQ/e9tL2R7/oRpAre+hjkSFTZsVZp9TGE=",
+        "lastModified": 1712440680,
+        "narHash": "sha256-RjxTtUGTYzNUN+1g8gNi+tke1lXE4+M1nWjmXYO3URA=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "b1583d32c7a8c020bd35fd38b2ec61919fb171fe",
+        "rev": "1755d45c8945f9b1e8d4e2ef568f2ab7153623da",
         "type": "github"
       },
       "original": {
