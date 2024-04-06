@@ -31,6 +31,7 @@ inputs.darwin.lib.darwinSystem {
       lua.enable = true;
       devops.enable = true;
       go.enable = true;
+      java.enable = true;
     }
   ];
 }

@@ -6,5 +6,6 @@
     ./nix.nix
     ./node.nix
     ./python.nix
+    ./java.nix
   ];
 }
