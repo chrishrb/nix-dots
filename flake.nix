@@ -32,10 +32,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     }; 
-    tofuutils = {
-      url = "github:tofuutils/homebrew-tap";
-      flake = false;
-    }; 
 
     # alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";

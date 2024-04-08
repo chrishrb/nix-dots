@@ -10,7 +10,6 @@
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
         "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
-        "tofuutils/homebrew-taps" = inputs.tofuutils;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -25,7 +24,6 @@
         upgrade = true;
       };
       brews = [
-        "tofuutils/taps/tenv" # terraform, opentofu, terragrunt version manager
         "grip" # open readme files
       ];
       casks = [

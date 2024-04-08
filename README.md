@@ -22,13 +22,13 @@ nix \
     --extra-experimental-features flakes \
     --extra-experimental-features nix-command \
     run nix-darwin -- switch \
-    --flake github:chrishrb/nix-dots#laptop0997
+    --flake github:chrishrb/nix-dots#mw
 ```
 
 Once installed, you can continue to update the macOS configuration:
 
 ```bash
-darwin-rebuild switch --flake ~/dev/home/nix-dots
+nix run nix-darwin -- switch --flake ".#mw"
 ```
 
 Manually install the [german programming keyboard](https://github.com/MickL/macos-keyboard-layout-german-programming).

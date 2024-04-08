@@ -8,6 +8,8 @@
       colima
       docker-client
       docker-compose
+
+      tenv # version manager for opentofu, terraform, terragrunt
     ];
   };
 
