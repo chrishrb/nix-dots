@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }: {
 
-  options.node.enable = lib.mkEnableOption "NodeJS.";
+  options.web.enable = lib.mkEnableOption "Web.";
 
-  config = lib.mkIf config.node.enable {
+  config = lib.mkIf config.web.enable {
     home-manager.users.${config.user}.home.packages = with pkgs; [
       nodejs_21
       nodePackages.pnpm

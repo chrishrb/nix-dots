@@ -4,8 +4,10 @@
     ./devops.nix
     ./lua.nix
     ./nix.nix
-    ./node.nix
+    ./web.nix
     ./python.nix
     ./java.nix
+    ./ai.nix
+    ./latex.nix
   ];
 }

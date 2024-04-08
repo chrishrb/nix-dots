@@ -27,12 +27,14 @@ inputs.darwin.lib.darwinSystem {
       alacritty.enable = true;
       chrisNvim.enable = true;
       dotfiles.enable = true;
+
+      # languaages
       python.enable = true;
       lua.enable = true;
       devops.enable = true;
       go.enable = true;
       java.enable = true;
-      node.enable = true;
+      web.enable = true;
     }
   ];
 }

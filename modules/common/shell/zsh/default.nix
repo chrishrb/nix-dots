@@ -56,10 +56,9 @@
       };
       shellAliases = {
         ## navigation aliases
-        dev = "cd ~/jam-dev/";
-        home = "cd ~/jam-dev/home/";
-        study = "cd ~/jam-dev/study/in7/";
-        work = "cd ~/jam-dev/work/cris/";
+        dev = "cd ~/dev/";
+        home = "cd ~/dev/home/";
+        work = "cd ~/dev/work/";
 
         ## other
         du = "du -sh";
