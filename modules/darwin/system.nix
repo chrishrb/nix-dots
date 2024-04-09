@@ -11,7 +11,8 @@
 #
 ###################################################################################
 
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  config = let screenshotDirectory = "${config.homePath}/screenshots";
+    in lib.mkIf pkgs.stdenv.isDarwin {
 
     services.nix-daemon.enable = true;
 
@@ -32,8 +33,8 @@
         # so we do not need to logout and login again to make the changes take effect.
         /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
-        if [ ! -d "~/screenshots" ]; then
-          echo "Create ~/screenshots directory"
+        if [ ! -d ${screenshotDirectory} ]; then
+          echo "Create ${screenshotDirectory} directory"
           mkdir -p ~/screenshots
         fi
       '';
@@ -169,8 +170,7 @@
             askForPasswordDelay = 0;
           };
           "com.apple.screencapture" = {
-            # TODO: change to ~/screenshots
-            location = "~/Desktop";
+            location = "${screenshotDirectory}";
             type = "png";
             disable-shadow = true;
           };
