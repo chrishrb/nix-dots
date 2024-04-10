@@ -69,7 +69,6 @@
         drawio = "/Applications/draw.io.app/Contents/MacOS/draw.io";
 
         ## vim,tmux,zsh
-        vimc = "nvim ~/.config/nvim/init.lua";
         tm = "tmuxinator";
         ssh = "TERM=xterm-256color ssh"; # needed for ssh to work properly
 

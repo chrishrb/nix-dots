@@ -35,6 +35,7 @@ inputs.darwin.lib.darwinSystem {
       go.enable = true;
       java.enable = true;
       web.enable = true;
+      ai.enable = true;
     }
   ];
 }
