@@ -96,7 +96,7 @@
 
           # Used to run commands and edit files in this repo
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [ git stylua nixfmt shfmt shellcheck ];
+            buildInputs = with pkgs; [ git stylua nixfmt-rfc-style shfmt shellcheck ];
           };
 
         });

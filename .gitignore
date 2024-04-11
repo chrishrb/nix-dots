@@ -1,0 +1,9 @@
+.DS_Store
+*.bak
+*.db
+*.qcow2
+**/.direnv/**
+result
+private/**
+templates/**/flake.lock
+!private/**.age
