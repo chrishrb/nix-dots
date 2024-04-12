@@ -20,6 +20,8 @@
           { name = "zap-zsh/vim"; }
           { name = "plugins/fzf"; tags = ["from:oh-my-zsh"]; }
           { name = "plugins/aws"; tags = ["from:oh-my-zsh" "lazy:true" "defer:3"]; }
+          { name = "plugins/kubectl"; tags = ["from:oh-my-zsh" "lazy:true" "defer:3"]; }
+          { name = "macunha1/zsh-terraform"; tags = ["lazy:true" "defer:3"]; }
           { name = "plugins/docker"; tags = ["from:oh-my-zsh" "lazy:true" "defer:3"]; }
           { name = "paulirish/git-open"; }
           { name = "MichaelAquilina/zsh-autoswitch-virtualenv"; }
@@ -71,12 +73,8 @@
         ## vim,tmux,zsh
         tm = "tmuxinator";
         ssh = "TERM=xterm-256color ssh"; # needed for ssh to work properly
-
-        ## terraform
-        tf = "terraform";
       };
-      sessionVariables = {
-      };
+      sessionVariables = {};
       initExtra = ''
       '';
     };
