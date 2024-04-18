@@ -69,6 +69,7 @@
         grep = "rg";
         grip = "grip -b";
         drawio = "/Applications/draw.io.app/Contents/MacOS/draw.io";
+        ls = "ls --color=auto";
 
         ## vim,tmux,zsh
         tm = "tmuxinator";
