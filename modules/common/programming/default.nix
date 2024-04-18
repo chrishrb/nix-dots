@@ -9,5 +9,6 @@
     ./java.nix
     ./ai.nix
     ./latex.nix
+    ./php.nix
   ];
 }
