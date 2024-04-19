@@ -4,5 +4,6 @@
     ./slack.nix
     ./chrisNvim.nix
     ./chrome.nix
+    ./discord.nix
   ];
 }

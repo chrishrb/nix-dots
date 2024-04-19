@@ -36,6 +36,7 @@ inputs.darwin.lib.darwinSystem {
       java.enable = true;
       web.enable = true;
       ai.enable = true;
+      discord.enable = true;
     }
   ];
 }
