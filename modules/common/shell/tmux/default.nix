@@ -110,5 +110,9 @@
       source = ./tmuxinator;
       recursive = true;
     };
+
+    programs.zsh.shellAliases = {
+      tm = "tmuxinator";
+    };
   };
 }

@@ -72,7 +72,6 @@
         ls = "ls --color=auto";
 
         ## vim,tmux,zsh
-        tm = "tmuxinator";
         ssh = "TERM=xterm-256color ssh"; # needed for ssh to work properly
       };
       sessionVariables = {};

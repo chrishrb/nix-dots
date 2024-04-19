@@ -14,7 +14,6 @@
         kubectl
         awscli2
 
-         
         # terraform
         tenv # version manager for opentofu, terraform, terragrunt
         tflint
@@ -28,6 +27,9 @@
 
         shellAliases = {
           tg = "terragrunt";
+
+          ka = "kubectl apply -f";
+          kd = "kubectl --dry-run=client -o yaml";
         };
       };
     };
