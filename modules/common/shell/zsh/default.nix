@@ -67,7 +67,6 @@
         df = "df -h";
         copy = "pbcopy";
         grep = "rg";
-        grip = "grip -b";
         drawio = "/Applications/draw.io.app/Contents/MacOS/draw.io";
         ls = "ls --color=auto";
 

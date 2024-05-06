@@ -27,6 +27,7 @@ inputs.darwin.lib.darwinSystem {
       alacritty.enable = true;
       chrisNvim.enable = true;
       dotfiles.enable = true;
+      drawio.enable = true;
 
       # languaages
       python.enable = true;

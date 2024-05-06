@@ -4,7 +4,6 @@ let
 
   ignorePatterns = ''
     !.env*
-    !.github/
     !.gitignore
     !*.tfvars
     .terraform/
@@ -32,6 +31,7 @@ in {
         unzip # Extract zips
         ghostscript # edit pdfs
         ffmpeg
+        imagemagick # edit images
       ];
 
       home.file = {

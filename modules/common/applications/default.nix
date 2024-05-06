@@ -5,5 +5,6 @@
     ./chrisNvim.nix
     ./chrome.nix
     ./discord.nix
+    ./drawio.nix
   ];
 }
