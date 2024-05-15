@@ -32,6 +32,8 @@ in {
         ghostscript # edit pdfs
         ffmpeg
         imagemagick # edit images
+        plantuml # UML diagrams
+        s3cmd # client for getting data from an s3 bucket
       ];
 
       home.file = {
