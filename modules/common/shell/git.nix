@@ -67,7 +67,6 @@
           core = {
             ignorecase = false;
             autocrlf = false;
-            editor = "nvim";
           };
           #protocol.keybase.allow = "always";
           #credential.helper = "store --file ~/.git-credentials";
@@ -78,9 +77,6 @@
             diff = "auto";
             interactive = true;
             status = "auto";
-          };
-          merge = {
-            tool = "nvim";
           };
           push = {
             autoSetupRemote = true;

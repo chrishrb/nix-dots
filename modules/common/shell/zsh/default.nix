@@ -2,6 +2,10 @@
 
   users.users.${config.user}.shell = pkgs.zsh;
   programs.zsh.enable = true;
+  environment.variables = {
+    EDITOR = "chrisNvim";
+    VISUAL = "chrisNvim";
+  };
 
   home-manager.users.${config.user} = {
 

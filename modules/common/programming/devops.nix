@@ -17,6 +17,8 @@
         # terraform
         tenv # version manager for opentofu, terraform, terragrunt
         tflint
+        trivy # security scanner
+        infracost # cost estimation for terraform
       ];
 
       programs.zsh = {

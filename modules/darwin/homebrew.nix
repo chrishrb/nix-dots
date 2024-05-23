@@ -24,7 +24,7 @@
         upgrade = true;
       };
       brews = [
-        "grip" # open readme files
+        #"grip" # open readme files
       ];
       casks = [
         # Development Tools
