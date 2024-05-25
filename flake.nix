@@ -37,7 +37,28 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
     # chrisNvim
-    chris-nvim.url = "github:chrishrb/nix-nvim";
+    flake-utils.url = "github:numtide/flake-utils";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    nixCats.inputs.nixpkgs.follows = "nixpkgs";
+    nixCats.inputs.flake-utils.follows = "flake-utils";
+
+    # plugins that are not in nixpkg
+    gx-nvim = {
+      url = "github:chrishrb/gx.nvim";
+      flake = false;
+    };
+    nvim-tmux-navigation = {
+      url = "github:alexghergh/nvim-tmux-navigation";
+      flake = false;
+    };
+    nvim-nio = {
+      url = "github:nvim-neotest/nvim-nio";
+      flake = false;
+    };
+    copilot-chat-nvim = {
+      url = "github:CopilotC-Nvim/CopilotChat.nvim";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, ... } @inputs:
@@ -67,9 +88,9 @@
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#ambush
-      nixosConfigurations = {
-        ambush = import ./hosts/ambush { inherit inputs globals overlays; };
-      };
+      #nixosConfigurations = {
+      #  ambush = import ./hosts/ambush { inherit inputs globals overlays; };
+      #};
 
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#mw
@@ -80,7 +101,7 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#mw
       homeConfigurations = {
-        ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
+        #ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
         mw = darwinConfigurations.mw.config.home-manager.users."christoph.herb".home;
       };
 

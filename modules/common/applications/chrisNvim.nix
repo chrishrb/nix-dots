@@ -1,12 +1,14 @@
 {
-  pkgs,
   lib,
   config,
   inputs,
   ...
 }:
-{
 
+let
+  chrisNvim = import ../../common/nvim { inherit inputs; };
+in
+{
   options = {
     chrisNvim = {
       enable = lib.mkEnableOption {
@@ -18,33 +20,12 @@
 
   config = lib.mkIf config.chrisNvim.enable {
     home-manager.users.${config.user} = {
-      imports = [ inputs.chris-nvim.homeModule ];
+      imports = [ chrisNvim.homeModule ];
 
-      chrisNvim = (
-        let
-          inherit (inputs.chris-nvim) utils packageDefinitions;
-        in
-        {
-          enable = true;
-          packageNames = [ "chrisNvim" ];
-
-          packages = {
-            chrisNvim = utils.mergeCatDefs packageDefinitions.chrisNvim ({ pkgs, ... }: {
-                categories = {
-                  go = config.go.enable;
-                  python = config.python.enable;
-                  web = config.web.enable;
-                  java = config.java.enable;
-                  devops = config.devops.enable;
-                  latex = config.latex.enable;
-                  ai = config.ai.enable;
-                };
-              }
-            );
-          };
-
-        }
-      );
+      chrisNvim = {
+        enable = config.chrisNvim.enable;
+        packageNames = [ "chrisNvim" ];
+      };
     };
   };
 }
