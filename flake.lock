@@ -76,11 +76,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718440858,
-        "narHash": "sha256-iMVwdob8F6P6Ib+pnhMZqyvYI10ZxmvA885jjnEaO54=",
+        "lastModified": 1718662658,
+        "narHash": "sha256-AKG7BsqtVWDlefgzyKz7vjaKTLi4+bmTSBhowbQoZtM=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "58b905ea87674592aa84c37873e6c07bc3807aba",
+        "rev": "29b3096a6e283d7e6779187244cb2a3942239fdf",
         "type": "github"
       },
       "original": {
@@ -167,11 +167,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718243258,
-        "narHash": "sha256-abBpj2VU8p6qlRzTU8o22q68MmOaZ4v8zZ4UlYl5YRU=",
+        "lastModified": 1719037157,
+        "narHash": "sha256-aOKd8+mhBsLQChCu1mn/W5ww79ta5cXVE59aJFrifM8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8d5e27b4807d25308dfe369d5a923d87e7dbfda3",
+        "rev": "cd886711998fe5d9ff7979fdd4b4cbd17b1f1511",
         "type": "github"
       },
       "original": {
@@ -184,11 +184,11 @@
     "homebrew-bundle": {
       "flake": false,
       "locked": {
-        "lastModified": 1718337140,
-        "narHash": "sha256-E85xtUWlAfPpjYCyVPKHjhPTqWB8WUjYuQrmYNbDUF8=",
+        "lastModified": 1718846093,
+        "narHash": "sha256-85nKhOzM3/6O5q23ZSnkQx4kAgy8bk+w6Vc5p3bJXYI=",
         "owner": "homebrew",
         "repo": "homebrew-bundle",
-        "rev": "f91ee54fa0d038265e46ee798bbc5ae446448385",
+        "rev": "450cf7f8dc759556dc25424cb369a0e732067755",
         "type": "github"
       },
       "original": {
@@ -200,11 +200,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1718507960,
-        "narHash": "sha256-J+TaDortfTbfqbQnq55F9lWOtXb/ANvLeDl8puNH2Tk=",
+        "lastModified": 1719109427,
+        "narHash": "sha256-QSVO6i+AwE4D94RFHVa9FA7N7AkBRXv51Z4eIPBnfxc=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "eead65bc059874911239140c2fb7a1d655e6b821",
+        "rev": "484891b6f9341536d5b0527bb5e465b130aecb1c",
         "type": "github"
       },
       "original": {
@@ -216,11 +216,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1718508337,
-        "narHash": "sha256-wqEM3vqHmvcHEHyAC0rZ4y1rTRSgBmdCM1IB7QKkiEY=",
+        "lastModified": 1719109617,
+        "narHash": "sha256-U+vYyHm+sZUiHu9CeJqvjzSBr8PXtFu+IFoeuU1PXLc=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "f9817f3fc4b138e8d1eda3c197b0728e8bc28a13",
+        "rev": "76bfe3f9c9d99293cfdc997b48f3eaaf3352b8b5",
         "type": "github"
       },
       "original": {
@@ -273,15 +273,14 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "plugins-hlargs": "plugins-hlargs",
-        "plugins-nvim-nio": "plugins-nvim-nio"
+        "plugins-hlargs": "plugins-hlargs"
       },
       "locked": {
-        "lastModified": 1718330979,
-        "narHash": "sha256-heEO/f056cn57KSpKcTI1Fv7542BkAG1WjS0MlPyqwI=",
+        "lastModified": 1718764351,
+        "narHash": "sha256-XPjPd1BkLYn2DM8H//d8bpv9NjCsOHeN0xsRwum117E=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "fc0aa779842997fb355ea4b99bc208b3d226ad4d",
+        "rev": "cd8e4193459a42b5cd6e21bc5c0f9155299a931e",
         "type": "github"
       },
       "original": {
@@ -355,11 +354,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1718318537,
-        "narHash": "sha256-4Zu0RYRcAY/VWuu6awwq4opuiD//ahpc2aFHg2CWqFY=",
+        "lastModified": 1718895438,
+        "narHash": "sha256-k3JqJrkdoYwE3fHE6xGDY676AYmyh4U2Zw+0Bwe5DLU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e9ee548d90ff586a6471b4ae80ae9cfcbceb3420",
+        "rev": "d603719ec6e294f034936c0d0dc06f689d91b6c3",
         "type": "github"
       },
       "original": {
@@ -414,22 +413,6 @@
       "original": {
         "owner": "m-demare",
         "repo": "hlargs.nvim",
-        "type": "github"
-      }
-    },
-    "plugins-nvim-nio": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1717951894,
-        "narHash": "sha256-gAbqGPNBYkj+x+wR6WN2x7kqKaxlBzVXPmRXm8sM40Y=",
-        "owner": "nvim-neotest",
-        "repo": "nvim-nio",
-        "rev": "7969e0a8ffabdf210edd7978ec954a47a737bbcc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-neotest",
-        "repo": "nvim-nio",
         "type": "github"
       }
     },
