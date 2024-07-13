@@ -38,6 +38,7 @@ inputs.darwin.lib.darwinSystem {
       web.enable = true;
       ai.enable = true;
       discord.enable = true;
+      latex.enable = true;
     }
   ];
 }

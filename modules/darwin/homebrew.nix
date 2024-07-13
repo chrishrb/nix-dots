@@ -25,6 +25,7 @@
       };
       brews = [
         #"grip" # open readme files
+        "gdal"
       ];
       casks = [
         # Development Tools

@@ -89,6 +89,10 @@ for _, server in pairs(servers) do
 		opts = jdtls_ls_opts
 	end
 
+	if server == "yamlls" then
+		local yamlls_opts = require("chrishrb.lsp.settings.yamlls")
+		opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
+	end
+
 	lspconfig[server].setup(opts)
-	::continue::
 end

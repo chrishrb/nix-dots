@@ -14,6 +14,7 @@
       config.java.jdk
       maven
       gradle
+      google-java-format
     ];
   };
 

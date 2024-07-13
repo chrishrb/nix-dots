@@ -5,6 +5,7 @@
   environment.variables = {
     EDITOR = "chrisNvim";
     VISUAL = "chrisNvim";
+    DOCKER_HOST="unix://$HOME/.colima/docker.sock";
   };
 
   home-manager.users.${config.user} = {
@@ -79,6 +80,10 @@
       };
       sessionVariables = {};
       initExtra = ''
+        # make sure brew is on the path for M1 
+        if [[ $(uname -m) == 'arm64' ]]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
       '';
     };
   };

@@ -9,10 +9,13 @@
         colima
         docker-client
         docker-compose
+        kind
+        kubernetes-helm
 
         # cloud cli tools
         kubectl
         awscli2
+        aws-sam-cli
 
         # terraform
         tenv # version manager for opentofu, terraform, terragrunt
