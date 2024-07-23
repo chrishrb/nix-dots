@@ -23,7 +23,7 @@
       Day = 1;
     };
 
-    # Add ability to used TouchID for sudo authentication
+    # Add ability to used TouchID for sudo authentication (with hack for tmux)
     environment = {
       etc."sudoers.d/000-sudo-touchid" = {
         text = ''
