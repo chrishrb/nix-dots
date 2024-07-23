@@ -36,6 +36,9 @@
     # alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
+    # mac-app-util for fixing trampoline apps on mac
+    mac-app-util.url = "github:hraban/mac-app-util";
+
     # chrisNvim
     nixCats.url = "github:chrishrb/nixCats-nvim";
     nixCats.inputs.nixpkgs.follows = "nixpkgs";

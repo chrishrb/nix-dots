@@ -14,6 +14,7 @@ inputs.darwin.lib.darwinSystem {
     })
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
+    inputs.mac-app-util.darwinModules.default
     {
       nixpkgs.overlays = overlays;
 
