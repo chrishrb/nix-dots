@@ -63,47 +63,34 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- setup which-key mappings
 local which_key = require("which-key")
-local which_key_config = require("chrishrb.plugins.config.whichkey")
-
-local mappings = {
-	c = {
-		name = "Copilot",
-		c = {
-			function()
-				local input = vim.fn.input("Copilot: ")
-				if input ~= "" then
-          chat.ask(input, { selection = select.buffer })
-				end
-			end,
-			"Quick chat",
-		},
-		f = { "<cmd>CopilotChatFix<CR>", "Fix diagnostics" },
-		m = { "<cmd>CopilotChatCommit<CR>", "Generate commit message for all changes" },
-		t = { "<cmd>CopilotChatToggle<CR>", "Toggle chat" },
-	},
-}
-
-local vmappings = {
-	c = {
-		name = "Copilot",
-		c = {
-			function()
+which_key.add({
+  {
+    { "<leader>c", group = "Copilot", nowait = true, remap = false },
+    { "<leader>cc", function()
 				local input = vim.fn.input("Copilot: ")
 				if input ~= "" then
           chat.ask(input, { selection = select.visual })
 				end
-			end,
-			"Quick chat",
-		},
-		e = { "<cmd>CopilotChatExplain<CR>", "Explain code" },
-		t = { "<cmd>CopilotChatTests<CR>", "Generate tests" },
-		f = { "<cmd>CopilotChatFix<CR>", "Fix bug in selected code" },
-		o = { "<cmd>CopilotChatOptimize<CR>", "Optimize code" },
-		r = { "<cmd>CopilotChatRefactor<CR>", "Refactor code" },
-		n = { "<cmd>CopilotChatBetterNamings<CR>", "Better naming" },
-		R = { "<cmd>CopilotChatReview<CR>", "Review code" },
-	},
-}
-
-which_key.register(mappings, which_key_config.opts)
-which_key.register(vmappings, which_key_config.vopts)
+			end, desc = "Quick chat", nowait = true, remap = false },
+    { "<leader>cf", "<cmd>CopilotChatFix<CR>", desc = "Fix diagnostics", nowait = true, remap = false },
+    { "<leader>cm", "<cmd>CopilotChatCommit<CR>", desc = "Generate commit message for all changes", nowait = true, remap = false },
+    { "<leader>ct", "<cmd>CopilotChatToggle<CR>", desc = "Toggle chat", nowait = true, remap = false },
+    {
+      mode = { "v" },
+      { "<leader>c", group = "Copilot", nowait = true, remap = false },
+      { "<leader>cR", "<cmd>CopilotChatReview<CR>", desc = "Review code", nowait = true, remap = false },
+      { "<leader>cc", function()
+				local input = vim.fn.input("Copilot: ")
+				if input ~= "" then
+          chat.ask(input, { selection = select.visual })
+				end
+			end, desc = "Quick chat", nowait = true, remap = false },
+      { "<leader>ce", "<cmd>CopilotChatExplain<CR>", desc = "Explain code", nowait = true, remap = false },
+      { "<leader>cf", "<cmd>CopilotChatFix<CR>", desc = "Fix bug in selected code", nowait = true, remap = false },
+      { "<leader>cn", "<cmd>CopilotChatBetterNamings<CR>", desc = "Better naming", nowait = true, remap = false },
+      { "<leader>co", "<cmd>CopilotChatOptimize<CR>", desc = "Optimize code", nowait = true, remap = false },
+      { "<leader>cr", "<cmd>CopilotChatRefactor<CR>", desc = "Refactor code", nowait = true, remap = false },
+      { "<leader>ct", "<cmd>CopilotChatTests<CR>", desc = "Generate tests", nowait = true, remap = false },
+    },
+  }
+})

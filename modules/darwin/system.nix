@@ -24,7 +24,26 @@
     };
 
     # Add ability to used TouchID for sudo authentication
-    security.pam.enableSudoTouchIdAuth = true;
+    environment = {
+      etc."sudoers.d/000-sudo-touchid" = {
+        text = ''
+          Defaults pam_service=sudo-touchid
+          Defaults pam_login_service=sudo-touchid
+        '';
+      };
+
+      etc."pam.d/sudo-touchid" = {
+        text = ''
+          auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+          auth       sufficient     pam_tid.so
+          auth       sufficient     pam_smartcard.so
+          auth       required       pam_opendirectory.so
+          account    required       pam_permit.so
+          password   required       pam_deny.so
+          session    required       pam_permit.so
+        '';
+      };
+    };
 
     system = {
       # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
@@ -193,16 +212,8 @@
     };
 
     # Fonts
-    fonts = {
-      # will be removed after this PR is merged:
-      #   https://github.com/LnL7/nix-darwin/pull/754
-      fontDir.enable = true;
-
-      # will change to `fonts.packages` after this PR is merged:
-      #   https://github.com/LnL7/nix-darwin/pull/754
-      fonts = with pkgs; [
-        (nerdfonts.override { fonts = ["JetBrainsMono"]; })
-      ];
-    };
+    fonts.packages = with pkgs; [
+      (nerdfonts.override { fonts = ["JetBrainsMono"]; })
+    ];
   };
 }

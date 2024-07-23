@@ -37,10 +37,8 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
     # chrisNvim
-    flake-utils.url = "github:numtide/flake-utils";
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    nixCats.url = "github:chrishrb/nixCats-nvim";
     nixCats.inputs.nixpkgs.follows = "nixpkgs";
-    nixCats.inputs.flake-utils.follows = "flake-utils";
 
     # plugins that are not in nixpkg
     gx-nvim = {

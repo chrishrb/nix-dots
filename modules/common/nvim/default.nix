@@ -4,7 +4,7 @@ let
   inherit (inputs.nixCats) utils;
   inherit (inputs) nixpkgs;
   luaPath = "${./.}";
-  forEachSystem = inputs.flake-utils.lib.eachSystem inputs.flake-utils.lib.allSystems;
+  forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
   extra_pkg_config = {
     allowUnfree = true;
   };
@@ -74,8 +74,8 @@ let
         web = with pkgs; [
           nodePackages.typescript-language-server
           tailwindcss-language-server
+          vue-language-server
           nodePackages.eslint
-          nodePackages.volar
           nodePackages.prettier
         ];
         java = with pkgs; [ jdt-language-server ];
@@ -250,6 +250,7 @@ let
           aliases = [
             "vi"
             "vim"
+            "v"
           ];
           # caution: this option must be the same for all packages.
           # nvimSRC = inputs.neovim;
@@ -314,7 +315,10 @@ forEachSystem (system: let
         name = defaultPackageName;
         packages = [ (nixCatsBuilder defaultPackageName) ];
         inputsFrom = [ ];
-        shellHook = '''';
+        DEVSHELL = 0;
+        shellHook = ''
+          exec ${pkgs.zsh}/bin/zsh
+        '';
       };
     };
 

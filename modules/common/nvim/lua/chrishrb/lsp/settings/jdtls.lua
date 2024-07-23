@@ -10,26 +10,21 @@ vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
 local which_key = require("which-key")
-local which_key_config = require("chrishrb.plugins.config.whichkey")
-
-local mappings = {
-	L = {
-		name = "Java",
-		o = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports" },
-		v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
-		c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
-		u = { "<Cmd>lua require('jdtls').update_project_config()<CR>", "Update Config" },
-	},
-}
-
-local vmappings = {
-	L = {
-		name = "Java",
-		v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
-		c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
-		m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
-	},
-}
+which_key.add({
+  {
+    { "<leader>L", group = "Java", nowait = true, remap = false },
+    { "<leader>Lo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", desc = "Organize Imports" },
+    { "<leader>Lv", "<Cmd>lua require('jdtls').extract_variable()<CR>", desc = "Extract Variable" },
+    { "<leader>Lc", "<Cmd>lua require('jdtls').extract_constant()<CR>", desc = "Extract Constant" },
+    { "<leader>Lu", "<Cmd>lua require('jdtls').update_project_config()<CR>", desc = "Update Config" },
+    {
+      mode = { "v" },
+      { "<leader>Lv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", desc = "Extract Variable" },
+      { "<leader>Lc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", desc = "Extract Constant" },
+      { "<leader>Lm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", desc = "Extract Method" },
+    }
+  }
+})
 
 -- setup java dap settings
 local bundles = {}
@@ -45,16 +40,14 @@ if nixCats("debug") then
 	vim.list_extend(bundles, vim.split(jt_server_jars, "\n"))
 	vim.list_extend(bundles, vim.split(jda_server_jar, "\n"))
 
-	mappings.L = vim.tbl_extend("error", mappings.L, {
-		t = { "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test Method" },
-		T = { "<Cmd>lua require'jdtls'.test_class()<CR>", "Test Class" },
-	})
+  which_key.add({
+    {
+      { "<leader>L", group = "Java", nowait = true, remap = false },
+      { "<leader>Lt", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", desc = "Test Method" },
+      { "<leader>LT", "<Cmd>lua require'jdtls'.test_class()<CR>", desc = "Test Class" },
+    }
+  })
 end
-
--- register keybindings
-which_key.register(mappings, which_key_config.opts)
-which_key.register(vmappings, which_key_config.vopts)
-
 
 local config_dir = vim.loop.os_homedir() .. "/.cache/jdtls/config"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")

@@ -112,10 +112,6 @@ local function lsp_keymaps(bufnr)
   map(bufnr, "n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   map(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  map(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
-  map(bufnr, "n", "<leader>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  map(bufnr, "n", "<leader>n", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)

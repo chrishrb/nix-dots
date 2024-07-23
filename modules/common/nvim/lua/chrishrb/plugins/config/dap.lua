@@ -77,24 +77,20 @@ end
 
 -- add keybindings
 local which_key = require("which-key")
-local which_key_config = require("chrishrb.plugins.config.whichkey")
-
-local mappings = {
-  d = {
-    name = "Debug",
-    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-    O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
-    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
-    l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-    u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
-    x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-  },
-}
-
-which_key.register(mappings, which_key_config.opts)
+which_key.add({
+  {
+    { "<leader>d", group = "Debug", nowait = true, remap = false },
+    { "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", desc = "Out" },
+    { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Breakpoint" },
+    { "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", desc = "Continue" },
+    { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", desc = "Into" },
+    { "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", desc = "Last" },
+    { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", desc = "Over" },
+    { "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", desc = "Repl" },
+    { "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", desc = "UI" },
+    { "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>", desc = "Exit" },
+  }
+})
 
 -- install lang specific configs
 if nixCats('go') then
