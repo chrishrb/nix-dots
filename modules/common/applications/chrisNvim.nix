@@ -24,7 +24,7 @@ in
 
       chrisNvim = {
         enable = config.chrisNvim.enable;
-        packageNames = [ "chrisNvim" ];
+        packageNames = [ "chrisNvim" "chrisNvimNoAI" ];
       };
     };
   };

@@ -281,6 +281,47 @@ let
           colorscheme = "catppuccin";
         };
       };
+    chrisNvimNoAI =
+      { pkgs, ... }:
+      {
+        # see :help nixCats.flake.outputs.settings
+        settings = {
+          # will check for config in the store rather than .config
+          wrapRc = true;
+          configDirName = "chrishrb-nvim-no-ai";
+          aliases = [
+            "vim-no-ai"
+            "v-no-ai"
+          ];
+          # caution: this option must be the same for all packages.
+          # nvimSRC = inputs.neovim;
+        };
+        # see :help nixCats.flake.outputs.packageDefinitions
+        categories = {
+          lazy = true;
+          generalBuildInputs = true;
+          general = true;
+          debug = true;
+
+          # languages
+          go = true;
+          python = true;
+          web = true;
+          java = true;
+          javaExtras = extraJavaItems pkgs;
+          devops = true;
+          ai = false;
+          latex = false;
+          php = false;
+
+          # this does not have an associated category of plugins, 
+          # but lua can still check for it
+          lspDebugMode = false;
+
+          # you could also pass something else:
+          colorscheme = "catppuccin";
+        };
+      };
   };
 
   # In this section, the main thing you will need to do is change the default package name
