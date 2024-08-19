@@ -39,6 +39,9 @@
     # mac-app-util for fixing trampoline apps on mac
     mac-app-util.url = "github:hraban/mac-app-util";
 
+    # talhelper
+    talhelper.url = "github:budimanjojo/talhelper";
+
     # chrisNvim
     nixCats.url = "github:chrishrb/nixCats-nvim";
     nixCats.inputs.nixpkgs.follows = "nixpkgs";
