@@ -17,6 +17,7 @@
         awscli2
         aws-sam-cli
         devbox
+        kafkactl
 
         # terraform
         tenv # version manager for opentofu, terraform, terragrunt
