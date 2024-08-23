@@ -131,5 +131,25 @@
 
         });
 
+      checks = forAllSystems (system: 
+        let
+          pkgs = import nixpkgs { inherit system overlays; };
+          module = import ./modules/common/nvim {inherit inputs; };
+        in {
+          chrisNvim = pkgs.runCommand "neovim-check-health" { buildInputs = [ module.packages.${system}.default ]; }
+            ''
+            mkdir -p $out
+            export HOME=$TMPDIR
+            chrisNvim -c "checkhealth" -c "write $out/health.log" -c "quitall"
+
+            # Check for errors inside the health log
+            if $(grep "ERROR" $out/health.log); then
+              cat $out/health.log
+              exit 1
+            fi
+            '';
+        }
+      );
+
     };
 }

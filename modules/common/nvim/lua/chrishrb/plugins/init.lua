@@ -302,6 +302,7 @@ end
 
 local opts = {
   lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
+  rocks = { enabled = false },
 }
 
 plugin.setup(pluginList, nixLazyPath, plugins, opts)

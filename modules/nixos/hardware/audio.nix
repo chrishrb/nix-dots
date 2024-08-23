@@ -2,8 +2,6 @@
 
   config = lib.mkIf (pkgs.stdenv.isLinux && config.gui.enable) {
 
-    sound.enable = true;
-
     # Enable pipewire
     services.pipewire = {
       enable = true;
