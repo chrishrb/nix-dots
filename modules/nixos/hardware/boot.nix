@@ -17,8 +17,6 @@
       device = config.fileSystems."/boot".device;
     };
 
-    systemd-boot.enable = true;
-
     # Allows GRUB to interact with the UEFI/BIOS I guess
     efi.canTouchEfiVariables = true;
   };
