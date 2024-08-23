@@ -22,7 +22,7 @@
 
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/EFI";
+      efiSysMountPoint = "/boot";
     };
 
     systemd-boot.enable = false;
