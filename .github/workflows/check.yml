@@ -1,6 +1,7 @@
 name: Check Build
 
 on:
+  push:
   workflow_dispatch: # allows manual triggering
 
 jobs:
