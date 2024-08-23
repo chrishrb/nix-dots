@@ -19,13 +19,18 @@ inputs.nixpkgs.lib.nixosSystem {
       # Hardware
       networking.hostName = "ambush";
 
-      boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "sd_mod" "sr_mod" ];
+      boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
 
       # file systems
-      fileSystems."/" = { 
-        device = "/dev/disk/by-uuid/013e6f70-f179-47fd-af86-63d57a43ec68";
+      fileSystems."/" = {
+        device = "/dev/disk/by-label/nixos";
         fsType = "ext4";
       };
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-label/boot";
+        fsType = "vfat";
+      };
+
 
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;

@@ -17,9 +17,7 @@
       configurationLimit = 25;
 
       # Install GRUB onto the boot disk
-      #device = config.fileSystems."/boot".device;
-      # TODO
-      device = "nodev";
+      device = config.fileSystems."/boot".device;
 
       # Don't install GRUB, required for UEFI?
       #device = "nodev";
@@ -38,7 +36,7 @@
     # timeout = null;
 
     # Allows GRUB to interact with the UEFI/BIOS I guess
-    #efi.canTouchEfiVariables = true;
+    efi.canTouchEfiVariables = true;
   };
 
   # Allow reading from Windows drives
