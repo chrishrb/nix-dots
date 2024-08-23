@@ -11,14 +11,7 @@
 
       # Enable login screen
       displayManager = {
-        lightdm = {
-          enable = config.services.xserver.enable;
-
-          # Show default user
-          extraSeatDefaults = ''
-            greeter-hide-users = false
-          '';
-        };
+        sddm.enable = true;
       };
 
       # Enable kde plasma5
