@@ -14,11 +14,18 @@
       configurationLimit = 25;
 
       # Install GRUB onto the boot disk
-      device = config.fileSystems."/boot".device;
+      #device = config.fileSystems."/boot".device;
+
+      # Don't install GRUB
+      device = "nodev";
     };
 
-    # Allows GRUB to interact with the UEFI/BIOS I guess
-    efi.canTouchEfiVariables = true;
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+
+    systemd-boot.enable = false;
   };
 
   # Allow reading from Windows drives
