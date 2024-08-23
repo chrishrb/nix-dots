@@ -34,14 +34,16 @@
           --default=false
 
       ${pkgs.parted}/bin/parted /dev/''${DISK} -- mklabel gpt
-      ${pkgs.parted}/bin/parted /dev/''${DISK} -- mkpart primary 512MiB 100%
+      ${pkgs.parted}/bin/parted /dev/''${DISK} -- mkpart primary 512MiB -8GiB
+      ${pkgs.parted}/bin/parted /dev/''${DISK} -- mkpart primary linux-swap -8GiB 100%
       ${pkgs.parted}/bin/parted /dev/''${DISK} -- mkpart ESP fat32 1MiB 512MiB
       ${pkgs.parted}/bin/parted /dev/''${DISK} -- set 3 esp on
       mkfs.ext4 -L nixos /dev/''${DISK}''${PARTITION_PREFIX}1
+      mkswap -L swap /dev/''${DISK}''${PARTITION_PREFIX}2
       mkfs.fat -F 32 -n boot /dev/''${DISK}''${PARTITION_PREFIX}3
 
       mount /dev/disk/by-label/nixos /mnt
-      mkdir --parents /mnt/boot
+      mkdir -p /mnt/boot
       mount /dev/disk/by-label/boot /mnt/boot
 
       ${pkgs.nixos-install-tools}/bin/nixos-install --flake github:chrishrb/nix-dots#''${FLAKE}
