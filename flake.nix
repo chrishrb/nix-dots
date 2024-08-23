@@ -92,9 +92,9 @@
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#ambush
-      #nixosConfigurations = {
-      #  ambush = import ./hosts/ambush { inherit inputs globals overlays; };
-      #};
+      nixosConfigurations = {
+        ambush = import ./hosts/ambush { inherit inputs globals overlays; };
+      };
 
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#mw
@@ -105,14 +105,19 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#mw
       homeConfigurations = {
-        #ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
+        ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
         mw = darwinConfigurations.mw.config.home-manager.users."christoph.herb".home;
       };
 
       # Programs that can be run by calling this flake
       #apps = forAllSystems (system:
-      #  let pkgs = import nixpkgs { inherit system overlays; };
-      #  in import ./apps { inherit pkgs; });
+      apps = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system overlays; };
+        in
+        import ./apps { inherit system inputs pkgs; }
+      );
 
       # Development environments
       devShells = forAllSystems (system:
