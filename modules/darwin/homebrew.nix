@@ -28,9 +28,6 @@
         "gdal"
       ];
       casks = [
-        # Development Tools
-        #"homebrew/cask/docker"
-
         # Communication Tools
         "notion"
 

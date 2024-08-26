@@ -4,6 +4,7 @@
   inputs = {
     # system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,8 +29,9 @@
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
+    # INFO: After the issue with + is fixed, we can switch back to main
     homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
+      url = "github:homebrew/homebrew-cask?rev=472bdbb3cee16209d8c6a3d32919abd00804eb17";
       flake = false;
     }; 
 
@@ -80,6 +82,7 @@
       # Common overlays
       overlays = [
         inputs.alacritty-theme.overlays.default
+        (import ./overlays/aws-sam-cli.nix inputs)
       ];
 
       # System types to support.

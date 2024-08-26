@@ -9,15 +9,16 @@
         colima
         docker-client
         docker-compose
-        kind
-        kubernetes-helm
+        kind # k8s in docker
+
+        # kubernetes
+        kubernetes-helm # helm
+        kubectl # k8s cli
+        kubectx # switch between k8s contexts
 
         # cloud cli tools
-        kubectl
         awscli2
         aws-sam-cli
-        devbox
-        kafkactl
 
         # terraform
         tenv # version manager for opentofu, terraform, terragrunt
