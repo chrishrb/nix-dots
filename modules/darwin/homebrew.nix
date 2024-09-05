@@ -43,6 +43,7 @@
         "bitwarden"
         "spotify"
         "logi-options-plus"
+        "keepassxc"
       ];
     };
 

@@ -40,6 +40,7 @@ inputs.darwin.lib.darwinSystem {
       ai.enable = true;
       discord.enable = true;
       latex.enable = true;
+      nixlang.enable = true;
     }
   ];
 }

@@ -25,6 +25,9 @@
         tflint
         trivy # security scanner
         infracost # cost estimation for terraform
+
+        # easier nix shell - but never as great
+        devbox
       ];
 
       programs.zsh = {

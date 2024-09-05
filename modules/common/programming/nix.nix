@@ -6,9 +6,6 @@
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [
         nixfmt-rfc-style # Nix file formatter
-
-        # easier nix shell - but never as great
-        devbox
       ];
     };
   };
