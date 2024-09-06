@@ -113,7 +113,6 @@
       };
 
       # Programs that can be run by calling this flake
-      #apps = forAllSystems (system:
       apps = forAllSystems (
         system:
         let
@@ -134,6 +133,7 @@
 
         });
 
+      # Checks for nvim health
       checks = forAllSystems (system: 
         let
           pkgs = import nixpkgs { inherit system overlays; };
@@ -153,6 +153,19 @@
             '';
         }
       );
+
+      # Templates for starting other projects quickly
+      templates = rec {
+        default = basic;
+        basic = {
+          path = ./templates/basic;
+          description = "Basic program template";
+        };
+        python = {
+          path = ./templates/python;
+          description = "Python template";
+        };
+      };
 
     };
 }
