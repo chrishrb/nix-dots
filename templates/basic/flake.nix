@@ -10,7 +10,7 @@
         pkgs = import nixpkgs { inherit system; };
       in
       {
-        packages.default = pkgs.mkDerivation {
+        packages.default = pkgs.stdenv.mkDerivation {
           name = "basic";
           src = self;
           # buildInputs = with pkgs; [];
