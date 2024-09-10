@@ -37,6 +37,8 @@
         '';
 
         shellAliases = {
+          dockerup = "colima start";
+
           tg = "terragrunt";
 
           ka = "kubectl apply -f";

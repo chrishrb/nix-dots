@@ -12,16 +12,11 @@ let
     (forEachSystem (
       system:
       let
-        dependencyOverlays = [
-          (utils.mergeOverlayLists inputs.nixCats.dependencyOverlays.${system} (
-            (import ./overlays inputs)
-            ++ [
-              (utils.standardPluginOverlay inputs)
-              # add any flake overlays here.
-              #inputs.neorg-overlay.overlays.default
-              # inputs.neovim-nightly-overlay.overlays.default
-            ]
-          ))
+        dependencyOverlays = (import ./overlays inputs) ++ [
+          (utils.standardPluginOverlay inputs)
+          # add any flake overlays here.
+          #inputs.neorg-overlay.overlays.default
+          # inputs.neovim-nightly-overlay.overlays.default
         ];
       in
       {
@@ -75,7 +70,7 @@ let
           nodePackages.typescript-language-server
           tailwindcss-language-server
           vue-language-server
-          nodePackages.eslint
+          eslint
           nodePackages.prettier
         ];
         java = with pkgs; [ jdt-language-server ];

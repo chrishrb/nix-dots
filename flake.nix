@@ -45,8 +45,7 @@
     talhelper.url = "github:budimanjojo/talhelper";
 
     # chrisNvim
-    nixCats.url = "github:chrishrb/nixCats-nvim";
-    nixCats.inputs.nixpkgs.follows = "nixpkgs";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     # plugins that are not in nixpkg
     gx-nvim = {
@@ -88,7 +87,7 @@
       # Common overlays
       overlays = [
         inputs.alacritty-theme.overlays.default
-        (import ./overlays/aws-sam-cli.nix inputs)
+        (import ./overlays/stable.nix inputs)
       ];
 
       # System types to support.
