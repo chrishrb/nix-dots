@@ -65,6 +65,12 @@
       url = "github:CopilotC-Nvim/CopilotChat.nvim";
       flake = false;
     };
+
+    # keyboard layout
+    macos-keyboard-layout-german-programming = {
+      url = "github:MickL/macos-keyboard-layout-german-programming";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, ... } @inputs:

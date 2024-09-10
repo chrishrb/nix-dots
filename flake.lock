@@ -300,6 +300,22 @@
         "type": "github"
       }
     },
+    "macos-keyboard-layout-german-programming": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1677322839,
+        "narHash": "sha256-TEosQFb1lpkgVLUQjBS5QPpQxwo0Te/mkKQyeKNO+V4=",
+        "owner": "MickL",
+        "repo": "macos-keyboard-layout-german-programming",
+        "rev": "f4009294bb6b2f45fa7975c9c8b3a32a72285843",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MickL",
+        "repo": "macos-keyboard-layout-german-programming",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -541,6 +557,7 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "mac-app-util": "mac-app-util",
+        "macos-keyboard-layout-german-programming": "macos-keyboard-layout-german-programming",
         "nix-homebrew": "nix-homebrew",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_5",

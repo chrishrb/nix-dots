@@ -28,7 +28,40 @@ nix \
 Once installed, you can continue to update the macOS configuration:
 
 ```bash
-nix run nix-darwin -- switch --flake ".#mw"
+nix run nix-darwin -- switch --flake "."
+# or
+darwin-rebuild switch --flake "."
 ```
 
-Manually install the [german programming keyboard](https://github.com/MickL/macos-keyboard-layout-german-programming).
+### Activate the [German Programming Keyboard](https://github.com/MickL/macos-keyboard-layout-german-programming):
+
+Open macOS System Settings -> Keyboard -> Text Input -> Edit -> click `+` -> click `Deutsch - Programmierung` -> click `Add`
+
+## Getting started on NixOS
+
+Boot your machine with a live usb-stick and run
+
+```bash
+nix 
+    --extra-experimental-features flakes \
+    --extra-experimental-features nix-command \
+    run "github:chrishrb/nix-dots#installer"
+```
+
+> [!CAUTION]
+> All disks are erased and NixOS is installed
+
+## Apps
+
+```bash
+# Show help
+nix run "github:chrishrb/nix-dots"
+```
+
+## Templates
+
+see [README.md](./templates)
+
+```bash
+nix flake init -t github:chrishrb/dotfiles#basic
+```

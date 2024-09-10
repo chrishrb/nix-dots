@@ -5,5 +5,6 @@
     ./system.nix
     ./user.nix
     ./trampoline.nix
+    ./keyboard.nix
   ];
 }
