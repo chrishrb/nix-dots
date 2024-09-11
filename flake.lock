@@ -68,22 +68,6 @@
         "type": "github"
       }
     },
-    "copilot-chat-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1725620013,
-        "narHash": "sha256-rQZfUy2dKppyBswPAtVjXNUiX4mPs8mATjROvDI0Ous=",
-        "owner": "CopilotC-Nvim",
-        "repo": "CopilotChat.nvim",
-        "rev": "9e7010bd33808e31d3f729b5e18a772d8e84f704",
-        "type": "github"
-      },
-      "original": {
-        "owner": "CopilotC-Nvim",
-        "repo": "CopilotChat.nvim",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -389,6 +373,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-avante": {
+      "locked": {
+        "lastModified": 1725911396,
+        "narHash": "sha256-IuP7DOnMqfputlSImsd8/HiSpc4OE0U1yfK13DZl2no=",
+        "owner": "ttrei",
+        "repo": "nixpkgs",
+        "rev": "5f07b177bf436029099f25a733c0a07b9faa1034",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ttrei",
+        "ref": "avante-nvim",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -563,7 +563,6 @@
     "root": {
       "inputs": {
         "alacritty-theme": "alacritty-theme",
-        "copilot-chat-nvim": "copilot-chat-nvim",
         "darwin": "darwin",
         "gx-nvim": "gx-nvim",
         "home-manager": "home-manager",
@@ -575,6 +574,7 @@
         "nix-homebrew": "nix-homebrew",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-avante": "nixpkgs-avante",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvim-nio": "nvim-nio",
         "nvim-tmux-navigation": "nvim-tmux-navigation",

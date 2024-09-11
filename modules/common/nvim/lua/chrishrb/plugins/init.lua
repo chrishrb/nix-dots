@@ -132,29 +132,6 @@ local plugins = {
     event = "InsertEnter",
   },
 
-  {
-    -- CopilotChat
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    enabled = nixCats("ai"),
-    dependencies = {
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-      },
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    config = function()
-      require("chrishrb.plugins.config.copilot")
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function ()
-      require("copilot_cmp").setup()
-    end
-  },
-
   -----------------------------------------------------------------------------
   -- Treesitter
   -----------------------------------------------------------------------------
@@ -246,6 +223,39 @@ local plugins = {
       }
     end,
     lazy = false,
+  },
+
+  -----------------------------------------------------------------------------
+  -- AI
+  -----------------------------------------------------------------------------
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    enabled = nixCats("ai"),
+    opts = require("chrishrb.plugins.config.avante"),
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+          },
+        },
+      },
+    },
   },
 
   -----------------------------------------------------------------------------
