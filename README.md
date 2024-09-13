@@ -37,6 +37,16 @@ darwin-rebuild switch --flake "."
 
 Open macOS System Settings -> Keyboard -> Text Input -> Edit -> click `+` -> click `Deutsch - Programmierung` -> click `Add`
 
+### Printer
+
+Manually add printer of your choice. Afterwards disable duplex with the following command:
+
+```bash
+# TODO: test if this works somehow, afterwards create nix module
+# sudo lpadmin -p epson_home -D "Epson Home Test" -E -v ipp://localhost/printers/EPSON_WF_C5790BA -m everywhere
+lpoptions -p EPSON_WF_C5790BA -o 'Duplex=None'
+```
+
 ## Getting started on NixOS
 
 Boot your machine with a live usb-stick and run
