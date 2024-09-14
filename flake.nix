@@ -108,6 +108,7 @@
       # darwin-rebuild switch --flake .#mw
       darwinConfigurations = {
         mw = import ./hosts/mw { inherit inputs globals overlays; };
+        macbook-christoph = import ./hosts/macbook-christoph { inherit inputs globals overlays; };
       };
 
       # For quickly applying home-manager settings with:
@@ -115,6 +116,7 @@
       homeConfigurations = {
         ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
         mw = darwinConfigurations.mw.config.home-manager.users."christoph.herb".home;
+        macbook-christoph = darwinConfigurations.mw.config.home-manager.users."christophherb".home;
       };
 
       # Programs that can be run by calling this flake
