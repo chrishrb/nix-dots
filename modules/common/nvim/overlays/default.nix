@@ -1,6 +1,11 @@
 inputs: _final: prev: {
   vimPlugins = prev.vimPlugins.extend (final': prev': {
-    avante-nvim = inputs.nixpkgs-avante.legacyPackages.${prev.system}.vimPlugins.avante-nvim;
+    # parrot ai
+    parrot-nvim = prev.vimUtils.buildVimPlugin {
+      pname = "parrot.nvim";
+      version = "2024-09-13";
+      src = inputs.parrot-nvim;
+    };
 
     # gx.nvim
     gx-nvim = prev.vimUtils.buildVimPlugin {

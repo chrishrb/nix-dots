@@ -93,8 +93,8 @@ let
           nvim-nio
         ];
         ai = with pkgs.vimPlugins; [
-          avante-nvim
-          img-clip-nvim
+          parrot-nvim
+          fzf-lua
         ];
         general = with pkgs.vimPlugins; {
           theme = builtins.getAttr packageDef.categories.colorscheme {

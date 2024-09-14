@@ -373,22 +373,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-avante": {
-      "locked": {
-        "lastModified": 1725911396,
-        "narHash": "sha256-IuP7DOnMqfputlSImsd8/HiSpc4OE0U1yfK13DZl2no=",
-        "owner": "ttrei",
-        "repo": "nixpkgs",
-        "rev": "5f07b177bf436029099f25a733c0a07b9faa1034",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ttrei",
-        "ref": "avante-nvim",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -560,6 +544,22 @@
         "type": "github"
       }
     },
+    "parrot-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726208571,
+        "narHash": "sha256-//hiiv1lbdTXPZ/FNgwym6BeiwyiKVapz1XpRUvSgfs=",
+        "owner": "frankroeder",
+        "repo": "parrot.nvim",
+        "rev": "e3156016084e95754f45fe31ecb1901940f5375f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "frankroeder",
+        "repo": "parrot.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "alacritty-theme": "alacritty-theme",
@@ -574,10 +574,10 @@
         "nix-homebrew": "nix-homebrew",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-avante": "nixpkgs-avante",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvim-nio": "nvim-nio",
         "nvim-tmux-navigation": "nvim-tmux-navigation",
+        "parrot-nvim": "parrot-nvim",
         "talhelper": "talhelper"
       }
     },

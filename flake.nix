@@ -6,9 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    # TODO: remove after merge
-    nixpkgs-avante.url = "github:ttrei/nixpkgs/avante-nvim";
-
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/master";
@@ -61,6 +58,10 @@
     };
     nvim-nio = {
       url = "github:nvim-neotest/nvim-nio";
+      flake = false;
+    };
+    parrot-nvim = {
+      url = "github:frankroeder/parrot.nvim";
       flake = false;
     };
 
