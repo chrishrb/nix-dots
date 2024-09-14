@@ -7,7 +7,7 @@ require("parrot").setup {
   -- values: popup / split / vsplit / tabnew
   toggle_target = "vsplit",
   -- use prompt buftype for chats (:h prompt-buffer)
-  chat_prompt_buf_type = false,
+  chat_prompt_buf_type = true,
   -- extra commands
   hooks = {
     Ask = function(prt, params)
@@ -21,7 +21,27 @@ require("parrot").setup {
         Question: {{command}}
       ]]
       local model_obj = prt.get_model("command")
-      prt.Prompt(params, prt.ui.Target.new, model_obj, "🤖 Ask ~ ", template)
+      prt.Prompt(params, prt.ui.Target.vnew, model_obj, "🤖 Ask ~ ", template)
+    end,
+    AskSelection = function(prt, params)
+      local template = [[
+        You are an expert in {{filetype}}.
+
+        In light of your existing knowledge base, please generate a response that
+        is succinct and directly addresses the question posed. Prioritize accuracy
+        and relevance in your answer, drawing upon the most recent information
+        available to you. Aim to deliver your response in a concise manner,
+        focusing on the essence of the inquiry.
+
+        Use the following context: 
+        ```{{filetype}}
+        {{selection}}
+        ```
+
+        Question: {{command}}
+      ]]
+      local model_obj = prt.get_model("command")
+      prt.Prompt(params, prt.ui.Target.vnew, model_obj, "🤖 Ask ~ ", template)
     end,
     Explain = function(prt, params)
       local template = [[
@@ -38,7 +58,7 @@ require("parrot").setup {
       ]]
       local model = prt.get_model "command"
       prt.logger.info("Explaining selection with model: " .. model.name)
-      prt.Prompt(params, prt.ui.Target.new, model, nil, template)
+      prt.Prompt(params, prt.ui.Target.vnew, model, nil, template)
     end,
     FixBugs = function(prt, params)
       local template = [[
@@ -59,7 +79,7 @@ require("parrot").setup {
       ]]
       local model_obj = prt.get_model "command"
       prt.logger.info("Fixing bugs in selection with model: " .. model_obj.name)
-      prt.Prompt(params, prt.ui.Target.new, model_obj, nil, template)
+      prt.Prompt(params, prt.ui.Target.vnew, model_obj, nil, template)
     end,
     Optimize = function(prt, params)
       local template = [[
@@ -80,7 +100,7 @@ require("parrot").setup {
       ]]
       local model_obj = prt.get_model "command"
       prt.logger.info("Optimizing selection with model: " .. model_obj.name)
-      prt.Prompt(params, prt.ui.Target.new, model_obj, nil, template)
+      prt.Prompt(params, prt.ui.Target.vnew, model_obj, nil, template)
     end,
     UnitTests = function(prt, params)
       local template = [[
@@ -217,14 +237,14 @@ which_key.add({
     {
       mode = { "v" },
       { "<leader>c", group = "Parrot (AI)", nowait = true, remap = false },
-      { "<leader>cc", "<cmd>'<,'>PrtAsk<CR>", desc = "Quick chat", nowait = true, remap = false },
-      { "<leader>ci", "<cmd>'<,'>PrtImplement<CR>", desc = "Generate code from comment", nowait = true, remap = false },
-      { "<leader>cr", "<cmd>'<,'>PrtRewrite<CR>", desc = "Rewrite code", nowait = true, remap = false },
-      { "<leader>ce", "<cmd>'<,'>PrtExplain<CR>", desc = "Explain code", nowait = true, remap = false },
-      { "<leader>cf", "<cmd>'<,'>PrtFixBugs<CR>", desc = "Fix bugs in selected code", nowait = true, remap = false },
-      { "<leader>co", "<cmd>'<,'>PrtOptimize<CR>", desc = "Optimize code", nowait = true, remap = false },
-      { "<leader>ct", "<cmd>'<,'>PrtUnitTests<CR>", desc = "Generate unittests", nowait = true, remap = false },
-      { "<leader>cD", "<cmd>'<,'>PrtDocstrings<CR>", desc = "Generate docstrings", nowait = true, remap = false },
+      { "<leader>cc", ":PrtAskSelection<CR>", desc = "Quick chat", nowait = true, remap = false },
+      { "<leader>ci", ":PrtImplement<CR>", desc = "Generate code from comment", nowait = true, remap = false },
+      { "<leader>cr", ":PrtRewrite<CR>", desc = "Rewrite code", nowait = true, remap = false },
+      { "<leader>ce", ":PrtExplain<CR>", desc = "Explain code", nowait = true, remap = false },
+      { "<leader>cf", ":PrtFixBugs<CR>", desc = "Fix bugs in selected code", nowait = true, remap = false },
+      { "<leader>co", ":PrtOptimize<CR>", desc = "Optimize code", nowait = true, remap = false },
+      { "<leader>ct", ":PrtUnitTests<CR>", desc = "Generate unittests", nowait = true, remap = false },
+      { "<leader>cD", ":PrtDocstrings<CR>", desc = "Generate docstrings", nowait = true, remap = false },
     },
   }
 })
