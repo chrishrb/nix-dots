@@ -60,8 +60,8 @@
       url = "github:nvim-neotest/nvim-nio";
       flake = false;
     };
-    copilot-chat-nvim = {
-      url = "github:CopilotC-Nvim/CopilotChat.nvim";
+    parrot-nvim = {
+      url = "github:frankroeder/parrot.nvim";
       flake = false;
     };
 

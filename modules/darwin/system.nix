@@ -14,6 +14,8 @@
   config = let screenshotDirectory = "${config.homePath}/screenshots";
     in lib.mkIf pkgs.stdenv.isDarwin {
 
+    system.stateVersion = 5;
+
     services.nix-daemon.enable = true;
 
     # This setting only applies to Darwin, different on NixOS

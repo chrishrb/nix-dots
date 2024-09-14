@@ -132,29 +132,6 @@ local plugins = {
     event = "InsertEnter",
   },
 
-  {
-    -- CopilotChat
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    enabled = nixCats("ai"),
-    dependencies = {
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-      },
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    config = function()
-      require("chrishrb.plugins.config.copilot")
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function ()
-      require("copilot_cmp").setup()
-    end
-  },
-
   -----------------------------------------------------------------------------
   -- Treesitter
   -----------------------------------------------------------------------------
@@ -246,6 +223,17 @@ local plugins = {
       }
     end,
     lazy = false,
+  },
+
+  -----------------------------------------------------------------------------
+  -- AI
+  -----------------------------------------------------------------------------
+
+  {
+    "frankroeder/parrot.nvim",
+    dependencies = { 'ibhagwan/fzf-lua', 'nvim-lua/plenary.nvim' },
+    -- optionally include "rcarriga/nvim-notify" for beautiful notifications
+    config = function() require("chrishrb.plugins.config.parrot") end,
   },
 
   -----------------------------------------------------------------------------

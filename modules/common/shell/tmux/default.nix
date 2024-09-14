@@ -97,8 +97,8 @@
         bind h previous-window
         unbind p
         unbind n
-        bind q confirm-before -p "kill-window #W? (y/n)" kill-window
-        bind Q confirm-before -p "kill-session #S? (y/n)" kill-session
+        bind q confirm-before -p "kill-pane #W? (y/n)" kill-pane
+        bind Q confirm-before -p "kill-window #W? (y/n)" kill-window
 
         # reorder tabs
         bind H swap-window -t -1\; select-window -t -1

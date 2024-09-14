@@ -6,5 +6,6 @@
     ./user.nix
     ./trampoline.nix
     ./keyboard.nix
+    ./ollama.nix
   ];
 }

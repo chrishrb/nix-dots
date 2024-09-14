@@ -12,8 +12,9 @@ let
     (forEachSystem (
       system:
       let
-        dependencyOverlays = (import ./overlays inputs) ++ [
+        dependencyOverlays =  [
           (utils.standardPluginOverlay inputs)
+          (import ./overlays inputs)
           # add any flake overlays here.
           #inputs.neorg-overlay.overlays.default
           # inputs.neovim-nightly-overlay.overlays.default
@@ -89,11 +90,11 @@ let
           nvim-dap
           nvim-dap-ui
           nvim-dap-virtual-text
-          pkgs.nixCatsBuilds.nvim-nio
+          nvim-nio
         ];
         ai = with pkgs.vimPlugins; [
-          copilot-lua
-          pkgs.nixCatsBuilds.copilot-chat-nvim
+          parrot-nvim
+          fzf-lua
         ];
         general = with pkgs.vimPlugins; {
           theme = builtins.getAttr packageDef.categories.colorscheme {
@@ -131,8 +132,6 @@ let
 
             cmp-under-comparator
             cmp-spell
-
-            copilot-cmp
           ];
           core = [
             plenary-nvim
@@ -154,7 +153,7 @@ let
             mkdir-nvim
             bigfile-nvim
           ];
-          custom = with pkgs.nixCatsBuilds; [
+          custom = with pkgs.vimPlugins; [
             nvim-tmux-navigation
             gx-nvim
           ];
