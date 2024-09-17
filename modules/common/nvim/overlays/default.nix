@@ -1,10 +1,20 @@
 inputs: _final: prev: {
   vimPlugins = prev.vimPlugins.extend (final': prev': {
-    # parrot ai
-    parrot-nvim = prev.vimUtils.buildVimPlugin {
-      pname = "parrot.nvim";
+    # codecompanion ai
+    codecompanion-nvim = prev.vimUtils.buildVimPlugin {
+      pname = "codecompanion.nvim";
+      version = "2024-09-16";
+      src = inputs.codecompanion-nvim;
+    };
+    dressing-nvim = prev.vimUtils.buildVimPlugin {
+      pname = "dressing.nvim";
       version = "2024-09-13";
-      src = inputs.parrot-nvim;
+      src = inputs.dressing-nvim;
+    };
+    mini-diff = prev.vimUtils.buildVimPlugin {
+      pname = "mini.diff";
+      version = "2024-09-13";
+      src = inputs.mini-diff;
     };
 
     # gx.nvim

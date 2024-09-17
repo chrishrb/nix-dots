@@ -60,8 +60,16 @@
       url = "github:nvim-neotest/nvim-nio";
       flake = false;
     };
-    parrot-nvim = {
-      url = "github:frankroeder/parrot.nvim";
+    codecompanion-nvim = {
+      url = "github:olimorris/codecompanion.nvim";
+      flake = false;
+    };
+    dressing-nvim = {
+      url = "github:stevearc/dressing.nvim";
+      flake = false;
+    };
+    mini-diff = {
+      url = "github:echasnovski/mini.diff";
       flake = false;
     };
 

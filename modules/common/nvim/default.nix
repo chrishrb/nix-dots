@@ -93,8 +93,10 @@ let
           nvim-nio
         ];
         ai = with pkgs.vimPlugins; [
-          parrot-nvim
-          fzf-lua
+          codecompanion-nvim
+          dressing-nvim
+          mini-diff
+          copilot-lua
         ];
         general = with pkgs.vimPlugins; {
           theme = builtins.getAttr packageDef.categories.colorscheme {

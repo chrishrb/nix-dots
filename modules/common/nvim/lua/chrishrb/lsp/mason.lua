@@ -53,7 +53,7 @@ if nixCats("php") then
 end
 
 if nixCats("web") then
-	servers[#servers + 1] = "tsserver"
+	servers[#servers + 1] = "ts_ls"
 	servers[#servers + 1] = "tailwindcss"
 	servers[#servers + 1] = "volar"
 end

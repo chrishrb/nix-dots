@@ -228,12 +228,27 @@ local plugins = {
   -----------------------------------------------------------------------------
   -- AI
   -----------------------------------------------------------------------------
-
   {
-    "frankroeder/parrot.nvim",
-    dependencies = { 'ibhagwan/fzf-lua', 'nvim-lua/plenary.nvim' },
-    -- optionally include "rcarriga/nvim-notify" for beautiful notifications
-    config = function() require("chrishrb.plugins.config.parrot") end,
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+      "echasnovski/mini.diff",
+      {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        config = function ()
+          require("copilot").setup({})
+        end
+      },
+      {
+        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
+        opts = {},
+      },
+      "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+    },
+    config = function() require("chrishrb.plugins.config.codecompanion") end,
   },
 
   -----------------------------------------------------------------------------

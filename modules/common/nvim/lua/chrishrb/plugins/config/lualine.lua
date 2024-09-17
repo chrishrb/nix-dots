@@ -122,6 +122,12 @@ local lsp = {
 	color = { bg = "#f38ba8", fg = "#1e1e2e" },
 }
 
+local codecompanion = {
+  require('chrishrb.plugins.config.codecompanion-lualine'),
+	color = { bg = "#b4befe", fg = "#313244" },
+	separator = { left = icons.ui.HalfCircleLeft },
+}
+
 require('lualine').setup {
 
 	options = {
@@ -165,6 +171,7 @@ require('lualine').setup {
 			space,
 		},
 		lualine_y = {
+      codecompanion,
 			encoding,
 			fileformat,
 			space,
