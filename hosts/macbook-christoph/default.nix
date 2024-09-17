@@ -25,6 +25,7 @@ inputs.darwin.lib.darwinSystem {
       gui.enable = true;
 
       # Programs and services
+      colima.enable = true;
       alacritty.enable = true;
       chrisNvim.enable = true;
       dotfiles.enable = true;

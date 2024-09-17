@@ -5,12 +5,6 @@
   config = lib.mkIf config.devops.enable {
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [
-        # docker desktop drop in replacement
-        colima
-        docker-client
-        docker-compose
-        kind # k8s in docker
-
         # kubernetes
         kubernetes-helm # helm
         kubectl # k8s cli

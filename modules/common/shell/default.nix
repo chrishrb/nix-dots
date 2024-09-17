@@ -2,6 +2,7 @@
   imports = [
     ./zsh
     ./tmux
+    ./colima
     ./direnv.nix
     ./fzf.nix
     ./git.nix
