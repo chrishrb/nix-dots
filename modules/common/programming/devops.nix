@@ -9,6 +9,15 @@
         kubernetes-helm # helm
         kubectl # k8s cli
         kubectx # switch between k8s contexts
+        fluxcd
+
+        # talos tools
+        talosctl
+        talhelper
+
+        # manage secrets
+        sops
+        age
 
         # cloud cli tools
         awscli2
@@ -22,6 +31,7 @@
 
         # easier nix shell - but never as great
         devbox
+
       ];
 
       programs.zsh = {

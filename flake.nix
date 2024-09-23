@@ -96,6 +96,7 @@
       overlays = [
         inputs.alacritty-theme.overlays.default
         (import ./overlays/stable.nix inputs)
+        (import ./overlays/talhelper.nix inputs)
       ];
 
       # System types to support.

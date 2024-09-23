@@ -43,6 +43,7 @@
         "spotify"
         "logi-options-plus"
         "keepassxc"
+        "notunes" # disable autolaunch of music app
       ];
     };
 
