@@ -88,7 +88,7 @@
         gitName = fullName;
         gitEmail = "52382992+chrishrb@users.noreply.github.com";
         gitWorkEmail = "christoph.herb@maibornwolff.de";
-        dotfilesRepo = "https://github.com/chrishrb/nix-dots";
+        dotfilesRepo = "git@github.com:chrishrb/nix-dots.git";
       };
 
       # Common overlays
