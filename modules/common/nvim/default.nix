@@ -92,18 +92,14 @@ let
           nvim-dap-virtual-text
           nvim-nio
         ];
-        ai = with pkgs.vimPlugins; [
-          codecompanion-nvim
-          dressing-nvim
-          mini-diff
-          copilot-lua
-        ];
         general = with pkgs.vimPlugins; {
-          theme = builtins.getAttr packageDef.categories.colorscheme {
-            # Theme switcher without creating a new category
-            "catppuccin" = catppuccin-nvim;
-            # "tokyonight" = tokyonight-nvim;
-          };
+          theme = catppuccin-nvim;
+          ai = [
+            codecompanion-nvim
+            dressing-nvim
+            mini-diff
+            copilot-lua
+          ];
           look = [
             lualine-nvim
             tabline-nvim
@@ -265,29 +261,26 @@ let
           java = true;
           javaExtras = extraJavaItems pkgs;
           devops = true;
-          ai = true;
           latex = false;
           php = false;
+          aiAdapter = "copilot";
 
           # this does not have an associated category of plugins, 
           # but lua can still check for it
           lspDebugMode = false;
-
-          # you could also pass something else:
-          colorscheme = "catppuccin";
         };
       };
-    chrisNvimNoAI =
+    chrisNvimLocalAI =
       { pkgs, ... }:
       {
         # see :help nixCats.flake.outputs.settings
         settings = {
           # will check for config in the store rather than .config
           wrapRc = true;
-          configDirName = "chrishrb-nvim-no-ai";
+          configDirName = "chrishrb-nvim-local-ai";
           aliases = [
-            "vim-no-ai"
-            "v-no-ai"
+            "viml"
+            "vl"
           ];
           # caution: this option must be the same for all packages.
           # nvimSRC = inputs.neovim;
@@ -306,16 +299,13 @@ let
           java = true;
           javaExtras = extraJavaItems pkgs;
           devops = true;
-          ai = false;
           latex = false;
           php = false;
+          aiAdapter = "ollama";
 
           # this does not have an associated category of plugins, 
           # but lua can still check for it
           lspDebugMode = false;
-
-          # you could also pass something else:
-          colorscheme = "catppuccin";
         };
       };
   };

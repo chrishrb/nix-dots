@@ -1,3 +1,8 @@
+local adapter = nixCats("aiAdapter")
+if not adapter then
+  return
+end
+
 require("dressing").setup({
   input = {
     enabled = false
@@ -15,13 +20,13 @@ require("codecompanion").setup({
   },
   strategies = {
     chat = {
-      adapter = "copilot",
+      adapter = adapter,
     },
     inline = {
-      adapter = "copilot",
+      adapter = adapter,
     },
     agent = {
-      adapter = "copilot",
+      adapter = adapter,
     },
   },
 })
@@ -30,14 +35,14 @@ require("codecompanion").setup({
 local which_key = require("which-key")
 which_key.add({
   {
-    { "<leader>c", group = "CodeCompanion (AI)", nowait = true, remap = false },
+    { "<leader>c", group = "CodeCompanion (" .. adapter .. ")", nowait = true, remap = false },
     { "<leader>cc", "<cmd>CodeCompanion<CR>", desc = "Quick chat", nowait = true, remap = false },
     { "<leader>ca", "<cmd>CodeCompanionActions<CR>", desc = "Actions", nowait = true, remap = false },
     { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "New Chat", nowait = true, remap = false },
     { "<leader>ct", "<cmd>CodeCompanionToggle<CR>", desc = "Toggle chat", nowait = true, remap = false },
     {
       mode = { "v" },
-      { "<leader>c", group = "CodeCompanion (AI)", nowait = true, remap = false },
+      { "<leader>c", group = "CodeCompanion (" .. adapter .. ")", nowait = true, remap = false },
       { "<leader>cc", ":CodeCompanion<CR>", desc = "Quick chat", nowait = true, remap = false },
       { "<leader>ca", ":CodeCompanionActions<CR>", desc = "Actions", nowait = true, remap = false },
     },

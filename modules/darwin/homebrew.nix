@@ -41,7 +41,7 @@
         # other
         "bitwarden"
         "spotify"
-        "logi-options-plus"
+        "logi-options+"
         "keepassxc"
         "notunes" # disable autolaunch of music app
       ];

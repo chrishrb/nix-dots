@@ -121,6 +121,7 @@
           ApplePressAndHoldEnabled = false; # enable press and hold
           AppleFontSmoothing = 1; # enable font smoothing
           AppleShowScrollBars = "Always"; # always show scroll bars
+          AppleEnableSwipeNavigateWithScrolls = true; # enable swipe left on trackpad
 
           # If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.
           # This is very useful for vim users, they use `hjkl` to move cursor.

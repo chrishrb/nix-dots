@@ -19,7 +19,7 @@
 
     # homebrew
     nix-homebrew = {
-      url = "github:zhaofengli-wip/nix-homebrew";
+      url = "github:chrishrb/nix-homebrew/update-brew-4.3.24";
     };
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
@@ -29,9 +29,8 @@
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
-    # INFO: After the issue with + is fixed, we can switch back to main
     homebrew-cask = {
-      url = "github:homebrew/homebrew-cask?rev=472bdbb3cee16209d8c6a3d32919abd00804eb17";
+      url = "github:homebrew/homebrew-cask";
       flake = false;
     }; 
 
