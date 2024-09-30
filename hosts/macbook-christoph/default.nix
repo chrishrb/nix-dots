@@ -1,5 +1,5 @@
-# The mw config
-# System configuration for my work macbook
+# The macbook-christoph config
+# System configuration for my personal macbook
 
 { inputs, globals, overlays, ... }:
 
