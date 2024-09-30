@@ -71,11 +71,11 @@
     "codecompanion-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1727385424,
-        "narHash": "sha256-e0q06levf9y14lUzK9xiMFYGNslIbo7RD341NA8AoQM=",
+        "lastModified": 1727688456,
+        "narHash": "sha256-/DX29DX1FLiKhzGaC3WtiiGrlHbh9SkJgUu5PXQ+UfA=",
         "owner": "olimorris",
         "repo": "codecompanion.nvim",
-        "rev": "00199ce1d87f1c5d3d04afe91d9a60c137927a34",
+        "rev": "7d0208511a97dc7e015b145afd2246175aba3f24",
         "type": "github"
       },
       "original": {
@@ -91,11 +91,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727507295,
-        "narHash": "sha256-I/FrX1peu4URoj5T5odfuKR2rm4GjYJJpCGF9c0/lDA=",
+        "lastModified": 1727604521,
+        "narHash": "sha256-dJM7gi63/Z80Ti3SWdOYbe8E3xKugG+iBBWmbtlyI4w=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "f2e1c4aa29fc211947c3a7113cba1dd707433b70",
+        "rev": "4b43b68281fd1a332c2aec8fbc077d92ca352c3e",
         "type": "github"
       },
       "original": {
@@ -249,11 +249,11 @@
     "homebrew-bundle": {
       "flake": false,
       "locked": {
-        "lastModified": 1727436424,
-        "narHash": "sha256-aUt8/ohACPc1hlvM5kYN9y2gsqeiQFHX/a2qPWntI5c=",
+        "lastModified": 1727681583,
+        "narHash": "sha256-Tc1FWlJRqiVcyl3TYjhyXr8bHw8pOrSC+UU2/bfxyOc=",
         "owner": "homebrew",
         "repo": "homebrew-bundle",
-        "rev": "5fe8e86642f7a5c1094c59d705de8dc3fcdeafac",
+        "rev": "849bcf9592252568c9acae72cb49f84706820184",
         "type": "github"
       },
       "original": {
@@ -265,11 +265,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1727453560,
-        "narHash": "sha256-wNPLesxOGtNJTiyB5xUcPKA8uEyBh2seR4d4OwiqKIo=",
+        "lastModified": 1727694114,
+        "narHash": "sha256-Su6UCTvVQ/7S83/wH36hC8H2Lhy08sCdCIeCSHAzEAY=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "00986b838ff58247eeaffc1d5f3e48c9a03065bf",
+        "rev": "89dcd641b2019637f8b559de10a517369c5480c6",
         "type": "github"
       },
       "original": {
@@ -281,11 +281,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1727448237,
-        "narHash": "sha256-Jbp1fNurGmnAG4U3a9d2KGBc0AXtjUpwdIFYjRkHjP8=",
+        "lastModified": 1727690218,
+        "narHash": "sha256-LHaZPjFeFpmqAPzIO4zypkVzST9nwrRMj22+yOHjpo0=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "9f47354e6807bd3d0156729af23e9971c43b54c2",
+        "rev": "f573d213123902be74340ec16c64ce3c427ff52a",
         "type": "github"
       },
       "original": {
@@ -453,11 +453,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1727264057,
-        "narHash": "sha256-KQPI8CTTnB9CrJ7LrmLC4VWbKZfljEPBXOFGZFRpxao=",
+        "lastModified": 1727540905,
+        "narHash": "sha256-40J9tW7Y794J7Uw4GwcAKlMxlX2xISBl6IBigo83ih8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "759537f06e6999e141588ff1c9be7f3a5c060106",
+        "rev": "fbca5e745367ae7632731639de5c21f29c8744ed",
         "type": "github"
       },
       "original": {
@@ -530,11 +530,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1727122398,
-        "narHash": "sha256-o8VBeCWHBxGd4kVMceIayf5GApqTavJbTa44Xcg5Rrk=",
+        "lastModified": 1727348695,
+        "narHash": "sha256-J+PeFKSDV+pHL7ukkfpVzCOO7mBSrrpJ3svwBFABbhI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "30439d93eb8b19861ccbe3e581abf97bdc91b093",
+        "rev": "1925c603f17fc89f4c8f6bf6f631a802ad85d784",
         "type": "github"
       },
       "original": {
@@ -651,11 +651,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1727399663,
-        "narHash": "sha256-tVuJgq7nslhfLSE6hDc4bLfETAiUL/Tdt8slFjA6yx4=",
+        "lastModified": 1727692402,
+        "narHash": "sha256-gKrFgL7Y0X2GDg2HIoYKav8E3MVHS4CsgDVy++evJw4=",
         "owner": "budimanjojo",
         "repo": "talhelper",
-        "rev": "a032c0c7bbfe2aa43f6a018ec7ffdfc6846c2352",
+        "rev": "5534ee9dce197d3276f01c4a78d2324f0c0d1d46",
         "type": "github"
       },
       "original": {
