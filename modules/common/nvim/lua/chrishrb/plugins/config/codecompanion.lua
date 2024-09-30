@@ -39,7 +39,7 @@ which_key.add({
     { "<leader>cc", "<cmd>CodeCompanion<CR>", desc = "Quick chat", nowait = true, remap = false },
     { "<leader>ca", "<cmd>CodeCompanionActions<CR>", desc = "Actions", nowait = true, remap = false },
     { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "New Chat", nowait = true, remap = false },
-    { "<leader>ct", "<cmd>CodeCompanionToggle<CR>", desc = "Toggle chat", nowait = true, remap = false },
+    { "<leader>ct", "<cmd>CodeCompanionChat Toggle<CR>", desc = "Toggle chat", nowait = true, remap = false },
     {
       mode = { "v" },
       { "<leader>c", group = "CodeCompanion (" .. adapter .. ")", nowait = true, remap = false },
