@@ -87,7 +87,7 @@
         fullName = "Christoph Herb";
         gitName = fullName;
         gitEmail = "52382992+chrishrb@users.noreply.github.com";
-        gitWorkEmail = "christoph.herb@maibornwolff.de";
+        gitWorkEmail = "c.herb@chargecloud.de";
         dotfilesRepo = "git@github.com:chrishrb/nix-dots.git";
       };
 
@@ -113,18 +113,18 @@
       };
 
       # Contains my full Mac system builds, including home-manager
-      # darwin-rebuild switch --flake .#mw
+      # darwin-rebuild switch --flake .#cc
       darwinConfigurations = {
-        mw = import ./hosts/mw { inherit inputs globals overlays; };
+        mb-pro-cc = import ./hosts/mb-pro-cc { inherit inputs globals overlays; };
         macbook-christoph = import ./hosts/macbook-christoph { inherit inputs globals overlays; };
       };
 
       # For quickly applying home-manager settings with:
-      # home-manager switch --flake .#mw
+      # home-manager switch --flake .#cc
       homeConfigurations = {
         ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
-        mw = darwinConfigurations.mw.config.home-manager.users."christoph.herb".home;
-        macbook-christoph = darwinConfigurations.mw.config.home-manager.users."christophherb".home;
+        mb-pro-cc = darwinConfigurations.mb-pro-cc.config.home-manager.users."christophherb".home;
+        macbook-christoph = darwinConfigurations.cc.config.home-manager.users."christophherb".home;
       };
 
       # Programs that can be run by calling this flake

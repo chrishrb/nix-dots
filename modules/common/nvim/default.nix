@@ -270,44 +270,6 @@ let
           lspDebugMode = false;
         };
       };
-    chrisNvimLocalAI =
-      { pkgs, ... }:
-      {
-        # see :help nixCats.flake.outputs.settings
-        settings = {
-          # will check for config in the store rather than .config
-          wrapRc = true;
-          configDirName = "chrishrb-nvim-local-ai";
-          aliases = [
-            "viml"
-            "vl"
-          ];
-          # caution: this option must be the same for all packages.
-          # nvimSRC = inputs.neovim;
-        };
-        # see :help nixCats.flake.outputs.packageDefinitions
-        categories = {
-          lazy = true;
-          generalBuildInputs = true;
-          general = true;
-          debug = true;
-
-          # languages
-          go = true;
-          python = true;
-          web = true;
-          java = true;
-          javaExtras = extraJavaItems pkgs;
-          devops = true;
-          latex = false;
-          php = false;
-          aiAdapter = "ollama";
-
-          # this does not have an associated category of plugins, 
-          # but lua can still check for it
-          lspDebugMode = false;
-        };
-      };
   };
 
   # In this section, the main thing you will need to do is change the default package name

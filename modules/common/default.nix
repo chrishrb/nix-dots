@@ -32,6 +32,12 @@
         default = false;
       };
     };
+    work = {
+      enable = lib.mkEnableOption {
+        description = "Enable work specific brews/casks etc.";
+        default = false;
+      };
+    };
     homePath = lib.mkOption {
       type = lib.types.path;
       description = "Path of user's home directory.";

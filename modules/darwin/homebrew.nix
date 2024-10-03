@@ -35,15 +35,17 @@
         "tiles"
         "skim" # open pdfs
 
-        # Browsers
-        #"google-chrome"
-
         # other
         "bitwarden"
         "spotify"
         "logi-options+"
         "keepassxc"
         "notunes" # disable autolaunch of music app
+
+      ] ++ lib.optionals config.work.enable [
+
+        "tunnelblick"
+        "microsoft-teams"
       ];
     };
 

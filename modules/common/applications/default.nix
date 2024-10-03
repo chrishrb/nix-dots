@@ -6,5 +6,6 @@
     ./chrome.nix
     ./discord.nix
     ./drawio.nix
+    ./zoom.nix
   ];
 }

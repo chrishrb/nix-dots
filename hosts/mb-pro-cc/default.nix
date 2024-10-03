@@ -10,7 +10,7 @@ inputs.darwin.lib.darwinSystem {
     ../../modules/common
     ../../modules/darwin
     (globals // {
-      user = "christoph.herb";
+      user = "christophherb";
     })
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
@@ -19,28 +19,31 @@ inputs.darwin.lib.darwinSystem {
       nixpkgs.overlays = overlays;
 
       # Darwin specific
-      networking.hostName = "MB-GDWLXJMCPF";
+      networking.hostName = "mb-pro-cc";
 
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;
+      work.enable = true;
 
       # Programs and services
       colima.enable = true;
       alacritty.enable = true;
       chrisNvim.enable = true;
-      dotfiles.enable = true;
-      drawio.enable = true;
+      dotfiles.enable = false;
+      drawio.enable = false;
+      chrome.enable = true;
+      zoom.enable = true;
 
       # languaages
       python.enable = true;
       lua.enable = true;
       devops.enable = true;
-      go.enable = true;
-      java.enable = true;
+      go.enable = false;
+      java.enable = false;
       web.enable = true;
       ai.enable = true;
-      discord.enable = true;
-      latex.enable = true;
+      discord.enable = false;
+      latex.enable = false;
       nixlang.enable = true;
     }
   ];

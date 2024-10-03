@@ -238,6 +238,7 @@ local plugins = {
       {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
+        enabled = nixCats("aiAdapter") == "copilot",
         config = function ()
           require("copilot").setup({})
         end
