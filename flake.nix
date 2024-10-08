@@ -77,6 +77,11 @@
       url = "github:MickL/macos-keyboard-layout-german-programming";
       flake = false;
     };
+
+    # cli tool for automatically creating commit messages
+    ai-commit = {
+      url = "github:chrishrb/ai-commit";
+    };
   };
 
   outputs = { nixpkgs, ... } @inputs:
@@ -96,6 +101,7 @@
         inputs.alacritty-theme.overlays.default
         (import ./overlays/stable.nix inputs)
         (import ./overlays/talhelper.nix inputs)
+        (import ./overlays/ai-commit.nix inputs)
       ];
 
       # System types to support.
