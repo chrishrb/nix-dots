@@ -43,6 +43,7 @@ inputs.darwin.lib.darwinSystem {
       discord.enable = true;
       latex.enable = false;
       nixlang.enable = true;
+      flutter.enable = true;
     }
   ];
 }

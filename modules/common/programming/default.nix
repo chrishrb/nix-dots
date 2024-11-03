@@ -10,5 +10,6 @@
     ./ai.nix
     ./latex.nix
     ./php.nix
+    ./flutter.nix
   ];
 }

@@ -86,6 +86,15 @@ local plugins = {
     config = true,
     event = "BufEnter",
   },
+  {
+    'nvim-flutter/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = true,
+    enabled = nixCats("flutter"),
+  },
 
   -----------------------------------------------------------------------------
   -- DAP (Debugger)

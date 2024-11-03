@@ -11,10 +11,6 @@
         docker-compose
         kind # k8s in docker
       ];
-
-      home.file."./.colima/default/colima.yaml" = {
-        source = ./colima.yaml;
-      };
     };
   };
 }

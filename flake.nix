@@ -71,6 +71,10 @@
       url = "github:echasnovski/mini.diff";
       flake = false;
     };
+    flutter-tools-nvim = {
+      url = "github:nvim-flutter/flutter-tools.nvim";
+      flake = false;
+    };
 
     # keyboard layout
     macos-keyboard-layout-german-programming = {

@@ -101,7 +101,7 @@
           }
         ];
         hooks = {
-          prepare-commit-msg = pkgs.writeText "prepare-commit-msg"
+          prepare-commit-msg = pkgs.writeScript "prepare-commit-msg"
             ''
             #!/bin/bash
 

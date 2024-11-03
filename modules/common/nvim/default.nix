@@ -92,6 +92,7 @@ let
           nvim-dap-virtual-text
           nvim-nio
         ];
+        flutter = with pkgs.vimPlugins; [ flutter-tools-nvim ];
         general = with pkgs.vimPlugins; {
           theme = catppuccin-nvim;
           ai = [
@@ -263,6 +264,7 @@ let
           devops = true;
           latex = false;
           php = false;
+          flutter = true;
           aiAdapter = "copilot";
 
           # this does not have an associated category of plugins, 
