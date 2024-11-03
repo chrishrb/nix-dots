@@ -15,7 +15,7 @@
       programs.alacritty = {
         enable = true;
         settings = {
-          import = [
+          general.import = [
             pkgs.alacritty-theme.catppuccin_mocha
           ];
 

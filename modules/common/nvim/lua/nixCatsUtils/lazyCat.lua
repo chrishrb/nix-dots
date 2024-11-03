@@ -65,7 +65,7 @@ function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
 
     local grammarDir = require('nixCats').pawsible.allPlugins.ts_grammar_plugin
     local myNeovimPackages = vim.g[ [[nixCats-special-rtp-entry-vimPackDir]] ] .. "/pack/myNeovimPackages"
-    local nixCatsConfigDir = require('nixCats').get([[nixCats_store_config_location]])
+    local nixCatsConfigDir = require('nixCats').get([[nixCats_config_location]])
 
     lazypath = nixLazyPath
     if lazypath == nil then

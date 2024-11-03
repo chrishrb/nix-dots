@@ -36,6 +36,7 @@
         set -ag terminal-overrides ",xterm-256color:RGB"
         set -g pane-base-index 1
         set -g status-justify left
+        set -g default-command '$SHELL'
 
         # don't rename windows automatically
         set-option -g allow-rename off

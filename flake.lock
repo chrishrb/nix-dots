@@ -249,11 +249,11 @@
     "flutter-tools-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1728624414,
-        "narHash": "sha256-GS6k8J31rYBycVUqbVH3W+G1hnx727hL2OJnirCejvg=",
+        "lastModified": 1730275333,
+        "narHash": "sha256-fKsC+ouSfW07dLipXP+RPMzQfCQ70oGknSdVo7dMAxw=",
         "owner": "nvim-flutter",
         "repo": "flutter-tools.nvim",
-        "rev": "6bf887bb9442b80a67f36e7465a66de4202d8a3f",
+        "rev": "7e6d8611d8606efca64cb8cf1ca07550b7087d1c",
         "type": "github"
       },
       "original": {
