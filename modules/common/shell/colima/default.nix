@@ -11,6 +11,12 @@
         docker-compose
         kind # k8s in docker
       ];
+
+      # TODO: fix this
+      #home.file."./.colima/default/colima.yaml" = {
+      #  source = ./colima.yaml;
+        # onChange = ''cat ~/.colima/default/colima.yaml > ~/.colima/default/colima.yaml'';
+      #};
     };
   };
 }

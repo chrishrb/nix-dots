@@ -42,6 +42,9 @@
         initExtra = ''
           # Set up completions for terragrunt
           complete -o nospace -C ${pkgs.tenv}/bin/terragrunt -C ${pkgs.tenv}/bin/terraform terragrunt
+
+          # completions for awslocal
+          complete -C '${pkgs.awscli2}/bin/aws_completer' awslocal
         '';
 
         shellAliases = {
@@ -51,6 +54,7 @@
 
           ka = "kubectl apply -f";
           kd = "kubectl --dry-run=client -o yaml";
+          awslocal = "aws --endpoint-url=http://localhost:4566";
         };
       };
     };
