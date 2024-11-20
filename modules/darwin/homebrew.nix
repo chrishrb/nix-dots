@@ -10,6 +10,7 @@
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
         "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+        "emqx/homebrew-mqttx" = inputs.homebrew-mqttx;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -24,7 +25,7 @@
         upgrade = true;
       };
       brews = [
-        #"grip" # open readme files
+        "emqx/mqttx/mqttx-cli"
       ];
       casks = [
         # Communication Tools
