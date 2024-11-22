@@ -28,13 +28,13 @@ in
           enable = config.chrisNvim.enable;
           packageNames = [ "chrisNvim" ];
         
-          packages = {
-            chrisNvim = utils.mergeCatDefs packageDefinitions.chrisNvim ({ pkgs, ... }: {
-              categories = {
-                aiAdapter = if (config.work.enable) then "ollama" else "copilot";
-              };
-            });
-          };
+          # packages = {
+          #   chrisNvim = utils.mergeCatDefs packageDefinitions.chrisNvim ({ pkgs, ... }: {
+          #     categories = {
+          #       aiAdapter = if (config.work.enable) then "ollama" else "copilot";
+          #     };
+          #   });
+          # };
         });
       };
   };

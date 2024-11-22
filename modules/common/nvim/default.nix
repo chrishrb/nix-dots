@@ -17,7 +17,7 @@ let
           (import ./overlays inputs)
           # add any flake overlays here.
           #inputs.neorg-overlay.overlays.default
-          # inputs.neovim-nightly-overlay.overlays.default
+        #inputs.neovim-nightly-overlay.overlays.default
         ];
       in
       {
@@ -66,7 +66,7 @@ let
           gopls
           delve
         ];
-        python = with pkgs.python311Packages; [ python-lsp-server ];
+        python = with pkgs.python312Packages; [ python-lsp-server ];
         web = with pkgs; [
           nodePackages.typescript-language-server
           tailwindcss-language-server

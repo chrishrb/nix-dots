@@ -29,7 +29,7 @@ in {
         ripgrep # grep
         tree # View directory hierarchy
         unzip # Extract zips
-        ghostscript # edit pdfs
+        # ghostscript # edit pdfs
         ffmpeg
         imagemagick # edit images
         plantuml # UML diagrams

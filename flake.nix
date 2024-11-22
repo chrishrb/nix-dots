@@ -5,6 +5,7 @@
     # system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-ghostscript.url = "github:carlocab/nixpkgs/fix-ghostscript";
 
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +49,7 @@
     talhelper.url = "github:budimanjojo/talhelper";
 
     # chrisNvim
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim/v5.6.5";
 
     # plugins that are not in nixpkg
     gx-nvim = {

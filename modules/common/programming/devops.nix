@@ -21,7 +21,7 @@
 
         # cloud cli tools
         awscli2
-        aws-sam-cli
+        # aws-sam-cli
 
         # terraform
         tenv # version manager for opentofu, terraform, terragrunt
