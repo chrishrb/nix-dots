@@ -3,6 +3,7 @@
   options.devops.enable = lib.mkEnableOption "DevOps tools.";
 
   config = lib.mkIf config.devops.enable {
+    unfreePackages = [ "ngrok" "postman" ];
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [
         # kubernetes
@@ -32,6 +33,9 @@
         # easier nix shell - but never as great
         devbox
 
+        # expose local webservers to internet
+        ngrok
+        postman
       ];
 
       programs.zsh = {
