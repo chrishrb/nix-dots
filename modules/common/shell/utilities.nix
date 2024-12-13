@@ -36,6 +36,7 @@ in {
         s3cmd # client for getting data from an s3 bucket
         unixtools.watch # watch cmd
         go-task # task runner (similar to make)
+        go-grip # preview md files
       ];
 
       home.file = {

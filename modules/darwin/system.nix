@@ -69,7 +69,7 @@
           mineffect = "scale"; # Change minimize/maximize window effect
           enable-spring-load-actions-on-all-items = true; # Enable spring loading for all Dock items
           expose-animation-duration = 0.1; # Speed up Mission Control animations
-          expose-group-by-app = false; # Do not group windows by application in Mission Control
+          expose-group-apps = false; # Do not group windows by application in Mission Control
           autohide = true; # automatically hide and show the dock
           autohide-time-modifier = 0.0; # Remove the auto-hiding Dock delay
           autohide-delay = 0.0; # Remove the auto-hiding Dock delay
@@ -216,7 +216,7 @@
 
     # Fonts
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = ["JetBrainsMono"]; })
+      nerd-fonts.jetbrains-mono
     ];
   };
 }

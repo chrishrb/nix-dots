@@ -4,8 +4,7 @@
   inputs = {
     # system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-ghostscript.url = "github:carlocab/nixpkgs/fix-ghostscript";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -91,6 +90,9 @@
     ai-commit = {
       url = "github:chrishrb/ai-commit";
     };
+    go-grip = {
+      url = "github:chrishrb/go-grip";
+    };
   };
 
   outputs = { nixpkgs, ... } @inputs:
@@ -110,7 +112,7 @@
         inputs.alacritty-theme.overlays.default
         (import ./overlays/stable.nix inputs)
         (import ./overlays/talhelper.nix inputs)
-        (import ./overlays/ai-commit.nix inputs)
+        (import ./overlays/personal.nix inputs)
       ];
 
       # System types to support.
