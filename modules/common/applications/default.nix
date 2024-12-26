@@ -7,5 +7,6 @@
     ./discord.nix
     ./drawio.nix
     ./zoom.nix
+    ./utm.nix
   ];
 }

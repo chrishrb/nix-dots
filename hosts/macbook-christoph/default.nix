@@ -31,6 +31,7 @@ inputs.darwin.lib.darwinSystem {
       dotfiles.enable = true;
       drawio.enable = true;
       chrome.enable = true;
+      utm.enable = true;
 
       # languaages
       python.enable = true;
