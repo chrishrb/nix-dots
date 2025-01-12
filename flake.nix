@@ -51,10 +51,6 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim/v5.6.5";
 
     # plugins that are not in nixpkg
-    gx-nvim = {
-      url = "github:chrishrb/gx.nvim";
-      flake = false;
-    };
     nvim-tmux-navigation = {
       url = "github:alexghergh/nvim-tmux-navigation";
       flake = false;
@@ -65,14 +61,6 @@
     };
     codecompanion-nvim = {
       url = "github:olimorris/codecompanion.nvim";
-      flake = false;
-    };
-    dressing-nvim = {
-      url = "github:stevearc/dressing.nvim";
-      flake = false;
-    };
-    mini-diff = {
-      url = "github:echasnovski/mini.diff";
       flake = false;
     };
     flutter-tools-nvim = {
@@ -125,9 +113,9 @@
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#ambush
-      nixosConfigurations = {
-        ambush = import ./hosts/ambush { inherit inputs globals overlays; };
-      };
+      # nixosConfigurations = {
+      #   ambush = import ./hosts/ambush { inherit inputs globals overlays; };
+      # };
 
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#cc
@@ -139,7 +127,7 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#cc
       homeConfigurations = {
-        ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
+        # ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
         mb-pro-cc = darwinConfigurations.mb-pro-cc.config.home-manager.users."christophherb".home;
         macbook-christoph = darwinConfigurations.cc.config.home-manager.users."christophherb".home;
       };
