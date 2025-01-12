@@ -38,7 +38,7 @@ inputs.darwin.lib.darwinSystem {
       lua.enable = true;
       devops.enable = true;
       go.enable = true;
-      java.enable = false;
+      java.enable = true;
       web.enable = true;
       ai.enable = true;
       discord.enable = true;

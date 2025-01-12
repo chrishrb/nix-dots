@@ -94,5 +94,10 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
 	end
 
+	if server == "gopls" then
+		local gopls_opts = require("chrishrb.lsp.settings.gopls")
+		opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+	end
+
 	lspconfig[server].setup(opts)
 end

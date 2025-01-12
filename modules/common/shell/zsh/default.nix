@@ -5,7 +5,7 @@
   environment.variables = {
     EDITOR = "chrisNvim";
     VISUAL = "chrisNvim";
-    DOCKER_HOST="unix://$HOME/.colima/docker.sock";
+    DOCKER_HOST="unix://$HOME/.colima/default/docker.sock";
   };
 
   home-manager.users.${config.user} = {
