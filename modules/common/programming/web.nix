@@ -9,6 +9,7 @@
         nodejs_18
         nodePackages.pnpm
         yarn
+        nodePackages.ts-node
       ];
 
       # TODO: create a nix flake for this

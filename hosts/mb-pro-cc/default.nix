@@ -35,10 +35,11 @@ inputs.darwin.lib.darwinSystem {
       zoom.enable = true;
 
       # languaages
+      php.enable = true;
       python.enable = true;
       lua.enable = true;
       devops.enable = true;
-      go.enable = false;
+      go.enable = true;
       java.enable = false;
       web.enable = true;
       ai.enable = true;

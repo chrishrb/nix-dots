@@ -263,7 +263,7 @@ let
           javaExtras = extraJavaItems pkgs;
           devops = true;
           latex = false;
-          php = false;
+          php = true;
           flutter = true;
           aiAdapter = "copilot";
 
