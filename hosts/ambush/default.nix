@@ -1,7 +1,12 @@
 # The ambush home config
 # System configuration for my home pc
 
-{ inputs, globals, overlays, ... }:
+{
+  inputs,
+  globals,
+  overlays,
+  ...
+}:
 
 inputs.nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
@@ -9,9 +14,12 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     ../../modules/common
     ../../modules/nixos
-    (globals // {
-      user = "christoph";
-    })
+    (
+      globals
+      // {
+        user = "christoph";
+      }
+    )
     inputs.home-manager.nixosModules.home-manager
     {
       nixpkgs.overlays = overlays;
@@ -19,7 +27,14 @@ inputs.nixpkgs.lib.nixosSystem {
       # Hardware
       networking.hostName = "ambush";
 
-      boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+      boot.initrd.availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+        "sr_mod"
+      ];
 
       # file systems
       fileSystems."/" = {
@@ -30,7 +45,6 @@ inputs.nixpkgs.lib.nixosSystem {
         device = "/dev/disk/by-label/boot";
         fsType = "vfat";
       };
-
 
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;

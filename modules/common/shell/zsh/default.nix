@@ -1,11 +1,17 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   users.users.${config.user}.shell = pkgs.zsh;
   programs.zsh.enable = true;
   environment.variables = {
     EDITOR = "chrisNvim";
     VISUAL = "chrisNvim";
-    DOCKER_HOST="unix://$HOME/.colima/default/docker.sock";
+    DOCKER_HOST = "unix://$HOME/.colima/default/docker.sock";
   };
 
   home-manager.users.${config.user} = {
@@ -21,25 +27,64 @@
         plugins = [
           { name = "hlissner/zsh-autopair"; }
           { name = "zap-zsh/supercharge"; }
-          { name = "themes/robbyrussell"; tags = ["from:oh-my-zsh" "as:theme"]; }
+          {
+            name = "themes/robbyrussell";
+            tags = [
+              "from:oh-my-zsh"
+              "as:theme"
+            ];
+          }
           { name = "zap-zsh/vim"; }
-          { name = "plugins/fzf"; tags = ["from:oh-my-zsh"]; }
-          { name = "plugins/aws"; tags = ["from:oh-my-zsh" "lazy:true" "defer:3"]; }
-          { name = "plugins/kubectl"; tags = ["from:oh-my-zsh" "lazy:true" "defer:3"]; }
-          { name = "macunha1/zsh-terraform"; tags = ["lazy:true" "defer:3"]; }
-          { name = "plugins/docker"; tags = ["from:oh-my-zsh" "lazy:true" "defer:3"]; }
+          {
+            name = "plugins/fzf";
+            tags = [ "from:oh-my-zsh" ];
+          }
+          {
+            name = "plugins/aws";
+            tags = [
+              "from:oh-my-zsh"
+              "lazy:true"
+              "defer:3"
+            ];
+          }
+          {
+            name = "plugins/kubectl";
+            tags = [
+              "from:oh-my-zsh"
+              "lazy:true"
+              "defer:3"
+            ];
+          }
+          {
+            name = "macunha1/zsh-terraform";
+            tags = [
+              "lazy:true"
+              "defer:3"
+            ];
+          }
+          {
+            name = "plugins/docker";
+            tags = [
+              "from:oh-my-zsh"
+              "lazy:true"
+              "defer:3"
+            ];
+          }
           { name = "paulirish/git-open"; }
           { name = "MichaelAquilina/zsh-autoswitch-virtualenv"; }
-          { name = "zsh-users/zsh-syntax-highlighting"; tags = ["defer:2"]; }
+          {
+            name = "zsh-users/zsh-syntax-highlighting";
+            tags = [ "defer:2" ];
+          }
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-completions"; }
         ];
       };
       plugins = [
         {
-            name = "chrishrb-custom-functions";
-            src = ./custom;
-            file = "functions.zsh";
+          name = "chrishrb-custom-functions";
+          src = ./custom;
+          file = "functions.zsh";
         }
       ];
       localVariables = {
@@ -78,7 +123,7 @@
         ## vim,tmux,zsh
         ssh = "TERM=xterm-256color ssh"; # needed for ssh to work properly
       };
-      sessionVariables = {};
+      sessionVariables = { };
       initExtra = ''
         # make sure brew is on the path for M1 
         if [[ $(uname -m) == 'arm64' ]]; then

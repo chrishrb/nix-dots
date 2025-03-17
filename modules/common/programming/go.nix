@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   options.go.enable = lib.mkEnableOption "Go programming language.";
 
@@ -11,7 +17,7 @@
         protobuf
       ];
 
-      sessionPath = [ "$HOME/go/bin"];
+      sessionPath = [ "$HOME/go/bin" ];
     };
 
   };

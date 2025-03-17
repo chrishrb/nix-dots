@@ -12,12 +12,12 @@ let
     (forEachSystem (
       system:
       let
-        dependencyOverlays =  [
+        dependencyOverlays = [
           (utils.standardPluginOverlay inputs)
           (import ./overlays inputs)
           # add any flake overlays here.
           #inputs.neorg-overlay.overlays.default
-        #inputs.neovim-nightly-overlay.overlays.default
+          #inputs.neovim-nightly-overlay.overlays.default
         ];
       in
       {
@@ -27,8 +27,16 @@ let
     dependencyOverlays
     ;
 
-  categoryDefinitions = { pkgs, settings, categories, name, ... }@packageDef: {
-      # to define and use a new category, simply add a new list to a set here, 
+  categoryDefinitions =
+    {
+      pkgs,
+      settings,
+      categories,
+      name,
+      ...
+    }@packageDef:
+    {
+      # to define and use a new category, simply add a new list to a set here,
       # and later, you will include categoryname = true; in the set you
       # provide when you build the package using this builder function.
       # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
@@ -36,7 +44,7 @@ let
       # propagatedBuildInputs:
       # this section is for dependencies that should be available
       # at BUILD TIME for plugins. WILL NOT be available to PATH
-      # However, they WILL be available to the shell 
+      # However, they WILL be available to the shell
       # and neovim path when using nix develop
       propagatedBuildInputs = {
         generalBuildInputs = with pkgs; [ ];
@@ -267,7 +275,7 @@ let
           flutter = true;
           aiAdapter = "copilot";
 
-          # this does not have an associated category of plugins, 
+          # this does not have an associated category of plugins,
           # but lua can still check for it
           lspDebugMode = false;
         };
@@ -280,7 +288,9 @@ let
 in
 
 # see :help nixCats.flake.outputs.exports
-forEachSystem (system: let
+forEachSystem (
+  system:
+  let
     inherit (utils) baseBuilder;
     customPackager = baseBuilder luaPath {
       inherit nixpkgs;

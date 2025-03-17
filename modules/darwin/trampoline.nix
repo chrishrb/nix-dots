@@ -1,4 +1,11 @@
-{ config, pkgs, lib, inputs, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
 
   # Fix trampoline apps on macOS
   config = lib.mkIf pkgs.stdenv.isDarwin {

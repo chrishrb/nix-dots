@@ -1,6 +1,10 @@
-{ ... }: {
+{ ... }:
+{
 
-  imports =
-    [ ./graphical ./hardware ./system ];
+  imports = [
+    ./graphical
+    ./hardware
+    ./system
+  ];
 
 }

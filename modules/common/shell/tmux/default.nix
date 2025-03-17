@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   home-manager.users.${config.user} = {
 
@@ -104,7 +105,7 @@
         # reorder tabs
         bind H swap-window -t -1\; select-window -t -1
         bind L swap-window -t +1\; select-window -t +1
-        '';
+      '';
     };
 
     home.file."./.config/tmuxinator/" = {

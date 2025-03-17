@@ -1,7 +1,12 @@
 # The mw config
 # System configuration for my work macbook
 
-{ inputs, globals, overlays, ... }:
+{
+  inputs,
+  globals,
+  overlays,
+  ...
+}:
 
 inputs.darwin.lib.darwinSystem {
   system = "aarch64-darwin";
@@ -9,9 +14,12 @@ inputs.darwin.lib.darwinSystem {
   modules = [
     ../../modules/common
     ../../modules/darwin
-    (globals // {
-      user = "christophherb";
-    })
+    (
+      globals
+      // {
+        user = "christophherb";
+      }
+    )
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
     inputs.mac-app-util.darwinModules.default

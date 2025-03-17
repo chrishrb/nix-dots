@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   nix = {
 
     # Set channel to flake packages, used for nix-shell commands
@@ -11,7 +17,10 @@
     };
 
     # For security, only allow specific users
-    settings.allowed-users = [ "@wheel" config.user ];
+    settings.allowed-users = [
+      "@wheel"
+      config.user
+    ];
 
     # Enable features in Nix commands
     extraOptions = ''

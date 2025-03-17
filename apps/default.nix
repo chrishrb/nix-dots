@@ -1,4 +1,9 @@
-{ system, inputs, pkgs, ... }:
+{
+  system,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   # helper
   default = import ./help.nix { inherit pkgs; };

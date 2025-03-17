@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   options = {
     gitName = lib.mkOption {
@@ -52,7 +58,11 @@
           # dad instead of add
           dad = "!curl https://icanhazdadjoke.com/ && echo";
         };
-        ignores = [ "*~" "*.swp" ".DS_Store" ];
+        ignores = [
+          "*~"
+          "*.swp"
+          ".DS_Store"
+        ];
         delta = {
           enable = true;
           options = {
@@ -92,11 +102,10 @@
         # use work email if commiting in work directory
         includes = [
           {
-            path = pkgs.writeText ".gitconfig"
-              ''
+            path = pkgs.writeText ".gitconfig" ''
               [user]
                   email = ${config.gitWorkEmail}
-              '';
+            '';
             condition = "gitdir:${config.homePath}/dev/work/";
           }
         ];
@@ -121,13 +130,18 @@
           # This looks better with the kitty theme.
           gui.theme = {
             lightTheme = false;
-            activeBorderColor = [ "white" "bold" ];
+            activeBorderColor = [
+              "white"
+              "bold"
+            ];
             inactiveBorderColor = [ "white" ];
-            selectedLineBgColor = [ "reverse" "white" ];
+            selectedLineBgColor = [
+              "reverse"
+              "white"
+            ];
           };
         };
       };
     };
   };
 }
-

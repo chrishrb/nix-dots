@@ -22,12 +22,14 @@ in
     home-manager.users.${config.user} = {
       imports = [ chrisNvim.homeModule ];
 
-      chrisNvim = (let
+      chrisNvim = (
+        let
           inherit (chrisNvim) utils packageDefinitions;
-        in {
+        in
+        {
           enable = config.chrisNvim.enable;
           packageNames = [ "chrisNvim" ];
-        
+
           # packages = {
           #   chrisNvim = utils.mergeCatDefs packageDefinitions.chrisNvim ({ pkgs, ... }: {
           #     categories = {
@@ -35,7 +37,8 @@ in
           #     };
           #   });
           # };
-        });
-      };
+        }
+      );
+    };
   };
 }

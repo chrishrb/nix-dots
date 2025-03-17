@@ -1,4 +1,11 @@
-{ config, pkgs, lib, inputs, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
 
   # Homebrew - Mac-specific packages that aren't in Nix
   config = lib.mkIf pkgs.stdenv.isDarwin {
@@ -27,27 +34,29 @@
       brews = [
         "emqx/mqttx/mqttx-cli"
       ];
-      casks = [
-        # Communication Tools
-        "notion"
+      casks =
+        [
+          # Communication Tools
+          "notion"
 
-        # utility
-        "scroll-reverser"
-        "tiles"
-        "skim" # open pdfs
+          # utility
+          "scroll-reverser"
+          "tiles"
+          "skim" # open pdfs
 
-        # other
-        "bitwarden"
-        "spotify"
-        "logi-options+"
-        "keepassxc"
-        "notunes" # disable autolaunch of music app
+          # other
+          "bitwarden"
+          "spotify"
+          "logi-options+"
+          "keepassxc"
+          "notunes" # disable autolaunch of music app
 
-      ] ++ lib.optionals config.work.enable [
+        ]
+        ++ lib.optionals config.work.enable [
 
-        "tunnelblick"
-        "microsoft-teams"
-      ];
+          "tunnelblick"
+          "microsoft-teams"
+        ];
     };
 
     # These app IDs are from using the mas CLI app

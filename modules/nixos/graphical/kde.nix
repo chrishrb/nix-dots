@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   config = lib.mkIf config.gui.enable {
 
@@ -16,7 +22,7 @@
 
       # Enable kde plasma5
       desktopManager = {
-        plasma5.enable= true;
+        plasma5.enable = true;
       };
 
     };

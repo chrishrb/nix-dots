@@ -4,7 +4,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, ... }@inputs: inputs.flake-utils.lib.eachDefaultSystem (
+  outputs =
+    { self, nixpkgs, ... }@inputs:
+    inputs.flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -23,7 +25,7 @@
         };
 
         devShells.default = pkgs.mkShell {
-          # buildInputs = with pkgs; [ ]; 
+          # buildInputs = with pkgs; [ ];
         };
       }
     );
