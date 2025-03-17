@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./alacritty.nix
     ./slack.nix
@@ -8,5 +9,6 @@
     ./drawio.nix
     ./zoom.nix
     ./utm.nix
+    ./brave.nix
   ];
 }
