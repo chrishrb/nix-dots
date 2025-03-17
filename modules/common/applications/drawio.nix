@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   options = {
     drawio = {
@@ -10,7 +16,6 @@
   };
 
   config = lib.mkIf (config.gui.enable && config.drawio.enable) {
-    unfreePackages = [ "drawio" ];
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [ drawio ];
     };

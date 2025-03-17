@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   options = {
     zoom = {
@@ -10,7 +16,6 @@
   };
 
   config = lib.mkIf (config.gui.enable && config.zoom.enable) {
-    unfreePackages = [ "zoom" ];
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [ zoom-us ];
     };

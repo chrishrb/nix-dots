@@ -1,9 +1,14 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   options.php.enable = lib.mkEnableOption "PHP programming language.";
 
   config = lib.mkIf config.php.enable {
-    unfreePackages = [ "phpstorm" ];
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [
         php83

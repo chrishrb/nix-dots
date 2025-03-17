@@ -25,6 +25,7 @@ inputs.darwin.lib.darwinSystem {
     inputs.mac-app-util.darwinModules.default
     {
       nixpkgs.overlays = overlays;
+      allowUnfree = true;
 
       # Darwin specific
       networking.hostName = "macbook-christoph";

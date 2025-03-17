@@ -32,11 +32,11 @@
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
-    }; 
+    };
     homebrew-mqttx = {
       url = "github:emqx/homebrew-mqttx";
       flake = false;
-    }; 
+    };
 
     # alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
@@ -83,7 +83,8 @@
     };
   };
 
-  outputs = { nixpkgs, ... } @inputs:
+  outputs =
+    { nixpkgs, ... }@inputs:
     let
       # Global configuration for my systems
       globals = rec {
@@ -104,12 +105,16 @@
       ];
 
       # System types to support.
-      supportedSystems = [ "aarch64-darwin" "x86_64-linux" ];
+      supportedSystems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
 
       # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    in rec {
+    in
+    rec {
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#ambush
@@ -142,35 +147,48 @@
       );
 
       # Development environments
-      devShells = forAllSystems (system:
-        let pkgs = import nixpkgs { inherit system overlays; };
-        in {
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system overlays; };
+        in
+        {
 
           # Used to run commands and edit files in this repo
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [ git stylua nixfmt-rfc-style shfmt shellcheck ];
+            buildInputs = with pkgs; [
+              git
+              stylua
+              nixfmt-rfc-style
+              shfmt
+              shellcheck
+            ];
           };
 
-        });
+        }
+      );
 
       # Checks for nvim health
-      checks = forAllSystems (system: 
+      checks = forAllSystems (
+        system:
         let
           pkgs = import nixpkgs { inherit system overlays; };
-          module = import ./modules/common/nvim {inherit inputs; };
-        in {
-          chrisNvim = pkgs.runCommand "neovim-check-health" { buildInputs = [ module.packages.${system}.default ]; }
-            ''
-            mkdir -p $out
-            export HOME=$TMPDIR
-            chrisNvim -c "checkhealth" -c "write $out/health.log" -c "quitall"
+          module = import ./modules/common/nvim { inherit inputs; };
+        in
+        {
+          chrisNvim =
+            pkgs.runCommand "neovim-check-health" { buildInputs = [ module.packages.${system}.default ]; }
+              ''
+                mkdir -p $out
+                export HOME=$TMPDIR
+                chrisNvim -c "checkhealth" -c "write $out/health.log" -c "quitall"
 
-            # Check for errors inside the health log
-            if $(grep "ERROR" $out/health.log); then
-              cat $out/health.log
-              exit 1
-            fi
-            '';
+                # Check for errors inside the health log
+                if $(grep "ERROR" $out/health.log); then
+                  cat $out/health.log
+                  exit 1
+                fi
+              '';
         }
       );
 

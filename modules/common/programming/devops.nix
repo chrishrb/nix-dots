@@ -9,10 +9,6 @@
   options.devops.enable = lib.mkEnableOption "DevOps tools.";
 
   config = lib.mkIf config.devops.enable {
-    unfreePackages = [
-      "ngrok"
-      "postman"
-    ];
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [
         # kubernetes

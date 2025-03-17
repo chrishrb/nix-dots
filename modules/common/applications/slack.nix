@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   options = {
     slack = {
@@ -10,7 +16,6 @@
   };
 
   config = lib.mkIf (config.gui.enable && config.slack.enable) {
-    unfreePackages = [ "slack" ];
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [ slack ];
     };

@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   options = {
     chrome = {
@@ -10,7 +16,6 @@
   };
 
   config = lib.mkIf (config.gui.enable && config.chrome.enable) {
-    unfreePackages = [ "google-chrome" ];
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [ google-chrome ];
     };
