@@ -137,8 +137,9 @@ let
             luasnip
             friendly-snippets
 
-            cmp-under-comparator
-            cmp-spell
+            cmp-git
+            cmp-emoji
+            copilot-cmp
           ];
           core = [
             plenary-nvim
