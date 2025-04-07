@@ -93,7 +93,12 @@ local plugins = {
 				end,
 			},
 			-- for formatters and linters
-			"nvimtools/none-ls.nvim",
+			{
+				"nvimtools/none-ls.nvim",
+				dependencies = {
+					"nvimtools/none-ls-extras.nvim",
+				},
+			},
 		},
 	},
 	{ -- show diagnostics of current document/workspace

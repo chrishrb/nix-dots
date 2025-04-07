@@ -90,11 +90,11 @@
     "codecompanion-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1743889653,
-        "narHash": "sha256-yy21FbE6W0iwiolQnbBb32qsWEEMRdbZZ198rk5AVYE=",
+        "lastModified": 1743974857,
+        "narHash": "sha256-FPDddc2MIQzkuwNLTTESVaVwiTRd7cIZcNBcA+AVCA0=",
         "owner": "olimorris",
         "repo": "codecompanion.nvim",
-        "rev": "dbb85dd371ea7cc945326c88ce45ab8e4677748d",
+        "rev": "8e231abc2d2b27f848da970d370ba735e1d9f2c4",
         "type": "github"
       },
       "original": {
@@ -215,22 +215,6 @@
         "type": "indirect"
       }
     },
-    "flutter-tools-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1743340779,
-        "narHash": "sha256-ajZ8+Tg0rT89Bpuk4ddaOt1hJouVa1QrELebUln8GFY=",
-        "owner": "nvim-flutter",
-        "repo": "flutter-tools.nvim",
-        "rev": "6faf2c70bd56f1fe78620591a2bb73f4dc6f4870",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-flutter",
-        "repo": "flutter-tools.nvim",
-        "type": "github"
-      }
-    },
     "go-grip": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -256,11 +240,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743869639,
-        "narHash": "sha256-Xhe3whfRW/Ay05z9m1EZ1/AkbV1yo0tm1CbgjtCi4rQ=",
+        "lastModified": 1744008831,
+        "narHash": "sha256-g3mHJLB8ShKuMaBBZxiGuoftJ22f7Boegiw5xBUnS8E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d094c6763c6ddb860580e7d3b4201f8f496a6836",
+        "rev": "f463902a3f03e15af658e48bcc60b39188ddf734",
         "type": "github"
       },
       "original": {
@@ -289,11 +273,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1743901942,
-        "narHash": "sha256-CSpRtq5vW2yrfsX+m8vsaFCQGtkLJCXKhSuNYKBnugE=",
+        "lastModified": 1744017367,
+        "narHash": "sha256-UtrQPhfRjm2x8NBC3AKa3BvaRwZ0e3puvylc20dpAGc=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "1e5e3556dbad383596ab3c11d85ddfbb569de079",
+        "rev": "e3f1d1e79abca393c1e831419fb1ade20718898d",
         "type": "github"
       },
       "original": {
@@ -305,11 +289,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1743910754,
-        "narHash": "sha256-uV3tMPsv0nBcMw5YFCE3/jbXRrLKkL944BR8aW6Ll2k=",
+        "lastModified": 1744019336,
+        "narHash": "sha256-opb8LlAS7DiGOCCi9By9zRX++u71vp9UtNfNaG78XFA=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "00ffbd2f5efd1a6a9fcfd703e8e46ccdbe9b3265",
+        "rev": "4934139a77e6532492bb3b097587903fd9efe725",
         "type": "github"
       },
       "original": {
@@ -477,11 +461,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1743703532,
-        "narHash": "sha256-s1KLDALEeqy+ttrvqV3jx9mBZEvmthQErTVOAzbjHZs=",
+        "lastModified": 1743813633,
+        "narHash": "sha256-BgkBz4NpV6Kg8XF7cmHDHRVGZYnKbvG0Y4p+jElwxaM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "bdb91860de2f719b57eef819b5617762f7120c70",
+        "rev": "7819a0d29d1dd2bc331bec4b327f0776359b1fa6",
         "type": "github"
       },
       "original": {
@@ -600,6 +584,22 @@
         "type": "github"
       }
     },
+    "none-ls-extras-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742739324,
+        "narHash": "sha256-5wQHdV2lmxMegN/BPg+qfGTNGv/T9u+hy4Yaj41PchI=",
+        "owner": "nvimtools",
+        "repo": "none-ls-extras.nvim",
+        "rev": "1214d729e3408470a7b7a428415a395e5389c13c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvimtools",
+        "repo": "none-ls-extras.nvim",
+        "type": "github"
+      }
+    },
     "nvim-nio": {
       "flake": false,
       "locked": {
@@ -638,7 +638,6 @@
         "alacritty-theme": "alacritty-theme",
         "codecompanion-nvim": "codecompanion-nvim",
         "darwin": "darwin",
-        "flutter-tools-nvim": "flutter-tools-nvim",
         "go-grip": "go-grip",
         "home-manager": "home-manager",
         "homebrew-bundle": "homebrew-bundle",
@@ -651,6 +650,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_7",
         "nixpkgs-stable": "nixpkgs-stable",
+        "none-ls-extras-nvim": "none-ls-extras-nvim",
         "nvim-nio": "nvim-nio",
         "nvim-tmux-navigation": "nvim-tmux-navigation",
         "talhelper": "talhelper"

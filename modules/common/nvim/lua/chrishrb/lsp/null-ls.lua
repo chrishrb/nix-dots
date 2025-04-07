@@ -3,23 +3,26 @@ if not null_ls_status_ok then
 	return
 end
 
+-- none-ls-extras.nvim
+local none_ls_status_ok, none_ls = pcall(require, "none_ls")
+if not none_ls_status_ok then
+	return
+end
+
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
--- local completion = null_ls.builtins.completion
--- local hover = null_ls.builtins.hover
---[[ local code_actions = null_ls.builtins.code_actions ]]
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
-		formatting.stylua,
-		diagnostics.pylint,
-		diagnostics.mypy,
-		diagnostics.eslint,
-		formatting.isort,
-		formatting.nixfmt,
+		null_ls.builtins.formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.pylint,
+		null_ls.builtins.diagnostics.mypy,
+		null_ls.builtins.formatting.isort,
+		null_ls.builtins.formatting.nixfmt,
+
+		none_ls.diagnostics.eslint,
+		none_ls.codeactions.eslint,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

@@ -18,6 +18,17 @@ require("dressing").setup({
 })
 
 codecompanion.setup({
+	adapters = {
+		copilot = function()
+			return require("codecompanion.adapters").extend("copilot", {
+				schema = {
+					model = {
+						default = "claude-3.7-sonnet",
+					},
+				},
+			})
+		end,
+	},
 	display = {
 		action_palette = {
 			prompt = prefix,
@@ -34,7 +45,7 @@ codecompanion.setup({
 		inline = {
 			adapter = adapter,
 		},
-		agent = {
+		cmd = {
 			adapter = adapter,
 		},
 	},

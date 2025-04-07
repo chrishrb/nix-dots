@@ -123,6 +123,7 @@ let
             nvim-lspconfig
             hover-nvim
             none-ls-nvim
+            none-ls-extras-nvim
             trouble-nvim
           ];
           cmp = [

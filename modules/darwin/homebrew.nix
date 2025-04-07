@@ -50,11 +50,10 @@
           "logi-options+"
           "keepassxc"
           "notunes" # disable autolaunch of music app
-
+          "tunnelblick"
         ]
         ++ lib.optionals config.work.enable [
 
-          "tunnelblick"
           "microsoft-teams"
         ];
     };

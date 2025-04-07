@@ -18,6 +18,12 @@ inputs: _final: prev: {
         version = "2024-03-26";
         src = inputs.nvim-nio;
       };
+      none-ls-extras-nvim = prev.vimUtils.buildVimPlugin {
+        pname = "none-ls-extras.nvim";
+        version = "2025-04-07";
+        src = inputs.none-ls-extras-nvim;
+        dependencies = [ prev.vimPlugins.none-ls-nvim ];
+      };
     }
   );
 }

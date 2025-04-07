@@ -63,8 +63,8 @@
       url = "github:olimorris/codecompanion.nvim";
       flake = false;
     };
-    flutter-tools-nvim = {
-      url = "github:nvim-flutter/flutter-tools.nvim";
+    none-ls-extras-nvim = {
+      url = "github:nvimtools/none-ls-extras.nvim";
       flake = false;
     };
 
@@ -102,6 +102,7 @@
         (import ./overlays/stable.nix inputs)
         (import ./overlays/talhelper.nix inputs)
         (import ./overlays/personal.nix inputs)
+        (import ./overlays/catppuccin.nix inputs)
       ];
 
       # System types to support.
