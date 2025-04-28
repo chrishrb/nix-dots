@@ -60,6 +60,7 @@ let
           vscode-langservers-extracted # html, css, json
           nodePackages.bash-language-server # bash
           yaml-language-server # yaml
+          helm-ls # helm
         ];
         go = with pkgs; [
           gopls
@@ -141,6 +142,7 @@ let
             telescope-fzf-native-nvim
             vim-fugitive
             gitsigns-nvim
+            vim-helm
           ];
           utils = [
             nvim-autopairs

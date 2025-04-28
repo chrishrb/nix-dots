@@ -185,19 +185,23 @@ local plugins = {
     event = "InsertEnter",
   },
 
-  -----------------------------------------------------------------------------
-  -- Treesitter
-  -----------------------------------------------------------------------------
+	-----------------------------------------------------------------------------
+	-- Treesitter
+	-----------------------------------------------------------------------------
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = require("nixCatsUtils.lazyCat").lazyAdd(":TSUpdate"),
+		config = function()
+			require("chrishrb.plugins.config.treesitter")
+		end,
+		dependencies = {
+			-- autoclose and rename html tags
+			"windwp/nvim-ts-autotag",
+		},
+	},
   {
-    "nvim-treesitter/nvim-treesitter",
-    build = nixCatsUtils.lazyAdd(":TSUpdate"),
-    config = function()
-      require("chrishrb.plugins.config.treesitter")
-    end,
-    dependencies = {
-      -- autoclose and rename html tags
-      "windwp/nvim-ts-autotag",
-    },
+    'towolf/vim-helm',
+    ft = 'helm',
   },
 
   -----------------------------------------------------------------------------
@@ -286,37 +290,41 @@ local plugins = {
     lazy = false,
   },
 
-  -----------------------------------------------------------------------------
-  -- AI
-  -----------------------------------------------------------------------------
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
-      "echasnovski/mini.diff",
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        enabled = nixCats("aiAdapter") == "copilot",
-        config = function()
-          require("copilot").setup({
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-          })
-        end,
-      },
-      {
-        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
-        opts = {},
-      },
-      "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-    },
-    config = function()
-      require("chrishrb.plugins.config.codecompanion")
-    end,
-  },
+	-----------------------------------------------------------------------------
+	-- AI
+	-----------------------------------------------------------------------------
+	{
+		"olimorris/codecompanion.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+			"echasnovski/mini.diff",
+			{
+				"zbirenbaum/copilot.lua",
+				cmd = "Copilot",
+				enabled = nixCats("aiAdapter") == "copilot",
+				config = function()
+					require("copilot").setup({
+						suggestion = { enabled = false },
+						panel = { enabled = false },
+            filetypes = {
+              yaml = true,
+              ["."] = true,
+            }
+					})
+				end,
+			},
+			{
+				"stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
+				opts = {},
+			},
+			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+		},
+		config = function()
+			require("chrishrb.plugins.config.codecompanion")
+		end,
+	},
 
   -----------------------------------------------------------------------------
   -- Misc

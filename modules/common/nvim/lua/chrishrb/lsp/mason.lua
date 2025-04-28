@@ -11,6 +11,7 @@ local servers = {
 
 	"nil_ls",
 	"nixd",
+  "helm_ls"
 }
 
 -- disable mason for nixCats
