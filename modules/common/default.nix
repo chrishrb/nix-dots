@@ -65,7 +65,7 @@
     };
     allowUnfree = lib.mkEnableOption {
       description = "Allow to use unfree packages.";
-      default = false;
+      default = true;
     };
   };
 

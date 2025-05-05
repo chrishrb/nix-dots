@@ -51,6 +51,7 @@
           "keepassxc"
           "notunes" # disable autolaunch of music app
           "tunnelblick"
+          "zoom"
         ]
         ++ lib.optionals config.work.enable [
 

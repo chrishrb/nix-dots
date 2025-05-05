@@ -25,6 +25,7 @@ inputs.darwin.lib.darwinSystem {
     inputs.mac-app-util.darwinModules.default
     {
       nixpkgs.overlays = overlays;
+      allowUnfree = true;
 
       # Darwin specific
       networking.hostName = "mb-pro-cc";
@@ -39,8 +40,7 @@ inputs.darwin.lib.darwinSystem {
       chrisNvim.enable = true;
       dotfiles.enable = false;
       drawio.enable = false;
-      chrome.enable = true;
-      zoom.enable = true;
+      brave.enable = true;
 
       # languaages
       php.enable = true;

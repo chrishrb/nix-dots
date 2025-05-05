@@ -1,45 +1,25 @@
+--[[
+  This directory is the luaUtils template.
+  You can choose what things from it that you would like to use.
+  And then delete the rest.
+  Everything in this directory is optional.
+--]]
+
 local M = {}
+-- NOTE: If you don't use lazy.nvim, you don't need this file.
 
-function M.mergePluginTables(table1, table2)
-  return vim.tbl_extend('keep', table1, table2)
-end
-
-function M.enableForCategory(v, default)
-  if vim.g[ [[nixCats-special-rtp-entry-nixCats]] ] ~= nil or default == nil then
-    if nixCats(v) then
-      return true
-    else
-      return false
-    end
+---lazy.nvim wrapper
+---@overload fun(nixLazyPath: string|nil, lazySpec: any, opts: table)
+---@overload fun(nixLazyPath: string|nil, opts: table)
+function M.setup(nixLazyPath, lazySpec, opts)
+  local lazySpecs = nil
+  local lazyCFG = nil
+  if opts == nil and type(lazySpec) == "table" and lazySpec.spec then
+    lazyCFG = lazySpec
   else
-    return default
+    lazySpecs = lazySpec
+    lazyCFG = opts
   end
-end
-
--- for conditionally disabling build steps on nix, as they are done via nix
-function M.lazyAdd(v, o)
-  if vim.g[ [[nixCats-special-rtp-entry-nixCats]] ] ~= nil then
-    return o
-  else
-    return v
-  end
-end
-
-function M.getTableNamesOrListValues(pluginTable)
-  for key, _ in pairs(pluginTable) do
-    if type(key) ~= 'string' then
-      return pluginTable
-    end
-    break
-  end
-  local patterns = {}
-  for key, _ in pairs(pluginTable) do
-    table.insert(patterns, key)
-  end
-  return patterns
-end
-
-function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
 
   local function regularLazyDownload()
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -56,83 +36,84 @@ function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
     return lazypath
   end
 
-  local nixCatsPath = vim.g[ [[nixCats-special-rtp-entry-nixCats]] ]
+  local isNixCats = vim.g[ [[nixCats-special-rtp-entry-nixCats]] ] ~= nil
   local lazypath
-  if nixCatsPath == nil then
+  if not isNixCats then
+    -- No nixCats? Not nix. Do it normally
     lazypath = regularLazyDownload()
     vim.opt.rtp:prepend(lazypath)
   else
-
-    local grammarDir = require('nixCats').pawsible.allPlugins.ts_grammar_plugin
-    local myNeovimPackages = vim.g[ [[nixCats-special-rtp-entry-vimPackDir]] ] .. "/pack/myNeovimPackages"
-    local nixCatsConfigDir = require('nixCats').get([[nixCats_config_location]])
-
+    local nixCats = require('nixCats')
+    -- Else, its nix, so we wrap lazy with a few extra config options
     lazypath = nixLazyPath
+    -- and also we probably dont have to download lazy either
     if lazypath == nil then
       lazypath = regularLazyDownload()
     end
 
-    if type(lazyCFG) ~= "table" then
-      lazyCFG = {}
+    local oldPath
+    local lazypatterns
+    local fallback
+    if type(lazyCFG) == "table" and type(lazyCFG.dev) == "table" then
+      lazypatterns = lazyCFG.dev.patterns
+      fallback = lazyCFG.dev.fallback
+      oldPath = lazyCFG.dev.path
     end
 
-    if lazyCFG.performance == nil then
-      lazyCFG.performance = {}
-    end
-    if lazyCFG.performance.rtp == nil then
-      lazyCFG.performance.rtp = {}
-    end
-    lazyCFG.performance.rtp.reset = false
+    local myNeovimPackages = nixCats.vimPackDir .. "/pack/myNeovimPackages"
+
+    local newLazyOpts = {
+      performance = {
+        rtp = {
+          reset = false,
+        },
+      },
+      dev = {
+        path = function(plugin)
+          local path = nil
+          if type(oldPath) == "string" and vim.fn.isdirectory(oldPath .. "/" .. plugin.name) == 1 then
+            path = oldPath .. "/" .. plugin.name
+          elseif type(oldPath) == "function" then
+            path = oldPath(plugin)
+            if type(path) ~= "string" then
+              path = nil
+            end
+          end
+          if path == nil then
+            if vim.fn.isdirectory(myNeovimPackages .. "/start/" .. plugin.name) == 1 then
+              path = myNeovimPackages .. "/start/" .. plugin.name
+            elseif vim.fn.isdirectory(myNeovimPackages .. "/opt/" .. plugin.name) == 1 then
+              path = myNeovimPackages .. "/opt/" .. plugin.name
+            else
+              path = "~/projects/" .. plugin.name
+            end
+          end
+          return path
+        end,
+        patterns = lazypatterns or { "" },
+        fallback = fallback == nil and true or fallback,
+      }
+    }
+    lazyCFG = vim.tbl_deep_extend("force", lazyCFG or {}, newLazyOpts)
+    -- do the reset we disabled without removing important stuff
+    local cfgdir = nixCats.configDir
     vim.opt.rtp = {
-      nixCatsConfigDir,
-      nixCatsPath,
-      grammarDir,
+      cfgdir,
+      nixCats.nixCatsPath,
+      nixCats.pawsible.allPlugins.ts_grammar_path,
       vim.fn.stdpath("data") .. "/site",
       lazypath,
       vim.env.VIMRUNTIME,
       vim.fn.fnamemodify(vim.v.progpath, ":p:h:h") .. "/lib/nvim",
-      nixCatsConfigDir .. "/after",
+      cfgdir .. "/after",
     }
-
-    if lazyCFG.dev == nil then
-      lazyCFG.dev = {}
-    end
-
-    local oldPath = lazyCFG.dev.path
-    lazyCFG.dev.path = function(plugin)
-      local path = nil
-      if type(oldPath) == "string" and vim.fn.isdirectory(oldPath .. "/" .. plugin.name) == 1 then
-        path = oldPath .. "/" .. plugin.name
-      elseif type(oldPath) == "function" then
-        path = oldPath(plugin)
-        if type(path) ~= "string" then
-          path = nil
-        end
-      end
-      if path == nil then
-        if vim.fn.isdirectory(myNeovimPackages .. "/start/" .. plugin.name) == 1 then
-          path = myNeovimPackages .. "/start/" .. plugin.name
-        elseif vim.fn.isdirectory(myNeovimPackages .. "/opt/" .. plugin.name) == 1 then
-          path = myNeovimPackages .. "/opt/" .. plugin.name
-        else
-          path = "~/projects/" .. plugin.name
-        end
-      end
-      return path
-    end
-
-    if lazyCFG.dev.patterns == nil or type(lazyCFG.dev.patterns) ~= 'table' then
-      lazyCFG.dev.patterns = M.getTableNamesOrListValues(pluginTable)
-    else
-      local toInclude
-      toInclude = lazyCFG.dev.patterns
-      vim.list_extend(toInclude, M.getTableNamesOrListValues(pluginTable))
-      lazyCFG.dev.patterns = toInclude
-    end
-
   end
 
-  require('lazy').setup(lazySpecs, lazyCFG)
+  if lazySpecs then
+    require('lazy').setup(lazySpecs, lazyCFG)
+  else
+    require('lazy').setup(lazyCFG)
+  end
 end
 
 return M

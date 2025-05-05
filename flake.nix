@@ -48,7 +48,7 @@
     talhelper.url = "github:budimanjojo/talhelper";
 
     # chrisNvim
-    nixCats.url = "github:BirdeeHub/nixCats-nvim/v5.6.5";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim/v7.2.13";
 
     # plugins that are not in nixpkg
     nvim-tmux-navigation = {

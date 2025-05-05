@@ -45,7 +45,7 @@
       ];
 
       programs.zsh = {
-        initExtra = ''
+        initContent = ''
           # Set up completions for terragrunt
           complete -o nospace -C ${pkgs.tenv}/bin/terragrunt -C ${pkgs.tenv}/bin/terraform terragrunt
 

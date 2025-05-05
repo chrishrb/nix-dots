@@ -39,7 +39,6 @@ inputs.darwin.lib.darwinSystem {
       chrisNvim.enable = true;
       dotfiles.enable = true;
       drawio.enable = true;
-      chrome.enable = false;
       utm.enable = true;
       brave.enable = true;
 
