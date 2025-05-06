@@ -312,12 +312,9 @@ in
       devShells = {
         default = pkgs.mkShell {
           name = defaultPackageName;
-          packages = [ (nixCatsBuilder defaultPackageName) ];
+          packages = [ defaultPackage ];
           inputsFrom = [ ];
-          DEVSHELL = 0;
           shellHook = ''
-            # TODO: add fix for tmux
-            exec ${pkgs.zsh}/bin/zsh
           '';
         };
       };
