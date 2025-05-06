@@ -55,7 +55,7 @@ inputs.nixpkgs.lib.nixosSystem {
       # Programs and services
       alacritty.enable = true;
       chrome.enable = true;
-      chrisNvim.enable = true;
+      nvim.enable = true;
       nixlang.enable = true;
       python.enable = true;
       lua.enable = true;

@@ -47,7 +47,7 @@
     # talhelper
     talhelper.url = "github:budimanjojo/talhelper";
 
-    # chrisNvim
+    # nvim
     nixCats.url = "github:BirdeeHub/nixCats-nvim/v7.2.13";
 
     # plugins that are not in nixpkg
@@ -177,12 +177,12 @@
           module = import ./modules/common/nvim { inherit inputs; };
         in
         {
-          chrisNvim =
+          nvim =
             pkgs.runCommand "neovim-check-health" { buildInputs = [ module.packages.${system}.default ]; }
               ''
                 mkdir -p $out
                 export HOME=$TMPDIR
-                chrisNvim -c "checkhealth" -c "write $out/health.log" -c "quitall"
+                nvim -c "checkhealth" -c "write $out/health.log" -c "quitall"
 
                 # Check for errors inside the health log
                 if $(grep "ERROR" $out/health.log); then

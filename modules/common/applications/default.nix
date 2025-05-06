@@ -3,7 +3,7 @@
   imports = [
     ./alacritty.nix
     ./slack.nix
-    ./chrisNvim.nix
+    ./nvim.nix
     ./discord.nix
     ./drawio.nix
     ./utm.nix

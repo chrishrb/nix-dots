@@ -36,7 +36,7 @@ inputs.darwin.lib.darwinSystem {
       # Programs and services
       colima.enable = true;
       alacritty.enable = true;
-      chrisNvim.enable = true;
+      nvim.enable = true;
       dotfiles.enable = true;
       drawio.enable = true;
       utm.enable = true;

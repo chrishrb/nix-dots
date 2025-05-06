@@ -9,7 +9,7 @@
       echo ""
       echo ""
       ${pkgs.gum}/bin/gum format --type=template -- \
-          '  • {{ Color "15" "57" " nvim " }} {{ Italic "Start chrisNvim." }}' \
+          '  • {{ Color "15" "57" " nvim " }} {{ Italic "Start nvim." }}' \
           '  • {{ Color "15" "57" " installer " }} {{ Italic "Erase disk and install NixOS on system." }}'
       echo ""
       echo ""

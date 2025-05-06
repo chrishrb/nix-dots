@@ -9,8 +9,8 @@
   users.users.${config.user}.shell = pkgs.zsh;
   programs.zsh.enable = true;
   environment.variables = {
-    EDITOR = "chrisNvim";
-    VISUAL = "chrisNvim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
     DOCKER_HOST = "unix://$HOME/.colima/default/docker.sock";
   };
 

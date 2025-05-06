@@ -6,5 +6,5 @@
     (import ../modules/common/nvim {
       inherit inputs;
     }).packages.${system}.default
-  }/bin/chrisNvim";
+  }/bin/nvim";
 }
