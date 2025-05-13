@@ -38,22 +38,22 @@ inputs.darwin.lib.darwinSystem {
       alacritty.enable = true;
       nvim.enable = true;
       dotfiles.enable = true;
-      drawio.enable = true;
-      utm.enable = true;
+      drawio.enable = false;
+      utm.enable = false;
       brave.enable = true;
+      discord.enable = false;
 
       # languaages
       python.enable = true;
       lua.enable = true;
-      devops.enable = true;
+      devops.enable = false;
       go.enable = true;
-      java.enable = true;
+      java.enable = false;
       web.enable = true;
       ai.enable = true;
-      discord.enable = true;
       latex.enable = true;
       nixlang.enable = true;
-      flutter.enable = true;
+      flutter.enable = false;
     }
   ];
 }
