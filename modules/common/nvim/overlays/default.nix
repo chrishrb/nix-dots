@@ -38,4 +38,5 @@ inputs: _final: prev: {
       mcphub-nvim = inputs.mcphub-nvim.packages.${prev.system}.default;
     }
   );
+  mcp-hub = inputs.mcp-hub.packages.${prev.system}.default;
 }

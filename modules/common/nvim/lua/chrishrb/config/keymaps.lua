@@ -9,19 +9,15 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- functions
-vim.api.nvim_create_user_command(
-  'ReloadConfig',
-  function()
-    for name,_ in pairs(package.loaded) do
-      if name:match('^user') then
-        package.loaded[name] = nil
-      end
-    end
+vim.api.nvim_create_user_command("ReloadConfig", function()
+	for name, _ in pairs(package.loaded) do
+		if name:match("^user") then
+			package.loaded[name] = nil
+		end
+	end
 
-    dofile(vim.env.MYVIMRC)
-  end,
-  { nargs = 0 }
-)
+	dofile(vim.env.MYVIMRC)
+end, { nargs = 0 })
 
 --Deactivate default jupyter keybindings
 vim.g.jupyter_mapkeys = 0
@@ -44,7 +40,6 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 -- Git resolve conflicts
 keymap("n", "gdh", "<cmd>diffget //2<cr>", opts)
 keymap("n", "gdl", "<cmd>diffget //3<cr>", opts)
-
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)

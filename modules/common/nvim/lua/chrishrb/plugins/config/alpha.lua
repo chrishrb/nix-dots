@@ -1,37 +1,37 @@
 local alpha = require("alpha")
-local icons = require "chrishrb.config.icons"
+local icons = require("chrishrb.config.icons")
 
 local function footer()
-  local status_ok_lazy, lazy = pcall(require, "lazy")
-  if not status_ok_lazy then
-    return " ?"
-  end
-  local plugins = lazy.stats()
-  local v = vim.version()
-  local datetime = os.date " %d-%m-%Y"
-  return string.format("%s %s  v%s.%s.%s  %s", icons.ui.Tree, plugins.count, v.major, v.minor, v.patch, datetime)
+	local status_ok_lazy, lazy = pcall(require, "lazy")
+	if not status_ok_lazy then
+		return " ?"
+	end
+	local plugins = lazy.stats()
+	local v = vim.version()
+	local datetime = os.date(" %d-%m-%Y")
+	return string.format("%s %s  v%s.%s.%s  %s", icons.ui.Tree, plugins.count, v.major, v.minor, v.patch, datetime)
 end
 
 local dashboard = require("alpha.themes.dashboard")
 
 dashboard.section.header.val = {
-[[                                                                              ]],
-[[                                    ██████                                    ]],
-[[                                ████▒▒▒▒▒▒████                                ]],
-[[                              ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                              ]],
-[[                            ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                            ]],
-[[                          ██▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒                              ]],
-[[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▓▓▓▓                          ]],
-[[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▒▒▓▓                          ]],
-[[                        ██▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒    ██                        ]],
-[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-[[                        ██▒▒██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒██▒▒▒▒██                        ]],
-[[                        ████  ██▒▒██  ██▒▒▒▒██  ██▒▒██                        ]],
-[[                        ██      ██      ████      ████                        ]],
-[[                                                                              ]],
+	[[                                                                              ]],
+	[[                                    ██████                                    ]],
+	[[                                ████▒▒▒▒▒▒████                                ]],
+	[[                              ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                              ]],
+	[[                            ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                            ]],
+	[[                          ██▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒                              ]],
+	[[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▓▓▓▓                          ]],
+	[[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▒▒▓▓                          ]],
+	[[                        ██▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒    ██                        ]],
+	[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+	[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+	[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+	[[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+	[[                        ██▒▒██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒██▒▒▒▒██                        ]],
+	[[                        ████  ██▒▒██  ██▒▒▒▒██  ██▒▒██                        ]],
+	[[                        ██      ██      ████      ████                        ]],
+	[[                                                                              ]],
 }
 
 dashboard.section.buttons.val = {

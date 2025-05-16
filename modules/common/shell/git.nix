@@ -58,7 +58,12 @@
           # dad instead of add
           dad = "!curl https://icanhazdadjoke.com/ && echo";
         };
-        ignores = [ "*~" "*.swp" ".DS_Store" ".phpactor.json" ];
+        ignores = [
+          "*~"
+          "*.swp"
+          ".DS_Store"
+          ".phpactor.json"
+        ];
         delta = {
           enable = true;
           options = {

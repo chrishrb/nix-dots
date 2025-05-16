@@ -1,3 +1,3 @@
-require "chrishrb.lsp.mason"
+require("chrishrb.lsp.mason")
 require("chrishrb.lsp.handlers").setup()
-require "chrishrb.lsp.null-ls"
+require("chrishrb.lsp.null-ls")

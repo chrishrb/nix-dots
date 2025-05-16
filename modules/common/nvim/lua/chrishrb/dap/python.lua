@@ -1,1 +1,1 @@
-require('dap-python').setup(vim.g.python3_host_prog)
+require("dap-python").setup(vim.g.python3_host_prog)

@@ -1,7 +1,7 @@
 return {
-  settings = {
-    gopls = {
-      buildFlags = { "-tags=integration e2e",  },
-    },
-  },
+	settings = {
+		gopls = {
+			buildFlags = { "-tags=integration e2e" },
+		},
+	},
 }
