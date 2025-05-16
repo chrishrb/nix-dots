@@ -204,8 +204,18 @@
                   exit 1
                 fi
               '';
-          nixFmt = "${pkgs.treefmt}/bin/treefmt --ci";
-          stylua = "${pkgs.stylua}/bin/stylua --check";
+          formatting =
+            pkgs.runCommand "check-formatting"
+              {
+                buildInputs = with pkgs; [
+                  treefmt
+                  stylua
+                ];
+              }
+              ''
+                treefmt --ci
+                stylua --check .
+              '';
         }
       );
 
