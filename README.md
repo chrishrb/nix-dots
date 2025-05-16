@@ -33,6 +33,12 @@ nix run nix-darwin -- switch --flake "."
 darwin-rebuild switch --flake "."
 ```
 
+Or format all files:
+
+```bash
+nix fmt
+```
+
 ### Activate the [German Programming Keyboard](https://github.com/MickL/macos-keyboard-layout-german-programming):
 
 Open macOS System Settings -> Keyboard -> Text Input -> Edit -> click `+` -> click `Deutsch - Programmierung` -> click `Add`

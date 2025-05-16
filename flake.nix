@@ -50,6 +50,9 @@
     # nvim
     nixCats.url = "github:BirdeeHub/nixCats-nvim/v7.2.13";
 
+    # formatter
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
     # ai tools
     # TODO: Change after merge of https://github.com/Davidyz/VectorCode/pull/144
     vectorcode.url = "github:chrishrb/VectorCode/feature/use-cmd-path-from-config";
@@ -96,7 +99,12 @@
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      treefmt-nix,
+      ...
+    }@inputs:
     let
       # Global configuration for my systems
       globals = rec {
@@ -127,6 +135,14 @@
       # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
+      # formatting
+      treefmtEval = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system overlays; };
+        in
+        treefmt-nix.lib.evalModule pkgs ./treefmt.nix
+      );
     in
     rec {
 
@@ -204,8 +220,12 @@
                   exit 1
                 fi
               '';
+
+          formatting = treefmtEval.${system}.config.build.check self;
         }
       );
+
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
 
       # Templates for starting other projects quickly
       templates = rec {
