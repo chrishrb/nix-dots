@@ -23,3 +23,17 @@ jobs:
 
       - name: Check the Flake
         run: nix flake check
+
+  formatting:
+    name: Check formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - uses: cachix/install-nix-action@v26
+        with:
+            nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: treefmt
+        run: nix-shell -p treefmt --run "treefmt --ci"

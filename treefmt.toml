@@ -1,0 +1,9 @@
+[formatter.nix]
+command = "nixfmt"
+includes = [ "*.nix" ]
+priority = 0
+
+[formatter.lua]
+command = "stylua"
+includes = [ "*.lua" ]
+priority = 0

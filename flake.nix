@@ -174,7 +174,7 @@
               git
               stylua
               nixfmt-rfc-style
-              nixfmt-tree
+              treefmt
               shfmt
               shellcheck
             ];
@@ -204,18 +204,6 @@
                   exit 1
                 fi
               '';
-          formatting =
-            pkgs.runCommand "check-formatting"
-              {
-                buildInputs = with pkgs; [
-                  nixfmt-tree
-                  stylua
-                ];
-              }
-              ''
-                treefmt --ci
-                stylua --check .
-              '';
         }
       );
 
@@ -231,14 +219,6 @@
           description = "Python template";
         };
       };
-
-      formatter = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs { inherit system overlays; };
-        in
-        pkgs.nixfmt-tree
-      );
 
     };
 }
