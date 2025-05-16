@@ -16,6 +16,25 @@ let
     #inputs.neovim-nightly-overlay.overlays.default
   ];
 
+  # Config for MCP Hub
+  mcpHubConfig = ''
+    {
+      "mcpServers": {
+        "git": {
+          "command": "uvx",
+          "args": ["mcp-server-git"]
+        }
+      },
+      "nativeMCPServers": {
+        "neovim": {
+          "disabled_tools": [
+            
+          ]
+        }
+      }
+    }
+  '';
+
   categoryDefinitions =
     {
       pkgs,
@@ -61,6 +80,10 @@ let
           nodePackages.bash-language-server # bash
           yaml-language-server # yaml
           helm-ls # helm
+
+          mcp-hub
+          vectorcode
+          uv # python package manager
         ];
         go = with pkgs; [
           gopls
@@ -100,6 +123,8 @@ let
             dressing-nvim
             mini-diff
             copilot-lua
+            VectorCode
+            mcphub-nvim
           ];
           look = [
             lualine-nvim
@@ -263,7 +288,7 @@ let
           latex = false;
           php = true;
           flutter = true;
-          aiAdapter = "copilot";
+          mcpHubConfigFile = "${pkgs.writeText "servers.json" mcpHubConfig}";
 
           # this does not have an associated category of plugins,
           # but lua can still check for it
@@ -316,8 +341,7 @@ in
           name = defaultPackageName;
           packages = [ defaultPackage ];
           inputsFrom = [ ];
-          shellHook = ''
-          '';
+          shellHook = '''';
         };
       };
     }

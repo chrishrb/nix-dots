@@ -50,6 +50,12 @@
     # nvim
     nixCats.url = "github:BirdeeHub/nixCats-nvim/v7.2.13";
 
+    # ai tools
+    # TODO: Change after merge of https://github.com/Davidyz/VectorCode/pull/144
+    vectorcode.url = "github:chrishrb/VectorCode/feature/use-cmd-path-from-config";
+    mcp-hub.url = "github:ravitemer/mcp-hub";
+    mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
+
     # plugins that are not in nixpkg
     nvim-tmux-navigation = {
       url = "github:alexghergh/nvim-tmux-navigation";
@@ -65,6 +71,12 @@
     };
     none-ls-extras-nvim = {
       url = "github:nvimtools/none-ls-extras.nvim";
+      flake = false;
+    };
+
+    # TODO: Remove after merge of https://github.com/nvim-tree/nvim-tree.lua/pull/3129
+    nvim-tree-lua = {
+      url = "github:chrishrb/nvim-tree.lua";
       flake = false;
     };
 
@@ -103,6 +115,7 @@
         (import ./overlays/talhelper.nix inputs)
         (import ./overlays/personal.nix inputs)
         (import ./overlays/catppuccin.nix inputs)
+        (import ./overlays/ai.nix inputs)
       ];
 
       # System types to support.

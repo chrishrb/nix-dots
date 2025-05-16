@@ -130,14 +130,14 @@ local plugins = {
   -----------------------------------------------------------------------------
   -- DAP (Debugger)
   -----------------------------------------------------------------------------
-  {                                   -- debugging with nvim
-    "rcarriga/nvim-dap-ui",           -- ui for debugger
+  {                                      -- debugging with nvim
+    "rcarriga/nvim-dap-ui",              -- ui for debugger
     dependencies = {
-      "mfussenegger/nvim-dap",        -- debugger
-      "nvim-neotest/nvim-nio",        -- important for dapui
+      "mfussenegger/nvim-dap",           -- debugger
+      "nvim-neotest/nvim-nio",           -- important for dapui
       "theHamsta/nvim-dap-virtual-text", -- show line visual
-      "leoluz/nvim-dap-go",           -- debugger for go
-      "mfussenegger/nvim-dap-python", -- debugger for python
+      "leoluz/nvim-dap-go",              -- debugger for go
+      "mfussenegger/nvim-dap-python",    -- debugger for python
     },
     config = function()
       require("chrishrb.plugins.config.dap")
@@ -151,16 +151,16 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-buffer",                -- Buffer completions
-      "hrsh7th/cmp-path",                  -- Path completions
-      "hrsh7th/cmp-cmdline",               -- Cmdline completions
-      "hrsh7th/cmp-nvim-lsp",              -- LSP completions
+      "hrsh7th/cmp-buffer",                   -- Buffer completions
+      "hrsh7th/cmp-path",                     -- Path completions
+      "hrsh7th/cmp-cmdline",                  -- Cmdline completions
+      "hrsh7th/cmp-nvim-lsp",                 -- LSP completions
       "hrsh7th/cmp-nvim-lsp-document-symbol", -- For textDocument/documentSymbol
 
       -- Snippets
       "saadparwaiz1/cmp_luasnip", -- snippet completions
       {
-        "L3MON4D3/LuaSnip",    --snippet engine
+        "L3MON4D3/LuaSnip",       --snippet engine
         name = "luasnip",
         config = function()
           require("chrishrb.plugins.config.snippet")
@@ -170,9 +170,8 @@ local plugins = {
 
       -- Misc
       "petertriho/cmp-git", -- git source
-      {                  -- copilot
+      {                     -- copilot
         "zbirenbaum/copilot-cmp",
-        enabled = nixCats("aiAdapter") == "copilot",
         config = function()
           require("copilot_cmp").setup()
         end,
@@ -185,20 +184,20 @@ local plugins = {
     event = "InsertEnter",
   },
 
-	-----------------------------------------------------------------------------
-	-- Treesitter
-	-----------------------------------------------------------------------------
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = require("nixCatsUtils.lazyCat").lazyAdd(":TSUpdate"),
-		config = function()
-			require("chrishrb.plugins.config.treesitter")
-		end,
-		dependencies = {
-			-- autoclose and rename html tags
-			"windwp/nvim-ts-autotag",
-		},
-	},
+  -----------------------------------------------------------------------------
+  -- Treesitter
+  -----------------------------------------------------------------------------
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = nixCatsUtils.lazyAdd(":TSUpdate"),
+    config = function()
+      require("chrishrb.plugins.config.treesitter")
+    end,
+    dependencies = {
+      -- autoclose and rename html tags
+      "windwp/nvim-ts-autotag",
+    },
+  },
   {
     'towolf/vim-helm',
     ft = 'helm',
@@ -223,7 +222,7 @@ local plugins = {
     config = true,
     event = "InsertEnter",
   },
-  {              -- change surround e.g. ys{motion}{char}, ds{char}, cs{target}{replacement}
+  {                -- change surround e.g. ys{motion}{char}, ds{char}, cs{target}{replacement}
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to `main` branch for the latest features
     event = "BufEnter",
@@ -290,41 +289,57 @@ local plugins = {
     lazy = false,
   },
 
-	-----------------------------------------------------------------------------
-	-- AI
-	-----------------------------------------------------------------------------
-	{
-		"olimorris/codecompanion.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
-			"echasnovski/mini.diff",
-			{
-				"zbirenbaum/copilot.lua",
-				cmd = "Copilot",
-				enabled = nixCats("aiAdapter") == "copilot",
-				config = function()
-					require("copilot").setup({
-						suggestion = { enabled = false },
-						panel = { enabled = false },
+  -----------------------------------------------------------------------------
+  -- AI
+  -----------------------------------------------------------------------------
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+      "echasnovski/mini.diff",
+      {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        config = function()
+          require("copilot").setup({
+            suggestion = { enabled = false },
+            panel = { enabled = false },
             filetypes = {
               yaml = true,
               ["."] = true,
             }
-					})
-				end,
-			},
-			{
-				"stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
-				opts = {},
-			},
-			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-		},
-		config = function()
-			require("chrishrb.plugins.config.codecompanion")
-		end,
-	},
+          })
+        end,
+      },
+      {
+        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
+        opts = {},
+      },
+      "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+      {
+        "Davidyz/VectorCode",
+        version = "*",      -- optional, depending on whether you're on nightly or release
+        dependencies = { "nvim-lua/plenary.nvim" },
+        cmd = "VectorCode", -- if you're lazy-loading VectorCode
+      },
+      {
+        "ravitemer/mcphub.nvim",
+        dependencies = {
+          "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
+        },
+        -- cmd = "MCPHub",  -- lazy load
+        name = "vimplugin-mcphub.nvim",
+        config = function()
+          require("chrishrb.plugins.config.mcphub")
+        end,
+      }
+    },
+    config = function()
+      require("chrishrb.plugins.config.codecompanion")
+    end,
+  },
 
   -----------------------------------------------------------------------------
   -- Misc

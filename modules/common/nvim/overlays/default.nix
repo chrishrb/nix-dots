@@ -5,7 +5,7 @@ inputs: _final: prev: {
         pname = "codecompanion.nvim";
         version = "2024-09-16";
         src = inputs.codecompanion-nvim;
-        dependencies = [ prev.vimPlugins.plenary-nvim ];
+        dependencies = [ prev'.plenary-nvim ];
         nvimRequireCheck = "codecompanion";
       };
       nvim-tmux-navigation = prev.vimUtils.buildVimPlugin {
@@ -22,8 +22,20 @@ inputs: _final: prev: {
         pname = "none-ls-extras.nvim";
         version = "2025-04-07";
         src = inputs.none-ls-extras-nvim;
-        dependencies = [ prev.vimPlugins.none-ls-nvim ];
+        dependencies = [ prev'.none-ls-nvim ];
       };
+      nvim-tree-lua = prev.vimUtils.buildVimPlugin {
+        pname = "nvim-tree.lua";
+        version = "2025-04-07";
+        src = inputs.nvim-tree-lua;
+        nvimSkipModules = [
+          # Meta can't be required
+          "nvim-tree._meta.api"
+          "nvim-tree._meta.api_decorator"
+        ];
+      };
+      VectorCode = inputs.vectorcode.packages.${prev.system}.vimPlugin;
+      mcphub-nvim = inputs.mcphub-nvim.packages.${prev.system}.default;
     }
   );
 }
