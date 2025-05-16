@@ -208,7 +208,7 @@
             pkgs.runCommand "check-formatting"
               {
                 buildInputs = with pkgs; [
-                  treefmt
+                  nixfmt-tree
                   stylua
                 ];
               }
