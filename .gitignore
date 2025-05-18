@@ -7,3 +7,4 @@ result
 private/**
 templates/**/flake.lock
 !private/**.age
+outputs

@@ -212,7 +212,7 @@
               ''
                 mkdir -p $out
                 export HOME=$TMPDIR
-                nvim -c "checkhealth" -c "write $out/health.log" -c "quitall"
+                nvim --headless -c "checkhealth" -c "write $out/health.log" -c "quitall"
 
                 # Check for errors inside the health log
                 if $(grep "ERROR" $out/health.log); then
