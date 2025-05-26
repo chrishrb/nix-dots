@@ -72,6 +72,10 @@
       url = "github:olimorris/codecompanion.nvim";
       flake = false;
     };
+    codecompanion-history-nvim = {
+      url = "github:ravitemer/codecompanion-history.nvim";
+      flake = false;
+    };
     none-ls-extras-nvim = {
       url = "github:nvimtools/none-ls-extras.nvim";
       flake = false;

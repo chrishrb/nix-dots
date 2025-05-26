@@ -120,6 +120,7 @@ let
           theme = catppuccin-nvim;
           ai = [
             codecompanion-nvim
+            codecompanion-history-nvim
             dressing-nvim
             mini-diff
             copilot-lua

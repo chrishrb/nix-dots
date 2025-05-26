@@ -33,6 +33,9 @@ codecompanion.setup({
 				make_slash_commands = true, -- make /slash_commands from MCP server prompts
 			},
 		},
+		history = {
+			enabled = true,
+		},
 	},
 	adapters = {
 		copilot = function()

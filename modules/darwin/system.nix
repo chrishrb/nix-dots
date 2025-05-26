@@ -71,7 +71,7 @@
       };
 
       system = {
-         # Set the primary user for the system
+        # Set the primary user for the system
         primaryUser = config.user;
 
         # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.

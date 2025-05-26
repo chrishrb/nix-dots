@@ -87,6 +87,22 @@
         "type": "github"
       }
     },
+    "codecompanion-history-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747985657,
+        "narHash": "sha256-yL2kvlcbHTpvJ96E+vgWUxjaa12W1acWw2IiayICYs0=",
+        "owner": "ravitemer",
+        "repo": "codecompanion-history.nvim",
+        "rev": "36f1a611a2bed70b57a50c877ffc50bdb74c9d23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ravitemer",
+        "repo": "codecompanion-history.nvim",
+        "type": "github"
+      }
+    },
     "codecompanion-nvim": {
       "flake": false,
       "locked": {
@@ -762,6 +778,7 @@
       "inputs": {
         "ai-commit": "ai-commit",
         "alacritty-theme": "alacritty-theme",
+        "codecompanion-history-nvim": "codecompanion-history-nvim",
         "codecompanion-nvim": "codecompanion-nvim",
         "darwin": "darwin",
         "go-grip": "go-grip",

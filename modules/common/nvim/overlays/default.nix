@@ -8,6 +8,15 @@ inputs: _final: prev: {
         dependencies = [ prev'.plenary-nvim ];
         nvimRequireCheck = "codecompanion";
       };
+      codecompanion-history-nvim = prev.vimUtils.buildVimPlugin {
+        pname = "codecompanion-history.nvim";
+        version = "2024-09-16";
+        src = inputs.codecompanion-history-nvim;
+        nvimSkipModules = [
+          "codecompanion._extensions.history.ui"
+          "codecompanion._extensions.history.title_generator"
+        ];
+      };
       nvim-tmux-navigation = prev.vimUtils.buildVimPlugin {
         pname = "nvim-tmux-navigation";
         version = "2024-03-26";
