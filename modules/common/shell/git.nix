@@ -110,19 +110,6 @@
             condition = "gitdir:${config.homePath}/dev/work/";
           }
         ];
-        hooks = {
-          # TODO: fix this
-          # prepare-commit-msg = pkgs.writeScript "prepare-commit-msg"
-          #   ''
-          #   #!/bin/bash
-          #
-          #   COMMIT_MSG_FILE=$1
-          #   COMMIT_SOURCE=$2
-          #   SHA1=$3
-          #
-          #   ${pkgs.ai-commit}/bin/ai-commit hook "$COMMIT_MSG_FILE" "$COMMIT_SOURCE" "$SHA1"
-          #   '';
-        };
       };
 
       programs.lazygit = {
