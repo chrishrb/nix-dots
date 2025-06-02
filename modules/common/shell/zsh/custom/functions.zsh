@@ -48,18 +48,9 @@ function make_tar {
   tar -czvf "$@"
 }
 # }}}
-  # Timetrap extension {{{
-  t () {
-    if [[ $1 == "lastweek" ]]; then
-      t week all -s $(gdate -d "1 week ago" +%F)
-    else
-      timetrap "$@"
-    fi
-  }
-  # }}}
 # Find and replace a string in all files recursively, starting from the current directory.{{{
 # Adapted from code found at <http://forums.devshed.com/unix-help-35/unix-find-and-replace-text-within-all-files-within-a-146179.html>
-function replacein() {
+function replace() {
   find . -type f | xargs perl -pi -e "s/$1/$2/g"
 }# }}}
 # To search for a given string inside every file with the given filename{{{

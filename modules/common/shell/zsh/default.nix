@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
 {
@@ -25,6 +24,7 @@
       zplug = {
         enable = true;
         plugins = [
+          { name = "lukechilds/zsh-nvm"; }
           { name = "hlissner/zsh-autopair"; }
           { name = "zap-zsh/supercharge"; }
           {
@@ -44,7 +44,6 @@
             tags = [
               "from:oh-my-zsh"
               "lazy:true"
-              "defer:3"
             ];
           }
           {
@@ -52,14 +51,12 @@
             tags = [
               "from:oh-my-zsh"
               "lazy:true"
-              "defer:3"
             ];
           }
           {
             name = "macunha1/zsh-terraform";
             tags = [
               "lazy:true"
-              "defer:3"
             ];
           }
           {
@@ -67,7 +64,6 @@
             tags = [
               "from:oh-my-zsh"
               "lazy:true"
-              "defer:3"
             ];
           }
           { name = "paulirish/git-open"; }
@@ -105,6 +101,10 @@
           --bind 'ctrl-e:execute(echo {+} | vim -)'
           --bind 'ctrl-k:up,ctrl-j:down'
           ";
+        # nvm options
+        NVM_COMPLETION = true;
+        NVM_LAZY_LOAD = true;
+        NVM_AUTO_USE = true;
       };
       shellAliases = {
         ## navigation aliases
