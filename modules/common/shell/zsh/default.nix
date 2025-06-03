@@ -123,6 +123,21 @@
         ## vim,tmux,zsh
         ssh = "TERM=xterm-256color ssh"; # needed for ssh to work properly
       };
+      completionInit = ''
+        autoload -Uz compinit
+        compinit -C
+      '';
+      profileExtra = ''
+        setopt correct                                                  # Auto correct mistakes
+        setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+        zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"       # Colored completion (different colors for dirs/files/etc)
+        zstyle ':completion:*' rehash true                              # automatically find new executables in path
+
+        # Speed up completions
+        zstyle ':completion:*' use-cache on
+        zstyle ':completion:*' cache-path ~/.zsh/cache
+      '';
       sessionVariables = { };
       initContent = ''
         # make sure brew is on the path for M1 
