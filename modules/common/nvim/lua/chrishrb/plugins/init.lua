@@ -321,7 +321,7 @@ local plugins = {
 			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
 			{
 				"Davidyz/VectorCode",
-				version = "*", -- optional, depending on whether you're on nightly or release
+				version = "*",
 				dependencies = { "nvim-lua/plenary.nvim" },
 				cmd = "VectorCode", -- if you're lazy-loading VectorCode
 			},
