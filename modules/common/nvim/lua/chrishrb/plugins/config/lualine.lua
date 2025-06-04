@@ -126,7 +126,7 @@ local lsp = {
 }
 
 local codecompanion = {
-	require("chrishrb.plugins.config.codecompanion-lualine"),
+	require("chrishrb.plugins.config.codecompanion.lualine-integration"),
 	color = { bg = "#b4befe", fg = "#313244" },
 	separator = { left = icons.ui.HalfCircleLeft },
 }
