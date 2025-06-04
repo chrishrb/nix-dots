@@ -133,6 +133,7 @@ return {
 		HalfCircleLeft = "",
 		HalfCircleRight = "",
 		IndentLine = "",
+    AiPrefix = "🤖 ~ "
 	},
 	diagnostics = {
 		BoldError = "",
