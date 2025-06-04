@@ -1,15 +1,15 @@
 return function(_)
-  local uname = vim.uv.os_uname()
-  local platform = string.format(
-    "sysname: %s, release: %s, machine: %s, version: %s",
-    uname.sysname,
-    uname.release,
-    uname.machine,
-    uname.version
-  )
-  -- Note: parallel tool execution is not supported by codecompanion currently
-  return string.format(
-    [[
+	local uname = vim.uv.os_uname()
+	local platform = string.format(
+		"sysname: %s, release: %s, machine: %s, version: %s",
+		uname.sysname,
+		uname.release,
+		uname.machine,
+		uname.version
+	)
+	-- Note: parallel tool execution is not supported by codecompanion currently
+	return string.format(
+		[[
 You are an AI assistant plugged into user's code editor. Use the instructions below and the tools accessible to you for assisting the user.
 
 # Role, tone and style
@@ -100,13 +100,13 @@ I need access to use **@<tool name>** to <action>, for <purpose>.
 - Current time: %s, timezone: %s(%s)
 - Current working directory(git repo: %s): %s,
 ]],
-    platform,
-    vim.o.shell,
-    os.date("%Y-%m-%d"),
-    os.date("%H:%M:%S"),
-    os.date("%Z"),
-    os.date("%z"),
-    vim.fn.isdirectory(".git") == 1,
-    vim.fn.getcwd()
-  )
+		platform,
+		vim.o.shell,
+		os.date("%Y-%m-%d"),
+		os.date("%H:%M:%S"),
+		os.date("%Z"),
+		os.date("%z"),
+		vim.fn.isdirectory(".git") == 1,
+		vim.fn.getcwd()
+	)
 end

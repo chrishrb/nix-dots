@@ -6,7 +6,7 @@ local api = vim.api
 local which_key = require("which-key")
 which_key.add({
 	{
-    -- Normal mode mappings
+		-- Normal mode mappings
 		{ "<leader>c", group = "CodeCompanion", nowait = true, remap = false },
 		{
 			"<leader>cc",
@@ -56,7 +56,7 @@ which_key.add({
 			remap = false,
 		},
 
-    -- Visual mode mappings
+		-- Visual mode mappings
 		{
 			mode = { "v" },
 			{ "<leader>c", group = "CodeCompanion", nowait = true, remap = false },
