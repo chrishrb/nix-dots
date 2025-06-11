@@ -50,10 +50,10 @@
           "logi-options+"
           "keepassxc"
           "tunnelblick"
+          "zoom"
         ]
 
         ++ lib.optionals config.work.enable [
-          "zoom"
           "microsoft-teams"
         ];
     };

@@ -54,8 +54,6 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
     # ai tools
-    # TODO: Change after merge of https://github.com/Davidyz/VectorCode/pull/144
-    vectorcode.url = "github:chrishrb/VectorCode/feature/use-cmd-path-from-config";
     mcp-hub.url = "github:ravitemer/mcp-hub";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
 
@@ -127,7 +125,6 @@
         (import ./overlays/talhelper.nix inputs)
         (import ./overlays/personal.nix inputs)
         (import ./overlays/catppuccin.nix inputs)
-        (import ./overlays/ai.nix inputs)
       ];
 
       # System types to support.

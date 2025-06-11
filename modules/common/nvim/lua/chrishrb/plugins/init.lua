@@ -321,17 +321,16 @@ local plugins = {
 			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
 			{
 				"Davidyz/VectorCode",
+				name = "vectorcode.nvim",
 				version = "*",
 				dependencies = { "nvim-lua/plenary.nvim" },
 				cmd = "VectorCode", -- if you're lazy-loading VectorCode
 			},
 			{
 				"ravitemer/mcphub.nvim",
-				dependencies = {
-					"nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
-				},
+				name = "mcphub.nvim",
+				dependencies = { "nvim-lua/plenary.nvim" },
 				-- cmd = "MCPHub",  -- lazy load
-				name = "vimplugin-mcphub.nvim",
 				config = function()
 					require("chrishrb.plugins.config.mcphub")
 				end,

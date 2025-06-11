@@ -119,8 +119,8 @@
           # customize trackpad
           trackpad = {
             Clicking = true; # enable tap to click
-            #TrackpadRightClick = true; # enable two finger right click
-            #TrackpadThreeFingerDrag = true; # enable three finger drag
+            TrackpadRightClick = true; # enable two finger right click
+            TrackpadThreeFingerDrag = true; # enable three finger drag
           };
 
           ActivityMonitor = {

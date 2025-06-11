@@ -124,7 +124,7 @@ let
             dressing-nvim
             mini-diff
             copilot-lua
-            VectorCode
+            vectorcode-nvim
             mcphub-nvim
           ];
           look = [

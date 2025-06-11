@@ -43,7 +43,6 @@ inputs: _final: prev: {
           "nvim-tree._meta.api_decorator"
         ];
       };
-      VectorCode = inputs.vectorcode.packages.${prev.system}.vimPlugin;
       mcphub-nvim = inputs.mcphub-nvim.packages.${prev.system}.default;
     }
   );
