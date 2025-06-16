@@ -14,6 +14,7 @@
         php83
         php83Packages.composer
         jetbrains.phpstorm
+        dbeaver-bin
       ];
     };
   };
