@@ -38,11 +38,9 @@
 
         # easier nix shell - but never as great
         devbox
-        postman
 
         # expose local webservers to internet
         ngrok
-        postman
       ];
 
       programs.zsh = {

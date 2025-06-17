@@ -46,7 +46,7 @@ inputs.darwin.lib.darwinSystem {
       # languaages
       python.enable = true;
       lua.enable = true;
-      devops.enable = false;
+      devops.enable = true;
       go.enable = true;
       java.enable = false;
       web.enable = true;
