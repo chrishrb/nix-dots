@@ -250,6 +250,10 @@ let
     lombok = pkgs.lombok;
   };
 
+  extraPhpItems = pkgs: {
+    php-debug = pkgs.vscode-extensions.xdebug.php-debug;
+  };
+
   # packageDefinitions:
 
   # Now build a package with specific categories from above
@@ -289,6 +293,7 @@ let
           web = true;
           java = true;
           javaExtras = extraJavaItems pkgs;
+          phpExtras = extraPhpItems pkgs;
           devops = true;
           latex = false;
           php = true;

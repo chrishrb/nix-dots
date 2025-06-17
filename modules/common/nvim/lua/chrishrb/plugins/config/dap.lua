@@ -103,6 +103,6 @@ if nixCats("python") then
 	require("chrishrb.dap.python")
 end
 
--- if nixCats('php') then
---   require("chrishrb.dap.php")
--- end
+if nixCats('php') then
+  require("chrishrb.dap.php")
+end
