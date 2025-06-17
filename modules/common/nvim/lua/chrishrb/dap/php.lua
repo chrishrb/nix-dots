@@ -13,8 +13,8 @@ dap.configurations.php = {
 		name = "Listen for Xdebug",
 		port = "9003",
 		log = true,
-    pathMappings = {
-      ["/app"] = "/Users/christophherb/dev/work/chargecloud",
-    },
+		pathMappings = {
+			["/app"] = "/Users/christophherb/dev/work/chargecloud",
+		},
 	},
 }
