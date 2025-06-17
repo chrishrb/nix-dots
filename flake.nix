@@ -78,8 +78,6 @@
       url = "github:nvimtools/none-ls-extras.nvim";
       flake = false;
     };
-
-    # TODO: Remove after merge of https://github.com/nvim-tree/nvim-tree.lua/pull/3129
     nvim-tree-lua = {
       url = "github:nvim-tree/nvim-tree.lua";
       flake = false;
