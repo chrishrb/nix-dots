@@ -28,15 +28,6 @@ local groups = {
 codecompanion.setup({
 	prompt_library = require("chrishrb.plugins.config.codecompanion.prompts"),
 	extensions = {
-		vectorcode = {
-			opts = {
-				add_tool = true,
-				tool_opts = {
-					ls_on_start = true,
-					auto_submit = { query = true },
-				},
-			},
-		},
 		mcphub = {
 			callback = "mcphub.extensions.codecompanion",
 			opts = {

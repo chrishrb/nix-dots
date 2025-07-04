@@ -5,6 +5,11 @@
   home-manager.users.${config.user}.programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    config = {
+      global = {
+        warn_timeout = 0;
+      };
+    };
   };
 
   # Prevent garbage collection

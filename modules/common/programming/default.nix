@@ -8,7 +8,6 @@
     ./web.nix
     ./python.nix
     ./java.nix
-    ./ai.nix
     ./latex.nix
     ./php.nix
     ./flutter.nix

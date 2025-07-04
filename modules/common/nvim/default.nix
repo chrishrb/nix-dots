@@ -82,7 +82,6 @@ let
           helm-ls # helm
 
           mcp-hub
-          vectorcode
           uv # python package manager
         ];
         go = with pkgs; [
@@ -124,7 +123,6 @@ let
             dressing-nvim
             mini-diff
             copilot-lua
-            vectorcode-nvim
             mcphub-nvim
           ];
           look = [
@@ -208,10 +206,6 @@ let
       # this section is for environmentVariables that should be available
       # at RUN TIME for plugins. Will be available to path within neovim terminal
       environmentVariables = {
-        general = {
-          VECTORCODE_LOG_LEVEL = "ERROR";
-        };
-
         test = {
           subtest1 = {
             CATTESTVAR = "It worked!";

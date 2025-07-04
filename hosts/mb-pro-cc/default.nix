@@ -50,7 +50,6 @@ inputs.darwin.lib.darwinSystem {
       go.enable = true;
       java.enable = false;
       web.enable = true;
-      ai.enable = true;
       discord.enable = false;
       latex.enable = false;
       nixlang.enable = true;
