@@ -15,6 +15,7 @@ inputs: _final: prev: {
         nvimSkipModules = [
           "codecompanion._extensions.history.ui"
           "codecompanion._extensions.history.title_generator"
+          "codecompanion._extensions.history.summary_generator"
         ];
       };
       nvim-tmux-navigation = prev.vimUtils.buildVimPlugin {
