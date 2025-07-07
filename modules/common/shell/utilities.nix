@@ -39,6 +39,7 @@ in
         unixtools.watch # watch cmd
         go-task # task runner (similar to make)
         #go-grip # preview md files
+        mqttx-cli # mqtt client
       ];
 
       home.file = {

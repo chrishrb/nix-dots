@@ -32,7 +32,7 @@
         upgrade = true;
       };
       brews = [
-        "emqx/mqttx/mqttx-cli"
+        # "emqx/mqttx/mqttx-cli"
       ];
       casks =
         [
