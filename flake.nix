@@ -89,10 +89,7 @@
       flake = false;
     };
 
-    # cli tool for automatically creating commit messages
-    ai-commit = {
-      url = "github:chrishrb/ai-commit";
-    };
+    # cli tools
     go-grip = {
       url = "github:chrishrb/go-grip";
     };
