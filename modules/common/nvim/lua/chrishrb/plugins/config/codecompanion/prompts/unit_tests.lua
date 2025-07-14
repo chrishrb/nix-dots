@@ -1,13 +1,12 @@
 local fmt = string.format
 
--- TODO: improve this prompt
 return {
 	strategy = "workflow",
 	description = "Generate unit tests for the selected code",
 	opts = {
 		index = 2,
 		modes = { "v" },
-		short_name = "tests",
+		short_name = "unit_tests",
 		auto_submit = true,
 	},
 	prompts = {
@@ -42,7 +41,7 @@ Please generate unit tests for this code from buffer %d with the filename `%s`:
 %s
 ```
 
-You may use the @vectorcode tool to retrieve the style of the existing tests in the codebase, if available. If not, generate tests using the best practices of the programming language %s.
+You may use the @{read_file} tool to retrieve the style of the existing tests in the codebase, if available. If not, generate tests using the best practices of the programming language %s.
 Also retrieve the placement of the existing tests from the current file in the codebase, if available. If not available, generate the tests in a new file with a name that follows the conventions of the programming language %s.]],
 					context.bufnr,
 					context.filename,
@@ -59,7 +58,7 @@ Also retrieve the placement of the existing tests from the current file in the c
 		},
 		{
 			role = "user",
-			content = "You may use the @files tool to write the generated tests to the correct file.",
+			content = "You may use the @{files} tool to write the generated tests to the correct file.",
 			opts = {
 				contains_code = true,
 				auto_submit = false,

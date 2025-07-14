@@ -2,6 +2,13 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 local icons = require("chrishrb.config.icons")
 
+-- workaround for https://github.com/nvim-treesitter/nvim-treesitter/issues/7952
+local open_after_tree = function(prompt_bufnr)
+  vim.defer_fn(function()
+    actions.select_default(prompt_bufnr)
+  end, 100) -- Delay allows filetype and plugins to settle before opening
+end
+
 telescope.setup({
 	defaults = {
 
@@ -23,7 +30,6 @@ telescope.setup({
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
 
-				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,
@@ -39,7 +45,10 @@ telescope.setup({
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
 				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+
+				["<CR>"] = open_after_tree,
 			},
+      n = { ["<CR>"] = open_after_tree },
 		},
 		vimgrep_arguments = {
 			"rg",

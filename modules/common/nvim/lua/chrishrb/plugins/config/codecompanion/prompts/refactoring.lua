@@ -5,7 +5,7 @@ return {
 		index = 3,
 		modes = { "v" },
 		short_name = "refactor",
-		auto_submit = false,
+		auto_submit = true,
 		stop_context_insertion = true,
 		user_prompt = false,
 	},
@@ -28,10 +28,11 @@ in all expected scenarios.]]
 			role = "user",
 			content = function(context)
 				local text = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
-				return "I have the following code:\n\n```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
+				return "You may use @{files} to get more context. I have the following code:\n\n```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
 			end,
 			opts = {
 				contains_code = true,
+				auto_submit = true,
 			},
 		},
 	},

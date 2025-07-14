@@ -26,7 +26,7 @@ local groups = {
 }
 
 codecompanion.setup({
-	prompt_library = require("chrishrb.plugins.config.codecompanion.prompts"),
+	-- prompt_library = require("chrishrb.plugins.config.codecompanion.prompts"),
 	extensions = {
 		mcphub = {
 			callback = "mcphub.extensions.codecompanion",
@@ -55,8 +55,8 @@ codecompanion.setup({
 		action_palette = {
 			prompt = icons.ui.AiPrefix,
 			opts = {
-				show_default_actions = false,
-				show_default_prompt_library = false,
+				show_default_actions = true,
+				show_default_prompt_library = true,
 			},
 		},
 		chat = {
@@ -76,6 +76,16 @@ codecompanion.setup({
 			tools = {
 				groups = groups,
 			},
+      keymaps = {
+        accept_change = {
+          modes = { n = "ga" },
+          description = "Accept the suggested change",
+        },
+        reject_change = {
+          modes = { n = "gr" },
+          description = "Reject the suggested change",
+        },
+      }
 		},
 		cmd = {
 			adapter = adapter,
