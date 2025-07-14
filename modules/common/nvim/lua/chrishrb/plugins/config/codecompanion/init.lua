@@ -76,16 +76,16 @@ codecompanion.setup({
 			tools = {
 				groups = groups,
 			},
-      keymaps = {
-        accept_change = {
-          modes = { n = "ga" },
-          description = "Accept the suggested change",
-        },
-        reject_change = {
-          modes = { n = "gr" },
-          description = "Reject the suggested change",
-        },
-      }
+			keymaps = {
+				accept_change = {
+					modes = { n = "ga" },
+					description = "Accept the suggested change",
+				},
+				reject_change = {
+					modes = { n = "gr" },
+					description = "Reject the suggested change",
+				},
+			},
 		},
 		cmd = {
 			adapter = adapter,
