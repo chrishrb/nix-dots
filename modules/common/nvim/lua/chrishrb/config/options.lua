@@ -50,6 +50,9 @@ vim.cmd([[set iskeyword+=-]])
 vim.g.terraform_fmt_on_save = 1
 vim.g.terraform_align = 1
 
+-- testing
+vim.g["test#strategy"] = "vimux"
+
 -- save last position
 vim.api.nvim_exec2(
 	[[autocmd! BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],

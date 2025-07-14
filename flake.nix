@@ -89,11 +89,6 @@
       flake = false;
     };
 
-    # cli tools
-    go-grip = {
-      url = "github:chrishrb/go-grip";
-    };
-
     # agenix for secrets management
     agenix.url = "github:ryantm/agenix";
   };
@@ -121,7 +116,6 @@
         inputs.alacritty-theme.overlays.default
         (import ./overlays/stable.nix inputs)
         (import ./overlays/talhelper.nix inputs)
-        (import ./overlays/personal.nix inputs)
         (import ./overlays/catppuccin.nix inputs)
       ];
 

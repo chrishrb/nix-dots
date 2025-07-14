@@ -171,6 +171,10 @@ let
             gitsigns-nvim
             vim-helm
           ];
+          testing = [
+            vim-test
+            vimux
+          ];
           utils = [
             nvim-autopairs
             nvim-surround

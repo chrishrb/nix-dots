@@ -222,6 +222,14 @@ which_key.add({
 		{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
 		{ "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
 	},
+
+	-- Testing
+	{
+		{ "<leader>t", group = "Testing", nowait = true, remap = false },
+		{ "<leader>tn", "<cmd>TestNearest<cr>", desc = "Test nearest", nowait = true, remap = false },
+		{ "<leader>tf", "<cmd>TestFile<cr>", desc = "Test file", nowait = true, remap = false },
+		{ "<leader>ta", "<cmd>TestSuite<cr>", desc = "Test all", nowait = true, remap = false },
+	},
 })
 
 return M
