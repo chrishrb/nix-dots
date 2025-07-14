@@ -128,7 +128,6 @@ let
           look = [
             lualine-nvim
             tabline-nvim
-            alpha-nvim
             nvim-web-devicons
           ];
           navigation = [

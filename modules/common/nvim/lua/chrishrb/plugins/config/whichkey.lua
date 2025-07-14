@@ -62,7 +62,6 @@ which_key.add({
 		nowait = true,
 		remap = false,
 	},
-	{ "<leader>a", "<cmd>Alpha<cr>", desc = "Alpha", nowait = true, remap = false },
 	{ "<leader>b", "<cmd>Buffers<cr>", desc = "Buffers", nowait = true, remap = false },
 	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", nowait = true, remap = false },
 	{

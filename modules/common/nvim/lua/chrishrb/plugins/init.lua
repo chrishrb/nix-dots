@@ -39,16 +39,6 @@ local plugins = {
 		end,
 		event = "VimEnter",
 	},
-	{
-		"goolord/alpha-nvim",
-		dependencies = {
-			"kyazdani42/nvim-web-devicons",
-		},
-		config = function()
-			require("chrishrb.plugins.config.alpha")
-		end,
-		event = "VimEnter",
-	},
 	-- Icons for nvim-tree
 	{ "kyazdani42/nvim-web-devicons" },
 
@@ -248,9 +238,6 @@ local plugins = {
 	-- rust tools
 	-- { "simrat39/rust-tools.nvim" },
 
-	-- go tools
-	-- { "ray-x/go.nvim" },
-
 	-----------------------------------------------------------------------------
 	-- Git
 	-----------------------------------------------------------------------------
@@ -364,7 +351,6 @@ local plugins = {
 	},
 	{
 		"chrishrb/gx.nvim",
-		-- dir = "~/jam-dev/home/gx.nvim",
 		keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
 		cmd = { "Browse" },
 		init = function()
