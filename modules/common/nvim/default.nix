@@ -23,13 +23,17 @@ let
         "git": {
           "command": "uvx",
           "args": ["mcp-server-git"]
+        },
+        "github": {
+          "url": "https://api.githubcopilot.com/mcp/",
+          "headers": {
+            "Authorization": "Bearer $GITHUB_PERSONAL_ACCESS_TOKEN"
+          }
         }
       },
       "nativeMCPServers": {
         "neovim": {
-          "disabled_tools": [
-            
-          ]
+          "disabled_tools": [ ]
         }
       }
     }

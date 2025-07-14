@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./agenix.nix
     ./alacritty.nix
     ./slack.nix
     ./nvim.nix

@@ -93,6 +93,9 @@
     go-grip = {
       url = "github:chrishrb/go-grip";
     };
+
+    # agenix for secrets management
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs =
@@ -189,6 +192,7 @@
               treefmt
               shfmt
               shellcheck
+              inputs.agenix.packages.${system}.default
             ];
           };
 

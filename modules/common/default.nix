@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -54,6 +55,11 @@
         if pkgs.stdenv.isDarwin then "/Users/${config.user}" else "/home/${config.user}"
       );
     };
+    sshKeyPath = lib.mkOption {
+      type = lib.types.path;
+      description = "Path of ssh private key.";
+      default = config.homePath + "/.ssh/id_ed25519";
+    };
     dotfilesPath = lib.mkOption {
       type = lib.types.path;
       description = "Path of dotfiles repository.";
@@ -97,6 +103,10 @@
       home-manager.users.${config.user}.home.stateVersion = stateVersion;
       home-manager.users.root.home.stateVersion = stateVersion;
 
-    };
+      # activate agenix
+      home-manager.sharedModules = [
+        inputs.agenix.homeManagerModules.default
+      ];
 
+    };
 }
