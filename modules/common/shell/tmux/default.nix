@@ -35,9 +35,22 @@
       historyLimit = 50000;
       extraConfig =
         let
-          capture-last-cmd-output = pkgs.writeShellScriptBin "capture-last-cmd-output" (
-            builtins.readFile ./scripts/capture-last-cmd-output.sh
-          );
+          capture-last-cmd-output = pkgs.writeShellScriptBin "capture-last-cmd-output" ''
+            PROMPT_PATTERN="➜"
+
+            tmux_output=$(${pkgs.tmux}/bin/tmux capture-pane -p -S '-' -J)
+
+            extracted_output=$(echo "$tmux_output" | tail -r |
+              ${pkgs.gnused}/bin/sed -e "0,/$PROMPT_PATTERN/d" |
+              ${pkgs.gnused}/bin/sed "/$PROMPT_PATTERN/,\$d" |
+              tail -r)
+
+            ${
+              if pkgs.stdenv.isDarwin then
+                "echo \"$extracted_output\" | pbcopy"
+              else
+                "echo \"$extracted_output\" | ${pkgs.xclip}/bin/xclip -selection clipboard"
+            }'';
         in
         ''
           set -ag terminal-overrides ",xterm-256color:RGB"
@@ -76,9 +89,9 @@
 
           # split panes using | and - 
           # + open in current directory
-          bind c new-window -c "#{pane_current_path}"
-          bind | split-window -h -c "#{pane_current_path}"
-          bind - split-window -v -c "#{pane_current_path}"
+          bind c new-window -c '#{pane_current_path}'
+          bind | split-window -h -c '#{pane_current_path}'
+          bind - split-window -v -c '#{pane_current_path}'
 
           # Smart pane switching with awareness of Vim splits.
           # This is copy paste from https://github.com/christoomey/vim-tmux-navigator
@@ -113,7 +126,7 @@
           bind L swap-window -t +1\; select-window -t +1
 
           # capture last cmd output
-          bind y run-shell "${capture-last-cmd-output}/bin/capture-last-cmd-output"
+          bind y run-shell '${capture-last-cmd-output}/bin/capture-last-cmd-output'
         '';
     };
 
