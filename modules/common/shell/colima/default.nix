@@ -18,11 +18,10 @@
         kind # k8s in docker
       ];
 
-      # TODO: fix this
-      #home.file."./.colima/default/colima.yaml" = {
-      #  source = ./colima.yaml;
-      # onChange = ''cat ~/.colima/default/colima.yaml > ~/.colima/default/colima.yaml'';
-      #};
+      home.file."./.colima/_templates/default.yaml" = {
+        source = ./colima.yaml;
+        onChange = ''cat ~/.colima/_templates/default.yaml > ~/.colima/default/colima.yaml'';
+      };
     };
   };
 }
