@@ -222,7 +222,9 @@ local plugins = {
 	-----------------------------------------------------------------------------
 	{ -- Autopairs, integrates with both cmp and treesitter
 		"windwp/nvim-autopairs",
-		config = true,
+		config = function()
+			require("chrishrb.plugins.config.autopairs")
+		end,
 		event = "InsertEnter",
 	},
 	{ -- change surround e.g. ys{motion}{char}, ds{char}, cs{target}{replacement}

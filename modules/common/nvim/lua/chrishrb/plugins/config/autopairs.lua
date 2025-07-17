@@ -26,3 +26,11 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local cmp = require("cmp")
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+
+-- add rule for codecompanion filetype
+local Rule = require("nvim-autopairs.rule")
+
+npairs.add_rules({
+	Rule("```", "```", { "codecompanion" }),
+	Rule("```.*$", "```", { "codecompanion" }):only_cr():use_regex(true),
+})
