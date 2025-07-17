@@ -41,6 +41,7 @@ inputs.darwin.lib.darwinSystem {
       dotfiles.enable = false;
       drawio.enable = false;
       brave.enable = true;
+      postman.enable = true;
 
       # languaages
       php.enable = true;
