@@ -11,5 +11,6 @@
     ./latex.nix
     ./php.nix
     ./flutter.nix
+    ./ruby.nix
   ];
 }

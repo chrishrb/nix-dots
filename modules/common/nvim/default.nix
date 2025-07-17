@@ -104,6 +104,10 @@ let
         devops = with pkgs; [ terraform-ls ];
         latex = with pkgs; [ texlab ];
         php = with pkgs; [ phpactor ];
+        ruby = with pkgs; [
+          rubyPackages.rubocop
+          rubyPackages.solargraph
+        ];
       };
 
       # This is for plugins that will load at startup without using packadd:
@@ -293,12 +297,15 @@ let
           python = true;
           web = true;
           java = true;
-          javaExtras = extraJavaItems pkgs;
-          phpExtras = extraPhpItems pkgs;
           devops = true;
           latex = false;
-          php = true;
-          flutter = true;
+          php = false;
+          flutter = false;
+          ruby = false;
+
+          # extra config
+          javaExtras = extraJavaItems pkgs;
+          phpExtras = extraPhpItems pkgs;
           mcpHubConfigFile = "${pkgs.writeText "servers.json" mcpHubConfig}";
 
           # this does not have an associated category of plugins,

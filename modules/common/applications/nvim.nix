@@ -25,6 +25,24 @@ in
       nvim = {
         enable = config.nvim.enable;
         packageNames = [ "nvim" ];
+
+        packageDefinitions.replace = {
+          nvim =
+            { pkgs, name, ... }:
+            {
+              categories = {
+                go = config.go.enable;
+                python = config.python.enable;
+                web = config.web.enable;
+                java = config.java.enable;
+                devops = config.devops.enable;
+                latex = config.latex.enable;
+                php = config.php.enable;
+                ruby = config.ruby.enable;
+                flutter = config.flutter.enable;
+              };
+            };
+        };
       };
     };
   };

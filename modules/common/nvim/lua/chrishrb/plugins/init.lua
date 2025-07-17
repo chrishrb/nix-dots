@@ -80,10 +80,7 @@ local plugins = {
 			-- java and json language server
 			{
 				"mfussenegger/nvim-jdtls",
-				dependencies = {
-					"mfussenegger/nvim-dap", -- debugger
-					enabled = nixCats("debug"),
-				},
+				enabled = nixCats("java"),
 			},
 			-- get documentation when pressing K
 			{
@@ -126,8 +123,14 @@ local plugins = {
 			"mfussenegger/nvim-dap", -- debugger
 			"nvim-neotest/nvim-nio", -- important for dapui
 			"theHamsta/nvim-dap-virtual-text", -- show line visual
-			"leoluz/nvim-dap-go", -- debugger for go
-			"mfussenegger/nvim-dap-python", -- debugger for python
+			{
+				"leoluz/nvim-dap-go", -- debugger for go
+				enabled = nixCats("go"),
+			},
+			{
+				"mfussenegger/nvim-dap-python", -- debugger for python
+				enabled = nixCats("python"),
+			},
 		},
 		config = function()
 			require("chrishrb.plugins.config.dap")

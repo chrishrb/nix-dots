@@ -59,6 +59,11 @@ if nixCats("web") then
 	servers[#servers + 1] = "volar"
 end
 
+if nixCats("ruby") then
+	servers[#servers + 1] = "rubocop"
+	servers[#servers + 1] = "solargraph"
+end
+
 -- setup handlers
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
