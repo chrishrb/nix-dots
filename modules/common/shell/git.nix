@@ -91,9 +91,18 @@
           };
           push = {
             autoSetupRemote = true;
+            followTags = true;
+          };
+          merge = {
+            log = false;
+            tool = "mynvimdiff";
           };
           mergetool = {
-            prompt = false;
+            trustExitCode = true;
+            hideResolved = true;
+          };
+          mergetool.mynvimdiff = {
+            cmd = "nvim $MERGED";
           };
           rerere = {
             enabled = false;

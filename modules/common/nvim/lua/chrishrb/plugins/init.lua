@@ -269,6 +269,12 @@ local plugins = {
 		cmd = "Git",
 		event = "VeryLazy",
 	},
+	{ -- basic git
+		"akinsho/git-conflict.nvim",
+    config = function()
+      require("chrishrb.plugins.config.git-conflict")
+    end
+	},
 
 	-----------------------------------------------------------------------------
 	-- Tmux

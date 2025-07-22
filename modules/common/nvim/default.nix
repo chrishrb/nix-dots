@@ -174,6 +174,7 @@ let
             vim-fugitive
             gitsigns-nvim
             vim-helm
+            git-conflict-nvim
           ];
           testing = [
             vim-test
