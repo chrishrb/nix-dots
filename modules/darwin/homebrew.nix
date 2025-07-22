@@ -34,28 +34,27 @@
       brews = [
         # "emqx/mqttx/mqttx-cli"
       ];
-      casks =
-        [
-          # Communication Tools
-          "notion"
+      casks = [
+        # Communication Tools
+        "notion"
 
-          # utility
-          "scroll-reverser"
-          "tiles"
-          "skim" # open pdfs
+        # utility
+        "scroll-reverser"
+        "tiles"
+        "skim" # open pdfs
 
-          # other
-          "bitwarden"
-          "spotify"
-          "logi-options+"
-          "keepassxc"
-          "tunnelblick"
-          "zoom"
-        ]
+        # other
+        "bitwarden"
+        "spotify"
+        "logi-options+"
+        "keepassxc"
+        "tunnelblick"
+        "zoom"
+      ]
 
-        ++ lib.optionals config.work.enable [
-          "microsoft-teams"
-        ];
+      ++ lib.optionals config.work.enable [
+        "microsoft-teams"
+      ];
     };
 
     # These app IDs are from using the mas CLI app

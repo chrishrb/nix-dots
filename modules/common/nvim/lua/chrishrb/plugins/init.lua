@@ -271,9 +271,9 @@ local plugins = {
 	},
 	{ -- basic git
 		"akinsho/git-conflict.nvim",
-    config = function()
-      require("chrishrb.plugins.config.git-conflict")
-    end
+		config = function()
+			require("chrishrb.plugins.config.git-conflict")
+		end,
 	},
 
 	-----------------------------------------------------------------------------

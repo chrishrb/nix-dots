@@ -1,7 +1,7 @@
 local git_conflict = require("git-conflict")
 
 git_conflict.setup({
-  default_mappings = false, -- disable the default mappings
+	default_mappings = false, -- disable the default mappings
 })
 
 local which_key = require("which-key")
