@@ -8,20 +8,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- functions
-vim.api.nvim_create_user_command("ReloadConfig", function()
-	for name, _ in pairs(package.loaded) do
-		if name:match("^user") then
-			package.loaded[name] = nil
-		end
-	end
-
-	dofile(vim.env.MYVIMRC)
-end, { nargs = 0 })
-
---Deactivate default jupyter keybindings
-vim.g.jupyter_mapkeys = 0
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -30,16 +16,37 @@ vim.g.jupyter_mapkeys = 0
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- enable horizontal resize only when there are windows to resize otherwise
+-- the the command line will be resized
+local function has_horizontal_split()
+	local cur_win = vim.api.nvim_get_current_win()
+	local cur_info = vim.fn.getwininfo(cur_win)[1]
+
+	for _, win in ipairs(vim.fn.getwininfo()) do
+		if win.winid ~= cur_win then
+			if win.wincol == cur_info.wincol and win.winrow ~= cur_info.winrow then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+
 -- Normal --
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Up>", function()
+	if has_horizontal_split() then
+		vim.cmd("resize +2")
+	end
+end, { silent = true })
+vim.keymap.set("n", "<C-Down>", function()
+	if has_horizontal_split() then
+		vim.cmd("resize -2")
+	end
+end, { silent = true })
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
-
--- Git resolve conflicts
-keymap("n", "gdh", "<cmd>diffget //2<cr>", opts)
-keymap("n", "gdl", "<cmd>diffget //3<cr>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)

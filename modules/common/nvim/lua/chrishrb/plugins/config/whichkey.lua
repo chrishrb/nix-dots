@@ -111,7 +111,7 @@ which_key.add({
 		},
 		{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", nowait = true, remap = false },
 		{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit", nowait = true, remap = false },
-		{ "<leader>gd", "<cmd>Gdiffsplit<cr>", desc = "Diff", nowait = true, remap = false },
+		{ "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "Diff", nowait = true, remap = false },
 		{
 			"[g",
 			"<cmd>lua require 'gitsigns'.prev_hunk()<cr>",
@@ -230,6 +230,10 @@ which_key.add({
 		{ "<leader>tf", "<cmd>TestFile<cr>", desc = "Test file", nowait = true, remap = false },
 		{ "<leader>ta", "<cmd>TestSuite<cr>", desc = "Test all", nowait = true, remap = false },
 	},
+
+	-- git diff
+	{ "gdh", "<cmd>diffget //2<cr>", desc = "Get diff left", nowait = true, remap = false },
+	{ "gdl", "<cmd>diffget //3<cr>", desc = "Get diff right", nowait = true, remap = false },
 })
 
 return M

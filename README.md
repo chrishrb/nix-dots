@@ -39,6 +39,9 @@ Or format all files:
 nix fmt
 ```
 
+> [!IMPORTANT]
+> Deactivate all `Keyboard Shortcuts` in the macOS settings under `Keyboard -> Keyboard Shortcuts`. Otherwise some keybindings might not work.
+
 ### Activate the [German Programming Keyboard](https://github.com/MickL/macos-keyboard-layout-german-programming):
 
 Open macOS System Settings -> Keyboard -> Text Input -> Edit -> click `+` -> click `Deutsch - Programmierung` -> click `Add`
