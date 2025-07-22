@@ -91,6 +91,16 @@
 
     # agenix for secrets management
     agenix.url = "github:ryantm/agenix";
+
+    # MCP servers
+    modelcontextprotocol-servers = {
+      url = "github:modelcontextprotocol/servers";
+      flake = false;
+    };
+    mcp-miro = {
+      url = "github:k-jarzyna/mcp-miro";
+      flake = false;
+    };
   };
 
   outputs =
@@ -114,9 +124,7 @@
       # Common overlays
       overlays = [
         inputs.alacritty-theme.overlays.default
-        (import ./overlays/stable.nix inputs)
-        (import ./overlays/talhelper.nix inputs)
-        (import ./overlays/catppuccin.nix inputs)
+        (import ./overlays inputs)
       ];
 
       # System types to support.

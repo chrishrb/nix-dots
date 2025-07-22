@@ -442,6 +442,22 @@
         "type": "github"
       }
     },
+    "mcp-miro": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747119779,
+        "narHash": "sha256-m4w+cPm8c69jhvYFWvXWVYX7CEuIPjNmsLes+4iY9Gc=",
+        "owner": "k-jarzyna",
+        "repo": "mcp-miro",
+        "rev": "b6de1890ca73cc43dcf54de19c8dc495e5038bcd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "k-jarzyna",
+        "repo": "mcp-miro",
+        "type": "github"
+      }
+    },
     "mcphub-nvim": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -458,6 +474,22 @@
       "original": {
         "owner": "ravitemer",
         "repo": "mcphub.nvim",
+        "type": "github"
+      }
+    },
+    "modelcontextprotocol-servers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1753196923,
+        "narHash": "sha256-ruhzIpF/gKVpM/YT2vc5sxuREbWoJ5bt5vz9pMhIg10=",
+        "owner": "modelcontextprotocol",
+        "repo": "servers",
+        "rev": "220987921bc72409d35d1a5775597782ae688556",
+        "type": "github"
+      },
+      "original": {
+        "owner": "modelcontextprotocol",
+        "repo": "servers",
         "type": "github"
       }
     },
@@ -748,7 +780,9 @@
         "mac-app-util": "mac-app-util",
         "macos-keyboard-layout-german-programming": "macos-keyboard-layout-german-programming",
         "mcp-hub": "mcp-hub",
+        "mcp-miro": "mcp-miro",
         "mcphub-nvim": "mcphub-nvim",
+        "modelcontextprotocol-servers": "modelcontextprotocol-servers",
         "nix-homebrew": "nix-homebrew",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_6",

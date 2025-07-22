@@ -18,9 +18,7 @@
       };
 
       home.sessionVariables = {
-        GITHUB_PERSONAL_ACCESS_TOKEN = "$(cat ${
-          config.home-manager.users.${config.user}.age.secrets.github-secret.path
-        })";
+        GITHUB_TOKEN = "$(cat ${config.home-manager.users.${config.user}.age.secrets.github-secret.path})";
       };
     };
   };

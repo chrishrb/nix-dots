@@ -17,27 +17,37 @@ let
   ];
 
   # Config for MCP Hub
-  mcpHubConfig = ''
-    {
-      "mcpServers": {
-        "git": {
-          "command": "uvx",
-          "args": ["mcp-server-git"]
+  mcpHubConfig =
+    pkgs:
+    pkgs.writeText "servers.json" ''
+      {
+        "mcpServers": {
+          "git": {
+            "autoApprove": [],
+            "command": "${pkgs.mcp-server-git}/bin/mcp-server-git"
+          },
+          "github": {
+            "url": "https://api.githubcopilot.com/mcp/",
+            "autoApprove": [],
+            "headers": {
+              "Authorization": "Bearer ''${GITHUB_TOKEN}"
+            }
+          },
+          "miro":{
+            "disabled": true,
+            "command": "${pkgs.mcp-miro}/bin/mcp-miro",
+            "env": {
+              "MIRO_ACCESS_TOKEN": "your_miro_access_token"
+            }
+          }
         },
-        "github": {
-          "url": "https://api.githubcopilot.com/mcp/",
-          "headers": {
-            "Authorization": "Bearer ''${GITHUB_PERSONAL_ACCESS_TOKEN}"
+        "nativeMCPServers": {
+          "neovim": {
+            "disabled_tools": [ ]
           }
         }
-      },
-      "nativeMCPServers": {
-        "neovim": {
-          "disabled_tools": [ ]
-        }
       }
-    }
-  '';
+    '';
 
   categoryDefinitions =
     {
@@ -83,10 +93,7 @@ let
           vscode-langservers-extracted # html, css, json
           nodePackages.bash-language-server # bash
           yaml-language-server # yaml
-          helm-ls # helm
-
           mcp-hub
-          uv # python package manager
         ];
         go = with pkgs; [
           gopls
@@ -101,7 +108,10 @@ let
           nodePackages.prettier
         ];
         java = with pkgs; [ jdt-language-server ];
-        devops = with pkgs; [ terraform-ls ];
+        devops = with pkgs; [
+          terraform-ls
+          helm-ls # helm
+        ];
         latex = with pkgs; [ texlab ];
         php = with pkgs; [ phpactor ];
         ruby = with pkgs; [
@@ -307,7 +317,7 @@ let
           # extra config
           javaExtras = extraJavaItems pkgs;
           phpExtras = extraPhpItems pkgs;
-          mcpHubConfigFile = "${pkgs.writeText "servers.json" mcpHubConfig}";
+          mcpHubConfigFile = mcpHubConfig pkgs;
 
           # this does not have an associated category of plugins,
           # but lua can still check for it
