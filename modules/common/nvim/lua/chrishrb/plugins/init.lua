@@ -160,17 +160,6 @@ local plugins = {
 			"hrsh7th/cmp-nvim-lsp", -- LSP completions
 			"hrsh7th/cmp-nvim-lsp-document-symbol", -- For textDocument/documentSymbol
 
-			-- Snippets
-			"saadparwaiz1/cmp_luasnip", -- snippet completions
-			{
-				"L3MON4D3/LuaSnip", --snippet engine
-				name = "luasnip",
-				config = function()
-					require("chrishrb.plugins.config.snippet")
-				end,
-			},
-			"rafamadriz/friendly-snippets", -- a bunch of snippets to
-
 			-- Misc
 			"petertriho/cmp-git", -- git source
 			{ -- copilot

@@ -1,4 +1,4 @@
-local cmp, luasnip = require("cmp"), require("luasnip")
+local cmp = require("cmp")
 local icons = require("chrishrb.config.icons")
 
 local check_backspace = function()
@@ -15,11 +15,6 @@ local has_words_before = function()
 end
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
-		end,
-	},
 	preselect = cmp.PreselectMode.None,
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -38,10 +33,6 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() and has_words_before() then
 				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
 			elseif check_backspace() then
 				fallback()
 			else
@@ -54,8 +45,6 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -73,7 +62,6 @@ cmp.setup({
 			end
 			vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
 			vim_item.menu = ({
-				luasnip = "[Snippet]",
 				nvim_lsp = "[LSP]",
 				copilot = "[Copilot]",
 				buffer = "[Buffer]",
@@ -87,7 +75,6 @@ cmp.setup({
 	sources = {
 		{ name = "copilot" },
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "git" },

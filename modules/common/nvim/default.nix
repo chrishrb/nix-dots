@@ -167,10 +167,6 @@ let
             cmp-nvim-lsp
             cmp-nvim-lsp-document-symbol
 
-            cmp_luasnip
-            luasnip
-            friendly-snippets
-
             cmp-git
             cmp-emoji
             copilot-cmp
