@@ -57,7 +57,7 @@
     mcp-hub.url = "github:ravitemer/mcp-hub";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
 
-    # plugins that are not in nixpkg
+    # nvim plugins that are not in nixpkg
     nvim-tmux-navigation = {
       url = "github:alexghergh/nvim-tmux-navigation";
       flake = false;
@@ -80,6 +80,10 @@
     };
     nvim-tree-lua = {
       url = "github:nvim-tree/nvim-tree.lua";
+      flake = false;
+    };
+    garbage-day-nvim = {
+      url = "github:Zeioth/garbage-day.nvim";
       flake = false;
     };
 

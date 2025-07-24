@@ -3,14 +3,14 @@ inputs: _final: prev: {
     final': prev': {
       codecompanion-nvim = prev.vimUtils.buildVimPlugin {
         pname = "codecompanion.nvim";
-        version = "2024-09-16";
+        version = "unstable";
         src = inputs.codecompanion-nvim;
         dependencies = [ prev'.plenary-nvim ];
         nvimRequireCheck = "codecompanion";
       };
       codecompanion-history-nvim = prev.vimUtils.buildVimPlugin {
         pname = "codecompanion-history.nvim";
-        version = "2024-09-16";
+        version = "unstable";
         src = inputs.codecompanion-history-nvim;
         nvimSkipModules = [
           "codecompanion._extensions.history.ui"
@@ -20,23 +20,23 @@ inputs: _final: prev: {
       };
       nvim-tmux-navigation = prev.vimUtils.buildVimPlugin {
         pname = "nvim-tmux-navigation";
-        version = "2024-03-26";
+        version = "unstable";
         src = inputs.nvim-tmux-navigation;
       };
       nvim-nio = prev.vimUtils.buildVimPlugin {
         pname = "nvim-nio";
-        version = "2024-03-26";
+        version = "unstable";
         src = inputs.nvim-nio;
       };
       none-ls-extras-nvim = prev.vimUtils.buildVimPlugin {
         pname = "none-ls-extras.nvim";
-        version = "2025-04-07";
+        version = "unstable";
         src = inputs.none-ls-extras-nvim;
         dependencies = [ prev'.none-ls-nvim ];
       };
       nvim-tree-lua = prev.vimUtils.buildVimPlugin {
         pname = "nvim-tree.lua";
-        version = "2025-04-07";
+        version = "unstable";
         src = inputs.nvim-tree-lua;
         nvimSkipModules = [
           # Meta can't be required
@@ -45,7 +45,12 @@ inputs: _final: prev: {
         ];
       };
       mcphub-nvim = inputs.mcphub-nvim.packages.${prev.system}.default;
+      garbage-day-nvim = prev.vimUtils.buildVimPlugin {
+        pname = "garbage-day.nvim";
+        version = "unstable";
+        src = inputs.garbage-day-nvim;
+        dependencies = [ prev'.nvim-lspconfig ];
+      };
     }
   );
-  mcp-hub = inputs.mcp-hub.packages.${prev.system}.default;
 }

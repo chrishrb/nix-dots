@@ -158,6 +158,7 @@ let
             none-ls-nvim
             none-ls-extras-nvim
             trouble-nvim
+            garbage-day-nvim # stop inactive lsp clients
           ];
           cmp = [
             nvim-cmp

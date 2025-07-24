@@ -279,6 +279,22 @@
         "type": "indirect"
       }
     },
+    "garbage-day-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1750765130,
+        "narHash": "sha256-7SUy35WKzg2rSVI6CBKy9kvC6t9ATjhOTSOIN9KqZTM=",
+        "owner": "Zeioth",
+        "repo": "garbage-day.nvim",
+        "rev": "cce4a0b394d33878bde3c1648f4e6b358e8769bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Zeioth",
+        "repo": "garbage-day.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -772,6 +788,7 @@
         "codecompanion-history-nvim": "codecompanion-history-nvim",
         "codecompanion-nvim": "codecompanion-nvim",
         "darwin": "darwin_2",
+        "garbage-day-nvim": "garbage-day-nvim",
         "home-manager": "home-manager_2",
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
