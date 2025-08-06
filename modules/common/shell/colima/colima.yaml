@@ -167,6 +167,10 @@ sshConfig: true
 # Colima default behaviour: $HOME and /tmp/colima are mounted as writable.
 # Default: []
 mounts:
+  - location: $HOME
+    writable: true
+  - location: /tmp/colima
+    writable: true
   # NOTE: needed for neovim codecompanion to work
   - location: /var/folders
     writable: true
