@@ -38,7 +38,6 @@ inputs.darwin.lib.darwinSystem {
       alacritty.enable = true;
       nvim.enable = true;
       dotfiles.enable = true;
-      drawio.enable = false;
       utm.enable = false;
       brave.enable = true;
       discord.enable = false;

@@ -13,6 +13,10 @@
     DOCKER_HOST = "unix://$HOME/.colima/default/docker.sock";
   };
 
+  imports = [
+    ./custom
+  ];
+
   home-manager.users.${config.user} = {
 
     home.packages = with pkgs; [ curl ];
@@ -76,13 +80,6 @@
           { name = "zsh-users/zsh-completions"; }
         ];
       };
-      plugins = [
-        {
-          name = "chrishrb-custom-functions";
-          src = ./custom;
-          file = "functions.zsh";
-        }
-      ];
       localVariables = {
         RPROMPT = "";
         VI_MODE_ESC_INSERT = "jj";
@@ -117,7 +114,6 @@
         df = "df -h";
         copy = "pbcopy";
         grep = "rg";
-        drawio = "/Applications/draw.io.app/Contents/MacOS/draw.io";
         ls = "ls --color=auto";
 
         ## vim,tmux,zsh

@@ -4,6 +4,7 @@
     ./zsh
     ./tmux
     ./colima
+    ./mods
     ./direnv.nix
     ./fzf.nix
     ./git.nix
