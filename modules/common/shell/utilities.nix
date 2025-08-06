@@ -42,6 +42,8 @@ in
         mqttx-cli # mqtt client
         xh # httpie alternative
         gh # github CLI
+        glow # markdown viewer
+        print-last-output
       ];
 
       home.file = {

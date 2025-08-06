@@ -9,7 +9,7 @@ let
     	Include code snippets only when necessary to understand the issue. \
     	Does the code follow common coding conventions and idioms for the \
     	language used? Does it include appropriate tests? If not, suggest \
-    	initial tests that could be added.' | ${pkgs.bat}/bin/bat -
+    	initial tests that could be added.' | ${pkgs.glow}/bin/glow -p -
   '';
 in
 {

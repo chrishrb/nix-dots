@@ -33,101 +33,82 @@
       escapeTime = 10;
       mouse = true;
       historyLimit = 50000;
-      extraConfig =
-        let
-          capture-last-cmd-output = pkgs.writeShellScriptBin "capture-last-cmd-output" ''
-            PROMPT_PATTERN="➜"
+      extraConfig = ''
+        set -ag terminal-overrides ",xterm-256color:RGB"
+        set -g pane-base-index 1
+        set -g status-justify left
+        set -g default-command '$SHELL'
 
-            tmux_output=$(${pkgs.tmux}/bin/tmux capture-pane -p -S '-' -J)
+        # don't rename windows automatically
+        set-option -g allow-rename off
+        set-option -g renumber-windows on
 
-            extracted_output=$(echo "$tmux_output" | tail -r |
-              ${pkgs.gnused}/bin/sed -e "0,/$PROMPT_PATTERN/d" |
-              ${pkgs.gnused}/bin/sed "/$PROMPT_PATTERN/,\$d" |
-              tail -r)
+        # Remove Vim mode delays
+        set -g focus-events on
 
-            ${
-              if pkgs.stdenv.isDarwin then
-                "echo \"$extracted_output\" | pbcopy"
-              else
-                "echo \"$extracted_output\" | ${pkgs.xclip}/bin/xclip -selection clipboard"
-            }'';
-        in
-        ''
-          set -ag terminal-overrides ",xterm-256color:RGB"
-          set -g pane-base-index 1
-          set -g status-justify left
-          set -g default-command '$SHELL'
+        # Enable full mouse support
+        set -g mouse on
 
-          # don't rename windows automatically
-          set-option -g allow-rename off
-          set-option -g renumber-windows on
+        # -----------------------------------------------------------------------------
+        # Key bindings
+        # -----------------------------------------------------------------------------
 
-          # Remove Vim mode delays
-          set -g focus-events on
+        # Unbind default keys
+        unbind C-b
+        unbind '"'
+        unbind %
 
-          # Enable full mouse support
-          set -g mouse on
+        # mouse support
+        set -g mouse on
+        bind -T copy-mode-vi MouseDrag1Pane    send -X begin-selection
+        bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-selection-no-clear
 
-          # -----------------------------------------------------------------------------
-          # Key bindings
-          # -----------------------------------------------------------------------------
+        # vim
+        bind-key -T copy-mode-vi Enter send -X copy-selection-and-cancel
+        bind-key -T copy-mode-vi 'v' send -X begin-selection
+        bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
 
-          # Unbind default keys
-          unbind C-b
-          unbind '"'
-          unbind %
+        # split panes using | and - 
+        # + open in current directory
+        bind c new-window -c '#{pane_current_path}'
+        bind | split-window -h -c '#{pane_current_path}'
+        bind - split-window -v -c '#{pane_current_path}'
 
-          # mouse support
-          set -g mouse on
-          bind -T copy-mode-vi MouseDrag1Pane    send -X begin-selection
-          bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-selection-no-clear
+        # Smart pane switching with awareness of Vim splits.
+        # This is copy paste from https://github.com/christoomey/vim-tmux-navigator
+        is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+          | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?l?)(diff)?$'"
+        bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
+        bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
+        bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
+        bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
+        tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+        if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+          "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+        if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+          "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
 
-          # vim
-          bind-key -T copy-mode-vi Enter send -X copy-selection-and-cancel
-          bind-key -T copy-mode-vi 'v' send -X begin-selection
-          bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
+        bind-key -T copy-mode-vi 'C-h' select-pane -L
+        bind-key -T copy-mode-vi 'C-j' select-pane -D
+        bind-key -T copy-mode-vi 'C-k' select-pane -U
+        bind-key -T copy-mode-vi 'C-l' select-pane -R
+        bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-          # split panes using | and - 
-          # + open in current directory
-          bind c new-window -c '#{pane_current_path}'
-          bind | split-window -h -c '#{pane_current_path}'
-          bind - split-window -v -c '#{pane_current_path}'
+        # vim like tab switch
+        bind l next-window
+        bind h previous-window
+        unbind p
+        unbind n
+        bind q confirm-before -p "kill-pane #W? (y/n)" kill-pane
+        bind Q confirm-before -p "kill-window #W? (y/n)" kill-window
 
-          # Smart pane switching with awareness of Vim splits.
-          # This is copy paste from https://github.com/christoomey/vim-tmux-navigator
-          is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-            | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?l?)(diff)?$'"
-          bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
-          bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
-          bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
-          bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
-          tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
-          if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
-            "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
-          if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
-            "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+        # reorder tabs
+        bind H swap-window -t -1\; select-window -t -1
+        bind L swap-window -t +1\; select-window -t +1
 
-          bind-key -T copy-mode-vi 'C-h' select-pane -L
-          bind-key -T copy-mode-vi 'C-j' select-pane -D
-          bind-key -T copy-mode-vi 'C-k' select-pane -U
-          bind-key -T copy-mode-vi 'C-l' select-pane -R
-          bind-key -T copy-mode-vi 'C-\' select-pane -l
-
-          # vim like tab switch
-          bind l next-window
-          bind h previous-window
-          unbind p
-          unbind n
-          bind q confirm-before -p "kill-pane #W? (y/n)" kill-pane
-          bind Q confirm-before -p "kill-window #W? (y/n)" kill-window
-
-          # reorder tabs
-          bind H swap-window -t -1\; select-window -t -1
-          bind L swap-window -t +1\; select-window -t +1
-
-          # capture last cmd output
-          bind y run-shell '${capture-last-cmd-output}/bin/capture-last-cmd-output'
-        '';
+        # capture last cmd output
+        bind y run-shell '${pkgs.capture-last-output}/bin/capture-last-output'
+      '';
     };
 
     home.file."./.config/tmuxinator/" = {

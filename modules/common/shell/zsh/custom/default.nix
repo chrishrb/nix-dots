@@ -9,5 +9,6 @@
     ./urlencode.nix
     ./cmdai.nix
     ./code-review.nix
+    ./fixcmd.nix
   ];
 }
