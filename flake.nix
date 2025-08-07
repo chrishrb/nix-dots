@@ -152,10 +152,10 @@
     rec {
 
       # Contains my full system builds, including home-manager
-      # nixos-rebuild switch --flake .#ambush
-      # nixosConfigurations = {
-      #   ambush = import ./hosts/ambush { inherit inputs globals overlays; };
-      # };
+      # nixos-rebuild switch --flake .#tuxedo
+      nixosConfigurations = {
+        tuxedo = import ./hosts/tuxedo { inherit inputs globals overlays; };
+      };
 
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#cc
@@ -167,7 +167,7 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#cc
       homeConfigurations = {
-        # ambush = nixosConfigurations.ambush.config.home-manager.users."christoph".home;
+        tuxedo = nixosConfigurations.tuxedo.config.home-manager.users."christoph".home;
         mb-pro-cc = darwinConfigurations.mb-pro-cc.config.home-manager.users."christophherb".home;
         macbook-christoph = darwinConfigurations.cc.config.home-manager.users."christophherb".home;
       };
@@ -198,6 +198,7 @@
               treefmt
               shfmt
               shellcheck
+              mkpasswd
               inputs.agenix.packages.${system}.default
             ];
           };

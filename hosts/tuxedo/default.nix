@@ -1,4 +1,4 @@
-# The ambush home config
+# The tuxedo home config
 # System configuration for my home pc
 
 {
@@ -17,7 +17,7 @@ inputs.nixpkgs.lib.nixosSystem {
     (
       globals
       // {
-        user = "christoph";
+        user = "christophherb";
       }
     )
     inputs.home-manager.nixosModules.home-manager
@@ -25,7 +25,7 @@ inputs.nixpkgs.lib.nixosSystem {
       nixpkgs.overlays = overlays;
 
       # Hardware
-      networking.hostName = "ambush";
+      networking.hostName = "tuxedo";
 
       boot.initrd.availableKernelModules = [
         "xhci_pci"
@@ -54,12 +54,14 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Programs and services
       alacritty.enable = true;
-      chrome.enable = true;
       nvim.enable = true;
-      nixlang.enable = true;
+      dotfiles.enable = true;
+      brave.enable = true;
+
+      # languages
       python.enable = true;
       lua.enable = true;
-      slack.enable = false;
+      nixlang.enable = true;
 
       # specific for vbox
       #virtualisation.virtualbox.guest.enable = true;

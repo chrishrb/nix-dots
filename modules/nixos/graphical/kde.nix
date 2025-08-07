@@ -8,23 +8,25 @@
 
   config = lib.mkIf config.gui.enable {
 
-    # Enable the X11 windowing system
-    services.xserver = {
-      enable = config.gui.enable;
-
-      # Enable touchpad support
-      libinput.enable = true;
+    services = {
 
       # Enable login screen
       displayManager = {
         sddm.enable = true;
       };
 
-      # Enable kde plasma5
-      desktopManager = {
-        plasma5.enable = true;
+      # Enable the X11 windowing system
+      xserver = {
+        enable = config.gui.enable;
+
+        # Enable kde plasma5
+        desktopManager = {
+          plasma6.enable = true;
+        };
       };
 
+      # Enable touchpad support
+      libinput.enable = true;
     };
 
     environment.systemPackages = with pkgs; [ xclip ];
