@@ -16,13 +16,11 @@
       };
 
       # Enable the X11 windowing system
-      xserver = {
-        enable = config.gui.enable;
+      xserver.enable = true;
 
-        # Enable kde plasma5
-        desktopManager = {
-          plasma6.enable = true;
-        };
+      # Enable kde plasma6
+      desktopManager = {
+        plasma6.enable = true;
       };
 
       # Enable touchpad support

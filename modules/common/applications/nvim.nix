@@ -19,6 +19,12 @@ in
   };
 
   config = lib.mkIf config.nvim.enable {
+
+    environment.variables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+
     home-manager.users.${config.user} = {
       imports = [ nvim.homeModule ];
 

@@ -23,6 +23,7 @@ inputs.nixpkgs.lib.nixosSystem {
     inputs.home-manager.nixosModules.home-manager
     {
       nixpkgs.overlays = overlays;
+      allowUnfree = true;
 
       # Hardware
       networking.hostName = "tuxedo";

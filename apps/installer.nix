@@ -20,7 +20,7 @@
               "Missing required parameter." \
               "Usage: installer -- <disk> <host>" \
               "Example: installer -- nvme0n1 tempest" \
-              "Flake example: nix run github:chrishrb/nix-dots#installer -- nvme0n1 ambush"
+              "Flake example: nix run github:chrishrb/nix-dots#installer -- nvme0n1 tuxedo"
           echo "(exiting)"
           exit 1
       fi

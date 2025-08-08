@@ -9,6 +9,11 @@
   options.colima.enable = lib.mkEnableOption "Docker drop-in replacement.";
 
   config = lib.mkIf config.colima.enable {
+
+    environment.variables = {
+      DOCKER_HOST = "unix://$HOME/.colima/default/docker.sock";
+    };
+
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [
         # docker desktop drop in replacement
