@@ -55,12 +55,12 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Programs and services
       alacritty.enable = true;
-      nvim.enable = true;
-      dotfiles.enable = true;
+      nvim.enable = false;
+      dotfiles.enable = false;
       brave.enable = true;
 
       # languages
-      python.enable = true;
+      python.enable = false;
       lua.enable = true;
       nixlang.enable = true;
 
