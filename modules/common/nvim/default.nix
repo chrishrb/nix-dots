@@ -94,6 +94,7 @@ let
           nodePackages.bash-language-server # bash
           yaml-language-server # yaml
           mcp-hub
+          nodejs
         ];
         go = with pkgs; [
           gopls

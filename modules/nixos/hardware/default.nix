@@ -7,4 +7,6 @@
     ./keyboard.nix
     ./wifi.nix
   ];
+
+  hardware.enableAllFirmware = true;
 }

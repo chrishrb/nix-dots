@@ -28,14 +28,19 @@ inputs.nixpkgs.lib.nixosSystem {
       # Hardware
       networking.hostName = "tuxedo";
 
-      boot.initrd.availableKernelModules = [
-        "xhci_pci"
-        "ahci"
-        "usb_storage"
-        "usbhid"
-        "sd_mod"
-        "sr_mod"
-      ];
+      boot = {
+        initrd.availableKernelModules = [
+          "xhci_pci"
+          "ahci"
+          "usb_storage"
+          "usbhid"
+          "sd_mod"
+          "sr_mod"
+        ];
+        kernelModules = [
+          "iwlwifi"
+        ];
+      };
 
       # file systems
       fileSystems."/" = {
@@ -55,7 +60,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Programs and services
       alacritty.enable = true;
-      nvim.enable = false;
+      nvim.enable = true;
       dotfiles.enable = false;
       brave.enable = true;
 

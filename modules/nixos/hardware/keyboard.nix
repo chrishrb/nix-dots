@@ -4,7 +4,6 @@
   config = {
 
     services.xserver = {
-
       xkb = {
         layout = "programming-de";
         #options = "altwin:ctrl_alt_win";
@@ -23,15 +22,36 @@
           '';
         };
       };
+    };
 
-      # Keyboard responsiveness
-      autoRepeatDelay = 250;
-      autoRepeatInterval = 40;
+    home-manager.users.${config.user} = {
+      wayland.windowManager.hyprland = {
+        enable = true;
+        settings = {
 
+          input = {
+            kb_layout = "programming-de";
+            follow_mouse = 1;
+
+            touchpad = {
+              natural_scroll = true;
+            };
+
+            # make keyboard faster
+            repeat_rate = 70;
+            repeat_delay = 220;
+          };
+
+          # https://wiki.hypr.land/Configuring/Variables/#gestures
+          gestures = {
+            workspace_swipe = true;
+          };
+        };
+      };
     };
 
     # Enable num lock on login
-    home-manager.users.${config.user}.xsession.numlock.enable = true;
+    # home-manager.users.${config.user}.xsession.numlock.enable = true;
 
     # Configure console keymap
     #console.keyMap = "programming-de";
