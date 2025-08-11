@@ -1,7 +1,7 @@
 # OpenAI compatible REST API (openai, localai, anthropic, ...)
 default-api: copilot
 # Default model (gpt-3.5-turbo, gpt-4, ggml-gpt4all-j...)
-default-model: gpt-4o
+default-model: gpt-4
 # Text to append when using the -f flag
 format-text:
   markdown: 'Format the response as markdown without enclosing backticks.'
