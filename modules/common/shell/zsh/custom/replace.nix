@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   # Find and replace a string in all files recursively, starting from the current directory.
   # Adapted from code found at <http://forums.devshed.com/unix-help-35/unix-find-and-replace-text-within-all-files-within-a-146179.html>
@@ -7,5 +7,9 @@ let
   '';
 in
 {
-  environment.systemPackages = [ replace ];
+  config = {
+    home-manager.users.${config.user}.home.packages = [
+      replace
+    ];
+  };
 }

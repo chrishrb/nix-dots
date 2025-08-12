@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   vipe = pkgs.writeShellScriptBin "vipe" ''
     #
@@ -67,5 +72,9 @@ let
   '';
 in
 {
-  environment.systemPackages = [ cmdai ];
+  config = lib.mkIf config.ai.enable {
+    home-manager.users.${config.user}.home.packages = [
+      cmdai
+    ];
+  };
 }

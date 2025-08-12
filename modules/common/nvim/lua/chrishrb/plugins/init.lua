@@ -331,6 +331,7 @@ local plugins = {
 				end,
 			},
 		},
+		enabled = nixCats("ai"),
 		config = function()
 			require("chrishrb.plugins.config.codecompanion")
 		end,

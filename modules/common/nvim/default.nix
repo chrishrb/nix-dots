@@ -317,6 +317,11 @@ let
           phpExtras = extraPhpItems pkgs;
           mcpHubConfigFile = mcpHubConfig pkgs;
 
+          # ai
+          ai = false;
+          aiAdapter = "";
+          aiModel = "";
+
           # this does not have an associated category of plugins,
           # but lua can still check for it
           lspDebugMode = false;

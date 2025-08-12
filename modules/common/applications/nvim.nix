@@ -46,6 +46,10 @@ in
                 php = config.php.enable;
                 ruby = config.ruby.enable;
                 flutter = config.flutter.enable;
+
+                ai = config.ai.enable;
+                aiProvider = config.ai.provider;
+                aiModel = config.ai.model;
               };
             };
         };

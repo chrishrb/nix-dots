@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   mktar = pkgs.writeShellScriptBin "mktar" ''
     tar -czvf "$@"
   '';
 in
 {
-  environment.systemPackages = [ mktar ];
+  config = {
+    home-manager.users.${config.user}.home.packages = [
+      mktar
+    ];
+  };
 }

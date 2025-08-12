@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   extract = pkgs.writeShellScriptBin "extract" ''
      if [ -z "$1" ]; then
@@ -38,5 +38,9 @@ let
   '';
 in
 {
-  environment.systemPackages = [ extract ];
+  config = {
+    home-manager.users.${config.user}.home.packages = [
+      extract
+    ];
+  };
 }

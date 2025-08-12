@@ -41,6 +41,7 @@ inputs.darwin.lib.darwinSystem {
       utm.enable = false;
       brave.enable = true;
       discord.enable = false;
+      ai.enable = true;
 
       # languaages
       python.enable = true;

@@ -73,6 +73,25 @@
       description = "Allow to use unfree packages.";
       default = true;
     };
+    ai = {
+      enable = lib.mkEnableOption {
+        description = "Enable AI features.";
+        default = true;
+      };
+      provider = lib.mkOption {
+        description = "AI provider to use, e.g. copilot, ollama, etc.";
+        default = "copilot";
+        type = lib.types.enum [
+          "ollama"
+          "copilot"
+        ];
+      };
+      model = lib.mkOption {
+        description = "AI model to use, e.g. gpt-5, claude-4.0-sonnet, etc.";
+        default = "claude-3.7-sonnet";
+        type = lib.types.str;
+      };
+    };
   };
 
   config =

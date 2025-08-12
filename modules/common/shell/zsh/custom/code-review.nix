@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   code-review = pkgs.writeShellScriptBin "code-review" ''
     set -e
@@ -13,5 +18,10 @@ let
   '';
 in
 {
-  environment.systemPackages = [ code-review ];
+
+  config = lib.mkIf config.ai.enable {
+    home-manager.users.${config.user}.home.packages = [
+      code-review
+    ];
+  };
 }

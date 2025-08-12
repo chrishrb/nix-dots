@@ -1,7 +1,8 @@
 local codecompanion = require("codecompanion")
 local icons = require("chrishrb.config.icons")
 
-local adapter = "copilot"
+local adapter = nixCats("aiProvider")
+local model = nixCats("aiModel")
 
 require("dressing").setup({
 	input = {
@@ -41,11 +42,11 @@ codecompanion.setup({
 		},
 	},
 	adapters = {
-		copilot = function()
-			return require("codecompanion.adapters").extend("copilot", {
+		[adapter] = function()
+			return require("codecompanion.adapters").extend(adapter, {
 				schema = {
 					model = {
-						default = "claude-4.0-sonnet",
+						default = model,
 					},
 				},
 			})

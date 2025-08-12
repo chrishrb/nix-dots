@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   urlencode = pkgs.writeShellScriptBin "urlencode" ''
     # urlencode <string>
@@ -18,5 +18,9 @@ let
   '';
 in
 {
-  environment.systemPackages = [ urlencode ];
+  config = {
+    home-manager.users.${config.user}.home.packages = [
+      urlencode
+    ];
+  };
 }

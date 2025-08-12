@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   # To search for a given string inside every file with the given filename
   # (wildcards allowed) in the current directory, recursively:
@@ -15,5 +15,9 @@ let
   '';
 in
 {
-  environment.systemPackages = [ searchin ];
+  config = {
+    home-manager.users.${config.user}.home.packages = [
+      searchin
+    ];
+  };
 }
