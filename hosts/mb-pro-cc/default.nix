@@ -25,7 +25,6 @@ inputs.darwin.lib.darwinSystem {
     inputs.mac-app-util.darwinModules.default
     {
       nixpkgs.overlays = overlays;
-      allowUnfree = true;
 
       # Darwin specific
       networking.hostName = "mb-pro-cc";
@@ -33,6 +32,9 @@ inputs.darwin.lib.darwinSystem {
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;
       work.enable = true;
+
+      # Enable ai features
+      ai.enable = true;
 
       # Programs and services
       colima.enable = true;

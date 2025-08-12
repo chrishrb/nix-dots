@@ -39,13 +39,11 @@
     gui = {
       enable = lib.mkEnableOption {
         description = "Enable graphics.";
-        default = false;
       };
     };
     work = {
       enable = lib.mkEnableOption {
         description = "Enable work specific brews/casks etc.";
-        default = false;
       };
     };
     homePath = lib.mkOption {
@@ -69,14 +67,14 @@
       type = lib.types.str;
       description = "Link to dotfiles repository HTTPS URL.";
     };
-    allowUnfree = lib.mkEnableOption {
+    allowUnfree = lib.mkOption {
+      type = lib.types.bool;
       description = "Allow to use unfree packages.";
       default = true;
     };
     ai = {
       enable = lib.mkEnableOption {
         description = "Enable AI features.";
-        default = true;
       };
       provider = lib.mkOption {
         description = "AI provider to use, e.g. copilot, ollama, etc.";
