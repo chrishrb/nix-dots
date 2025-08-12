@@ -9,7 +9,8 @@ let
     #
     # vipe(1) - Pipe in and out of $EDITOR
     #
-    # (c) 2014 Julian Gruber <julian@juliangruber.com>.
+    # (c) 2014 Julian Gruber <julian@juliangruber.com>
+    # (c) 2025 chrishrb <52382992+chrishrb@users.noreply.github.com>
     # MIT licensed.
     #
     # Example:
@@ -22,11 +23,9 @@ let
     #
 
     # version
-
     VERSION="0.1.1"
 
     # usage
-
     if [ "''${1}" ]; then
       case "''${1}" in
       "-h")
@@ -42,26 +41,32 @@ let
       esac
     fi
 
-    # temp file
-
-    t=/tmp/vipe.$$.txt
-    touch $t
+    # temp files
+    t=$(${pkgs.mktemp}/bin/mktemp /tmp/vipe.XXXXXX.txt)
+    orig=$(${pkgs.mktemp}/bin/mktemp /tmp/vipe.orig.XXXXXX.txt)
 
     # read from stdin
-
     if [ ! -t 0 ]; then
-      cat > $t
+      cat > "$t"
     fi
 
-    # spawn editor with stdio connected
+    # Save original contents
+    cp "$t" "$orig"
 
-    ''${EDITOR} $t < /dev/tty > /dev/tty || exit $?
+    # spawn editor with stdio connected
+    "$EDITOR" "$t" < /dev/tty > /dev/tty || exit $?
+
+    # check for changes
+    if cmp -s "$t" "$orig"; then
+      rm "$t" "$orig"
+      exit 1
+    fi
 
     # write to stdout
-    cat $t
+    cat "$t"
 
     # cleanup
-    rm $t
+    rm "$t" "$orig"
   '';
 
   cmdai = pkgs.writeShellScriptBin "cmdai" ''
