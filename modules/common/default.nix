@@ -86,7 +86,7 @@
       };
       model = lib.mkOption {
         description = "AI model to use, e.g. gpt-5, claude-4.0-sonnet, etc.";
-        default = "claude-3.7-sonnet";
+        default = "claude-sonnet-4";
         type = lib.types.str;
       };
     };
