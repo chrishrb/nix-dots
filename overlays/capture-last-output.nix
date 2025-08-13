@@ -5,10 +5,10 @@ let
 
     tmux_output=$(${prev.tmux}/bin/tmux capture-pane -p -S '-' -J)
 
-    echo "$tmux_output" | tail -r |
+    echo "$tmux_output" | ${prev.coreutils}/bin/tac |
       ${prev.gnused}/bin/sed -e "0,/$PROMPT_PATTERN/d" |
       ${prev.gnused}/bin/sed "/$PROMPT_PATTERN/,\$d" |
-      tail -r
+      ${prev.coreutils}/bin/tac
   '';
 in
 {

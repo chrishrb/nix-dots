@@ -70,7 +70,7 @@ let
   '';
 
   cmdai = pkgs.writeShellScriptBin "cmdai" ''
-    ${pkgs.mods}/bin/mods -q "command to ''$*. only the command, no explanations, no formatting, no surrounding backticks, remove surrounding codeblocks, replace specific directories with placeholders formatted as {{ placeholder }}" |
+    ${pkgs.mods}/bin/mods "command to ''$*. only the command, no explanations, no formatting, no surrounding backticks, remove surrounding codeblocks, replace specific directories with placeholders formatted as {{ placeholder }}" |
       ${vipe}/bin/vipe |
       tee -a /dev/tty |
       bash

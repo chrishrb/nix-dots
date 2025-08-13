@@ -8,8 +8,7 @@ let
   cmdfix = pkgs.writeShellScriptBin "cmdfix" ''
     set -e
     ${pkgs.print-last-output}/bin/print-last-output \
-    | ${pkgs.mods}/bin/mods -q -f 'analyze the following CLI output to identify the problem and suggest a possible fix.' \
-    | ${pkgs.glow}/bin/glow -p -
+    | ${pkgs.mods}/bin/mods -f 'analyze the following CLI output to identify the problem and suggest a possible fix.'
   '';
 in
 {
