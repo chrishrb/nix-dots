@@ -22,7 +22,7 @@
         enable = true;
         settings = {
           general.import = [
-            pkgs.alacritty-theme.catppuccin_mocha
+            pkgs.alacritty-theme."catppuccin_${config.theme}"
           ];
 
           cursor = {

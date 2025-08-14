@@ -1,17 +1,8 @@
 local catppuccin = require("catppuccin")
+local theme = nixCats("theme")
 
 catppuccin.setup({
-	color_overrides = {
-		all = {
-			text = "#ffffff",
-		},
-		mocha = {
-			base = "#1e1e2e",
-		},
-		frappe = {},
-		macchiato = {},
-		latte = {},
-	},
+	flavour = theme, -- latte, frappe, macchiato, mocha
 })
 
 vim.opt.fillchars = {

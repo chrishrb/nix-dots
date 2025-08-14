@@ -37,6 +37,8 @@ in
             { pkgs, name, ... }:
             {
               categories = {
+                theme = config.theme;
+
                 go = config.go.enable;
                 python = config.python.enable;
                 web = config.web.enable;

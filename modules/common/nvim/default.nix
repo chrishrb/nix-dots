@@ -300,6 +300,7 @@ let
           generalBuildInputs = true;
           general = true;
           debug = true;
+          theme = "mocha";
 
           # languages
           go = true;

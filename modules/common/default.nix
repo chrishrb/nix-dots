@@ -72,6 +72,16 @@
       description = "Allow to use unfree packages.";
       default = true;
     };
+    theme = lib.mkOption {
+      description = "Catppuccin theme to use for the system.";
+      type = lib.types.enum [
+        "latte"
+        "frappe"
+        "macchiato"
+        "mocha"
+      ];
+      default = "mocha";
+    };
     ai = {
       enable = lib.mkEnableOption {
         description = "Enable AI features.";
