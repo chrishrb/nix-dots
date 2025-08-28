@@ -57,9 +57,6 @@ cmp.setup({
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			-- Kind icons
-			if entry.source.name == "emoji" then
-				vim_item.kind = "Emoji"
-			end
 			vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
@@ -67,7 +64,6 @@ cmp.setup({
 				buffer = "[Buffer]",
 				path = "[Path]",
 				git = "[Git]",
-				emoji = "[Emoji]",
 			})[entry.source.name]
 			return vim_item
 		end,

@@ -170,7 +170,6 @@ let
             cmp-nvim-lsp-document-symbol
 
             cmp-git
-            cmp-emoji
             copilot-cmp
           ];
           core = [

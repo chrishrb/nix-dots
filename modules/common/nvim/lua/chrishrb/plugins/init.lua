@@ -173,7 +173,6 @@ local plugins = {
 					require("copilot_cmp").setup()
 				end,
 			},
-			"hrsh7th/cmp-emoji", -- emoji
 		},
 		config = function()
 			require("chrishrb.plugins.config.cmp")

@@ -35,7 +35,6 @@ return {
 		Variable = " ",
 		Copilot = " ",
 		Git = " ",
-		Emoji = "󰞅 ",
 	},
 	git = {
 		LineAdded = "",

@@ -51,7 +51,7 @@ inputs.darwin.lib.darwinSystem {
       go.enable = true;
       java.enable = false;
       web.enable = true;
-      latex.enable = true;
+      latex.enable = false;
       nixlang.enable = true;
       flutter.enable = false;
     }
