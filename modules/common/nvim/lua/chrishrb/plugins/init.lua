@@ -349,13 +349,6 @@ local plugins = {
 		"moll/vim-bbye",
 		event = "VeryLazy",
 	},
-	{ -- project management with  vim
-		"ahmedkhalf/project.nvim",
-		event = "VimEnter",
-		config = function()
-			require("chrishrb.plugins.config.project")
-		end,
-	},
 	{ -- creates automatically missing directories, like mkdir -p
 		"jghauser/mkdir.nvim",
 		event = "BufEnter",

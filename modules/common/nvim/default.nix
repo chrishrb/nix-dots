@@ -194,7 +194,6 @@ let
             nvim-comment
             BufOnly-vim
             vim-bbye
-            project-nvim
             mkdir-nvim
             bigfile-nvim
           ];

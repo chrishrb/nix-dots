@@ -6,7 +6,7 @@ inputs: _final: prev: {
     src = inputs.mcp-miro;
 
     # Dummy: sha256-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=
-    npmDepsHash = "sha256-kOpt6hSenPzt1865p5RNRcsLzGpuqtNePSnChcjrEJM=";
+    npmDepsHash = "sha256-2MHhqoH+Cr/C3JzsDO/FzP6ZaCPkxl4mk1vUsr6i34s=";
 
     meta = {
       description = "Miro integration for Model Context Protocol";
