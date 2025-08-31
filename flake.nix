@@ -19,7 +19,7 @@
 
     # homebrew
     nix-homebrew = {
-      url = "github:chrishrb/nix-homebrew";
+      url = "github:zhaofengli/nix-homebrew";
     };
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
