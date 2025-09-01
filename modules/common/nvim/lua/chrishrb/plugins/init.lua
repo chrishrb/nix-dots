@@ -166,21 +166,21 @@ local plugins = {
 			"hrsh7th/cmp-nvim-lsp-document-symbol", -- For textDocument/documentSymbol
 			"petertriho/cmp-git", -- git source
 
-      -- AI sources
+			-- AI sources
 			{
 				"zbirenbaum/copilot-cmp",
-		    enabled = nixCats("ai") and nixCats("aiProvider") == "copilot",
+				enabled = nixCats("ai") and nixCats("aiProvider") == "copilot",
 				config = function()
 					require("copilot_cmp").setup()
 				end,
 			},
-      {
-        "milanglacier/minuet-ai.nvim",
-		    enabled = nixCats("ai") and nixCats("aiProvider") ~= "copilot",
-        config = function()
-			    require("chrishrb.plugins.config.minuet-ai")
-        end,
-    },
+			{
+				"milanglacier/minuet-ai.nvim",
+				enabled = nixCats("ai") and nixCats("aiProvider") ~= "copilot",
+				config = function()
+					require("chrishrb.plugins.config.minuet-ai")
+				end,
+			},
 		},
 		config = function()
 			require("chrishrb.plugins.config.cmp")
@@ -312,7 +312,7 @@ local plugins = {
 			{
 				"zbirenbaum/copilot.lua",
 				cmd = "Copilot",
-		    enabled = nixCats("ai") and nixCats("aiProvider") == "copilot",
+				enabled = nixCats("ai") and nixCats("aiProvider") == "copilot",
 				config = function()
 					require("copilot").setup({
 						suggestion = { enabled = false },
