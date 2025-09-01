@@ -7,5 +7,6 @@ let
   ];
 in
 {
-  "github-secret.age".publicKeys = users;
+  "github.age".publicKeys = users;
+  "gemini.age".publicKeys = users;
 }

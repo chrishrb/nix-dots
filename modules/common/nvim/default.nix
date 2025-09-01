@@ -171,6 +171,7 @@ let
 
             cmp-git
             copilot-cmp
+            minuet-ai-nvim
           ];
           core = [
             plenary-nvim
@@ -318,7 +319,7 @@ let
 
           # ai
           ai = false;
-          aiAdapter = "";
+          aiProvider = "";
           aiModel = "";
 
           # this does not have an associated category of plugins,

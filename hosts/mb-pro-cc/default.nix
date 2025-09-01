@@ -34,7 +34,7 @@ inputs.darwin.lib.darwinSystem {
       work.enable = true;
 
       # Enable ai features
-      ai.enable = true;
+      ai.enable = false;
 
       # Programs and services
       colima.enable = true;

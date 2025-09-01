@@ -92,6 +92,7 @@
         type = lib.types.enum [
           "ollama"
           "copilot"
+          "gemini"
         ];
       };
       model = lib.mkOption {

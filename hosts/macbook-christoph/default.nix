@@ -33,7 +33,11 @@ inputs.darwin.lib.darwinSystem {
       gui.enable = true;
 
       # Enable ai features
-      ai.enable = true;
+      ai = {
+        enable = true;
+        provider = "gemini";
+        model = "gemini-2.5-pro";
+      };
 
       # Programs and services
       colima.enable = true;

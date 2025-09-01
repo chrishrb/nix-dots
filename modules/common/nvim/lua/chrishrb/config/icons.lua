@@ -35,6 +35,17 @@ return {
 		Variable = " ",
 		Copilot = " ",
 		Git = " ",
+    Fallback = '',
+    -- LLM Provider icons
+    claude = '󰋦',
+    openai = '󱢆',
+    codestral = '󱎥',
+    gemini = '',
+    Groq = '',
+    Openrouter = '󱂇',
+    Ollama = '󰳆',
+    ['Llama.cpp'] = '󰳆',
+    Deepseek = '',
 	},
 	git = {
 		LineAdded = "",

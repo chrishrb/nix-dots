@@ -14,6 +14,14 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
+local prioritize_minuet = function (entry1, entry2)
+  if entry1.minuet and not entry2.minuet then
+    return true
+  elseif entry2.minuet and not entry1.minuet then
+    return false
+  end
+end
+
 cmp.setup({
 	preselect = cmp.PreselectMode.None,
 	mapping = {
@@ -57,10 +65,11 @@ cmp.setup({
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			-- Kind icons
-			vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
+			vim_item.kind = string.format("%s", icons.kind[vim_item.kind] or icons.kind.Fallback)
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
 				copilot = "[Copilot]",
+				minuet = "[AI]",
 				buffer = "[Buffer]",
 				path = "[Path]",
 				git = "[Git]",
@@ -69,12 +78,17 @@ cmp.setup({
 		end,
 	},
 	sources = {
+    { name = "minuet" },
 		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "git" },
 	},
+  performance = {
+    -- increase timeout for ai
+    fetching_timeout = 2000,
+  },
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
@@ -91,7 +105,10 @@ cmp.setup({
 	sorting = {
 		priority_weight = 2,
 		comparators = {
-			require("copilot_cmp.comparators").prioritize,
+      (pcall(require, "copilot_cmp.comparators") and require("copilot_cmp.comparators").prioritize)
+      or nil,
+      (pcall(require, "minuet") and prioritize_minuet)
+      or nil,
 
 			-- Below is the default comparitor list and order for nvim-cmp
 			cmp.config.compare.offset,
