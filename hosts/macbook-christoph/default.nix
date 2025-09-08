@@ -35,8 +35,6 @@ inputs.darwin.lib.darwinSystem {
       # Enable ai features
       ai = {
         enable = true;
-        provider = "gemini";
-        model = "gemini-2.5-pro";
       };
 
       # Programs and services

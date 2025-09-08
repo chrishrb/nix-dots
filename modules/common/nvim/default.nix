@@ -143,6 +143,8 @@ let
             mini-diff
             copilot-lua
             mcphub-nvim
+            vectorcode-nvim
+            render-markdown-nvim
           ];
           look = [
             lualine-nvim

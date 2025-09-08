@@ -73,6 +73,10 @@ cmp.setup({
 				buffer = "[Buffer]",
 				path = "[Path]",
 				git = "[Git]",
+				codecompanion_slash_commands = "[CC]",
+				codecompanion_models = "[CC]",
+				codecompanion_tools = "[CC]",
+				codecompanion_variables = "[CC]",
 			})[entry.source.name]
 			return vim_item
 		end,

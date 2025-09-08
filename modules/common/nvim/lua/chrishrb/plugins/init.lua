@@ -307,7 +307,16 @@ local plugins = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
-			"echasnovski/mini.diff",
+			{
+				"echasnovski/mini.diff",
+				config = function()
+					local diff = require("mini.diff")
+					diff.setup({
+						-- Disabled by default
+						source = diff.gen_source.none(),
+					})
+				end,
+			},
 			"ravitemer/codecompanion-history.nvim",
 			{
 				"zbirenbaum/copilot.lua",
@@ -337,6 +346,15 @@ local plugins = {
 				config = function()
 					require("chrishrb.plugins.config.mcphub")
 				end,
+			},
+			{
+				"Davidyz/VectorCode",
+				name = "vectorcode.nvim",
+				dependencies = { "nvim-lua/plenary.nvim" },
+			},
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				ft = { "codecompanion" },
 			},
 		},
 		enabled = nixCats("ai"),
@@ -380,6 +398,8 @@ local plugins = {
 local opts = {
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
 	rocks = { enabled = false },
+	install = { missing = false },
+	checker = { enabled = false },
 }
 
 lazyCat.setup(nixCats.pawsible({ "allPlugins", "start", "lazy.nvim" }), plugins, opts)

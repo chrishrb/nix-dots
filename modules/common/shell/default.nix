@@ -11,5 +11,6 @@
     ./nixpkgs.nix
     ./utilities.nix
     ./zoxide.nix
+    ./ai.nix
   ];
 }
