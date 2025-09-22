@@ -4,30 +4,32 @@
   lib,
   ...
 }:
-let 
+let
   mcpCfg = pkgs.writeText "servers.json" ''
-      {
-        "mcpServers": {
-          "git": {
-            "autoApprove": [],
-            "command": "${pkgs.mcp-server-git}/bin/mcp-server-git"
-          },
-          "github": {
-            "url": "https://api.githubcopilot.com/mcp/",
-            "autoApprove": [],
-            "headers": {
-              "Authorization": "Bearer ''${cmd: cat ${config.home-manager.users.${config.user}.age.secrets.github.path}}"
-            }
-          }
+    {
+      "mcpServers": {
+        "git": {
+          "autoApprove": [],
+          "command": "${pkgs.mcp-server-git}/bin/mcp-server-git"
         },
-        "nativeMCPServers": {
-          "neovim": {
-            "disabled_tools": [ ]
+        "github": {
+          "url": "https://api.githubcopilot.com/mcp/",
+          "autoApprove": [],
+          "headers": {
+            "Authorization": "Bearer ''${cmd: cat ${
+              config.home-manager.users.${config.user}.age.secrets.github.path
+            }}"
           }
         }
+      },
+      "nativeMCPServers": {
+        "neovim": {
+          "disabled_tools": [ ]
+        }
       }
-    '';
-  in
+    }
+  '';
+in
 {
 
   config = lib.mkIf pkgs.stdenv.isDarwin {
