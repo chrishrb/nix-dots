@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ./zsh
     ./tmux
     ./colima
-    ./mods
+    ./scripts
+    ./zsh.nix
     ./direnv.nix
     ./fzf.nix
     ./git.nix

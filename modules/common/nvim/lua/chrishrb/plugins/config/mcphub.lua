@@ -1,6 +1,5 @@
-local mcpHubConfigFile = nixCats("mcpHubConfigFile")
-
 require("mcphub").setup({
-	config = mcpHubConfigFile,
+  server_url = "http://localhost:37373/",
+  port = 0,
 	auto_approve = true,
 })

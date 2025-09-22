@@ -16,39 +16,6 @@ let
     #inputs.neovim-nightly-overlay.overlays.default
   ];
 
-  # Config for MCP Hub
-  mcpHubConfig =
-    pkgs:
-    pkgs.writeText "servers.json" ''
-      {
-        "mcpServers": {
-          "git": {
-            "autoApprove": [],
-            "command": "${pkgs.mcp-server-git}/bin/mcp-server-git"
-          },
-          "github": {
-            "url": "https://api.githubcopilot.com/mcp/",
-            "autoApprove": [],
-            "headers": {
-              "Authorization": "Bearer ''${GITHUB_TOKEN}"
-            }
-          },
-          "miro":{
-            "disabled": true,
-            "command": "${pkgs.mcp-miro}/bin/mcp-miro",
-            "env": {
-              "MIRO_ACCESS_TOKEN": "your_miro_access_token"
-            }
-          }
-        },
-        "nativeMCPServers": {
-          "neovim": {
-            "disabled_tools": [ ]
-          }
-        }
-      }
-    '';
-
   categoryDefinitions =
     {
       pkgs,
@@ -93,7 +60,6 @@ let
           vscode-langservers-extracted # html, css, json
           nodePackages.bash-language-server # bash
           yaml-language-server # yaml
-          mcp-hub
           nodejs
         ];
         go = with pkgs; [
@@ -317,7 +283,6 @@ let
           # extra config
           javaExtras = extraJavaItems pkgs;
           phpExtras = extraPhpItems pkgs;
-          mcpHubConfigFile = mcpHubConfig pkgs;
 
           # ai
           ai = false;

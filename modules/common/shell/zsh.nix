@@ -8,10 +8,6 @@
   users.users.${config.user}.shell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  imports = [
-    ./custom
-  ];
-
   home-manager.users.${config.user} = {
 
     home.packages = with pkgs; [ curl ];
