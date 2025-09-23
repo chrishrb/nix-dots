@@ -21,7 +21,6 @@
       };
 
       home.sessionVariables = {
-        GITHUB_TOKEN = "$(cat ${config.home-manager.users.${config.user}.age.secrets.github.path})";
         GEMINI_API_KEY = "$(cat ${config.home-manager.users.${config.user}.age.secrets.gemini.path})";
       };
     };

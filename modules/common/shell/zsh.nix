@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   ...
@@ -69,6 +70,7 @@
           }
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-completions"; }
+          (lib.mkIf config.ai.enable { name = "loiccoyle/zsh-github-copilot"; })
         ];
       };
       localVariables = {
@@ -131,7 +133,16 @@
         if [[ $(uname -m) == 'arm64' ]]; then
           eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
-      '';
+      ''
+      + (
+        if config.ai.enable then
+          ''
+            bindkey '^[e' zsh_gh_copilot_explain  # bind CTRL+E to explain
+            bindkey '^[s' zsh_gh_copilot_suggest  # bind CTRL+S to suggest
+          ''
+        else
+          ""
+      );
     };
   };
 }

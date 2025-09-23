@@ -5,7 +5,7 @@
   ...
 }:
 let
-  code-review = pkgs.writeShellScriptBin "code-review" ''
+  ai-review = pkgs.writeShellScriptBin "ai-review" ''
     set -e
     git --no-pager diff | ${pkgs.mods}/bin/mods -q -f 'perform a code review on this source. \
     	List out any logical flaws or bugs you find, ranked in order of \
@@ -21,7 +21,7 @@ in
 
   config = lib.mkIf config.ai.enable {
     home-manager.users.${config.user}.home.packages = [
-      code-review
+      ai-review
     ];
   };
 }

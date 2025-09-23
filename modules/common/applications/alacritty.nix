@@ -55,6 +55,19 @@
               y = 0;
             };
           };
+
+          keyboard.bindings = [
+            {
+              key = "S";
+              mods = "Alt";
+              chars = "\\u001bs";
+            }
+            {
+              key = "E";
+              mods = "Alt";
+              chars = "\\u001be";
+            }
+          ];
         };
       };
     };

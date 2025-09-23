@@ -12,5 +12,6 @@
     ./utilities.nix
     ./zoxide.nix
     ./ai.nix
+    ./gh.nix
   ];
 }

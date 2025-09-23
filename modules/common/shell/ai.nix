@@ -15,7 +15,7 @@ in
     home-manager.users.${config.user}.home = {
       packages = with pkgs; [
         vectorcode # Vectorize local code
-        ai # AI CLI tool
+        ai # AI cli tool
       ];
 
       file."./Library/Application Support/mods/mods.yml" = {

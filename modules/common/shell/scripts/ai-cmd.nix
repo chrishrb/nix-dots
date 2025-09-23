@@ -69,7 +69,7 @@ let
     rm "$t" "$orig"
   '';
 
-  cmdai = pkgs.writeShellScriptBin "cmdai" ''
+  ai-cmd = pkgs.writeShellScriptBin "ai-cmd" ''
     ${pkgs.mods}/bin/mods "command to ''$*. only the command, no explanations, no formatting, no surrounding backticks, remove surrounding codeblocks, replace specific directories with placeholders formatted as {{ placeholder }}" |
       ${vipe}/bin/vipe |
       tee -a /dev/tty |
@@ -79,7 +79,7 @@ in
 {
   config = lib.mkIf config.ai.enable {
     home-manager.users.${config.user}.home.packages = [
-      cmdai
+      ai-cmd
     ];
   };
 }
