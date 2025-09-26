@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
 
   home-manager.users.${config.user} = {
@@ -6,7 +11,7 @@
       enable = true;
 
       extensions = [
-        pkgs.gh-copilot # cli extension
+        (lib.mkIf config.ai.enable pkgs.gh-copilot) # cli extension
       ];
     };
   };

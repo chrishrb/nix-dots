@@ -4,18 +4,12 @@
   pkgs,
   ...
 }:
-let
-  ai = pkgs.writeShellScriptBin "ai" ''
-    set -e
-    echo "current working directory: $(pwd)" | ${pkgs.mods}/bin/mods $@
-  '';
-in
 {
   config = lib.mkIf config.ai.enable {
     home-manager.users.${config.user}.home = {
       packages = with pkgs; [
         vectorcode # Vectorize local code
-        ai # AI cli tool
+        mods # AI CLI tool
       ];
 
       file."./Library/Application Support/mods/mods.yml" = {
@@ -37,7 +31,14 @@ in
           mcp-timeout: 15s
           # List of predefined system messages that can be used as roles
           roles:
-            "default": []
+            default:
+              - current working directory is {{cwd}}
+              - today is {{date}} at {{time}} {{timezone}}
+            shell:
+              - you do not explain anything
+              - you simply output one liners to solve the problems you're asked
+              - you do not provide any explanation whatsoever, ONLY the output
+              - you do NOT format the output
             # Example, a role called `shell`:
             # shell:
             #   - you are a shell expert
@@ -96,6 +97,8 @@ in
                   aliases: ["${config.ai.model}"]
         '';
       };
+
+      shellAliases.ai = "mods";
     };
   };
 }

@@ -13,6 +13,9 @@
           gemini = {
             file = ../../../secrets/gemini.age;
           };
+          context7 = {
+            file = ../../../secrets/context7.age;
+          };
         };
 
         identityPaths = [ "${config.sshKeyPath}" ];

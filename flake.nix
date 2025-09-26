@@ -56,6 +56,10 @@
     # ai tools
     mcp-hub.url = "github:ravitemer/mcp-hub";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
+    mods = {
+      url = "github:chrishrb/mods";
+      flake = false;
+    };
 
     # nvim plugins that are not in nixpkg
     nvim-tmux-navigation = {
@@ -96,6 +100,12 @@
     # agenix for secrets management
     agenix.url = "github:ryantm/agenix";
 
+    # Dependency for MCP
+    powertools-lambda-python = {
+      url = "github:aws-powertools/powertools-lambda-python";
+      flake = false;
+    };
+
     # MCP servers
     modelcontextprotocol-servers = {
       url = "github:modelcontextprotocol/servers";
@@ -103,6 +113,14 @@
     };
     mcp-miro = {
       url = "github:k-jarzyna/mcp-miro";
+      flake = false;
+    };
+    awslabs-mcp = {
+      url = "github:awslabs/mcp";
+      flake = false;
+    };
+    apple-mcp = {
+      url = "github:supermemoryai/apple-mcp";
       flake = false;
     };
   };

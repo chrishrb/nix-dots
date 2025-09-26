@@ -57,6 +57,38 @@
         "type": "github"
       }
     },
+    "apple-mcp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754882006,
+        "narHash": "sha256-CQp/Pjx+xXL8iRrjS7VnPeEp2a4G17K9LwC8runVxz4=",
+        "owner": "supermemoryai",
+        "repo": "apple-mcp",
+        "rev": "08e2c5315683c00fc9567dfefd70a477caccc60d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "supermemoryai",
+        "repo": "apple-mcp",
+        "type": "github"
+      }
+    },
+    "awslabs-mcp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1758657980,
+        "narHash": "sha256-8+e8NJT9JX0TN+skmxUUTWLlFfNkczycwtFM1A304kA=",
+        "owner": "awslabs",
+        "repo": "mcp",
+        "rev": "94764dd4540c2568040df4f6575b4f75343f8a25",
+        "type": "github"
+      },
+      "original": {
+        "owner": "awslabs",
+        "repo": "mcp",
+        "type": "github"
+      }
+    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -510,6 +542,22 @@
         "type": "github"
       }
     },
+    "mods": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1758806289,
+        "narHash": "sha256-BMZaSSUDiFzKYUxfKU32dWPAqP47zBa1dogB8KSYB7M=",
+        "owner": "chrishrb",
+        "repo": "mods",
+        "rev": "3a5a1bfb713ff8ba5b7f25a20327412699f02d8f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrishrb",
+        "repo": "mods",
+        "type": "github"
+      }
+    },
     "nix-homebrew": {
       "inputs": {
         "brew-src": "brew-src"
@@ -798,10 +846,28 @@
         "type": "github"
       }
     },
+    "powertools-lambda-python": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1758287209,
+        "narHash": "sha256-68EXsl3Lhfqobuc9VYJeGbP5I681hxBRL9r2a4he+sE=",
+        "owner": "aws-powertools",
+        "repo": "powertools-lambda-python",
+        "rev": "54962136776b88fd22f5b67cde8472e2d2de80c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aws-powertools",
+        "repo": "powertools-lambda-python",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "alacritty-theme": "alacritty-theme",
+        "apple-mcp": "apple-mcp",
+        "awslabs-mcp": "awslabs-mcp",
         "codecompanion-history-nvim": "codecompanion-history-nvim",
         "codecompanion-nvim": "codecompanion-nvim",
         "darwin": "darwin_2",
@@ -817,6 +883,7 @@
         "mcp-miro": "mcp-miro",
         "mcphub-nvim": "mcphub-nvim",
         "modelcontextprotocol-servers": "modelcontextprotocol-servers",
+        "mods": "mods",
         "nix-homebrew": "nix-homebrew",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_7",
@@ -825,6 +892,7 @@
         "nvim-nio": "nvim-nio",
         "nvim-tmux-navigation": "nvim-tmux-navigation",
         "nvim-tree-lua": "nvim-tree-lua",
+        "powertools-lambda-python": "powertools-lambda-python",
         "talhelper": "talhelper",
         "treefmt-nix": "treefmt-nix_2"
       }
