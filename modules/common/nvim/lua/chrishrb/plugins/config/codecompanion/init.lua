@@ -27,7 +27,7 @@ local groups = {
 }
 
 codecompanion.setup({
-	-- prompt_library = require("chrishrb.plugins.config.codecompanion.prompts"),
+	prompt_library = require("chrishrb.plugins.config.codecompanion.prompts"),
 	extensions = {
 		mcphub = {
 			callback = "mcphub.extensions.codecompanion",
@@ -129,7 +129,6 @@ codecompanion.setup({
 	opts = {
 		log_level = "ERROR",
 		send_code = true,
-		system_prompt = require("chrishrb.plugins.config.codecompanion.system_prompt"),
 	},
 })
 

@@ -25,7 +25,7 @@ Detailed explanation (wrap at 72 characters)
 - Do **not** verify changes when committing (`--no-verify`).
 - Do **not** include unrelated changes in commits.
 
-You may use @cmd_runner to execute necessary Git commands.
+You may use @mcp to execute necessary Git commands.
 ]]
 
 return {
