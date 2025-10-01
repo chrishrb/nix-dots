@@ -63,7 +63,7 @@
             ];
           }
           { name = "paulirish/git-open"; }
-          { name = "MichaelAquilina/zsh-autoswitch-virtualenv"; }
+          (lib.mkIf config.python.enable { name = "MichaelAquilina/zsh-autoswitch-virtualenv"; })
           {
             name = "zsh-users/zsh-syntax-highlighting";
             tags = [ "defer:2" ];

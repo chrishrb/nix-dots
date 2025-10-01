@@ -25,7 +25,7 @@
 
       home.file."./.colima/_templates/default.yaml" = {
         source = ./colima.yaml;
-        onChange = ''cat ~/.colima/_templates/default.yaml > ~/.colima/default/colima.yaml'';
+        onChange = ''mkdir -p ~/.colima/default/ && cat ~/.colima/_templates/default.yaml > ~/.colima/default/colima.yaml'';
       };
     };
   };

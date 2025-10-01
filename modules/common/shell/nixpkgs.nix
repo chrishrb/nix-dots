@@ -28,11 +28,6 @@
       warn-dirty = false
     '';
 
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 10d";
-    };
-
     settings = {
 
       # Add community Cachix to binary cache

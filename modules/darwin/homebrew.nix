@@ -40,7 +40,6 @@
 
         # utility
         "scroll-reverser"
-        "tiles"
         "skim" # open pdfs
 
         # other
@@ -50,10 +49,6 @@
         "keepassxc"
         "tunnelblick"
         "zoom"
-      ]
-
-      ++ lib.optionals config.work.enable [
-        "microsoft-teams"
       ];
     };
 

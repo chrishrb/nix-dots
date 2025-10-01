@@ -13,5 +13,6 @@
     ./zoxide.nix
     ./ai.nix
     ./gh.nix
+    ./work.nix
   ];
 }

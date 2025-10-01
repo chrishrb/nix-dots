@@ -27,33 +27,29 @@ inputs.darwin.lib.darwinSystem {
       nixpkgs.overlays = overlays;
 
       # Darwin specific
-      networking.hostName = "mb-pro-cc";
+      networking.hostName = "macbook-gipedo";
 
       # Turn on all features related to desktop and graphical apps
       gui.enable = true;
       work.enable = true;
 
       # Enable ai features
-      ai.enable = false;
+      ai.enable = true;
 
       # Programs and services
+      slack.enable = true;
       colima.enable = true;
       alacritty.enable = true;
       nvim.enable = true;
       dotfiles.enable = false;
       brave.enable = true;
-      postman.enable = true;
 
       # languaages
-      php.enable = true;
-      python.enable = true;
+      python.enable = false;
       lua.enable = true;
       devops.enable = true;
       go.enable = true;
-      java.enable = false;
-      web.enable = true;
-      discord.enable = false;
-      latex.enable = false;
+      web.enable = false;
       nixlang.enable = true;
     }
   ];

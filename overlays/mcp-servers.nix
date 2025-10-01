@@ -48,7 +48,7 @@ in
     src = inputs.modelcontextprotocol-servers;
     npmWorkspace = "src/sequentialthinking";
     # Dummy: sha256-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=
-    npmDepsHash = "sha256-zFacrW1lZT4mcHRJBOVcKIJJ51kCiyGn6/ZhRVqSKAI=";
+    npmDepsHash = "sha256-iRPILytyloL6qRMvy2fsDdqkewyqEfcuVspwUN5Lrqw=";
     preFixup = ''
       find $out/lib/node_modules -type l -exec sh -c '
         for f; do

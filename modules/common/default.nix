@@ -43,7 +43,7 @@
     };
     work = {
       enable = lib.mkEnableOption {
-        description = "Enable work specific brews/casks etc.";
+        description = "Enable work specific options.";
       };
     };
     homePath = lib.mkOption {

@@ -42,6 +42,7 @@ in
         mqttx-cli # mqtt client
         xh # httpie alternative
         glow # markdown viewer
+        klog-time-tracker # time tracking
       ];
 
       home.file = {

@@ -139,7 +139,7 @@
         fullName = "Christoph Herb";
         gitName = fullName;
         gitEmail = "52382992+chrishrb@users.noreply.github.com";
-        gitWorkEmail = "c.herb@chargecloud.de";
+        gitWorkEmail = gitEmail;
         dotfilesRepo = "git@github.com:chrishrb/nix-dots.git";
       };
 
@@ -178,7 +178,7 @@
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#cc
       darwinConfigurations = {
-        mb-pro-cc = import ./hosts/mb-pro-cc { inherit inputs globals overlays; };
+        macbook-gipedo = import ./hosts/macbook-gipedo { inherit inputs globals overlays; };
         macbook-christoph = import ./hosts/macbook-christoph { inherit inputs globals overlays; };
       };
 
@@ -186,7 +186,7 @@
       # home-manager switch --flake .#cc
       homeConfigurations = {
         tuxedo = nixosConfigurations.tuxedo.config.home-manager.users."christoph".home;
-        mb-pro-cc = darwinConfigurations.mb-pro-cc.config.home-manager.users."christophherb".home;
+        macbook-gipedo = darwinConfigurations.macbook-gipedo.config.home-manager.users."christophherb".home;
         macbook-christoph = darwinConfigurations.cc.config.home-manager.users."christophherb".home;
       };
 

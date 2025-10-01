@@ -15,7 +15,6 @@
 
     # Fix for: 'Error: HOME is set to "/var/root" but we expect "/var/empty"'
     home-manager.users.root.home.homeDirectory = lib.mkForce "/var/root";
-
   };
 
 }

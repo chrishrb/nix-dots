@@ -26,27 +26,7 @@
       system.stateVersion = 5;
 
       # This settings only applies to Darwin, different on NixOS
-      nix = {
-        # Enable automatic garbage collection
-        gc = {
-          automatic = true;
-          interval = {
-            Hour = 12;
-            Minute = 15;
-            Weekday = 2;
-          };
-        };
-
-        # Enable automatic optimization of nix-store
-        optimise = {
-          automatic = true;
-          interval = {
-            Hour = 12;
-            Minute = 30;
-            Weekday = 1;
-          };
-        };
-      };
+      nix.enable = false;
 
       # Add ability to used TouchID for sudo authentication (with hack for tmux)
       environment = {
