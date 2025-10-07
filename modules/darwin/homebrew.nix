@@ -17,7 +17,6 @@
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
         "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
-        "emqx/homebrew-mqttx" = inputs.homebrew-mqttx;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -31,9 +30,7 @@
         cleanup = "zap"; # Uninstall all programs not declared
         upgrade = true;
       };
-      brews = [
-        # "emqx/mqttx/mqttx-cli"
-      ];
+      brews = [];
       casks = [
         # Communication Tools
         "notion"

@@ -417,22 +417,6 @@
         "type": "github"
       }
     },
-    "homebrew-mqttx": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1759225615,
-        "narHash": "sha256-EylfNCOWYq1K00IGcTBLGhQ9HJnHASAaqB+55hEU6/U=",
-        "owner": "emqx",
-        "repo": "homebrew-mqttx",
-        "rev": "3c0850d054826c49fd3b8dcee28fd5e67e5c0b8e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emqx",
-        "repo": "homebrew-mqttx",
-        "type": "github"
-      }
-    },
     "mac-app-util": {
       "inputs": {
         "cl-nix-lite": "cl-nix-lite",
@@ -876,7 +860,6 @@
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
-        "homebrew-mqttx": "homebrew-mqttx",
         "mac-app-util": "mac-app-util",
         "macos-keyboard-layout-german-programming": "macos-keyboard-layout-german-programming",
         "mcp-hub": "mcp-hub",
