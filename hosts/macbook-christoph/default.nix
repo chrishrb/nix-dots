@@ -41,7 +41,6 @@ inputs.darwin.lib.darwinSystem {
       colima.enable = true;
       alacritty.enable = true;
       nvim.enable = true;
-      dotfiles.enable = true;
       utm.enable = false;
       brave.enable = true;
       discord.enable = false;

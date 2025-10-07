@@ -15,6 +15,7 @@
         golangci-lint
         cobra-cli
         protobuf
+        pre-commit
       ];
 
       sessionPath = [ "$HOME/go/bin" ];

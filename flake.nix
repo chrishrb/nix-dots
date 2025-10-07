@@ -140,7 +140,6 @@
         gitName = fullName;
         gitEmail = "52382992+chrishrb@users.noreply.github.com";
         gitWorkEmail = gitEmail;
-        dotfilesRepo = "git@github.com:chrishrb/nix-dots.git";
       };
 
       # Common overlays

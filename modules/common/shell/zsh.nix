@@ -108,6 +108,7 @@
         copy = "pbcopy";
         grep = "rg";
         ls = "ls --color=auto";
+        t = "klog";
 
         ## vim,tmux,zsh
         ssh = "TERM=xterm-256color ssh"; # needed for ssh to work properly

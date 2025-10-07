@@ -41,15 +41,14 @@ inputs.darwin.lib.darwinSystem {
       colima.enable = true;
       alacritty.enable = true;
       nvim.enable = true;
-      dotfiles.enable = false;
       brave.enable = true;
 
       # languaages
-      python.enable = false;
+      python.enable = true;
       lua.enable = true;
       devops.enable = true;
       go.enable = true;
-      web.enable = false;
+      web.enable = true;
       nixlang.enable = true;
     }
   ];

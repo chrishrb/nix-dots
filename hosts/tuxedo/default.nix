@@ -60,7 +60,6 @@ inputs.nixpkgs.lib.nixosSystem {
       # Programs and services
       alacritty.enable = true;
       nvim.enable = true;
-      dotfiles.enable = false;
       brave.enable = true;
 
       # languages

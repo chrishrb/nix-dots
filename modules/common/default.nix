@@ -10,7 +10,6 @@
   imports = [
     ./applications
     ./programming
-    ./repositories
     ./shell
   ];
 
@@ -57,15 +56,6 @@
       type = lib.types.path;
       description = "Path of ssh private key.";
       default = config.homePath + "/.ssh/id_ed25519";
-    };
-    dotfilesPath = lib.mkOption {
-      type = lib.types.path;
-      description = "Path of dotfiles repository.";
-      default = config.homePath + "/dev/home/nix-dots";
-    };
-    dotfilesRepo = lib.mkOption {
-      type = lib.types.str;
-      description = "Link to dotfiles repository HTTPS URL.";
     };
     allowUnfree = lib.mkOption {
       type = lib.types.bool;

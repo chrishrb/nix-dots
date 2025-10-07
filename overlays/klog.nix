@@ -1,6 +1,9 @@
 _: _final: prev: {
   klog-time-tracker = prev.klog-time-tracker.overrideAttrs (old: {
-    nativeBuildInputs = with prev; [ installShellFiles go ];
+    nativeBuildInputs = with prev; [
+      installShellFiles
+      go
+    ];
     postInstall = ''
       installShellCompletion --cmd klog \
         --bash <($out/bin/klog completion -c bash) \
