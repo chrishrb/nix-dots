@@ -30,7 +30,7 @@
         cleanup = "zap"; # Uninstall all programs not declared
         upgrade = true;
       };
-      brews = [];
+      brews = [ ];
       casks = [
         # Communication Tools
         "notion"

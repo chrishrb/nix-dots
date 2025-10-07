@@ -56,18 +56,12 @@ end
 if nixCats("web") then
 	servers[#servers + 1] = "ts_ls"
 	servers[#servers + 1] = "tailwindcss"
-	servers[#servers + 1] = "volar"
+	servers[#servers + 1] = "vue_ls"
 end
 
 if nixCats("ruby") then
 	servers[#servers + 1] = "rubocop"
 	servers[#servers + 1] = "solargraph"
-end
-
--- setup handlers
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
 end
 
 local opts = {}
@@ -105,5 +99,6 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", gopls_opts, opts)
 	end
 
-	lspconfig[server].setup(opts)
+	vim.lsp.config(server, opts)
+	vim.lsp.enable(server)
 end
