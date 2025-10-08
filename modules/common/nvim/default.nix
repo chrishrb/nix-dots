@@ -143,7 +143,10 @@ let
           ];
           core = [
             plenary-nvim
-            nvim-treesitter.withAllGrammars
+            (nvim-treesitter.withPlugins (plugins:
+              pkgs.vimPlugins.nvim-treesitter.allGrammars 
+              ++ [ pkgs.treesitter-kulala-http-grammar ]
+            ))
             nvim-ts-autotag
             telescope-nvim
             telescope-fzf-native-nvim
@@ -165,6 +168,7 @@ let
             vim-bbye
             mkdir-nvim
             bigfile-nvim
+            kulala-nvim
           ];
           custom = with pkgs.vimPlugins; [
             nvim-tmux-navigation
