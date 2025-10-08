@@ -143,9 +143,8 @@ let
           ];
           core = [
             plenary-nvim
-            (nvim-treesitter.withPlugins (plugins:
-              pkgs.vimPlugins.nvim-treesitter.allGrammars 
-              ++ [ pkgs.treesitter-kulala-http-grammar ]
+            (nvim-treesitter.withPlugins (
+              plugins: pkgs.vimPlugins.nvim-treesitter.allGrammars ++ [ pkgs.treesitter-kulala-http-grammar ]
             ))
             nvim-ts-autotag
             telescope-nvim
