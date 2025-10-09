@@ -19,7 +19,7 @@
 
           # Local token needed in environment
           export FONTAWESOME_NPM_AUTH_TOKEN=$(cat ~/.fontawesome_token)
-          export GH_ACCESS_TOKEN=${config.home-manager.users.${config.user}.age.secrets.github.path}
+          export GH_ACCESS_TOKEN="$(cat ${config.home-manager.users.${config.user}.age.secrets.github.path})"
 
           # AWS login to staging
           function staging() {
