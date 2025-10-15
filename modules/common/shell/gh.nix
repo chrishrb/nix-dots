@@ -13,6 +13,8 @@
       extensions = [
         (lib.mkIf config.ai.enable pkgs.gh-copilot) # cli extension
       ];
+
+      gitCredentialHelper.enable = true;
     };
   };
 }

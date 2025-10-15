@@ -103,10 +103,6 @@
     };
 
     # MCP servers
-    modelcontextprotocol-servers = {
-      url = "github:modelcontextprotocol/servers";
-      flake = false;
-    };
     mcp-miro = {
       url = "github:k-jarzyna/mcp-miro";
       flake = false;

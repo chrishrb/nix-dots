@@ -510,22 +510,6 @@
         "type": "github"
       }
     },
-    "modelcontextprotocol-servers": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1760096737,
-        "narHash": "sha256-mVpJBf88T+tNaTxjKHLKgtfvR50W3Icyoa0oSa16OIw=",
-        "owner": "modelcontextprotocol",
-        "repo": "servers",
-        "rev": "1d47d6bfb710947400095ac15da7413f0b967404",
-        "type": "github"
-      },
-      "original": {
-        "owner": "modelcontextprotocol",
-        "repo": "servers",
-        "type": "github"
-      }
-    },
     "mods": {
       "flake": false,
       "locked": {
@@ -865,7 +849,6 @@
         "mcp-hub": "mcp-hub",
         "mcp-miro": "mcp-miro",
         "mcphub-nvim": "mcphub-nvim",
-        "modelcontextprotocol-servers": "modelcontextprotocol-servers",
         "mods": "mods",
         "nix-homebrew": "nix-homebrew",
         "nixCats": "nixCats",

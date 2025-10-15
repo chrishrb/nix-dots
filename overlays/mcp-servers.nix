@@ -13,6 +13,13 @@ let
     ];
     pythonImportsCheck = [ "aws_lambda_powertools" ];
   };
+
+  modelcontextprotocol-servers = prev.fetchFromGitHub {
+    owner = "modelcontextprotocol";
+    repo = "servers";
+    rev = "f2dc09d15f2437d0cc93ac2a23c5694026434af9";
+    hash = "sha256-sCPuwBsPEdd6ZhRxsCQT4sBgj04zlhqTv1030HaxVq0=";
+  };
 in
 {
   mcp-miro = prev.buildNpmPackage {
@@ -30,7 +37,7 @@ in
   mcp-server-git = prev.python3Packages.buildPythonApplication {
     pname = "mcp-server-git";
     version = "latest";
-    src = "${inputs.modelcontextprotocol-servers}/src/git";
+    src = "${modelcontextprotocol-servers}/src/git";
     format = "pyproject";
     build-system = [ prev.python3Packages.hatchling ];
     propagatedBuildInputs = [
@@ -45,10 +52,11 @@ in
   sequential-thinking = prev.buildNpmPackage {
     pname = "sequential-thinking";
     version = "latest";
-    src = inputs.modelcontextprotocol-servers;
+    src = modelcontextprotocol-servers;
+
     npmWorkspace = "src/sequentialthinking";
     # Dummy: sha256-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=
-    npmDepsHash = "sha256-iRPILytyloL6qRMvy2fsDdqkewyqEfcuVspwUN5Lrqw=";
+    npmDepsHash = "sha256-GVPfXEoxACHfnXcN5HXnS2GCcKXbw0g3Bm4LuSgWyo4=";
     preFixup = ''
       find $out/lib/node_modules -type l -exec sh -c '
         for f; do
