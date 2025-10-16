@@ -36,13 +36,6 @@
             tags = [ "from:oh-my-zsh" ];
           }
           {
-            name = "plugins/aws";
-            tags = [
-              "from:oh-my-zsh"
-              "lazy:true"
-            ];
-          }
-          {
             name = "plugins/kubectl";
             tags = [
               "from:oh-my-zsh"
@@ -130,6 +123,12 @@
       '';
       sessionVariables = { };
       initContent = ''
+        # TODO: fix after resolving: https://github.com/NixOS/nixpkgs/issues/275770
+        # awscli2 workaround
+        if command -v aws_completer &>/dev/null; then
+          complete -C "$(command -v aws_completer)" aws
+        fi
+
         # make sure brew is on the path for M1 
         if [[ $(uname -m) == 'arm64' ]]; then
           eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -22,6 +22,7 @@ local groups = {
 			"editor",
 			"files",
 			"mcp",
+			"vectorcode",
 		},
 	},
 }
