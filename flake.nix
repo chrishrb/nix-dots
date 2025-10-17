@@ -127,7 +127,7 @@
     let
       # Global configuration for my systems
       globals = rec {
-        user = "chrisrb";
+        user = "chrishrb";
         fullName = "Christoph Herb";
         gitName = fullName;
         gitEmail = "52382992+chrishrb@users.noreply.github.com";

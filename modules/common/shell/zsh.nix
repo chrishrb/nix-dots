@@ -123,7 +123,7 @@
       '';
       sessionVariables = { };
       initContent = ''
-        # TODO: fix after resolving: https://github.com/NixOS/nixpkgs/issues/275770
+        # TODO: remove after resolving: https://github.com/NixOS/nixpkgs/issues/275770
         # awscli2 workaround
         if command -v aws_completer &>/dev/null; then
           complete -C "$(command -v aws_completer)" aws

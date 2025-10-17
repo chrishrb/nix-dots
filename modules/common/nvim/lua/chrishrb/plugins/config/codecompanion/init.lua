@@ -33,9 +33,7 @@ codecompanion.setup({
 		mcphub = {
 			callback = "mcphub.extensions.codecompanion",
 			opts = {
-				show_result_in_chat = true, -- Show the mcp tool result in the chat buffer
-				make_vars = true, -- make chat #variables from MCP server resources
-				make_slash_commands = true, -- make /slash_commands from MCP server prompts
+				show_server_tools_in_chat = false,
 			},
 		},
 		history = {
@@ -130,6 +128,7 @@ codecompanion.setup({
 	opts = {
 		log_level = "ERROR",
 		send_code = true,
+    system_prompt = require("chrishrb.plugins.config.codecompanion.system_prompt"),
 	},
 })
 

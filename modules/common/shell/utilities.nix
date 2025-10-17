@@ -43,6 +43,7 @@ in
         xh # httpie alternative
         glow # markdown viewer
         klog-time-tracker # time tracking
+        act # run github actions locally
       ];
 
       home.file = {

@@ -2,7 +2,6 @@
 {
   imports = [
     ./tmux
-    ./colima
     ./scripts
     ./zsh.nix
     ./direnv.nix
