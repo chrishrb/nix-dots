@@ -27,7 +27,6 @@
       programs.zsh.shellAliases.dockerup = "colima start";
     };
 
-
     launchd.daemons.colima-docker-compat = {
       script = ''
         # Wait for the docker socket to be created. This is important when

@@ -128,7 +128,7 @@ codecompanion.setup({
 	opts = {
 		log_level = "ERROR",
 		send_code = true,
-    system_prompt = require("chrishrb.plugins.config.codecompanion.system_prompt"),
+		system_prompt = require("chrishrb.plugins.config.codecompanion.system_prompt"),
 	},
 })
 

@@ -1,21 +1,24 @@
 local function get_git_remote_url()
-  local h = io.popen("git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git remote get-url origin 2>/dev/null")
-  local url = h and h:read("*a"):gsub("%s+$", "")
-  if h then h:close() end
-  return url or ""
+	local h = io.popen("git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git remote get-url origin 2>/dev/null")
+	local url = h and h:read("*a"):gsub("%s+$", "")
+	if h then
+		h:close()
+	end
+	return url or ""
 end
 
 return function()
-  local uname = vim.uv.os_uname()
-  local platform = string.format(
-    "sysname: %s, release: %s, machine: %s, version: %s",
-    uname.sysname,
-    uname.release,
-    uname.machine,
-    uname.version
-  )
+	local uname = vim.uv.os_uname()
+	local platform = string.format(
+		"sysname: %s, release: %s, machine: %s, version: %s",
+		uname.sysname,
+		uname.release,
+		uname.machine,
+		uname.version
+	)
 
-  return string.format([[
+	return string.format(
+		[[
 <instructions>
 You are a highly sophisticated automated coding agent with expert-level knowledge across many different programming languages and frameworks.
 The user will ask a question, or ask you to perform a task, and it may require lots of research to answer correctly. There is a selection of tools that let you perform actions or retrieve helpful context to answer the user's question.
@@ -61,13 +64,13 @@ You are provided with the following additional context to help you complete your
 <gitRemoteUrl>%s</gitRemoteUrl>
 </additionalContext>
 ]],
-    platform,
-    vim.o.shell,
-    os.date("%Y-%m-%d"),
-    os.date("%H:%M:%S"),
-    os.date("%Z"),
-    os.date("%z"),
-    vim.fn.getcwd(),
-    get_git_remote_url()
-  )
+		platform,
+		vim.o.shell,
+		os.date("%Y-%m-%d"),
+		os.date("%H:%M:%S"),
+		os.date("%Z"),
+		os.date("%z"),
+		vim.fn.getcwd(),
+		get_git_remote_url()
+	)
 end
