@@ -97,21 +97,37 @@ local function lsp_highlight_document(client)
 	end
 end
 
-local function lsp_keymaps(bufnr)
-	local opts = { noremap = true, silent = true }
-	local map = vim.api.nvim_buf_set_keymap
+local function lsp_keymaps(_)
+	local which_key = require("which-key")
+	which_key.add({
+		{
+			{ "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration", noremap = true },
+			{ "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition", noremap = true },
+			{ "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to implementation", noremap = true },
+			{ "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Go to references", noremap = true },
 
-	map(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	map(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	map(bufnr, "n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	map(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+			-- Hidden
+			{
+				"<leader>r",
+				"<cmd>lua vim.lsp.buf.rename()<CR>",
+				desc = "Rename variable",
+				nowait = true,
+				remap = false,
+				hidden = true,
+			},
+			{
+				"<leader>n",
+				"<cmd>lua vim.lsp.buf.code_action()<CR>",
+				desc = "Codeaction",
+				nowait = true,
+				remap = false,
+				hidden = true,
+			},
+		},
+	})
 end
 
 M.on_attach = function(client, bufnr)
-	if client.name == "ts_ls" then
-		client.server_capabilities.document_formatting = false
-	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end

@@ -1,24 +1,26 @@
 local hover = require("hover")
 
-hover.setup({
-	init = function()
-		-- Require providers
-		require("hover.providers.lsp")
-		-- require('hover.providers.gh')
-		-- require('hover.providers.gh_user')
-		-- require('hover.providers.jira')
-		-- require('hover.providers.man')
-		-- require('hover.providers.dictionary')
-	end,
+hover.config({
+	providers = {
+		"hover.providers.diagnostic",
+		"hover.providers.lsp",
+		"hover.providers.dap",
+		"hover.providers.man",
+		"hover.providers.gh",
+		"hover.providers.gh_user",
+		-- 'hover.providers.jira',
+		-- 'hover.providers.fold_preview',
+		-- 'hover.providers.highlight',
+	},
 	preview_opts = {
 		border = nil,
 	},
 	-- Whether the contents of a currently open hover window should be moved
 	-- to a :h preview-window when pressing the hover keymap.
 	preview_window = false,
-	title = false,
+	title = true,
 })
 
 -- Setup keymaps
-vim.keymap.set("n", "K", hover.hover, { desc = "hover.nvim" })
-vim.keymap.set("n", "gK", hover.hover_select, { desc = "hover.nvim (select)" })
+vim.keymap.set("n", "K", hover.open, { desc = "hover.nvim" })
+vim.keymap.set("n", "gK", hover.enter, { desc = "hover.nvim (enter)" })

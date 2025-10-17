@@ -54,8 +54,9 @@ if nixCats("php") then
 end
 
 if nixCats("web") then
+	-- not needed at the moment and breaks hover in typescript files
+	-- servers[#servers + 1] = "tailwindcss"
 	servers[#servers + 1] = "ts_ls"
-	servers[#servers + 1] = "tailwindcss"
 	servers[#servers + 1] = "vue_ls"
 end
 

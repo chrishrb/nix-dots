@@ -81,24 +81,6 @@ which_key.add({
 	{ "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Previous Diagnostic" },
 	{ "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
 
-	-- Hidden
-	{
-		"<leader>r",
-		"<cmd>lua vim.lsp.buf.rename()<CR>",
-		desc = "Rename variable",
-		nowait = true,
-		remap = false,
-		hidden = true,
-	},
-	{
-		"<leader>n",
-		"<cmd>lua vim.lsp.buf.code_action()<CR>",
-		desc = "Codeaction",
-		nowait = true,
-		remap = false,
-		hidden = true,
-	},
-
 	-- Git
 	{
 		{ "<leader>g", group = "Git", nowait = true, remap = false },
