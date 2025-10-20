@@ -46,8 +46,8 @@
     # nvim
     nixCats.url = "github:BirdeeHub/nixCats-nvim/v7.2.13";
 
-    # formatter
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    # pre-commit
+    git-hooks.url = "github:cachix/git-hooks.nix";
 
     # ai tools
     mcp-hub.url = "github:ravitemer/mcp-hub";
@@ -121,7 +121,6 @@
     {
       self,
       nixpkgs,
-      treefmt-nix,
       ...
     }@inputs:
     let
@@ -148,15 +147,6 @@
 
       # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-
-      # formatting
-      treefmtEval = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs { inherit system overlays; };
-        in
-        treefmt-nix.lib.evalModule pkgs ./treefmt.nix
-      );
     in
     rec {
 
@@ -195,20 +185,22 @@
         system:
         let
           pkgs = import nixpkgs { inherit system overlays; };
+          inherit (self.checks.${system}.pre-commit-check) shellHook enabledPackages;
         in
         {
 
           # Used to run commands and edit files in this repo
           default = pkgs.mkShell {
+            inherit shellHook;
             buildInputs = with pkgs; [
               git
               stylua
               nixfmt-rfc-style
-              treefmt
               shfmt
               shellcheck
               mkpasswd
               inputs.agenix.packages.${system}.default
+              enabledPackages
             ];
           };
 
@@ -237,11 +229,29 @@
                 fi
               '';
 
-          formatting = treefmtEval.${system}.config.build.check self;
+          pre-commit-check = inputs.git-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              nixfmt.enable = true;
+              stylua.enable = true;
+              shellcheck.enable = true;
+            };
+          };
         }
       );
 
-      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+      formatter = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          config = self.checks.${system}.pre-commit-check.config;
+          inherit (config) package configFile;
+          script = ''
+            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
+          '';
+        in
+        pkgs.writeShellScriptBin "pre-commit-run" script
+      );
 
       # Templates for starting other projects quickly
       templates = rec {

@@ -8,3 +8,4 @@ private/**
 templates/**/flake.lock
 !private/**.age
 outputs
+.pre-commit-config.yaml
