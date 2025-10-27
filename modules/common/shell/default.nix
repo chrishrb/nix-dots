@@ -13,5 +13,6 @@
     ./ai.nix
     ./gh.nix
     ./work.nix
+    ./mise.nix
   ];
 }

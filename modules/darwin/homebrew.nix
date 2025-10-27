@@ -46,6 +46,9 @@
         "keepassxc"
         "tunnelblick"
         "zoom"
+      ]
+      ++ lib.optionals config.work.enable [
+        "google-drive"
       ];
     };
 

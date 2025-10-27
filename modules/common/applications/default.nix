@@ -9,5 +9,6 @@
     ./utm.nix
     ./brave.nix
     ./postman.nix
+    ./drawio.nix
   ];
 }
