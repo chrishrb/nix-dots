@@ -16,6 +16,9 @@
           context7 = {
             file = ../../../secrets/context7.age;
           };
+          grafana = {
+            file = ../../../secrets/grafana.age;
+          };
         };
 
         identityPaths = [ "${config.sshKeyPath}" ];

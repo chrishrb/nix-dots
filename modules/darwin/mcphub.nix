@@ -5,6 +5,12 @@
   ...
 }:
 let
+<<<<<<< HEAD
+=======
+
+  # Unused MCP servers, kept for reference
+  #
+>>>>>>> 5ab7bf9 (feat(mcphub): update mcp servers)
   mcpCfg = ''
     {
       "mcpServers": {
@@ -42,15 +48,21 @@ let
           "command": "${pkgs.cloudwatch-mcp-server}/bin/awslabs.cloudwatch-mcp-server",
           "env": {
             "FASTMCP_LOG_LEVEL": "ERROR"
-          }
+          },
+          "transportType": "stdio"
         },
         "mcp-grafana": {
           "command": "${pkgs.mcp-grafana}/bin/mcp-grafana",
-          "args": ["-t", "stdio"],
+          "args": [
+            "-t", "stdio"
+          ],
           "env": {
-            "GRAFANA_URL": "http://localhost:3000",
-            "GRAFANA_SERVICE_ACCOUNT_TOKEN": "<your service account token>"
-          }
+            "GRAFANA_URL": "https://grafana.infrastructure.gipedo.io",
+            "GRAFANA_SERVICE_ACCOUNT_TOKEN": "''${cmd: cat ${
+              config.home-manager.users.${config.user}.age.secrets.grafana.path
+            }}"
+          },
+          "transportType": "stdio"
         }
       },
       "nativeMCPServers": {
