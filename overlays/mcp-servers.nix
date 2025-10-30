@@ -96,15 +96,17 @@ in
     pythonImportsCheck = [ "awslabs" ];
   };
 
-  mcp-grafana = prev.buildGoModule {
+  mcp-grafana = prev.buildGoModule rec {
     pname = "mcp-grafana";
-    version = "latest";
+    version = "0.7.8";
+
     src = prev.fetchFromGitHub {
       owner = "grafana";
       repo = "mcp-grafana";
-      rev = "v0.7.8";
-      sha256 = "sha256-NFEFPvcq6BMfwnaybAMKZEtP5kCicPr36nLOqaqsm9A=";
+      rev = "v${version}";
+      hash = "sha256-NFEFPvcq6BMfwnaybAMKZEtP5kCicPr36nLOqaqsm9A=";
     };
+
     vendorHash = "sha256-XgbTwyiRZgq6sg3AML+RlUhnx7YTOe5VlBZq665/T6g=";
   };
 }

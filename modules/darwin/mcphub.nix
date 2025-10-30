@@ -60,7 +60,8 @@ let
             "GRAFANA_URL": "https://grafana.infrastructure.gipedo.io",
             "GRAFANA_SERVICE_ACCOUNT_TOKEN": "''${cmd: cat ${
               config.home-manager.users.${config.user}.age.secrets.grafana.path
-            }}"
+            }}",
+            "GRAFANA_ORG_ID": "1"
           },
           "transportType": "stdio"
         }
