@@ -109,16 +109,8 @@
     };
 
     # MCP servers
-    mcp-miro = {
-      url = "github:k-jarzyna/mcp-miro";
-      flake = false;
-    };
     awslabs-mcp = {
       url = "github:awslabs/mcp";
-      flake = false;
-    };
-    apple-mcp = {
-      url = "github:supermemoryai/apple-mcp";
       flake = false;
     };
   };

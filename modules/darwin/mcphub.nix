@@ -5,22 +5,6 @@
   ...
 }:
 let
-
-  # Unused MCP servers, kept for reference
-  #
-  # "awslabs.cdk-mcp-server": {
-  #   "command": "${pkgs.cdk-mcp-server}/bin/awslabs.cdk-mcp-server",
-  #   "env": {
-  #     "FASTMCP_LOG_LEVEL": "ERROR"
-  #   }
-  # },
-  # "awslabs.cloudwatch-mcp-server": {
-  #   "command": "${pkgs.cloudwatch-mcp-server}/bin/awslabs.cloudwatch-mcp-server",
-  #   "env": {
-  #     "FASTMCP_LOG_LEVEL": "ERROR"
-  #   },
-  #   "transportType": "stdio"
-  # }
   mcpCfg = ''
     {
       "mcpServers": {
@@ -47,6 +31,26 @@ let
         },
         "sequential-thinking": {
           "command": "${pkgs.sequential-thinking}/bin/mcp-server-sequential-thinking"
+        },
+        "awslabs.cdk-mcp-server": {
+          "command": "${pkgs.cdk-mcp-server}/bin/awslabs.cdk-mcp-server",
+          "env": {
+            "FASTMCP_LOG_LEVEL": "ERROR"
+          }
+        },
+        "awslabs.cloudwatch-mcp-server": {
+          "command": "${pkgs.cloudwatch-mcp-server}/bin/awslabs.cloudwatch-mcp-server",
+          "env": {
+            "FASTMCP_LOG_LEVEL": "ERROR"
+          }
+        },
+        "mcp-grafana": {
+          "command": "${pkgs.mcp-grafana}/bin/mcp-grafana",
+          "args": ["-t", "stdio"],
+          "env": {
+            "GRAFANA_URL": "http://localhost:3000",
+            "GRAFANA_SERVICE_ACCOUNT_TOKEN": "<your service account token>"
+          }
         }
       },
       "nativeMCPServers": {

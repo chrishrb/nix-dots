@@ -78,22 +78,6 @@
         "type": "github"
       }
     },
-    "apple-mcp": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754882006,
-        "narHash": "sha256-CQp/Pjx+xXL8iRrjS7VnPeEp2a4G17K9LwC8runVxz4=",
-        "owner": "supermemoryai",
-        "repo": "apple-mcp",
-        "rev": "08e2c5315683c00fc9567dfefd70a477caccc60d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "supermemoryai",
-        "repo": "apple-mcp",
-        "type": "github"
-      }
-    },
     "awslabs-mcp": {
       "flake": false,
       "locked": {
@@ -161,11 +145,11 @@
     "codecompanion-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1761990381,
-        "narHash": "sha256-YoHXtn2mMb+2617RbaBuVEwHksIfvcgAfHbW4Pr20M0=",
+        "lastModified": 1762081167,
+        "narHash": "sha256-mtw7RlP/VbVf2JwjWDDxsgTIBWt+gbTsJWjGS4RCSrI=",
         "owner": "olimorris",
         "repo": "codecompanion.nvim",
-        "rev": "ee6c2a1b3793e73584459f7a2fbac88fce3c6f5b",
+        "rev": "418d8abce319ed8cd449933ca1e12be4e595881e",
         "type": "github"
       },
       "original": {
@@ -451,11 +435,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762041416,
-        "narHash": "sha256-rmJKABRXnhFjjI6RB/MnEvLTQa569zu684Th9y6UlOI=",
+        "lastModified": 1762087455,
+        "narHash": "sha256-hpbPma1eUKwLAmiVRoMgIHbHiIKFkcACobJLbDt6ABw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c0016dd14773f4ca0b467b74c7cdcc501570df4b",
+        "rev": "43e205606aeb253bfcee15fd8a4a01d8ce8384ca",
         "type": "github"
       },
       "original": {
@@ -484,11 +468,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1762055612,
-        "narHash": "sha256-B+EeL8gnJPTBNh/83hnsqgqqlQxB39n74pvLcpYoVgI=",
+        "lastModified": 1762115720,
+        "narHash": "sha256-Bqbm899xHqyICrdHEXJhDKCZGzeyZqXR6IrOzuiQ5D8=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "28ff8842230f22adf1371f97fb8dc6e9f414f9d5",
+        "rev": "0eb73061aa4cd712332b7c1b2435cba8d39a253d",
         "type": "github"
       },
       "original": {
@@ -500,11 +484,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1762054864,
-        "narHash": "sha256-DSC9pidFwN7v67HbCdwANoEucQWbLxv3EC13Kflfhjo=",
+        "lastModified": 1762116205,
+        "narHash": "sha256-YjKc7ozbfvkK61Eh4MZGXysuuNMDkjmcJharig3oW3A=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "77cbb50bc45b59f0785238fe8ca139f7ecd60d4a",
+        "rev": "712bcb34cf128bfcb54e72a5bf6890c3ab717f7b",
         "type": "github"
       },
       "original": {
@@ -568,22 +552,6 @@
       "original": {
         "owner": "ravitemer",
         "repo": "mcp-hub",
-        "type": "github"
-      }
-    },
-    "mcp-miro": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1755584915,
-        "narHash": "sha256-m4aDOAwEI+tkrPDR9YTKUhylAfGh5q69ne7K5MNwA44=",
-        "owner": "k-jarzyna",
-        "repo": "mcp-miro",
-        "rev": "6b7949ce8ecc8c1485ef8ce52ffe34005e556d5c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "k-jarzyna",
-        "repo": "mcp-miro",
         "type": "github"
       }
     },
@@ -704,11 +672,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1761597516,
-        "narHash": "sha256-wxX7u6D2rpkJLWkZ2E932SIvDJW8+ON/0Yy8+a5vsDU=",
+        "lastModified": 1761999846,
+        "narHash": "sha256-IYlYnp4O4dzEpL77BD/lj5NnJy2J8qbHkNSFiPBCbqo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "daf6dc47aa4b44791372d6139ab7b25269184d55",
+        "rev": "3de8f8d73e35724bf9abef41f1bdbedda1e14a31",
         "type": "github"
       },
       "original": {
@@ -931,7 +899,6 @@
         "agenix": "agenix",
         "ai-commit": "ai-commit",
         "alacritty-theme": "alacritty-theme",
-        "apple-mcp": "apple-mcp",
         "awslabs-mcp": "awslabs-mcp",
         "codecompanion-history-nvim": "codecompanion-history-nvim",
         "codecompanion-nvim": "codecompanion-nvim",
@@ -945,7 +912,6 @@
         "mac-app-util": "mac-app-util",
         "macos-keyboard-layout-german-programming": "macos-keyboard-layout-german-programming",
         "mcp-hub": "mcp-hub",
-        "mcp-miro": "mcp-miro",
         "mcphub-nvim": "mcphub-nvim",
         "mods": "mods",
         "nix-homebrew": "nix-homebrew",

@@ -22,18 +22,6 @@ let
   };
 in
 {
-  mcp-miro = prev.buildNpmPackage {
-    pname = "mcp-miro";
-    version = "latest";
-    src = inputs.mcp-miro;
-    # Dummy: sha256-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=
-    npmDepsHash = "sha256-2MHhqoH+Cr/C3JzsDO/FzP6ZaCPkxl4mk1vUsr6i34s=";
-    meta = {
-      description = "Miro integration for Model Context Protocol";
-      homepage = "https://github.com/k-jarzyna/mcp-miro";
-    };
-  };
-
   mcp-server-git = prev.python3Packages.buildPythonApplication {
     pname = "mcp-server-git";
     version = "latest";
@@ -108,24 +96,15 @@ in
     pythonImportsCheck = [ "awslabs" ];
   };
 
-  apple-mcp = prev.stdenv.mkDerivation {
-    pname = "apple-mcp";
-    version = "latest";
-    src = inputs.apple-mcp;
-    nativeBuildInputs = [
-      prev.bun
-    ];
-    buildPhase = ''
-      bun install --frozen-lockfile
-      bun run build
-    '';
-    installPhase = ''
-      mkdir -p $out/bin
-      cp dist/index.js $out/
-      # wrapper script
-      echo "#!${prev.runtimeShell}" > $out/bin/apple-mcp
-      echo "exec ${prev.bun}/bin/bun run $out/index.js \"\$@\"" >> $out/bin/apple-mcp
-      chmod +x $out/bin/apple-mcp
-    '';
+  mcp-grafana = prev.buildGoModule {
+    name = "lf";
+    src = prev.fetchFromGitHub {
+      owner = "grafana";
+      repo = "mcp-grafana";
+      rev = "v0.7.8";
+      sha256 = "sha256-NFEFPvcq6BMfwnaybAMKZEtP5kCicPr36nLOqaqsm9A=";
+    };
+    vendorHash = "sha256-XgbTwyiRZgq6sg3AML+RlUhnx7YTOe5VlBZq665/T6g=";
   };
+
 }

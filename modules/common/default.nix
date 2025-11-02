@@ -86,11 +86,9 @@
         ];
       };
       model = lib.mkOption {
-        description = "AI model to use, e.g. gpt-5, gpt-4.1, claude-sonnet-4, etc.";
-        default = "claude-sonnet-4";
-        # Premium requests required
         # https://docs.github.com/en/copilot/concepts/billing/copilot-requests
-        # default = "claude-sonnet-4";
+        description = "AI model to use, e.g. gpt-5, gpt-4.1, claude-sonnet-4, etc.";
+        default = "claude-sonnet-4.5";
         type = lib.types.str;
       };
     };
