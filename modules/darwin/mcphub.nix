@@ -5,12 +5,6 @@
   ...
 }:
 let
-<<<<<<< HEAD
-=======
-
-  # Unused MCP servers, kept for reference
-  #
->>>>>>> 5ab7bf9 (feat(mcphub): update mcp servers)
   mcpCfg = ''
     {
       "mcpServers": {
@@ -38,20 +32,20 @@ let
         "sequential-thinking": {
           "command": "${pkgs.sequential-thinking}/bin/mcp-server-sequential-thinking"
         },
-        "awslabs.cdk-mcp-server": {
+        "aws-cdk": {
           "command": "${pkgs.cdk-mcp-server}/bin/awslabs.cdk-mcp-server",
           "env": {
             "FASTMCP_LOG_LEVEL": "ERROR"
           }
         },
-        "awslabs.cloudwatch-mcp-server": {
+        "cloudwatch": {
           "command": "${pkgs.cloudwatch-mcp-server}/bin/awslabs.cloudwatch-mcp-server",
           "env": {
             "FASTMCP_LOG_LEVEL": "ERROR"
           },
           "transportType": "stdio"
         },
-        "mcp-grafana": {
+        "grafana": {
           "command": "${pkgs.mcp-grafana}/bin/mcp-grafana",
           "args": [
             "-t", "stdio"

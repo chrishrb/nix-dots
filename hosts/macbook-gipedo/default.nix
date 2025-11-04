@@ -34,7 +34,10 @@ inputs.darwin.lib.darwinSystem {
       work.enable = true;
 
       # Enable ai features
-      ai.enable = true;
+      ai = {
+        enable = true;
+        model = "claude-sonnet-4.5";
+      };
 
       # Programs and services
       slack.enable = true;

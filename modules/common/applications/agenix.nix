@@ -19,6 +19,9 @@
           grafana = {
             file = ../../../secrets/grafana.age;
           };
+          sentry = {
+            file = ../../../secrets/sentry.age;
+          };
         };
 
         identityPaths = [ "${config.sshKeyPath}" ];
