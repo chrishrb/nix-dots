@@ -24,7 +24,7 @@
             globalSection = {
               prefix = "${config.homePath}/.npm-packages";
               "@gipedo:registry" = "https://npm.pkg.github.com/";
-              "//npm.pkg.github.com/:_authToken" = "$GH_ACCESS_TOKEN";
+              "//npm.pkg.github.com/:_authToken" = "\${GH_ACCESS_TOKEN}";
             };
           };
           onChange = "mkdir -p ${config.homePath}/.npm-packages/lib";

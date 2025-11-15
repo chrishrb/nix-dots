@@ -55,6 +55,15 @@ which_key.add({
 			nowait = true,
 			remap = false,
 		},
+		{
+			"<leader>cf",
+			function()
+				codecompanion.prompt("free-chat")
+			end,
+			desc = "Free chat (gpt-4.1)",
+			nowait = true,
+			remap = false,
+		},
 
 		-- Visual mode mappings
 		{

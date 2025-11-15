@@ -54,6 +54,7 @@ inputs.darwin.lib.darwinSystem {
       go.enable = true;
       web.enable = true;
       nixlang.enable = true;
+      ruby.enable = true;
     }
   ];
 }

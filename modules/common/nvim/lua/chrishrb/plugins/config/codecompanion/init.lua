@@ -69,19 +69,6 @@ codecompanion.setup({
 			},
 		},
 	},
-	adapters = {
-		http = {
-			[adapter] = function()
-				return require("codecompanion.adapters").extend(adapter, {
-					schema = {
-						model = {
-							default = model,
-						},
-					},
-				})
-			end,
-		},
-	},
 	display = {
 		action_palette = {
 			prompt = icons.ui.AiPrefix,
@@ -97,13 +84,19 @@ codecompanion.setup({
 	},
 	strategies = {
 		chat = {
-			adapter = adapter,
+			adapter = {
+				name = adapter,
+				model = model,
+			},
 			tools = {
 				groups = groups,
 			},
 		},
 		inline = {
-			adapter = adapter,
+			adapter = {
+				name = adapter,
+				model = model,
+			},
 			tools = {
 				groups = groups,
 			},
@@ -119,9 +112,26 @@ codecompanion.setup({
 			},
 		},
 		cmd = {
-			adapter = adapter,
+			adapter = {
+				name = adapter,
+				model = model,
+			},
 			tools = {
 				groups = groups,
+			},
+		},
+	},
+	memory = {
+		spec = {
+			description = "Short term memory for agent plans",
+			parser = "claude",
+			files = {
+				".spec.md",
+			},
+		},
+		opts = {
+			chat = {
+				enabled = true,
 			},
 		},
 	},

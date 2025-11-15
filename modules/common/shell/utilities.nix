@@ -44,6 +44,7 @@ in
         glow # markdown viewer
         klog-time-tracker # time tracking
         act # run github actions locally
+        postgresql # postgresql
       ];
 
       home.file = {

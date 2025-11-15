@@ -82,7 +82,6 @@ let
         latex = with pkgs; [ texlab ];
         php = with pkgs; [ phpactor ];
         ruby = with pkgs; [
-          rubyPackages.rubocop
           rubyPackages.solargraph
         ];
       };
