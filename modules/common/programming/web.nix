@@ -16,7 +16,6 @@
           nodejs_22
           nodePackages.pnpm
           yarn
-          nodePackages.ts-node
         ];
 
         file.".npmrc" = {

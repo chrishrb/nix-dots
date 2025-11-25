@@ -2,12 +2,12 @@ local hover = require("hover")
 
 hover.config({
 	providers = {
-		"hover.providers.diagnostic",
 		"hover.providers.lsp",
 		"hover.providers.dap",
 		"hover.providers.man",
 		"hover.providers.gh",
 		"hover.providers.gh_user",
+		-- "hover.providers.diagnostic",
 		-- 'hover.providers.jira',
 		-- 'hover.providers.fold_preview',
 		-- 'hover.providers.highlight',

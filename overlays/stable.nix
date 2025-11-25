@@ -6,4 +6,6 @@ inputs: _final: prev: {
   poetry = inputs.nixpkgs-stable.legacyPackages.${prev.system}.poetry;
   awscli2 = inputs.nixpkgs-stable.legacyPackages.${prev.system}.awscli2;
   aws-sam-cli = inputs.nixpkgs-stable.legacyPackages.${prev.system}.aws-sam-cli;
+  direnv = inputs.nixpkgs-stable.legacyPackages.${prev.system}.direnv;
+  vectorcode = inputs.nixpkgs-stable.legacyPackages.${prev.system}.vectorcode;
 }

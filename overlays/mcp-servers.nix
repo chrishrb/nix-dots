@@ -92,6 +92,9 @@ in
       prev.python3Packages.loguru
       prev.python3Packages.mcp
       prev.python3Packages.pydantic
+      prev.python3Packages.numpy
+      prev.python3Packages.pandas
+      prev.python3Packages.statsmodels
     ];
     pythonImportsCheck = [ "awslabs" ];
   };

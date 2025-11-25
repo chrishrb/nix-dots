@@ -8,7 +8,7 @@
 
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager/master";
+      url = "github:qowoz/home-manager/darwin";
     };
 
     # macOS system config
@@ -111,6 +111,12 @@
     # MCP servers
     awslabs-mcp = {
       url = "github:awslabs/mcp";
+      flake = false;
+    };
+
+    # glide
+    glide = {
+      url = "github:glide-browser/glide";
       flake = false;
     };
   };

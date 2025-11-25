@@ -46,6 +46,7 @@ inputs.darwin.lib.darwinSystem {
       nvim.enable = true;
       brave.enable = true;
       drawio.enable = true;
+      glide.enable = true;
 
       # languaages
       python.enable = true;

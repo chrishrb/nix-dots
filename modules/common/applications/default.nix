@@ -10,5 +10,6 @@
     ./brave.nix
     ./postman.nix
     ./drawio.nix
+    ./glide.nix
   ];
 }
