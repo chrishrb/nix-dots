@@ -4,7 +4,7 @@ return {
 	strategy = "chat",
 	description = "Chat with free model (gpt-5-mini)",
 	opts = {
-		short_name = "free-chat",
+		alias = "free-chat",
 		adapter = {
 			name = adapter,
 			model = "gpt-4.1",

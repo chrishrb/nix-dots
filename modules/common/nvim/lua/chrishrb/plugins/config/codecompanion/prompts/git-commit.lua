@@ -34,7 +34,7 @@ return {
 	opts = {
 		index = 4,
 		modes = { "n" },
-		short_name = "git_commit",
+		alias = "git_commit",
 		auto_submit = true,
 	},
 	prompts = {

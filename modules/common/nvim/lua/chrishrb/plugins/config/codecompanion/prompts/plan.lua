@@ -2,7 +2,7 @@ return {
 	strategy = "chat",
 	description = "Create a plan using sequential thinking",
 	opts = {
-		short_name = "plan",
+		alias = "plan",
 	},
 	prompts = {
 		{

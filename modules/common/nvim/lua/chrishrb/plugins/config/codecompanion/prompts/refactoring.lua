@@ -4,7 +4,7 @@ return {
 	opts = {
 		index = 3,
 		modes = { "v" },
-		short_name = "refactor",
+		alias = "refactor",
 		auto_submit = true,
 		stop_context_insertion = true,
 		user_prompt = false,

@@ -8,7 +8,7 @@
 
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:qowoz/home-manager/darwin";
+      url = "github:nix-community/home-manager/master";
     };
 
     # macOS system config

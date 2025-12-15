@@ -24,7 +24,7 @@ return {
 	opts = {
 		index = 3,
 		modes = { "n" },
-		short_name = "review",
+		alias = "review",
 		auto_submit = false,
 	},
 	prompts = {

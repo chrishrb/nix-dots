@@ -348,11 +348,6 @@ local plugins = {
 				end,
 			},
 			{
-				"Davidyz/VectorCode",
-				name = "vectorcode.nvim",
-				dependencies = { "nvim-lua/plenary.nvim" },
-			},
-			{
 				"MeanderingProgrammer/render-markdown.nvim",
 				ft = { "codecompanion" },
 			},

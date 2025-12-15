@@ -4,6 +4,22 @@
   lib,
   ...
 }:
+
+# INFO: UNUSED MCP SERVERS
+#
+# "aws-cdk": {
+#   "command": "${pkgs.cdk-mcp-server}/bin/awslabs.cdk-mcp-server",
+#   "env": {
+#     "FASTMCP_LOG_LEVEL": "ERROR"
+#   }
+# },
+# "cloudwatch": {
+#   "command": "${pkgs.cloudwatch-mcp-server}/bin/awslabs.cloudwatch-mcp-server",
+#   "env": {
+#     "FASTMCP_LOG_LEVEL": "ERROR"
+#   },
+#   "transportType": "stdio"
+# },
 let
   mcpCfg = ''
     {
@@ -31,19 +47,6 @@ let
         },
         "sequential-thinking": {
           "command": "${pkgs.sequential-thinking}/bin/mcp-server-sequential-thinking"
-        },
-        "aws-cdk": {
-          "command": "${pkgs.cdk-mcp-server}/bin/awslabs.cdk-mcp-server",
-          "env": {
-            "FASTMCP_LOG_LEVEL": "ERROR"
-          }
-        },
-        "cloudwatch": {
-          "command": "${pkgs.cloudwatch-mcp-server}/bin/awslabs.cloudwatch-mcp-server",
-          "env": {
-            "FASTMCP_LOG_LEVEL": "ERROR"
-          },
-          "transportType": "stdio"
         },
         "grafana": {
           "command": "${pkgs.mcp-grafana}/bin/mcp-grafana",
