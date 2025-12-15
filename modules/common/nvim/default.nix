@@ -238,6 +238,10 @@ let
     php-debug = pkgs.vscode-extensions.xdebug.php-debug;
   };
 
+  extraTypescriptItems = pkgs: {
+    vue-language-server = pkgs.vue-language-server;
+  };
+
   # packageDefinitions:
 
   # Now build a package with specific categories from above
@@ -286,6 +290,7 @@ let
           # extra config
           javaExtras = extraJavaItems pkgs;
           phpExtras = extraPhpItems pkgs;
+          typescriptExtras = extraTypescriptItems pkgs;
 
           # ai
           ai = false;
