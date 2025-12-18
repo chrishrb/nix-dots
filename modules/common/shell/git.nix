@@ -34,7 +34,7 @@
               name = config.gitName;
               email = config.gitEmail;
             };
-            aliases = {
+            alias = {
               co = "checkout";
               ci = "commit";
               cia = "commit --amend";
