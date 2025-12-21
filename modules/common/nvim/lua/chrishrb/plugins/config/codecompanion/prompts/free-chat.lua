@@ -2,7 +2,7 @@ local adapter = nixCats("aiProvider")
 
 return {
 	strategy = "chat",
-	description = "Chat with free model (gpt-5-mini)",
+	description = "Chat with free model (gpt-4.1)",
 	opts = {
 		alias = "free-chat",
 		adapter = {

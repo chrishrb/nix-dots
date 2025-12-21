@@ -10,5 +10,6 @@
     ./searchin.nix
     ./urldecode.nix
     ./urlencode.nix
+    ./copilot-models.nix
   ];
 }

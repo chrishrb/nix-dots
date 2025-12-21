@@ -36,7 +36,6 @@ inputs.darwin.lib.darwinSystem {
       # Enable ai features
       ai = {
         enable = true;
-        model = "claude-sonnet-4.5";
       };
 
       # Programs and services

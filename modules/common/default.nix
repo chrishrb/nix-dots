@@ -88,7 +88,7 @@
       model = lib.mkOption {
         # https://docs.github.com/en/copilot/concepts/billing/copilot-requests
         description = "AI model to use, e.g. gpt-5, gpt-5-mini, gpt-4.1, claude-sonnet-4, etc.";
-        default = "gpt-5-mini";
+        default = "claude-sonnet-4.5";
         type = lib.types.str;
       };
     };

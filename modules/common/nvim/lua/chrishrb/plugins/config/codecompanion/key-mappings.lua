@@ -76,7 +76,11 @@ which_key.add({
 					if input ~= "" then
 						local context = context_utils.get(api.nvim_get_current_buf(), {})
 						local content = input .. "\n\nHere is the code from " .. context.filename .. ":\n\n"
-						codecompanion.chat({ fargs = { "chat" }, args = content, range = 1 })
+						codecompanion.chat({
+							fargs = { "chat" },
+							args = content,
+							range = 1,
+						})
 					end
 				end,
 				desc = "Chat with selection",

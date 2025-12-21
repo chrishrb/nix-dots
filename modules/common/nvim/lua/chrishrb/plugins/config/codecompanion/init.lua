@@ -52,7 +52,7 @@ codecompanion.setup({
 			start_in_insert_mode = false,
 		},
 	},
-	strategies = {
+	interactions = {
 		chat = {
 			adapter = {
 				name = adapter,
@@ -88,20 +88,6 @@ codecompanion.setup({
 			},
 			tools = {
 				groups = groups,
-			},
-		},
-	},
-	memory = {
-		spec = {
-			description = "Short term memory for agent plans",
-			parser = "claude",
-			files = {
-				".spec.md",
-			},
-		},
-		opts = {
-			chat = {
-				enabled = true,
 			},
 		},
 	},
