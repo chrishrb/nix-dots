@@ -48,6 +48,7 @@
         "keepassxc"
         "tunnelblick"
         "zoom"
+        "cloudflare-warp"
       ]
       ++ lib.optionals config.work.enable [
         "google-drive"
