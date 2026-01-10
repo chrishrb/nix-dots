@@ -109,6 +109,7 @@
     };
 
     # MCP servers
+    mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
     awslabs-mcp = {
       url = "github:awslabs/mcp";
       flake = false;
@@ -140,6 +141,7 @@
       # Common overlays
       overlays = [
         inputs.alacritty-theme.overlays.default
+        inputs.mcp-servers-nix.overlays.default
         (import ./overlays inputs)
       ];
 
@@ -199,7 +201,7 @@
             buildInputs = with pkgs; [
               git
               stylua
-              nixfmt-rfc-style
+              nixfmt
               shfmt
               shellcheck
               mkpasswd

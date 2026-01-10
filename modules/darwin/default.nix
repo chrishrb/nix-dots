@@ -9,6 +9,5 @@
     ./trampoline.nix
     ./keyboard.nix
     ./ollama.nix
-    ./mcphub.nix
   ];
 }

@@ -7,6 +7,58 @@
 
 let
   nvim = import ../../common/nvim { inherit inputs; };
+
+  mcpHubCfg =
+    pkgs:
+    pkgs.writeText "servers.json" ''
+      {
+        "mcpServers": {
+          "git": {
+            "autoApprove": [],
+            "command": "${pkgs.mcp-server-git}/bin/mcp-server-git"
+          },
+          "github": {
+            "url": "https://api.githubcopilot.com/mcp/",
+            "autoApprove": [],
+            "headers": {
+              "Authorization": "Bearer ''${cmd: cat ${
+                config.home-manager.users.${config.user}.age.secrets.github.path
+              }}"
+            }
+          },
+          "context7": {
+            "url": "https://mcp.context7.com/mcp",
+            "headers": {
+              "CONTEXT7_API_KEY": "''${cmd: cat ${
+                config.home-manager.users.${config.user}.age.secrets.context7.path
+              }}"
+            }
+          },
+          "sequential-thinking": {
+            "command": "${pkgs.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking"
+          },
+          "grafana": {
+            "command": "${pkgs.mcp-grafana}/bin/mcp-grafana",
+            "args": [
+              "-t", "stdio"
+            ],
+            "env": {
+              "GRAFANA_URL": "https://grafana.infrastructure.gipedo.io",
+              "GRAFANA_SERVICE_ACCOUNT_TOKEN": "''${cmd: cat ${
+                config.home-manager.users.${config.user}.age.secrets.grafana.path
+              }}",
+              "GRAFANA_ORG_ID": "1"
+            },
+            "transportType": "stdio"
+          }
+        },
+        "nativeMCPServers": {
+          "neovim": {
+            "disabled_tools": [ ]
+          }
+        }
+      }
+    '';
 in
 {
   options = {
@@ -52,6 +104,8 @@ in
                 ai = config.ai.enable;
                 aiProvider = config.ai.provider;
                 aiModel = config.ai.model;
+
+                mcpHubCfg = mcpHubCfg pkgs;
               };
             };
         };

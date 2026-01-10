@@ -54,19 +54,18 @@ let
           nix-doc
           nil
           nixd
-          nixfmt-rfc-style # nix
+          nixfmt # nix
           lua-language-server
           stylua # lua
           vscode-langservers-extracted # html, css, json
           nodePackages.bash-language-server # bash
           yaml-language-server # yaml
-          nodejs
+          nodejs_22
         ];
         go = with pkgs; [
           gopls
           delve
         ];
-        python = with pkgs.python312Packages; [ python-lsp-server ];
         web = with pkgs; [
           nodePackages.typescript-language-server
           tailwindcss-language-server
@@ -84,6 +83,9 @@ let
         ruby = with pkgs; [
           rubyPackages_3_4.ruby-lsp
           rubyPackages_3_4.rubocop
+        ];
+        ai = with pkgs; [
+          mcp-hub
         ];
       };
 

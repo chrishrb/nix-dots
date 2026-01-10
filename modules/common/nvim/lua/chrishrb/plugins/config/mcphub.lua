@@ -1,5 +1,10 @@
+local mcpHubCfg = nixCats("mcpHubCfg")
+
+if not mcpHubCfg then
+	return
+end
+
 require("mcphub").setup({
-	server_url = "http://localhost:37373/",
-	port = 0,
+	config = mcpHubCfg,
 	auto_approve = true,
 })

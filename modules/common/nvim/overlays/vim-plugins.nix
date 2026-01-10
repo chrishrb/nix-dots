@@ -51,6 +51,9 @@ inputs: _final: prev: {
         src = inputs.garbage-day-nvim;
         dependencies = [ prev'.nvim-lspconfig ];
       };
+
+      # nvim-tresitter was completely rewritten, so this breaks the config currently
+      nvim-treesitter = inputs.nixpkgs-stable.legacyPackages.${prev.system}.vimPlugins.nvim-treesitter;
     }
   );
 }
