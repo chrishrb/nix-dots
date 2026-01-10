@@ -1,9 +1,9 @@
 { ... }:
 {
   imports = [
-    ./tmux
     ./scripts
     ./zsh.nix
+    ./tmux.nix
     ./direnv.nix
     ./fzf.nix
     ./git.nix

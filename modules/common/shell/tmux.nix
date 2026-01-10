@@ -5,7 +5,6 @@
 
     programs.tmux = {
       enable = true;
-      tmuxinator.enable = true;
       plugins = with pkgs.tmuxPlugins; [
         sensible
         mode-indicator
@@ -109,15 +108,6 @@
         # capture last cmd output
         bind y run-shell '${pkgs.capture-last-output}/bin/capture-last-output'
       '';
-    };
-
-    home.file."./.config/tmuxinator/" = {
-      source = ./tmuxinator;
-      recursive = true;
-    };
-
-    programs.zsh.shellAliases = {
-      tm = "tmuxinator";
     };
   };
 }

@@ -24,9 +24,6 @@
         google-java-format
         jetbrains.idea-community
       ];
-
-      # copy .ideavimrc to home directory
-      file.".ideavimrc".source = ./idea/ideavimrc;
     };
   };
 
