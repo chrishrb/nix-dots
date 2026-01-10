@@ -40,7 +40,6 @@ in
         go-grip # preview md files
         mqttx-cli # mqtt client
         xh # httpie alternative
-        glow # markdown viewer
         klog-time-tracker # time tracking
         act # run github actions locally
         claude-code # claude ai

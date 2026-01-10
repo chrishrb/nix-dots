@@ -52,10 +52,6 @@
     # ai tools
     mcp-hub.url = "github:ravitemer/mcp-hub";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
-    mods = {
-      url = "github:chrishrb/mods";
-      flake = false;
-    };
 
     # nvim plugins that are not in nixpkg
     nvim-tmux-navigation = {

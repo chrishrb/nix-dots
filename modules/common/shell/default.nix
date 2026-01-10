@@ -10,7 +10,6 @@
     ./nixpkgs.nix
     ./utilities.nix
     ./zoxide.nix
-    ./ai.nix
     ./gh.nix
     ./work.nix
     ./mise.nix

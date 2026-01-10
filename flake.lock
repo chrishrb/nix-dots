@@ -632,22 +632,6 @@
         "type": "github"
       }
     },
-    "mods": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1758806289,
-        "narHash": "sha256-BMZaSSUDiFzKYUxfKU32dWPAqP47zBa1dogB8KSYB7M=",
-        "owner": "chrishrb",
-        "repo": "mods",
-        "rev": "3a5a1bfb713ff8ba5b7f25a20327412699f02d8f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chrishrb",
-        "repo": "mods",
-        "type": "github"
-      }
-    },
     "nix-homebrew": {
       "inputs": {
         "brew-src": "brew-src"
@@ -1036,7 +1020,6 @@
         "mcp-hub": "mcp-hub",
         "mcp-servers-nix": "mcp-servers-nix",
         "mcphub-nvim": "mcphub-nvim",
-        "mods": "mods",
         "nix-homebrew": "nix-homebrew",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_11",
