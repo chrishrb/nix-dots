@@ -3,7 +3,7 @@ name: Plan
 interaction: chat
 description: Create a plan using sequential thinking
 opts:
-  alias: cplan
+  alias: plan
   is_slash_cmd: false
   auto_submit: false
   modes:

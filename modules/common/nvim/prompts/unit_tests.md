@@ -3,7 +3,7 @@ name: Unit Tests
 interaction: inline
 description: Generate unit tests
 opts:
-  alias: ctest
+  alias: test
   is_slash_cmd: false
   auto_submit: true
   placement: new

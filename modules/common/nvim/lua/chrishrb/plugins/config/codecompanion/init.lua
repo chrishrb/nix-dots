@@ -12,7 +12,6 @@ require("dressing").setup({
 
 codecompanion.setup({
 	prompt_library = {
-		-- require("chrishrb.plugins.config.codecompanion.init_prompt"),
 		markdown = {
 			dirs = {
 				nixCats.configDir .. "/prompts",
