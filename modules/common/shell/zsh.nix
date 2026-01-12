@@ -137,8 +137,8 @@
       + (
         if config.ai.enable then
           ''
-            bindkey '^[e' zsh_gh_copilot_explain  # bind CTRL+E to explain
-            bindkey '^[s' zsh_gh_copilot_suggest  # bind CTRL+S to suggest
+            bindkey '^[e' zsh_gh_copilot_explain  # bind ALT+E to explain
+            bindkey '^[s' zsh_gh_copilot_suggest  # bind ALT+S to suggest
           ''
         else
           ""
