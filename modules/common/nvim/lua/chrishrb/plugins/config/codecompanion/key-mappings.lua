@@ -13,7 +13,12 @@ which_key.add({
 			function()
 				local input = vim.fn.input(icons.ui.AiPrefix)
 				if input ~= "" then
-					codecompanion.chat({ fargs = { "chat" }, args = input, range = 0 })
+					codecompanion.chat({
+						messages = {
+							{ role = "user", content = input },
+						},
+						params = { adapter = "copilot", model = "gpt-4.1" },
+					})
 				end
 			end,
 			desc = "Quick chat",
@@ -74,12 +79,11 @@ which_key.add({
 				function()
 					local input = vim.fn.input(icons.ui.AiPrefix)
 					if input ~= "" then
-						local context = context_utils.get(api.nvim_get_current_buf(), {})
-						local content = input .. "\n\nHere is the code from " .. context.filename .. ":\n\n"
 						codecompanion.chat({
-							fargs = { "chat" },
-							args = content,
-							range = 1,
+							messages = {
+								{ role = "user", content = input },
+							},
+							params = { adapter = "copilot", model = "gpt-4.1" },
 						})
 					end
 				end,

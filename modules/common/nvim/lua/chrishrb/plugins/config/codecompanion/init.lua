@@ -1,9 +1,6 @@
 local codecompanion = require("codecompanion")
 local icons = require("chrishrb.config.icons")
 
-local adapter = nixCats("aiProvider")
-local model = nixCats("aiModel")
-
 require("dressing").setup({
 	input = {
 		enabled = false,
@@ -13,21 +10,15 @@ require("dressing").setup({
 	},
 })
 
-local groups = {
-	["agent"] = {
-		description = "Agentic Dev Workflow",
-		system_prompt = "You are a developer with access to various tools.",
-		tools = {
-			"cmd_runner",
-			"editor",
-			"files",
-			"mcp",
+codecompanion.setup({
+	prompt_library = {
+		-- require("chrishrb.plugins.config.codecompanion.init_prompt"),
+		markdown = {
+			dirs = {
+				nixCats.configDir .. "/prompts",
+			},
 		},
 	},
-}
-
-codecompanion.setup({
-	prompt_library = require("chrishrb.plugins.config.codecompanion.prompts"),
 	extensions = {
 		mcphub = {
 			callback = "mcphub.extensions.codecompanion",
@@ -41,10 +32,10 @@ codecompanion.setup({
 	},
 	display = {
 		action_palette = {
-			prompt = icons.ui.AiPrefix,
 			opts = {
-				show_default_actions = true,
-				show_default_prompt_library = true,
+				show_preset_actions = false, -- Show the preset actions in the action palette?
+				show_preset_prompts = false, -- Show the preset prompts in the action palette?
+				show_preset_rules = false, -- Show the preset rules in the action palette?
 			},
 		},
 		chat = {
@@ -55,20 +46,21 @@ codecompanion.setup({
 	interactions = {
 		chat = {
 			adapter = {
-				name = adapter,
-				model = model,
+				name = "copilot",
+				model = "claude-sonnet-4.5",
 			},
-			tools = {
-				groups = groups,
+			slash_commands = {
+				["image"] = {
+					opts = {
+						dirs = { "~/screenshots" },
+					},
+				},
 			},
 		},
 		inline = {
 			adapter = {
-				name = adapter,
-				model = model,
-			},
-			tools = {
-				groups = groups,
+				name = "copilot",
+				model = "gpt-4.1",
 			},
 			keymaps = {
 				accept_change = {
@@ -81,17 +73,24 @@ codecompanion.setup({
 				},
 			},
 		},
-		cmd = {
-			adapter = {
-				name = adapter,
-				model = model,
-			},
-			tools = {
-				groups = groups,
+	},
+	background = {
+		chat = {
+			opts = {
+				enabled = true,
 			},
 		},
 	},
 	opts = {
+		adapters = {
+			http = {
+				opts = {
+					show_presets = false,
+					show_model_choices = true,
+				},
+				copilot = "copilot",
+			},
+		},
 		log_level = "ERROR",
 		send_code = true,
 		system_prompt = require("chrishrb.plugins.config.codecompanion.system_prompt"),

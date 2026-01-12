@@ -295,8 +295,6 @@ let
 
           # ai
           ai = false;
-          aiProvider = "";
-          aiModel = "";
 
           # this does not have an associated category of plugins,
           # but lua can still check for it
