@@ -55,6 +55,15 @@ codecompanion.setup({
 					},
 				},
 			},
+			keymaps = {
+				change_model = {
+					modes = { n = "gm" },
+					description = "Change Model",
+					callback = function(chat)
+						require("codecompanion.interactions.chat.keymaps.change_adapter").select_model(chat)
+					end,
+				},
+			},
 		},
 		inline = {
 			adapter = {
