@@ -3,14 +3,29 @@
 
   home-manager.users.${config.user} = {
 
+    home.file.".config/tmux/plugins/copilot_usage.sh".text = ''
+      show_copilot_usage() {
+        local index icon color text module
+
+        index=$1 # This variable is used internally by the module loader in order to know the position of this module
+
+        icon="$(  get_tmux_option "@catppuccin_copilot_usage_icon"  ""           )"
+        color="$( get_tmux_option "@catppuccin_copilot_usage_color" "$thm_orange" )"
+        text="$(  get_tmux_option "@catppuccin_copilot_usage_text"  "#( ${pkgs.copilot-usage-cached}/bin/copilot-usage-cached )" )"
+
+        module=$( build_status_module "$index" "$icon" "$color" "$text" )
+
+        echo "$module"
+      }
+    '';
+
     programs.tmux = {
       enable = true;
       plugins = with pkgs.tmuxPlugins; [
-        sensible
-        mode-indicator
         {
           plugin = catppuccin;
           extraConfig = ''
+            set -g @catppuccin_custom_plugin_dir "$HOME/.config/tmux/plugins"
             set -g @catppuccin_flavour ${config.theme}
             set -g @plugin 'catppuccin/tmux'
             set -g @catppuccin_window_tabs_enabled on
@@ -22,6 +37,7 @@
             set -g @catppuccin_window_number_position "right"
             set -g @catppuccin_status_left_separator  " "
             set -g @catppuccin_status_right_separator ""
+            set -g @catppuccin_status_modules_right "copilot_usage application session "
           '';
         }
       ];

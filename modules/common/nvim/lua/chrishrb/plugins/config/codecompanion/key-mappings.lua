@@ -63,7 +63,9 @@ which_key.add({
 		{
 			"<leader>cf",
 			function()
-				codecompanion.prompt("free-chat")
+				codecompanion.chat({
+					params = { adapter = "copilot", model = "gpt-4.1" },
+				})
 			end,
 			desc = "Free chat (gpt-4.1)",
 			nowait = true,
