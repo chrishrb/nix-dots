@@ -65,7 +65,7 @@ let
     				break;
     			fi
     			;;
-    	esac
+    esac
     done
 
     if [ -z "$cache_key" ]; then
@@ -73,7 +73,9 @@ let
     	exit 64
     fi
 
-    cache_dir=''${CACHE_DIR:-$TMPDIR}
+    cache_dir=''${CACHE_DIR:-''${TMPDIR:-/tmp}}
+    # Ensure cache_dir ends with a slash
+    cache_dir="''${cache_dir%/}/"
     cache_file="$cache_dir$cache_key"
 
     if [ -n "$purge" ]; then
@@ -111,10 +113,10 @@ let
     		return 0
     	fi
 
-    	if [ $remaining_time -lt $((ttl + stale_while_revalidate)) ]; then
-    		update_in_background=1
-    		return 0
-    	fi
+      if [ $remaining_time -lt $((ttl + ''${stale_while_revalidate:-0})) ]; then
+        update_in_background=1
+        return 0
+      fi
 
     	return 1
     }
@@ -135,7 +137,7 @@ let
     	"$@" | tee "$cache_file"
     	status=''${PIPESTATUS[0]}
 
-    	acceptable_statuses=''${acceptable_statuses: -0}
+    	acceptable_statuses=''${acceptable_statuses:-0}
     	if [[ $acceptable_statuses != "*" ]] && [[ ! " $acceptable_statuses " = *" $status "* ]]; then
     		rm "$cache_file"
     	else
@@ -278,7 +280,7 @@ let
 in
 {
   copilot-usage-cached = prev.writeShellScriptBin "copilot-usage-cached" ''
-    ${cache}/bin/cache --ttl 3600 copilot-usage-key \
+    ${cache}/bin/cache --ttl 600 copilot-usage-key \
       ${copilot-usage}/bin/copilot-usage
   '';
 }

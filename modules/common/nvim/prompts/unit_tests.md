@@ -25,12 +25,13 @@ When generating unit tests, follow these steps:
    - Boundary cases
    - Exceptional or error handling (if applicable)
 6. Present the generated unit test code in a clear and well-organized manner, without additional explanations or conversational text.
-7. Use @{cmd_runner} to execute the generated tests.
-8. If any tests fail:
+7. Use @{files} tools to create / read / edit files.
+8. Use @{cmd_runner} to execute the generated tests.
+9. If any tests fail:
    - Analyze the failure causes.
    - Fix the test code and/or the implementation code as necessary.
    - Re-run the tests using @{cmd_runner}.
-9. Repeat the fix–run cycle until all tests pass successfully.
+10. Repeat the fix–run cycle until all tests pass successfully.
 
 ## user
 

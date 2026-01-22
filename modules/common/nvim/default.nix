@@ -80,10 +80,6 @@ let
         ];
         latex = with pkgs; [ texlab ];
         php = with pkgs; [ phpactor ];
-        ruby = with pkgs; [
-          rubyPackages_3_4.ruby-lsp
-          rubyPackages_3_4.rubocop
-        ];
         ai = with pkgs; [
           mcp-hub
         ];

@@ -64,6 +64,13 @@
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-completions"; }
           (lib.mkIf config.ai.enable { name = "loiccoyle/zsh-github-copilot"; })
+          (lib.mkIf config.ruby.enable {
+            name = "plugins/rbenv";
+            tags = [
+              "from:oh-my-zsh"
+              "lazy:true"
+            ];
+          })
         ];
       };
       localVariables = {

@@ -1029,7 +1029,24 @@
         "nvim-tmux-navigation": "nvim-tmux-navigation",
         "nvim-tree-lua": "nvim-tree-lua",
         "powertools-lambda-python": "powertools-lambda-python",
+        "ruby-build": "ruby-build",
         "talhelper": "talhelper"
+      }
+    },
+    "ruby-build": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768356333,
+        "narHash": "sha256-kCKCLicAHhtkIgc5RoxGQh8SGAlABSJI74EnT8pdmDs=",
+        "owner": "rbenv",
+        "repo": "ruby-build",
+        "rev": "d693ea747e544301f98d2833390790af14ab43dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rbenv",
+        "repo": "ruby-build",
+        "type": "github"
       }
     },
     "systems": {

@@ -53,6 +53,11 @@
     mcp-hub.url = "github:ravitemer/mcp-hub";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
 
+    ruby-build = {
+      url = "github:rbenv/ruby-build";
+      flake = false;
+    };
+
     # nvim plugins that are not in nixpkg
     nvim-tmux-navigation = {
       url = "github:alexghergh/nvim-tmux-navigation";
