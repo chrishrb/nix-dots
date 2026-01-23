@@ -97,12 +97,6 @@
     # agenix for secrets management
     agenix.url = "github:ryantm/agenix";
 
-    # ai-commit for commit message generation
-    ai-commit = {
-      url = "github:chrishrb/ai-commit";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Dependency for MCP
     powertools-lambda-python = {
       url = "github:aws-powertools/powertools-lambda-python";
@@ -118,8 +112,7 @@
 
     # glide
     glide = {
-      url = "github:glide-browser/glide";
-      flake = false;
+      url = "github:glide-browser/glide.nix";
     };
   };
 

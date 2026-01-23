@@ -42,6 +42,28 @@ inputs: _final: prev: {
           # Meta can't be required
           "nvim-tree._meta.api"
           "nvim-tree._meta.api_decorator"
+          "nvim-tree._meta.config.git"
+          "nvim-tree._meta.config.renderer"
+          "nvim-tree._meta.config.experimental"
+          "nvim-tree._meta.config.tab"
+          "nvim-tree._meta.config.modified"
+          "nvim-tree._meta.config.help"
+          "nvim-tree._meta.config.notify"
+          "nvim-tree._meta.config.sort"
+          "nvim-tree._meta.config.view"
+          "nvim-tree._meta.config.update_focused_file"
+          "nvim-tree._meta.config.diagnostics"
+          "nvim-tree._meta.config.log"
+          "nvim-tree._meta.config.system_open"
+          "nvim-tree._meta.config.ui"
+          "nvim-tree._meta.config.hijack_directories"
+          "nvim-tree._meta.config.trash"
+          "nvim-tree._meta.config.filesystem_watchers"
+          "nvim-tree._meta.config.live_filter"
+          "nvim-tree._meta.config.bookmarks"
+          "nvim-tree._meta.config"
+          "nvim-tree._meta.config.filters"
+          "nvim-tree._meta.config.actions"
         ];
       };
       mcphub-nvim = inputs.mcphub-nvim.packages.${prev.system}.default;
