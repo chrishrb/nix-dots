@@ -3,7 +3,10 @@
 
   inputs = {
     # system packages
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Use a fixed revision of nixpkgs until https://github.com/NixOS/nixpkgs/issues/483584 is resolved
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/70801e06d9730c4f1704fbd3bbf5b8e11c03a2a7";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager = {

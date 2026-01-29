@@ -46,8 +46,10 @@
         "spotify"
         "logi-options+"
         "keepassxc"
-        "tunnelblick"
         "zoom"
+      ]
+      ++ lib.optionals (!config.work.enable) [
+        "tunnelblick"
         "cloudflare-warp"
       ]
       ++ lib.optionals config.work.enable [
