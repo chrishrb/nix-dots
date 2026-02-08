@@ -61,7 +61,6 @@ if nixCats("web") then
 end
 
 if nixCats("ruby") then
-	servers[#servers + 1] = "rubocop"
 	servers[#servers + 1] = "ruby_lsp"
 end
 

@@ -16,6 +16,7 @@
           nodejs_22
           nodePackages.pnpm
           yarn
+          yalc
         ];
 
         file.".npmrc" = {
