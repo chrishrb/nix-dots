@@ -90,6 +90,22 @@
         "type": "github"
       }
     },
+    "chrome-devtools-mcp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770638764,
+        "narHash": "sha256-6ctjpEfNL12BhO0JHEtYYfc2JFUrep0nNgLl9wCVNQ0=",
+        "owner": "ChromeDevTools",
+        "repo": "chrome-devtools-mcp",
+        "rev": "caea23a7cf33c87cd4ce426eb2a10724aba3cc71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ChromeDevTools",
+        "repo": "chrome-devtools-mcp",
+        "type": "github"
+      }
+    },
     "cl-nix-lite": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -983,6 +999,7 @@
         "agenix": "agenix",
         "alacritty-theme": "alacritty-theme",
         "awslabs-mcp": "awslabs-mcp",
+        "chrome-devtools-mcp": "chrome-devtools-mcp",
         "codecompanion-history-nvim": "codecompanion-history-nvim",
         "codecompanion-nvim": "codecompanion-nvim",
         "darwin": "darwin_2",

@@ -3,7 +3,6 @@
 
   inputs = {
     # system packages
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
@@ -108,6 +107,10 @@
     mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
     awslabs-mcp = {
       url = "github:awslabs/mcp";
+      flake = false;
+    };
+    chrome-devtools-mcp = {
+      url = "github:ChromeDevTools/chrome-devtools-mcp";
       flake = false;
     };
 
