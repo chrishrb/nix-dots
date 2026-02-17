@@ -1,5 +1,4 @@
 local codecompanion = require("codecompanion")
-local icons = require("chrishrb.config.icons")
 
 require("dressing").setup({
 	input = {
@@ -11,6 +10,18 @@ require("dressing").setup({
 })
 
 codecompanion.setup({
+	adapters = {
+		http = {
+			opts = {
+				show_presets = false,
+				show_model_choices = true,
+			},
+			copilot = "copilot",
+		},
+		acp = {
+			claude_code = "claude_code",
+		},
+	},
 	prompt_library = {
 		markdown = {
 			dirs = {
@@ -27,6 +38,12 @@ codecompanion.setup({
 		},
 		history = {
 			enabled = true,
+			opts = {
+				title_generation_opts = {
+					adapter = "copilot",
+					model = "gpt-4.1",
+				},
+			},
 		},
 	},
 	display = {
@@ -90,15 +107,6 @@ codecompanion.setup({
 		},
 	},
 	opts = {
-		adapters = {
-			http = {
-				opts = {
-					show_presets = false,
-					show_model_choices = true,
-				},
-				copilot = "copilot",
-			},
-		},
 		log_level = "ERROR",
 		send_code = true,
 		system_prompt = require("chrishrb.plugins.config.codecompanion.system_prompt"),

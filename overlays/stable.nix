@@ -7,4 +7,5 @@ inputs: _final: prev: {
   awscli2 = inputs.nixpkgs-stable.legacyPackages.${prev.system}.awscli2;
   direnv = inputs.nixpkgs-stable.legacyPackages.${prev.system}.direnv;
   tmux = inputs.nixpkgs-stable.legacyPackages.${prev.system}.tmux;
+  go-grip = inputs.go-grip.packages.${prev.system}.default;
 }

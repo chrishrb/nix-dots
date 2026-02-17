@@ -114,6 +114,10 @@
       flake = false;
     };
 
+    go-grip = {
+      url = "github:chrishrb/go-grip";
+    };
+
     # glide
     glide = {
       url = "github:glide-browser/glide.nix";
