@@ -3,32 +3,38 @@ inputs: _final: prev: {
     dontNpmPrune = true;
   });
   mcp-grafana = inputs.nixpkgs-stable.legacyPackages.${prev.system}.mcp-grafana;
-  chrome-devtools-mcp = prev.stdenv.mkDerivation rec {
-    name = "chrome-devtools-mcp";
-    version = "latest";
-    src = inputs.chrome-devtools-mcp;
 
-    buildInputs = with prev; [
-      nodejs_24
-      cacert
-    ];
+  chrome-devtools-mcp = prev.buildNpmPackage {
+    pname = "chrome-devtools-mcp";
+    version = "0.18.1";
 
-    npmDeps = prev.importNpmLock {
-      npmRoot = src;
+    src = prev.fetchFromGitHub {
+      owner = "ChromeDevTools";
+      repo = "chrome-devtools-mcp";
+      tag = "chrome-devtools-mcp-v0.18.1";
+      hash = "sha256-Tdgf3LjhSYKKZ46rfUJRQXuNjrjceezPUZfwarmlYp0=";
     };
 
+    npmDepsHash = "sha256-zh7YYVhWwoj590nfKmoHHRt8v7+mBrsDvA7gPeKnMdE=";
+
+    # Skip puppeteer browser download - use system Chrome
+    env.PUPPETEER_SKIP_DOWNLOAD = "true";
+
     buildPhase = ''
-      export HOME=$TMPDIR
-      npm ci
+      runHook preBuild
       npm run bundle
+      runHook postBuild
     '';
 
     installPhase = ''
-      export HOME=$TMPDIR
+      runHook preInstall
+      mkdir -p $out/lib/node_modules/chrome-devtools-mcp
+      cp -r build $out/lib/node_modules/chrome-devtools-mcp/
+      cp package.json $out/lib/node_modules/chrome-devtools-mcp/
+      chmod +x $out/lib/node_modules/chrome-devtools-mcp/build/src/index.js
       mkdir -p $out/bin
-      cp build/src/index.js $out/bin/chrome-devtools-mcp
-      cp -r build/src/* $out/bin/
-      chmod +x $out/bin/chrome-devtools-mcp
+      ln -s $out/lib/node_modules/chrome-devtools-mcp/build/src/index.js $out/bin/chrome-devtools-mcp
+      runHook postInstall
     '';
   };
 }

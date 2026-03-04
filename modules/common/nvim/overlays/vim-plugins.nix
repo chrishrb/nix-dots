@@ -64,6 +64,8 @@ inputs: _final: prev: {
           "nvim-tree._meta.config"
           "nvim-tree._meta.config.filters"
           "nvim-tree._meta.config.actions"
+          "nvim-tree._meta.classes"
+          "nvim-tree._meta.api.decorator_example"
         ];
       };
       mcphub-nvim = inputs.mcphub-nvim.packages.${prev.system}.default;

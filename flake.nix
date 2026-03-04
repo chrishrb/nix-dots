@@ -51,7 +51,9 @@
 
     # ai tools
     mcp-hub.url = "github:ravitemer/mcp-hub";
-    mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
+
+    # TODO: replace when ravitemer/mcphub.nvim#279 is merged
+    mcphub-nvim.url = "github:bahaaza/mcphub.nvim";
 
     ruby-build = {
       url = "github:rbenv/ruby-build";
@@ -107,10 +109,6 @@
     mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
     awslabs-mcp = {
       url = "github:awslabs/mcp";
-      flake = false;
-    };
-    chrome-devtools-mcp = {
-      url = "github:ChromeDevTools/chrome-devtools-mcp";
       flake = false;
     };
 
