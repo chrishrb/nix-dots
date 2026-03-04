@@ -100,6 +100,7 @@
             "*.swp"
             ".DS_Store"
             ".phpactor.json"
+            ".claude"
           ];
           # use work email if commiting in work directory
           includes = [
