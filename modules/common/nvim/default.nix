@@ -74,6 +74,10 @@ let
           nodePackages.prettier
         ];
         java = with pkgs; [ jdt-language-server ];
+        python = with pkgs.python3Packages; [
+          debugpy
+          python-lsp-server
+        ];
         devops = with pkgs; [
           terraform-ls
           helm-ls # helm
@@ -213,12 +217,7 @@ let
       # lists of the functions you would have passed to
       # python.withPackages or lua.withPackages
       python3.libraries = {
-        python = (
-          py: [
-            py.debugpy
-            py.python-lsp-server
-          ]
-        );
+        test = [ (_: [ ]) ];
       };
       extraLuaPackages = {
         test = [ (_: [ ]) ];

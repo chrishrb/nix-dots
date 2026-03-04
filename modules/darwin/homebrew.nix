@@ -54,6 +54,7 @@
       ]
       ++ lib.optionals config.work.enable [
         "google-drive"
+        "figma"
       ];
     };
 

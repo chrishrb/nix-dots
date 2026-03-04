@@ -99,6 +99,11 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", gopls_opts, opts)
 	end
 
+	if server == "pylsp" then
+		local pylsp_opts = require("chrishrb.lsp.settings.pylsp")
+		opts = vim.tbl_deep_extend("force", pylsp_opts, opts)
+	end
+
 	if server == "ts_ls" then
 		local ts_ls_opts = require("chrishrb.lsp.settings.ts_ls")
 		opts = ts_ls_opts
