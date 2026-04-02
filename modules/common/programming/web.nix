@@ -14,7 +14,7 @@
       home = {
         packages = with pkgs; [
           nodejs_22
-          nodePackages.pnpm
+          pnpm
           yarn
           yalc
         ];

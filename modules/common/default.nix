@@ -81,7 +81,7 @@
 
   config =
     let
-      stateVersion = "23.11";
+      stateVersion = "25.05";
     in
     {
 

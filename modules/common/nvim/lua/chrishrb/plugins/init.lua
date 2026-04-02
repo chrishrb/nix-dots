@@ -184,14 +184,17 @@ local plugins = {
 	-----------------------------------------------------------------------------
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
 		build = nixCatsUtils.lazyAdd(":TSUpdate"),
 		config = function()
 			require("chrishrb.plugins.config.treesitter")
 		end,
-		dependencies = {
-			-- autoclose and rename html tags
-			"windwp/nvim-ts-autotag",
-		},
+	},
+	{
+		-- autoclose and rename html tags
+		"windwp/nvim-ts-autotag",
+		event = "InsertEnter",
+		config = true,
 	},
 	{
 		"towolf/vim-helm",

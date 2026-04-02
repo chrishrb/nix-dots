@@ -48,7 +48,7 @@ in
         ]
         ++ lib.optionals config.ai.enable [
           claude-code # claude ai
-          claude-code-acp # claude code acp adapter needed for codecompanion
+          claude-agent-acp # claude code acp adapter needed for codecompanion
         ];
 
       home.file = {

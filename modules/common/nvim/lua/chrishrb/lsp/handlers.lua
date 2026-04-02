@@ -49,13 +49,17 @@ M.setup = function()
 
 	vim.diagnostic.config(config)
 
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded",
-	})
+	vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, cfg)
+		config = config or {}
+		config.border = "rounded"
+		return vim.lsp.handlers["textDocument/hover"](err, result, ctx, cfg)
+	end
 
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded",
-	})
+	vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, cfg)
+		config = config or {}
+		config.border = "rounded"
+		return vim.lsp.handlers["textDocument/signatureHelp"](err, result, ctx, cfg)
+	end
 
 	vim.lsp.handlers["textDocument/declaration"] = location_handler
 	vim.lsp.handlers["textDocument/definition"] = location_handler

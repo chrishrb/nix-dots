@@ -58,7 +58,7 @@ let
           lua-language-server
           stylua # lua
           vscode-langservers-extracted # html, css, json
-          nodePackages.bash-language-server # bash
+          bash-language-server # bash
           yaml-language-server # yaml
           nodejs_22
         ];
@@ -67,11 +67,11 @@ let
           delve
         ];
         web = with pkgs; [
-          nodePackages.typescript-language-server
+          typescript-language-server
           tailwindcss-language-server
           vue-language-server
           eslint
-          nodePackages.prettier
+          prettier
         ];
         java = with pkgs; [ jdt-language-server ];
         python = with pkgs.python3Packages; [
@@ -342,7 +342,7 @@ in
           name = defaultPackageName;
           packages = [ defaultPackage ];
           inputsFrom = [ ];
-          shellHook = '''';
+          shellHook = "";
         };
       };
     }
