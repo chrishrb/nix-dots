@@ -47,6 +47,7 @@
         "logi-options+"
         "keepassxc"
         "zoom"
+        "claude"
       ]
       ++ lib.optionals (!config.work.enable) [
         "tunnelblick"

@@ -127,6 +127,9 @@
         # Speed up completions
         zstyle ':completion:*' use-cache on
         zstyle ':completion:*' cache-path ~/.zsh/cache
+
+        # Fix "too many open files" issue on macos
+        ulimit -n 4096
       '';
       sessionVariables = { };
       initContent = ''
