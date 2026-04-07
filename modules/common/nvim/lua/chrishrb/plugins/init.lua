@@ -157,24 +157,13 @@ local plugins = {
 	-- Completions
 	-----------------------------------------------------------------------------
 	{
-		"hrsh7th/nvim-cmp",
+		"saghen/blink.cmp",
 		dependencies = {
-			"hrsh7th/cmp-buffer", -- Buffer completions
-			"hrsh7th/cmp-path", -- Path completions
-			"hrsh7th/cmp-cmdline", -- Cmdline completions
-			"hrsh7th/cmp-nvim-lsp", -- LSP completions
-			"hrsh7th/cmp-nvim-lsp-document-symbol", -- For textDocument/documentSymbol
-			"petertriho/cmp-git", -- git source
-			{
-				"zbirenbaum/copilot-cmp",
-				enabled = nixCats("ai"),
-				config = function()
-					require("copilot_cmp").setup()
-				end,
-			},
+			"giuxtaposition/blink-cmp-copilot", -- Copilot completions
+			"Kaiser-Yang/blink-cmp-git", -- git source
 		},
 		config = function()
-			require("chrishrb.plugins.config.cmp")
+			require("chrishrb.plugins.config.blink")
 		end,
 		event = "InsertEnter",
 	},
@@ -184,8 +173,7 @@ local plugins = {
 	-----------------------------------------------------------------------------
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
-		build = nixCatsUtils.lazyAdd(":TSUpdate"),
+		lazy = false,
 		config = function()
 			require("chrishrb.plugins.config.treesitter")
 		end,
@@ -300,7 +288,7 @@ local plugins = {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+			"saghen/blink.cmp", -- Optional: For using slash commands and variables in the chat buffer
 			{
 				"echasnovski/mini.diff",
 				config = function()

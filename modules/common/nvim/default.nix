@@ -56,6 +56,7 @@ let
           nixd
           nixfmt # nix
           lua-language-server
+          tree-sitter
           stylua # lua
           vscode-langservers-extracted # html, css, json
           bash-language-server # bash
@@ -131,16 +132,9 @@ let
             garbage-day-nvim # stop inactive lsp clients
           ];
           cmp = [
-            nvim-cmp
-            cmp-buffer
-            cmp-path
-            cmp-cmdline
-            cmp-nvim-lsp
-            cmp-nvim-lsp-document-symbol
-
-            cmp-git
-            copilot-cmp
-            minuet-ai-nvim
+            blink-cmp
+            blink-cmp-copilot
+            blink-cmp-git
           ];
           core = [
             plenary-nvim
