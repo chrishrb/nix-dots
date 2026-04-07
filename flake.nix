@@ -172,7 +172,7 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#cc
       homeConfigurations = {
-        tuxedo = nixosConfigurations.tuxedo.config.home-manager.users."christoph".home;
+        tuxedo = nixosConfigurations.tuxedo.config.home-manager.users."christophherb".home;
         macbook-gipedo = darwinConfigurations.macbook-gipedo.config.home-manager.users."christophherb".home;
         macbook-christoph =
           darwinConfigurations.macbook-christoph.config.home-manager.users."christophherb".home;
