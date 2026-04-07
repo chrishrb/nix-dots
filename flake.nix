@@ -174,7 +174,8 @@
       homeConfigurations = {
         tuxedo = nixosConfigurations.tuxedo.config.home-manager.users."christoph".home;
         macbook-gipedo = darwinConfigurations.macbook-gipedo.config.home-manager.users."christophherb".home;
-        macbook-christoph = darwinConfigurations.cc.config.home-manager.users."christophherb".home;
+        macbook-christoph =
+          darwinConfigurations.macbook-christoph.config.home-manager.users."christophherb".home;
       };
 
       # Programs that can be run by calling this flake
