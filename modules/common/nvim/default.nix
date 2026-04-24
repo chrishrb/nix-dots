@@ -134,7 +134,6 @@ let
           cmp = [
             blink-cmp
             blink-cmp-copilot
-            blink-cmp-git
           ];
           core = [
             plenary-nvim

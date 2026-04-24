@@ -63,7 +63,10 @@
           }
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-completions"; }
-          (lib.mkIf config.ai.enable { name = "loiccoyle/zsh-github-copilot"; })
+          (lib.mkIf config.ai.enable {
+            name = "chrishrb/zsh-crush";
+            tags = [ "at:main" ];
+          })
           (lib.mkIf config.ruby.enable {
             name = "plugins/rbenv";
             tags = [
@@ -131,7 +134,10 @@
         # Fix "too many open files" issue on macos
         ulimit -n 4096
       '';
-      sessionVariables = { };
+      sessionVariables = {
+        LANG = "en_US.UTF-8";
+        LC_ALL = "en_US.UTF-8";
+      };
       initContent = ''
         # TODO: remove after resolving: https://github.com/NixOS/nixpkgs/issues/275770
         # awscli2 workaround
@@ -147,8 +153,8 @@
       + (
         if config.ai.enable then
           ''
-            bindkey '^[e' zsh_gh_copilot_explain  # bind ALT+E to explain
-            bindkey '^[s' zsh_gh_copilot_suggest  # bind ALT+S to suggest
+            bindkey '^[e' zsh_crush_explain  # bind ALT+E to explain
+            bindkey '^[s' zsh_crush_suggest  # bind ALT+S to suggest
           ''
         else
           ""

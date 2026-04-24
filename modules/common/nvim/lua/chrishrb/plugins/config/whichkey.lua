@@ -78,8 +78,8 @@ which_key.add({
 		nowait = true,
 		remap = false,
 	},
-	{ "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Previous Diagnostic" },
-	{ "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
+	{ "[d", "<cmd>lua vim.diagnostic.jump({count= -1,float = true})<cr>", desc = "Previous Diagnostic" },
+	{ "]d", "<cmd>lua vim.diagnostic.jump({count= 1,float = true})<cr>", desc = "Next Diagnostic" },
 
 	-- Git
 	{

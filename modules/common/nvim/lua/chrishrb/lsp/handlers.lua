@@ -76,12 +76,7 @@ M.setup = function()
 			return
 		end
 
-		vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, {
-			virtual_text = true,
-			underline = true,
-			signs = true,
-			update_in_insert = true,
-		})
+		vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
 	end
 end
 

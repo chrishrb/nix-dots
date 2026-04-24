@@ -160,7 +160,6 @@ local plugins = {
 		"saghen/blink.cmp",
 		dependencies = {
 			"giuxtaposition/blink-cmp-copilot", -- Copilot completions
-			"Kaiser-Yang/blink-cmp-git", -- git source
 		},
 		config = function()
 			require("chrishrb.plugins.config.blink")

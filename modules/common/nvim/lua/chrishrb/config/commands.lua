@@ -1,5 +1,6 @@
--- autoformat range or file with lsp
+-- lsp commands
 vim.api.nvim_create_user_command("LspFormat", "lua vim.lsp.buf.format()", {})
+vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { nargs = 0 })
 
 -- open telescope buffer-selection
 vim.api.nvim_create_user_command("Buffers", "Telescope buffers", { nargs = 0 })

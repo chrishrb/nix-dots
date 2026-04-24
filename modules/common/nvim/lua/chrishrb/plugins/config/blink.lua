@@ -2,7 +2,7 @@ local icons = require("chrishrb.config.icons")
 
 local has_copilot = pcall(require, "blink-cmp-copilot")
 
-local sources_default = { "lsp", "buffer", "path", "git" }
+local sources_default = { "lsp", "buffer", "path" }
 if has_copilot then
 	table.insert(sources_default, 1, "copilot")
 end
@@ -19,10 +19,6 @@ local providers = {
 	path = {
 		name = "Path",
 		module = "blink.cmp.sources.path",
-	},
-	git = {
-		name = "Git",
-		module = "blink-cmp-git",
 	},
 }
 
@@ -74,7 +70,6 @@ require("blink.cmp").setup({
 								AI = "[AI]",
 								Buffer = "[Buffer]",
 								Path = "[Path]",
-								Git = "[Git]",
 							}
 							return labels[ctx.source_name] or ("[" .. ctx.source_name .. "]")
 						end,

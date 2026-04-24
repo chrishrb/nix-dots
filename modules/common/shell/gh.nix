@@ -7,13 +7,12 @@
 {
 
   home-manager.users.${config.user} = {
+    home.packages = with pkgs; [
+      (lib.mkIf config.ai.enable github-copilot-cli) # copilot cli extension
+    ];
+
     programs.gh = {
       enable = true;
-
-      extensions = [
-        (lib.mkIf config.ai.enable pkgs.github-copilot-cli) # cli extension
-      ];
-
       gitCredentialHelper.enable = true;
     };
   };
