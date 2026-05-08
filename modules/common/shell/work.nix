@@ -23,29 +23,31 @@
 
           # AWS login to staging
           function staging() {
-            export AWS_PROFILE=staging && aws sso login --profile staging
+            export AWS_PROFILE=staging
             export GIPEDO_ENVIRONMENT=staging
-            export GIPEDO_USER_TYPE=employee
-            export GIPEDO_EMAIL=$(cat ~/.gipedo/email)
-            export GIPEDO_PASSWORD=$(cat ~/.gipedo/staging)
-            export AGON_SERVICE_ACCOUNT_USERNAME=$GIPEDO_EMAIL
-            export AGON_SERVICE_ACCOUNT_PASSWORD=$GIPEDO_PASSWORD
+            if ! aws sts get-caller-identity --profile staging &>/dev/null; then
+              aws sso login --profile staging
+            fi
+            echo -e "\033[0;32mSetting up staging environment variables!\033[0m"
           }
 
           function infrastructure() {
-            export AWS_PROFILE=infrastructure && aws sso login --profile infrastructure
+            export AWS_PROFILE=infrastructure
             export GIPEDO_ENVIRONMENT=infrastructure
+            if ! aws sts get-caller-identity --profile infrastructure &>/dev/null; then
+              aws sso login --profile infrastructure
+            fi
+            echo -e "\033[0;32mSetting up infrastructure environment variables!\033[0m"
           }
 
           # AWS login to production
           function production() {
-            export AWS_PROFILE=production && aws sso login --profile production
+            export AWS_PROFILE=production
             export GIPEDO_ENVIRONMENT=production
-            export GIPEDO_USER_TYPE=employee
-            export GIPEDO_EMAIL=$(cat ~/.gipedo/email)
-            export GIPEDO_PASSWORD=$(cat ~/.gipedo/production)
-            export AGON_SERVICE_ACCOUNT_USERNAME=$GIPEDO_EMAIL
-            export AGON_SERVICE_ACCOUNT_PASSWORD=$GIPEDO_PASSWORD
+            if ! aws sts get-caller-identity --profile production &>/dev/null; then
+              aws sso login --profile production
+            fi
+            echo -e "\033[0;32mSetting up production environment variables!\033[0m"
           }
         '';
       };
