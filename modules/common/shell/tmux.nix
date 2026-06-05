@@ -55,8 +55,6 @@
         set -g pane-base-index 1
         set -g status-justify left
         set -g default-command '$SHELL'
-        set -g utf8 on
-        set -g status-utf8 on
 
         # don't rename windows automatically
         set-option -g allow-rename off

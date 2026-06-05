@@ -33,6 +33,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-ghtkn = {
+      url = "github:suzuki-shunsuke/homebrew-ghtkn";
+      flake = false;
+    };
 
     # alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";

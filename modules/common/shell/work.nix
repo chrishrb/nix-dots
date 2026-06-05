@@ -6,6 +6,11 @@
 {
   config = lib.mkIf config.work.enable {
 
+    programs = {
+      _1password.enable = true;
+      _1password-gui.enable = true;
+    };
+
     home-manager.users.${config.user} = {
       programs.zsh = {
         initContent = ''

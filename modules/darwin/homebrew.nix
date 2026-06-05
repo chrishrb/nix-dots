@@ -17,6 +17,7 @@
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
         "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+        "suzuki-shunsuke/homebrew-ghtkn" = inputs.homebrew-ghtkn;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -56,6 +57,7 @@
       ++ lib.optionals config.work.enable [
         "google-drive"
         "figma"
+        "suzuki-shunsuke/homebrew-ghtkn/ghtkn"
       ];
     };
 
