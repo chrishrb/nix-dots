@@ -8,60 +8,29 @@
 let
   nvim = import ../../common/nvim { inherit inputs; };
 
-  mcpHubCfg =
-    pkgs:
-    pkgs.writeText "servers.json" ''
+  mkMcpServer =
+    server:
+    (removeAttrs server [ "disabled" ])
+    // (lib.optionalAttrs (server ? url) { type = "http"; })
+    // (lib.optionalAttrs (server ? command) { type = "stdio"; })
+    // {
+      enabled = !(server.disabled or false);
+    };
+
+  transformedMcpServers =
+    lib.optionalAttrs config.home-manager.users.${config.user}.programs.mcp.enable
       {
-        "mcpServers": {
-          "git": {
-            "autoApprove": [],
-            "command": "${pkgs.mcp-server-git}/bin/mcp-server-git"
-          },
-          "github": {
-            "url": "https://api.githubcopilot.com/mcp/",
-            "autoApprove": [],
-            "headers": {
-              "Authorization": "Bearer ''${cmd: cat ${
-                config.home-manager.users.${config.user}.age.secrets.github.path
-              }}"
-            }
-          },
-          "context7": {
-            "url": "https://mcp.context7.com/mcp",
-            "headers": {
-              "CONTEXT7_API_KEY": "''${cmd: cat ${
-                config.home-manager.users.${config.user}.age.secrets.context7.path
-              }}"
-            }
-          },
-          "sequential-thinking": {
-            "command": "${pkgs.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking"
-          },
-          "chrome-devtools": {
-            "command": "${pkgs.chrome-devtools-mcp}/bin/chrome-devtools-mcp"
-          },
-          "grafana": {
-            "command": "${pkgs.mcp-grafana}/bin/mcp-grafana",
-            "args": [
-              "-t", "stdio"
-            ],
-            "env": {
-              "GRAFANA_URL": "https://grafana.infrastructure.gipedo.io",
-              "GRAFANA_SERVICE_ACCOUNT_TOKEN": "''${cmd: cat ${
-                config.home-manager.users.${config.user}.age.secrets.grafana.path
-              }}",
-              "GRAFANA_ORG_ID": "1"
-            },
-            "transportType": "stdio"
-          }
-        },
-        "nativeMCPServers": {
-          "neovim": {
-            "disabled_tools": [ ]
-          }
-        }
-      }
-    '';
+        mcpServers = lib.mapAttrs (
+          _name: mkMcpServer
+        ) config.home-manager.users.${config.user}.programs.mcp.servers;
+        nativeMCPServers = {
+          neovim = {
+            disabled_tools = [ ];
+          };
+        };
+      };
+
+  mcpHubCfg = pkgs: pkgs.writeText "servers.json" (builtins.toJSON transformedMcpServers);
 in
 {
   options = {
@@ -89,7 +58,7 @@ in
 
         packageDefinitions.replace = {
           nvim =
-            { pkgs, name, ... }:
+            { pkgs, ... }:
             {
               categories = {
                 theme = config.theme;

@@ -6,7 +6,7 @@
 
   type = "app";
 
-  program = builtins.toString (
+  program = toString (
     pkgs.writeShellScript "installer" ''
       set -e
 

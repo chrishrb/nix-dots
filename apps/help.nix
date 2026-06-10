@@ -2,7 +2,7 @@
 {
   type = "app";
 
-  program = builtins.toString (
+  program = toString (
     pkgs.writeShellScript "default" ''
       ${pkgs.gum}/bin/gum style --margin "1 2" --padding "0 2" --foreground "15" --background "55" "Options"
       ${pkgs.gum}/bin/gum format --type=template -- '  {{ Italic "Run with" }} {{ "  nix run github:chrisrhb/dotfiles#" }}{{ "someoption" }}.'
