@@ -124,6 +124,9 @@
     glide = {
       url = "github:glide-browser/glide.nix";
     };
+
+    # claude-code always up-to-date version
+    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
   outputs =
@@ -146,6 +149,7 @@
       overlays = [
         inputs.alacritty-theme.overlays.default
         inputs.mcp-servers-nix.overlays.default
+        inputs.claude-code.overlays.default
         (import ./overlays inputs)
       ];
 

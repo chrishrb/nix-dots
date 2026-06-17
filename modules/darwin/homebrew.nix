@@ -49,6 +49,7 @@
         "keepassxc"
         "zoom"
         "claude"
+        "claudebar"
       ]
       ++ lib.optionals (!config.work.enable) [
         "tunnelblick"
