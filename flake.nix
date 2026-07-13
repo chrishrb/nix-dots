@@ -4,7 +4,7 @@
   inputs = {
     # system packages
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,10 +31,6 @@
     };
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-    homebrew-ghtkn = {
-      url = "github:suzuki-shunsuke/homebrew-ghtkn";
       flake = false;
     };
 
@@ -91,6 +87,10 @@
     };
     garbage-day-nvim = {
       url = "github:Zeioth/garbage-day.nvim";
+      flake = false;
+    };
+    tree-sitter-kulala-http = {
+      url = "github:mistweaverco/tree-sitter-kulala-http";
       flake = false;
     };
 
