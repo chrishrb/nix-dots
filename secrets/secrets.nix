@@ -11,4 +11,5 @@ in
   "github.age".publicKeys = users;
   "context7.age".publicKeys = users;
   "grafana.age".publicKeys = users;
+  "claude.age".publicKeys = users;
 }

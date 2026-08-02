@@ -10,6 +10,9 @@
           github = {
             file = ../../../secrets/github.age;
           };
+          claude = {
+            file = ../../../secrets/claude.age;
+          };
           context7 = {
             file = ../../../secrets/context7.age;
           };
@@ -25,6 +28,9 @@
 
       # unset __HM_SESS_VARS_SOURCED && source ~/.zshenv
       home.sessionVariables = {
+        CLAUDE_CODE_OAUTH_TOKEN = "$(cat ${
+          config.home-manager.users.${config.user}.age.secrets.claude.path
+        })";
       };
     };
   };
