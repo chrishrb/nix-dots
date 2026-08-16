@@ -158,9 +158,6 @@ local plugins = {
 	-----------------------------------------------------------------------------
 	{
 		"saghen/blink.cmp",
-		dependencies = {
-			"giuxtaposition/blink-cmp-copilot", -- Copilot completions
-		},
 		config = function()
 			require("chrishrb.plugins.config.blink")
 		end,
@@ -299,21 +296,6 @@ local plugins = {
 				end,
 			},
 			"ravitemer/codecompanion-history.nvim",
-			{
-				"zbirenbaum/copilot.lua",
-				cmd = "Copilot",
-				enabled = nixCats("ai"),
-				config = function()
-					require("copilot").setup({
-						suggestion = { enabled = false },
-						panel = { enabled = false },
-						filetypes = {
-							yaml = true,
-							["."] = true,
-						},
-					})
-				end,
-			},
 			{
 				"stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
 				opts = {},

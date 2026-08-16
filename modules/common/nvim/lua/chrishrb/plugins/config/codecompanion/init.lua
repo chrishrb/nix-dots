@@ -11,22 +11,8 @@ require("dressing").setup({
 
 codecompanion.setup({
 	adapters = {
-		http = {
-			opts = {
-				show_presets = false,
-				show_model_choices = true,
-			},
-			copilot = "copilot",
-		},
 		acp = {
 			claude_code = "claude_code",
-		},
-	},
-	prompt_library = {
-		markdown = {
-			dirs = {
-				nixCats.configDir .. "/prompts",
-			},
 		},
 	},
 	extensions = {
@@ -40,8 +26,8 @@ codecompanion.setup({
 			enabled = true,
 			opts = {
 				title_generation_opts = {
-					adapter = "copilot",
-					model = "gpt-4.1",
+					adapter = "claude_code",
+					model = "claude-haiku-4-5",
 				},
 			},
 		},
@@ -50,7 +36,7 @@ codecompanion.setup({
 		action_palette = {
 			opts = {
 				show_preset_actions = false, -- Show the preset actions in the action palette?
-				show_preset_prompts = false, -- Show the preset prompts in the action palette?
+				show_preset_prompts = true, -- Show the preset prompts in the action palette?
 				show_preset_rules = false, -- Show the preset rules in the action palette?
 			},
 		},
@@ -62,8 +48,8 @@ codecompanion.setup({
 	interactions = {
 		chat = {
 			adapter = {
-				name = "copilot",
-				model = "claude-sonnet-4.5",
+				name = "claude_code",
+				model = "claude-sonnet-5",
 			},
 			slash_commands = {
 				["image"] = {
@@ -84,8 +70,8 @@ codecompanion.setup({
 		},
 		inline = {
 			adapter = {
-				name = "copilot",
-				model = "gpt-4.1",
+				name = "claude_code",
+				model = "claude-sonnet-5",
 			},
 			keymaps = {
 				accept_change = {

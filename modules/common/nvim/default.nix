@@ -110,7 +110,6 @@ let
             codecompanion-history-nvim
             dressing-nvim
             mini-diff
-            copilot-lua
             mcphub-nvim
             render-markdown-nvim
           ];
@@ -133,7 +132,6 @@ let
           ];
           cmp = [
             blink-cmp
-            blink-cmp-copilot
           ];
           core = [
             plenary-nvim

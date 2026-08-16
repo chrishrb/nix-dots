@@ -17,7 +17,7 @@ which_key.add({
 						messages = {
 							{ role = "user", content = input },
 						},
-						params = { adapter = "copilot", model = "gpt-4.1" },
+						params = { adapter = "claude_code", model = "claude-sonnet-5" },
 					})
 				end
 			end,
@@ -60,17 +60,6 @@ which_key.add({
 			nowait = true,
 			remap = false,
 		},
-		{
-			"<leader>cf",
-			function()
-				codecompanion.chat({
-					params = { adapter = "copilot", model = "gpt-4.1" },
-				})
-			end,
-			desc = "Free chat (gpt-4.1)",
-			nowait = true,
-			remap = false,
-		},
 
 		-- Visual mode mappings
 		{
@@ -85,7 +74,7 @@ which_key.add({
 							messages = {
 								{ role = "user", content = input },
 							},
-							params = { adapter = "copilot", model = "gpt-4.1" },
+							params = { adapter = "claude_code", model = "claude-sonnet-5" },
 						})
 					end
 				end,

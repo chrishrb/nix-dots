@@ -1,12 +1,5 @@
 local icons = require("chrishrb.config.icons")
 
-local has_copilot = pcall(require, "blink-cmp-copilot")
-
-local sources_default = { "lsp", "buffer", "path" }
-if has_copilot then
-	table.insert(sources_default, 1, "copilot")
-end
-
 local providers = {
 	lsp = {
 		name = "LSP",
@@ -21,15 +14,6 @@ local providers = {
 		module = "blink.cmp.sources.path",
 	},
 }
-
-if has_copilot then
-	providers.copilot = {
-		name = "Copilot",
-		module = "blink-cmp-copilot",
-		score_offset = 100,
-		async = true,
-	}
-end
 
 require("blink.cmp").setup({
 	keymap = {
@@ -66,8 +50,6 @@ require("blink.cmp").setup({
 						text = function(ctx)
 							local labels = {
 								LSP = "[LSP]",
-								Copilot = "[Copilot]",
-								AI = "[AI]",
 								Buffer = "[Buffer]",
 								Path = "[Path]",
 							}

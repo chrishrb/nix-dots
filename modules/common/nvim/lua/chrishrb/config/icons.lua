@@ -33,7 +33,7 @@ return {
 		Unit = " ",
 		Value = " ",
 		Variable = " ",
-		Copilot = " ",
+		AI = " ",
 		Git = " ",
 		Fallback = "",
 		-- LLM Provider icons
