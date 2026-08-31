@@ -48,7 +48,7 @@
     talhelper.url = "github:budimanjojo/talhelper";
 
     # nvim
-    nixCats.url = "github:BirdeeHub/nixCats-nvim/v7.2.13";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim/v7.3.6";
 
     # pre-commit
     git-hooks.url = "github:cachix/git-hooks.nix";
