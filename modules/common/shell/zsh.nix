@@ -64,7 +64,7 @@
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-completions"; }
           (lib.mkIf config.ai.enable {
-            name = "chrishrb/zsh-crush";
+            name = "chrishrb/zsh-claude";
             tags = [ "at:main" ];
           })
           (lib.mkIf config.ruby.enable {
@@ -145,16 +145,45 @@
           complete -C "$(command -v aws_completer)" aws
         fi
 
-        # make sure brew is on the path for M1 
+        # make sure brew is on the path for M1
         if [[ $(uname -m) == 'arm64' ]]; then
           eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
+
+        # Shell integration (OSC 133): mark where a prompt starts and where a
+        # command's output begins. tmux turns these into line flags, which is
+        # how `lo` (and prefix + y) find the last command and its output without
+        # guessing at the shape of the prompt. The prompt mark has to be part of
+        # PROMPT itself — printing it from precmd gets wiped when zle redraws the
+        # line — and it is prepended lazily so it lands after zplug has loaded
+        # the theme.
+        autoload -Uz add-zsh-hook
+        _osc133_precmd() {
+          [[ $PROMPT == *$'\e]133;A'* ]] || PROMPT=$'%{\e]133;A\e\\%}'$PROMPT
+        }
+        _osc133_preexec() { print -n $'\e]133;C\e\\' }
+        add-zsh-hook precmd _osc133_precmd
+        add-zsh-hook preexec _osc133_preexec
       ''
       + (
         if config.ai.enable then
           ''
-            bindkey '^[e' zsh_crush_explain  # bind ALT+E to explain
-            bindkey '^[s' zsh_crush_suggest  # bind ALT+S to suggest
+            bindkey '^[e' zsh_claude_explain  # bind ALT+E to explain
+            bindkey '^[s' zsh_claude_suggest  # bind ALT+S to suggest
+
+            # `fuck` — open claude on the command that just failed, with the
+            # command and its output already in the prompt.
+            fuck() {
+              local context
+              context=$(lo) || return $?
+              if [[ -z $context ]]; then
+                print -u2 "fuck: no command to fix"
+                return 1
+              fi
+              claude "The last command in my shell failed. Work out why and fix it.
+
+            $context"
+            }
           ''
         else
           ""

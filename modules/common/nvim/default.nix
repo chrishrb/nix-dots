@@ -112,6 +112,7 @@ let
             mini-diff
             mcphub-nvim
             render-markdown-nvim
+            minuet-ai-nvim
           ];
           look = [
             lualine-nvim

@@ -1,7 +1,39 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  # claude-usage reads the OAuth token from the macOS Keychain, so the widget
+  # only makes sense on darwin hosts that have the ai features turned on.
+  claudeUsage = config.ai.enable && pkgs.stdenv.hostPlatform.isDarwin;
+  claudeUsageBin = "${config.claudeUsage.package}/bin/claude-usage";
+
+  # catppuccin resolves this at runtime in a shell, so it can't contain $HOME
+  catppuccinCustomDir = "${config.homePath}/.config/tmux/plugins";
+in
 {
 
   home-manager.users.${config.user} = {
+
+    xdg.configFile = lib.mkIf claudeUsage {
+      # catppuccin custom status module, see custom/README.md of catppuccin/tmux
+      "tmux/plugins/claude_usage.sh".text = ''
+        show_claude_usage() {
+          local index icon color text module
+
+          index=$1
+          icon="$(get_tmux_option "@catppuccin_claude_usage_icon" "󰚩")"
+          color="$(get_tmux_option "@catppuccin_claude_usage_color" "$thm_orange")"
+          text="$(get_tmux_option "@catppuccin_claude_usage_text" "#(${claudeUsageBin})")"
+
+          module=$(build_status_module "$index" "$icon" "$color" "$text")
+
+          echo "$module"
+        }
+      '';
+    };
 
     programs.tmux = {
       enable = true;
@@ -9,7 +41,7 @@
         {
           plugin = catppuccin;
           extraConfig = ''
-            set -g @catppuccin_custom_plugin_dir "$HOME/.config/tmux/plugins"
+            set -g @catppuccin_custom_plugin_dir "${catppuccinCustomDir}"
             set -g @catppuccin_flavour ${config.theme}
             set -g @plugin 'catppuccin/tmux'
             set -g @catppuccin_window_tabs_enabled on
@@ -21,7 +53,7 @@
             set -g @catppuccin_window_number_position "right"
             set -g @catppuccin_status_left_separator  " "
             set -g @catppuccin_status_right_separator ""
-            set -g @catppuccin_status_modules_right "application session"
+            set -g @catppuccin_status_modules_right "${lib.optionalString claudeUsage "claude_usage "}application session"
           '';
         }
       ];
@@ -105,8 +137,8 @@
         bind H swap-window -t -1\; select-window -t -1
         bind L swap-window -t +1\; select-window -t +1
 
-        # capture last cmd output
-        bind y run-shell '${pkgs.capture-last-output}/bin/capture-last-output'
+        # capture last cmd + its output
+        bind y run-shell '${pkgs.lo}/bin/lo --copy'
       '';
     };
   };

@@ -110,7 +110,7 @@ in
             "Bash(git push:*)"
             "Edit"
           ];
-          defaultMode = "acceptEdits";
+          defaultMode = "auto";
         };
 
         statusLine = {
@@ -123,6 +123,7 @@ in
 
     home.packages = with pkgs; [
       claude-agent-acp # claude code acp adapter needed for codecompanion
+      graphify
     ];
   };
 }

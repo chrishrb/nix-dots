@@ -13,7 +13,7 @@
     ./gh.nix
     ./work.nix
     ./mise.nix
-    ./claude.nix
+    ./ai.nix
     ./mcp.nix
   ];
 }

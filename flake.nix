@@ -33,6 +33,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-jundot-omlx = {
+      url = "github:jundot/omlx";
+      flake = false;
+    };
 
     # alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";

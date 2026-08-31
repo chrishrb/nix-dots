@@ -17,6 +17,7 @@
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
         "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+        "jundot/homebrew-omlx" = inputs.homebrew-jundot-omlx;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -32,6 +33,10 @@
       };
       brews = [
         "libyaml"
+        "jundot/omlx/omlx"
+        # omlx builds a venv against this interpreter; cleanup = "zap" removes
+        # undeclared formulae, which breaks omlx's shebang. Keep it declared.
+        "python@3.11"
       ];
       casks = [
         # Communication Tools
@@ -44,7 +49,7 @@
         # other
         "bitwarden"
         "spotify"
-        "logi-options+"
+        "openlogi"
         "keepassxc"
         "zoom"
         "claude"

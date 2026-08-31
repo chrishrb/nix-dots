@@ -1,5 +1,8 @@
 local icons = require("chrishrb.config.icons")
 
+local has_minuet, minuet = pcall(require, "minuet")
+
+local sources_default = { "lsp", "buffer", "path" }
 local providers = {
 	lsp = {
 		name = "LSP",
@@ -14,6 +17,45 @@ local providers = {
 		module = "blink.cmp.sources.path",
 	},
 }
+
+if has_minuet then
+	providers.ai = {
+		name = "AI",
+		module = "minuet.blink",
+		async = true,
+		timeout_ms = 3000,
+		score_offset = 50,
+	}
+
+	table.insert(sources_default, 1, "ai")
+
+	minuet.setup({
+		provider = "openai_fim_compatible",
+		n_completions = 1, -- recommend for local model for resource saving
+		-- I recommend beginning with a small context window size and incrementally
+		-- expanding it, depending on your local computing power. A context window
+		-- of 512, serves as an good starting point to estimate your computing
+		-- power. Once you have a reliable estimate of your local computing power,
+		-- you should adjust the context window to a larger value.
+		context_window = 512,
+		provider_options = {
+			openai_fim_compatible = {
+				-- For Windows users, TERM may not be present in environment variables.
+				-- Consider using APPDATA instead.
+				api_key = function()
+					return "omlx-ryf90d29ztihucmw"
+				end,
+				name = "oMLX",
+				end_point = "http://127.0.0.1:11435/v1/completions",
+				model = "Qwen2.5-Coder-14B-Instruct-MLX-4bit",
+				optional = {
+					max_tokens = 56,
+					top_p = 0.9,
+				},
+			},
+		},
+	})
+end
 
 require("blink.cmp").setup({
 	keymap = {
@@ -52,6 +94,7 @@ require("blink.cmp").setup({
 								LSP = "[LSP]",
 								Buffer = "[Buffer]",
 								Path = "[Path]",
+								AI = "[AI]",
 							}
 							return labels[ctx.source_name] or ("[" .. ctx.source_name .. "]")
 						end,

@@ -161,6 +161,10 @@ local plugins = {
 		config = function()
 			require("chrishrb.plugins.config.blink")
 		end,
+		dependencies = {
+			"milanglacier/minuet-ai.nvim",
+			enabled = nixCats("ai"),
+		},
 		event = "InsertEnter",
 	},
 
