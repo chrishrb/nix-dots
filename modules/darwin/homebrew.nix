@@ -47,6 +47,7 @@
         "skim" # open pdfs
 
         # other
+        "firefox"
         "bitwarden"
         "spotify"
         "openlogi"
@@ -54,6 +55,10 @@
         "zoom"
         "claude"
         "claudebar"
+
+        # 3d stuff
+        "bambu-studio"
+        "blender"
       ]
       ++ lib.optionals (!config.work.enable) [
         "tunnelblick"

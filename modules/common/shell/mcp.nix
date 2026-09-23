@@ -11,9 +11,6 @@
           CONTEXT7_API_KEY = "{file:${config.home-manager.users.${config.user}.age.secrets.context7.path}}";
         };
       };
-      sequential-thinking = {
-        command = "${pkgs.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking";
-      };
       chrome-devtools = {
         command = "${pkgs.chrome-devtools-mcp}/bin/chrome-devtools-mcp";
       };
